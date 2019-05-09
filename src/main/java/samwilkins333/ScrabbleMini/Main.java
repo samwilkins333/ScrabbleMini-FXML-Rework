@@ -1,9 +1,11 @@
-package main.java.samwilkins333.Main;
+package main.java.samwilkins333.ScrabbleMini;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 // https://docs.oracle.com/javafx/2/fxml_get_started/why_use_fxml.htm#CHDCHIBE
@@ -13,9 +15,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Scrabble.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Display/FXMLRoots/Background.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+
+        Rectangle2D bounds = Screen.getPrimary().getBounds();
+
+        primaryStage.setScene(new Scene(root, bounds.getWidth(), bounds.getHeight()));
         primaryStage.show();
     }
 

@@ -1,9 +1,11 @@
-module javafx {
+module ScrabbleMini {
   requires javafx.graphics;
   requires javafx.base;
   requires javafx.controls;
   requires javafx.fxml;
   requires kotlin.stdlib;
 
-  opens main.java.samwilkins333.Main;
+  exports main.java.samwilkins333.ScrabbleMini.Display.FXMLControllers;
+
+  opens main.java.samwilkins333.ScrabbleMini;
 }
