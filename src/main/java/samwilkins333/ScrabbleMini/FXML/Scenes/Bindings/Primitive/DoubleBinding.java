@@ -1,7 +1,8 @@
-package main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings;
+package main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 
 public class DoubleBinding {
   private SimpleDoubleProperty value = new SimpleDoubleProperty();
@@ -10,7 +11,7 @@ public class DoubleBinding {
     return value.get();
   }
 
-  public DoubleProperty getProperty() {
+  private DoubleProperty getProperty() {
     return value;
   }
 

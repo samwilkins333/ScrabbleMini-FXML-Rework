@@ -3,7 +3,7 @@ package main.java.samwilkins333.ScrabbleMini.FXML.Utilities;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.ImageBindings;
+import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.resources.ResourceLoader;
 import main.resources.ResourceType;
 
@@ -20,6 +20,7 @@ public class ImageUtils {
 
     ImageBindings bindings = new ImageBindings();
     bindings.bind(target, BindingMode.BIDIRECTIONAL);
+    bindings.cached(true);
     return new ObservableImage(target, bindings);
   }
 

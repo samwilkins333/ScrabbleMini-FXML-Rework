@@ -20,6 +20,6 @@ public class BackgroundController implements Initializable {
 
   private void initializeImages() {
     desktop = ImageUtils.createObservable(desktopView,"background/desktop.jpg");
-    desktop.control().setWidth(Main.screenWidth);
+    desktop.control().width(Main.screenWidth);
   }
 }
