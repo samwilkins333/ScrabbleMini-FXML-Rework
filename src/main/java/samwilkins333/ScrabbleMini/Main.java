@@ -12,10 +12,12 @@ import javafx.stage.Stage;
 // https://scss.tcd.ie/publications/theses/diss/2015/TCD-SCSS-DISSERTATION-2015-069.pdf
 
 public class Main extends Application {
+    public static double screenWidth = Screen.getPrimary().getBounds().getWidth();
+    public static double ScreenHeight = Screen.getPrimary().getBounds().getHeight();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Display/FXMLRoots/Background.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXML/Scenes/Background.fxml"));
         primaryStage.setTitle("Hello World");
 
         Rectangle2D bounds = Screen.getPrimary().getBounds();
