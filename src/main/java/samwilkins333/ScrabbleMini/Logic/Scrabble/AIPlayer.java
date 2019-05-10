@@ -8,6 +8,7 @@ import java.util.HashMap;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class AIPlayer implements Playable {
@@ -156,7 +157,7 @@ public class AIPlayer implements Playable {
 			_succeedingKernels = new HashMap<>();
 			_scrabbleGame.mapKernelsForRow(y, _precedingKernels, _succeedingKernels);
 			for (int x = 0; x < realBoard[1].length; x++) {
-				if (x + 1 <= 14 && realBoard[x][y] == null && realBoard[x + 1][y] != null && realBoard[x + 1][y].hasBeenPlayed()) {
+				if (x + 1 <= 14 && realBoard[x][y] == null && realBoard[x + 1][y] != null && _scrabbleGame.played().contains(realBoard[x + 1][y])) {
 
 					_prefixCrosses = new HashMap<>();
 					_suffixCrosses = new HashMap<>();
@@ -323,7 +324,7 @@ public class AIPlayer implements Playable {
 			_scrabbleGame.mapKernelsForColumn(x, _precedingKernels, _succeedingKernels);
 
 			for (int y = 0; y < realBoard.length; y++) {
-				if (y + 1 <= 14 && realBoard[x][y] == null && realBoard[x][y + 1] != null && realBoard[x][y + 1].hasBeenPlayed()) {
+				if (y + 1 <= 14 && realBoard[x][y] == null && realBoard[x][y + 1] != null && _scrabbleGame.played().contains(realBoard[x][y + 1])) {
 
 					_prefixCrosses = new HashMap<>();
 					_suffixCrosses = new HashMap<>();

@@ -198,7 +198,7 @@ class PaneOrganizer {
 		_s2.setHbarPolicy(ScrollBarPolicy.NEVER);
 		_s2.setVbarPolicy(ScrollBarPolicy.NEVER);
 		_s2.setLayoutX(ZEROETH_COLUMN_OFFSET * GRID_FACTOR + 7.5 * GRID_FACTOR);
-		_s2.setLayoutY(Y0 * GRID_FACTOR);
+		_s2.setLayoutY(ZEROETH_ROW_OFFSET * GRID_FACTOR);
 		_s2.setFocusTraversable(false);
 
 		_scorePane.getChildren().addAll(_s1, _s2);
@@ -267,8 +267,8 @@ class PaneOrganizer {
 		// M TILE - build associated animations
 
 		Tile m = new Tile(13);
-		double x = X3 - 0.3;
-		double y = Y12;
+		double x = (ZEROETH_COLUMN_OFFSET + 3) - 0.3;
+		double y = ZEROETH_ROW_OFFSET + 12;
 		m.add(_root, x, y, _scrabbleGame, PlayerNum.Neither);
 		m.getTileViewer().setOpacity(0.0);
 		m.setImageViewLoc(m.getCheckViewer(), x, y);
@@ -314,7 +314,7 @@ class PaneOrganizer {
 		// FIRST I TILE - build associated animations
 
 		Tile i1 = new Tile(9);
-		x = X4 - 0.35;
+		x = ZEROETH_COLUMN_OFFSET + 4 - 0.35;
 		i1.add(_root, x, y, _scrabbleGame, PlayerNum.Neither);
 		i1.getTileViewer().setOpacity(0.0);
 		i1.setImageViewLoc(i1.getCheckViewer(), x, y);
@@ -360,7 +360,7 @@ class PaneOrganizer {
 		// N TILE - build associated animations
 
 		Tile n = new Tile(14);
-		x = X5 - 0.35;
+		x = ZEROETH_COLUMN_OFFSET + 5 - 0.35;
 		n.add(_root, x, y, _scrabbleGame, PlayerNum.Neither);
 		n.getTileViewer().setOpacity(0.0);
 		n.setImageViewLoc(n.getCheckViewer(), x, y);
@@ -406,7 +406,7 @@ class PaneOrganizer {
 		// SECOND I TILE - build associated animations
 
 		Tile i2 = new Tile(9);
-		x = X6 - 0.35;
+		x = ZEROETH_COLUMN_OFFSET + 6 - 0.35;
 		i2.add(_root, x, y, _scrabbleGame, PlayerNum.Neither);
 		i2.getTileViewer().setOpacity(0.0);
 		i2.setImageViewLoc(i2.getCheckViewer(), x, y);

@@ -13,7 +13,7 @@ class TileBag {
 	}
 
 	private void fillBag() {
-		for (int i = 0; i < 26; i++) Add(i + 1, Constants.TILE_INFO.get(i).getFrequency());
+		for (int i = 0; i < 26; i++) Add(i + 1, Constants.TILE_DATA.get(i).getFrequency());
 	}
 
 	private void Add(int letter, int count) {

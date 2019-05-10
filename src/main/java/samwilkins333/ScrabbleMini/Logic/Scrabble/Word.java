@@ -1,6 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Scrabble;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -87,14 +88,14 @@ class Word {
 		_kernelTiles.addAll(kernelTiles);
 	}
 
-	Boolean containsATileAt(Tile tile, int x, int y) {
+	Boolean occupies(Tile tile, int x, int y) {
 		for (Tile thisTile : _tiles)
 			if (thisTile != tile && thisTile.getXIndex() == x && thisTile.getYIndex() == y) return true;
 		return false;
 	}
 
 	Boolean containsOnlyAddedTiles() {
-		for (Tile thisTile : _tiles) if (!thisTile.hasBeenPlayed()) return false;
+		for (Tile thisTile : _tiles) if (!thisTile.isOnBoard()) return false;
 		return true;
 	}
 
@@ -106,7 +107,7 @@ class Word {
 			int x = thisTile.getXIndex();
 			int y = thisTile.getYIndex();
 
-			if (thisTile.hasBeenPlayed()) return true;
+			if (thisTile.isOnBoard()) return true;
 
 			if (this.isAlignedHorizontally()) {
 				if ((y + 1 <= 14 && tileArray[x][y + 1] != null) || (y - 1 >= 0 && tileArray[x][y - 1] != null))
@@ -127,7 +128,7 @@ class Word {
 		int size = _tiles.size();
 		for (int i = 0; i < size; i++) {
 			Tile thisTile = _tiles.get(0);
-			if (!thisTile.hasBeenPlayed()) temp.add(thisTile);
+			if (!thisTile.isOnBoard()) temp.add(thisTile);
 			_tiles.remove(thisTile);
 		}
 		_tiles.addAll(temp);
@@ -168,7 +169,7 @@ class Word {
 		_verticalCrosses = new ArrayList<>();
 		//For each tile in _tiles, collect new horizontally adjacent tiles for the corollary "cross" word ArrayList, _horizontalCrosses
 		if (this.isAlignedVertically()) for (Tile thisTile : _tiles)
-			if (!thisTile.hasBeenPlayed()) { //If the tile is involved in the current turn
+			if (!thisTile.isOnBoard()) { //If the tile is involved in the current turn
 				Word cross = new Word(_scrabbleGame);
 				_scrabbleGame.collectAdjacents(CollectionOrientation.Horizontal, thisTile, cross.getTiles());
 				if (cross.getTiles().size() > 1) {
@@ -180,7 +181,7 @@ class Word {
 			}
 		//For each tile in _tiles, collect new horizontally adjacent tiles for the corollary "cross" word ArrayList, _horizontalCrosses
 		if (this.isAlignedHorizontally()) for (Tile thisTile : _tiles)
-			if (!thisTile.hasBeenPlayed()) { //If the tile is involved in the current turn
+			if (!thisTile.isOnBoard()) { //If the tile is involved in the current turn
 				Word cross = new Word(_scrabbleGame);
 				_scrabbleGame.collectAdjacents(CollectionOrientation.Vertical, thisTile, cross.getTiles());
 				if (cross.getTiles().size() > 1) {
@@ -210,8 +211,12 @@ class Word {
 			for (Tile _adjacentTile : _adjacentTiles) _adjacentTile.playFlash(outcome);
 	}
 
-	void addTileToWord(Tile tile) {
+	void add(Tile tile) {
 		_tiles.add(tile);
+	}
+
+	boolean contains(Tile tile) {
+		return _tiles.contains(tile);
 	}
 
 	private void readTiles(WordOrientation orientation) {
@@ -262,8 +267,7 @@ class Word {
 				ArrayList<Tile> rack = _scrabbleGame.getPlayerRack(_playerNumber);
 				rack.remove(thisTile);
 
-				if (!thisTile.hasBeenPlayed()) numNewTiles++;
-				thisTile.declareHasBeenPlayed();
+				if (!_scrabbleGame.played().contains(thisTile)) numNewTiles++;
 			}
 
 			int bonus = 0;
@@ -395,25 +399,14 @@ class Word {
 	}
 
 	void clear() {
-		ArrayList<Tile> tilesOnBoard = _scrabbleGame.getTilesOnBoard();
-		for (Tile thisTile : _tiles) {
-			if (thisTile.hasBeenPlayed()) continue;
-
-			thisTile.declareNotPlaced();
-			thisTile.declareNotInNewestWord();
-			thisTile.stopOverlapFlash();
-			thisTile.setToOpaque();
-			thisTile.resetShadow();
-			tilesOnBoard.remove(thisTile);
-		}
-
-		if (_tiles != null) _tiles.clear();
+		_tiles.forEach(Tile::reset);
+		_tiles.clear();
 		if (_horizontalCrosses != null) _horizontalCrosses.clear();
 		if (_verticalCrosses != null) _verticalCrosses.clear();
 		if (_allCrosses != null) _allCrosses.clear();
 	}
 
-	void removeTileFromWord(Tile tile) {
+	void remove(Tile tile) {
 		_tiles.remove(tile);
 	}
 
@@ -436,8 +429,8 @@ class Word {
 
 	void arrangeTilesOnBoard() {
 		double delay = 0;
-		ArrayList<Tile> tilesOnBoard = _scrabbleGame.getTilesOnBoard();
-		for (Tile thisTile : _tiles) if (!tilesOnBoard.contains(thisTile)) tilesOnBoard.add(thisTile);
+		Set<Tile> tilesOnBoard = _scrabbleGame.played();
+		tilesOnBoard.addAll(_tiles);
 
 		int x;
 		int y;
@@ -485,7 +478,7 @@ class Word {
 		
 		@Override
 		public void handle(ActionEvent event) {
-			_thisTile.placeAtSquare(_x, _y);
+			_thisTile.placeAtIndices(_x, _y);
 			event.consume();
 		}
 
@@ -516,7 +509,6 @@ class Word {
 			int x = thisTile.getXIndex();
 			int y = thisTile.getYIndex();
 			_scrabbleGame.addTileToBoardArrayAt(thisTile, x, y);
-			thisTile.declareHasBeenPlayed();
 		}
 		_scrabbleGame.getReferee().addToScore(_originalValue);
 	}

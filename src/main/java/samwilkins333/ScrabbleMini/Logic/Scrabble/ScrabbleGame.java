@@ -11,7 +11,6 @@ import javafx.animation.*;
 import javafx.util.Duration;
 import javafx.event.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ImageHelper;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Scrabble.Constants.*;
@@ -31,7 +30,7 @@ class ScrabbleGame {
 	private final ArrayList<BoardSquare> _tripleLetterScores;
 	private final ArrayList<BoardSquare> _tripleWordScores;
 	private final Tile[][] _tileArray;
-	private final ArrayList<Tile> _tilesOnBoard;
+	private final Set<Tile> _tilesOnBoard;
 	private final ArrayList<BoardSquare> _specialSquares;
 	private ImageView _diamondViewer;
 	private Boolean _gameIsPlaying;
@@ -53,7 +52,7 @@ class ScrabbleGame {
 
 		_boardArray = new BoardSquare[15][15];
 		_dictionary = new HashSet<>();
-		_tilesOnBoard = new ArrayList<>();
+		_tilesOnBoard = new HashSet<>();
 
 		_doubleLetterScores = new ArrayList<>();
 		_doubleWordScores = new ArrayList<>();
@@ -318,8 +317,8 @@ class ScrabbleGame {
 		_labelPane.getChildren().add(_diamondViewer);
 
 		// Create and add ghost or transparent overlay square for middle of board
-		int xLayout = X7 * GRID_FACTOR;
-		int yLayout = Y7 * GRID_FACTOR;
+		int xLayout = (ZEROETH_COLUMN_OFFSET + 7) * GRID_FACTOR;
+		int yLayout = (ZEROETH_ROW_OFFSET + 7) * GRID_FACTOR;
 		BoardSquare ghostSquare = new BoardSquare(xLayout, yLayout, _boardPane, _labelPane);
 		ghostSquare.setID(SquareIdentity.Ghost);
 		ghostSquare.setUpHoverResponse(this);
@@ -850,9 +849,10 @@ class ScrabbleGame {
 	void addTileToBoardArrayAt(Tile tile, int x, int y) {
 		if (!isBetween(x, y)) return;
 		_tileArray[x][y] = tile;
+		_tilesOnBoard.add(tile);
 	}
 
-	ArrayList<Tile> getTilesOnBoard() {
+	Set<Tile> played() {
 		return _tilesOnBoard;
 	}
 
@@ -902,7 +902,7 @@ class ScrabbleGame {
 
 		for (int i = 0; i < rack.size(); i++) {
 			Tile thisTile = rack.get(i);
-			thisTile.setLoc(x, i + COLLECTION_VERTICAL_OFFSET);
+			thisTile.initialize(x, i + COLLECTION_VERTICAL_OFFSET);
 		}
 	}
 
@@ -918,26 +918,26 @@ class ScrabbleGame {
 		if (!tiles.contains(thisTile)) tiles.add(thisTile);
 
 		if (orientation == CollectionOrientation.Horizontal) {
-			while (x - i >= 0 && _tileArray[x - i][y] != null && _tileArray[x - i][y].hasBeenPlayed()) {
+			while (x - i >= 0 && _tileArray[x - i][y] != null && _tileArray[x - i][y].isOnBoard()) {
 				Tile t = _tileArray[x - i][y];
 				if (!tiles.contains(t)) tiles.add(t);
 				i++;
 			}
 			i = 1;
-			while (x + i <= 14 && _tileArray[x + i][y] != null && _tileArray[x + i][y].hasBeenPlayed()) {
+			while (x + i <= 14 && _tileArray[x + i][y] != null && _tileArray[x + i][y].isOnBoard()) {
 				Tile t = _tileArray[x + i][y];
 				if (!tiles.contains(t)) tiles.add(t);
 				i++;
 			}
 		} else if (orientation == CollectionOrientation.Vertical) {
 			i = 1;
-			while (y - i >= 0 && _tileArray[x][y - i] != null && _tileArray[x][y - i].hasBeenPlayed()) {
+			while (y - i >= 0 && _tileArray[x][y - i] != null && _tileArray[x][y - i].isOnBoard()) {
 				Tile t = _tileArray[x][y - i];
 				if (!tiles.contains(t)) tiles.add(t);
 				i++;
 			}
 			i = 1;
-			while (y + i <= 14 && _tileArray[x][y + i] != null && _tileArray[x][y + i].hasBeenPlayed()) {
+			while (y + i <= 14 && _tileArray[x][y + i] != null && _tileArray[x][y + i].isOnBoard()) {
 				Tile t = _tileArray[x][y + i];
 				if (!tiles.contains(t)) tiles.add(t);
 				i++;
@@ -963,7 +963,7 @@ class ScrabbleGame {
 
 		for (int i = 0; i < validWord.length(); i++) {
 			String currentLetter = String.valueOf(validWord.charAt(i));
-			int letterValue = TILE_INFO.get(A.indexOf(currentLetter)).getValue();
+			int letterValue = TILE_DATA.get(A.indexOf(currentLetter)).getValue();
 
 			boolean horizontal = orientation == WordOrientation.Horizontal;
 			x = horizontal ? firstXIndex + i : firstXIndex;
