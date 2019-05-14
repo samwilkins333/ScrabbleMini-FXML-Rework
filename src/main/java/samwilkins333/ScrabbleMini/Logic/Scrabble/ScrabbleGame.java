@@ -11,7 +11,6 @@ import javafx.animation.*;
 import javafx.util.Duration;
 import javafx.event.*;
 import javafx.scene.image.ImageView;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ImageHelper;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Scrabble.Constants.*;
 
@@ -24,11 +23,6 @@ class ScrabbleGame {
 	private ArrayList<Tile> _playerOneRack;
 	private ArrayList<Tile> _playerTwoRack;
 	private final HashSet<String> _dictionary;
-	private final BoardSquare[][] _boardArray;
-	private final ArrayList<BoardSquare> _doubleLetterScores;
-	private final ArrayList<BoardSquare> _doubleWordScores;
-	private final ArrayList<BoardSquare> _tripleLetterScores;
-	private final ArrayList<BoardSquare> _tripleWordScores;
 	private final Tile[][] _tileArray;
 	private final Set<Tile> _tilesOnBoard;
 	private final ArrayList<BoardSquare> _specialSquares;
@@ -115,19 +109,6 @@ class ScrabbleGame {
 		}
 	}
 
-	private void setUpBoard() {
-		for (int i = 0; i < _boardArray.length; i++) {
-			for (int j = 0; j < _boardArray[1].length; j++) {
-				int xLayout = (i + ZEROETH_COLUMN_OFFSET) * GRID_FACTOR;
-				int yLayout = (j + ZEROETH_ROW_OFFSET) * GRID_FACTOR;
-				BoardSquare boardSquare = new BoardSquare(xLayout, yLayout, _boardPane, _labelPane);
-				_boardArray[i][j] = boardSquare;
-			}
-		}
-		_boardPane.getChildren().add(_labelPane);
-		this.setUpSpecialBoardSquares();
-	}
-
 	void addReferee(Referee referee) {
 		_referee = referee;
 	}
@@ -146,217 +127,6 @@ class ScrabbleGame {
 
 	void resetRackTwo() {
 		for (Tile a_playerTwoRack : _playerTwoRack) a_playerTwoRack.reset();
-	}
-
-	private void setUpSpecialBoardSquares() {
-
-		// DOUBLE LETTER SCORES (BLUE)
-
-		// Central square
-		_boardArray[6][6].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[6][8].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[8][6].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[8][8].setID(SquareIdentity.DoubleLetterScore);
-
-		// Horizontal Outer solos
-		_boardArray[3][0].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[11][0].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[3][14].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[11][14].setID(SquareIdentity.DoubleLetterScore);
-
-		// Vertical Outer solos
-		_boardArray[0][3].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[0][11].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[14][3].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[14][11].setID(SquareIdentity.DoubleLetterScore);
-
-		// Lower blue trio
-		_boardArray[7][11].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[8][12].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[6][12].setID(SquareIdentity.DoubleLetterScore);
-
-		// Left blue trio
-		_boardArray[3][7].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[2][6].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[2][8].setID(SquareIdentity.DoubleLetterScore);
-
-		// Right blue trio
-		_boardArray[11][7].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[12][6].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[12][8].setID(SquareIdentity.DoubleLetterScore);
-
-		// Upper blue trio
-		_boardArray[7][3].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[6][2].setID(SquareIdentity.DoubleLetterScore);
-		_boardArray[8][2].setID(SquareIdentity.DoubleLetterScore);
-
-		_doubleLetterScores.add(_boardArray[6][6]);
-		_doubleLetterScores.add(_boardArray[6][8]);
-		_doubleLetterScores.add(_boardArray[8][6]);
-		_doubleLetterScores.add(_boardArray[8][8]);
-
-		_doubleLetterScores.add(_boardArray[3][0]);
-		_doubleLetterScores.add(_boardArray[11][0]);
-		_doubleLetterScores.add(_boardArray[3][14]);
-		_doubleLetterScores.add(_boardArray[11][14]);
-
-		_doubleLetterScores.add(_boardArray[0][3]);
-		_doubleLetterScores.add(_boardArray[0][11]);
-		_doubleLetterScores.add(_boardArray[14][3]);
-		_doubleLetterScores.add(_boardArray[14][11]);
-
-		_doubleLetterScores.add(_boardArray[7][11]);
-		_doubleLetterScores.add(_boardArray[8][12]);
-		_doubleLetterScores.add(_boardArray[6][12]);
-
-		_doubleLetterScores.add(_boardArray[3][7]);
-		_doubleLetterScores.add(_boardArray[2][6]);
-		_doubleLetterScores.add(_boardArray[2][8]);
-
-		_doubleLetterScores.add(_boardArray[11][7]);
-		_doubleLetterScores.add(_boardArray[12][6]);
-		_doubleLetterScores.add(_boardArray[12][8]);
-
-		_doubleLetterScores.add(_boardArray[7][3]);
-		_doubleLetterScores.add(_boardArray[6][2]);
-		_doubleLetterScores.add(_boardArray[8][2]);
-
-		// DOUBLE WORD SCORES (RED)
-
-		// Northwest
-		_boardArray[1][1].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[2][2].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[3][3].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[4][4].setID(SquareIdentity.DoubleWordScore);
-
-		// Southeast
-		_boardArray[10][10].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[11][11].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[12][12].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[13][13].setID(SquareIdentity.DoubleWordScore);
-
-		// Southwest
-		_boardArray[1][13].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[2][12].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[3][11].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[4][10].setID(SquareIdentity.DoubleWordScore);
-
-		// Northeast
-		_boardArray[13][1].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[12][2].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[11][3].setID(SquareIdentity.DoubleWordScore);
-		_boardArray[10][4].setID(SquareIdentity.DoubleWordScore);
-
-		_doubleWordScores.add(_boardArray[1][1]);
-		_doubleWordScores.add(_boardArray[2][2]);
-		_doubleWordScores.add(_boardArray[3][3]);
-		_doubleWordScores.add(_boardArray[4][4]);
-
-		_doubleWordScores.add(_boardArray[10][10]);
-		_doubleWordScores.add(_boardArray[11][11]);
-		_doubleWordScores.add(_boardArray[12][12]);
-		_doubleWordScores.add(_boardArray[13][13]);
-
-		_doubleWordScores.add(_boardArray[1][13]);
-		_doubleWordScores.add(_boardArray[2][12]);
-		_doubleWordScores.add(_boardArray[3][11]);
-		_doubleWordScores.add(_boardArray[4][10]);
-
-		_doubleWordScores.add(_boardArray[13][1]);
-		_doubleWordScores.add(_boardArray[12][2]);
-		_doubleWordScores.add(_boardArray[11][3]);
-		_doubleWordScores.add(_boardArray[10][4]);
-
-		// TRIPLE LETTER SCORES (GREEN)
-
-		// Central square
-		_boardArray[5][5].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[5][9].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[9][5].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[9][9].setID(SquareIdentity.TripleLetterScore);
-
-		// Horizontal Outer Solos
-		_boardArray[1][5].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[1][9].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[13][5].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[13][9].setID(SquareIdentity.TripleLetterScore);
-
-		// Vertical Outer Solos
-		_boardArray[5][1].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[9][1].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[5][13].setID(SquareIdentity.TripleLetterScore);
-		_boardArray[9][13].setID(SquareIdentity.TripleLetterScore);
-
-		_tripleLetterScores.add(_boardArray[5][5]);
-		_tripleLetterScores.add(_boardArray[5][9]);
-		_tripleLetterScores.add(_boardArray[9][5]);
-		_tripleLetterScores.add(_boardArray[9][9]);
-
-		_tripleLetterScores.add(_boardArray[1][5]);
-		_tripleLetterScores.add(_boardArray[1][9]);
-		_tripleLetterScores.add(_boardArray[13][5]);
-		_tripleLetterScores.add(_boardArray[13][9]);
-
-		_tripleLetterScores.add(_boardArray[5][1]);
-		_tripleLetterScores.add(_boardArray[9][1]);
-		_tripleLetterScores.add(_boardArray[5][13]);
-		_tripleLetterScores.add(_boardArray[9][13]);
-
-		// TRIPLE WORD SCORES (ORANGE)
-
-		// Middle
-		_boardArray[7][7].setID(SquareIdentity.DoubleWordScore);
-
-		// Create and graphically add diamond image view
-		_diamondViewer = new ImageView(ImageHelper.create("Main Theme and GUI/diamond.png"));
-		_diamondViewer.setCache(true);
-		_diamondViewer.setPreserveRatio(true);
-		_diamondViewer.setFitWidth(GRID_FACTOR - 2 * TILE_PADDING);
-		_diamondViewer.setLayoutX(20 * GRID_FACTOR + 4);
-		_diamondViewer.setLayoutY(10 * GRID_FACTOR + 13);
-		_labelPane.getChildren().add(_diamondViewer);
-
-		// Create and add ghost or transparent overlay square for middle of board
-		int xLayout = (ZEROETH_COLUMN_OFFSET + 7) * GRID_FACTOR;
-		int yLayout = (ZEROETH_ROW_OFFSET + 7) * GRID_FACTOR;
-		BoardSquare ghostSquare = new BoardSquare(xLayout, yLayout, _boardPane, _labelPane);
-		ghostSquare.setID(SquareIdentity.Ghost);
-		ghostSquare.setUpHoverResponse(this);
-
-		// Corners
-		_boardArray[0][0].setID(SquareIdentity.TripleWordScore);
-		_boardArray[14][14].setID(SquareIdentity.TripleWordScore);
-		_boardArray[14][0].setID(SquareIdentity.TripleWordScore);
-		_boardArray[0][14].setID(SquareIdentity.TripleWordScore);
-
-		// Edge midpoints
-		_boardArray[7][0].setID(SquareIdentity.TripleWordScore);
-		_boardArray[7][14].setID(SquareIdentity.TripleWordScore);
-		_boardArray[0][7].setID(SquareIdentity.TripleWordScore);
-		_boardArray[14][7].setID(SquareIdentity.TripleWordScore);
-
-		_tripleWordScores.add(_boardArray[7][7]);
-
-		_tripleWordScores.add(_boardArray[0][0]);
-		_tripleWordScores.add(_boardArray[14][14]);
-		_tripleWordScores.add(_boardArray[14][0]);
-		_tripleWordScores.add(_boardArray[0][14]);
-
-		_tripleWordScores.add(_boardArray[7][0]);
-		_tripleWordScores.add(_boardArray[7][14]);
-		_tripleWordScores.add(_boardArray[0][7]);
-		_tripleWordScores.add(_boardArray[14][7]);
-
-		_specialSquares.addAll(_doubleLetterScores);
-		_specialSquares.addAll(_doubleWordScores);
-		_specialSquares.addAll(_tripleLetterScores);
-		_specialSquares.addAll(_tripleWordScores);
-
-		this.setUpHovers();
-	}
-
-	private void setUpHovers() {
-		for (BoardSquare _specialSquare : _specialSquares) _specialSquare.setUpHoverResponse(this);
 	}
 
 	void fadeInOtherSquares(SquareIdentity identity) {
@@ -1184,7 +954,7 @@ class ScrabbleGame {
 			switch ((int) (Math.random() * 3)) {
 				case 0:
 				case 1:
-					upperTile.moveDown(upperTile.getLetter());
+					upperTile.verticalShift(upperTile.getLetter());
 					lowerTile.moveUp(lowerTile.getLetter());
 
 					sorted.set(i + 1, upperTile);

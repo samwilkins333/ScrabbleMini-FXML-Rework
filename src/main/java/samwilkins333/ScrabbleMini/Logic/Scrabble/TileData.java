@@ -1,13 +1,13 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Scrabble;
 
-import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ImageHelper;
 
 class TileData {
     private final String _letter;
     private final int frequency;
     private final int _value;
-    private final Image _image;
+    private final ImageView _image;
 
     TileData(String let, int frequency, int val) {
         _letter = let;
@@ -28,7 +28,7 @@ class TileData {
         return frequency;
     }
 
-    Image getImage() {
+    ImageView getImage() {
         return _image;
     }
 }

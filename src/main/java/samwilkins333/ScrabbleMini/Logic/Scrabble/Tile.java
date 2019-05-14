@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Scrabble;
 
-import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -8,8 +7,8 @@ import javafx.scene.layout.*;
 import javafx.scene.effect.*;
 import javafx.event.*;
 import javafx.scene.input.*;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
 
 import javafx.animation.*;
 import javafx.util.Duration;
@@ -18,20 +17,20 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelpe
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Scrabble.Constants.*;
 
-class Tile {
+class Tile implements VisualElement {
 	private final String _letter;
-	private final ImageView _tileViewer;
+	private final ImageView tileViewer;
 	private Pane _boardPane;
 
 	private final int _value;
 	private int initialX;
 	private int initialY;
 
-	private double _currentNodeX;
-	private double _currentNodeY;
+	private double actualLayoutX;
+	private double actualLayoutY;
 
-	private double _mouseDragX;
-	private double _mouseDragY;
+	private double lastDragEventPositionX;
+	private double lastDragEventPositionY;
 
 	private int _xIndex;
 	private int _yIndex;
@@ -41,9 +40,6 @@ class Tile {
 	private PlayerNum _tileAffiliation;
 	private Playable _currentPlayer;
 
-	private ImageView _checkViewer;
-	private ImageView _xViewer;
-	private ImageView _minusViewer;
 	private List<ImageView> displays = new ArrayList<>();
 
 	private FadeTransition _addedFlash;
@@ -52,11 +48,15 @@ class Tile {
 	private FadeTransition _overlapFlash;
 	private ScaleTransition _overlapScale;
 
+	private interface FlashRoutine { void flash(); }
+	private Map<WordAddition, FlashRoutine> flashes = new HashMap<>();
+
 	private Pane _root;
 
 	private Boolean _flashable;
 
 	private DropShadow _pieceShadow;
+
 
 	Tile(int letter) {
 		// Create stock new tile image view
@@ -65,12 +65,16 @@ class Tile {
 		_letter = t.getLetter();
 		_value = t.getValue();
 
-		_tileViewer = new ImageView(t.getImage());
-		_tileViewer.setFitWidth(GRID_FACTOR - (TILE_PADDING * 2));
-		_tileViewer.setPreserveRatio(true);
-		_tileViewer.setCache(true);
+		tileViewer = new ImageView(t.getImage());
+		tileViewer.setFitWidth(GRID_FACTOR - (TILE_PADDING * 2));
+		tileViewer.setPreserveRatio(true);
+		tileViewer.setCache(true);
 
-		displays.add(_tileViewer);
+		tileViewer.setOnMousePressed(this.pressMouse());
+		tileViewer.setOnMouseDragged(this.dragMouse());
+		tileViewer.setOnMouseReleased(this.releaseMouse());
+
+		displays.add(tileViewer);
 
 		// Set its default properties
 
@@ -84,11 +88,10 @@ class Tile {
 
 		this.addShadow();
 		this.setUpOverlapFlash();
-		this.setUpDraggable();
 	}
 	
 	void fadeOut() {
-		FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), _tileViewer);
+		FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), tileViewer);
 		fadeOut.setFromValue(1.0);
 		fadeOut.setToValue(0.0);
 		fadeOut.play();
@@ -99,27 +102,16 @@ class Tile {
 	}
 
 	private Point2D center() {
+		double halfTileWidth = tileViewer.getFitWidth() / 2;
 		return new Point2D(
-						_tileViewer.getLayoutX() + _tileViewer.getFitWidth() / 2,
-						_tileViewer.getLayoutY() + _tileViewer.getFitWidth() / 2
+						actualLayoutX + halfTileWidth,
+						actualLayoutY + halfTileWidth
 		);
 	}
 
-	private void setUpDraggable() {
-		_tileViewer.setOnMousePressed(this.pressMouse());
-		_tileViewer.setOnMouseDragged(this.dragMouse());
-		_tileViewer.setOnMouseReleased(this.releaseMouse());
-	}
-
-	private Boolean validate(int col, int row) {
-		if (col < 0 || col > 15 || row < 0 || row > 15) return false;
-		return !_scrabbleGame.boardSquareOccupiedAt(col, row);
-	}
-
-	private void toFront() {
-		ObservableList<Node> parent = _boardPane.getChildren();
-		parent.remove(_tileViewer);
-		parent.add(_tileViewer);
+	private Boolean validate(int column, int row) {
+		if (column < 0 || column > 15 || row < 0 || row > 15) return false;
+		return !_scrabbleGame.boardSquareOccupiedAt(column, row);
 	}
 
 	private Boolean isDraggable() {
@@ -132,8 +124,8 @@ class Tile {
 	}
 
 	private void setUpOverlapFlash() {
-		_overlapFlash = TransitionHelper.flash(_tileViewer, FEEDBACK_FLASH_DURATION);
-		_overlapScale = TransitionHelper.scale(_tileViewer, FEEDBACK_FLASH_DURATION, 0.2, 0.2);
+		_overlapFlash = TransitionHelper.flash(tileViewer, FEEDBACK_FLASH_DURATION);
+		_overlapScale = TransitionHelper.scale(tileViewer, FEEDBACK_FLASH_DURATION, 0.2, 0.2);
 	}
 
 	private EventHandler<MouseEvent> pressMouse() {
@@ -145,45 +137,46 @@ class Tile {
 			_overlapFlash.stop();
 			_overlapScale.stop();
 
-			_tileViewer.setScaleX(1);
-			_tileViewer.setScaleY(1);
-			_tileViewer.setOpacity(1.0);
-			_tileViewer.setEffect(_pieceShadow);
+			tileViewer.setScaleX(1);
+			tileViewer.setScaleY(1);
+			tileViewer.setOpacity(1.0);
+			tileViewer.setEffect(_pieceShadow);
 
 			if (event.getButton() == MouseButton.PRIMARY) {
 				// get the current mouse coordinates according to the scene.
-				_mouseDragX = event.getSceneX();
-				_mouseDragY = event.getSceneY();
+				lastDragEventPositionX = event.getSceneX();
+				lastDragEventPositionY = event.getSceneY();
 
-				// get the current coordinates of the draggable node.
-				_currentNodeX = _tileViewer.getLayoutX();
-				_currentNodeY = _tileViewer.getLayoutY();
+				// get the current coordinates of the draggable boardPane.
+				actualLayoutX = tileViewer.getLayoutX();
+				actualLayoutY = tileViewer.getLayoutY();
 			}
 		};
 	}
 
 	private EventHandler<MouseEvent> dragMouse() {
-		return event -> {
-			if (!Tile.this.isDraggable()) return;
+		return e -> {
+			if (!(Tile.this.isDraggable() && e.getButton() == MouseButton.PRIMARY)) return;
 
-			if (event.getButton() == MouseButton.PRIMARY) {
-				// find the delta coordinates by subtracting the new mouse
-				// coordinates with the old.
-				double deltaX = event.getSceneX() - _mouseDragX;
-				double deltaY = event.getSceneY() - _mouseDragY;
+			double newX = e.getSceneX();
+			double newY = e.getSceneY();
 
-				// add the delta coordinates to the node coordinates.
-				_currentNodeX += deltaX;
-				_currentNodeY += deltaY;
+			// find the delta coordinates by subtracting the new mouse
+			// coordinates with the old.
+			double deltaX = newX - lastDragEventPositionX;
+			double deltaY = newY - lastDragEventPositionY;
 
-				// set the layout for the draggable node.
-				_tileViewer.setLayoutX(_currentNodeX);
-				_tileViewer.setLayoutY(_currentNodeY);
+			// add the delta coordinates to the boardPane coordinates.
+			actualLayoutX += deltaX;
+			actualLayoutY += deltaY;
 
-				// get the latest mouse coordinate.
-				_mouseDragX = event.getSceneX();
-				_mouseDragY = event.getSceneY();
-			}
+			// set the layout for the draggable boardPane.
+			tileViewer.setLayoutX(actualLayoutX);
+			tileViewer.setLayoutY(actualLayoutY);
+
+			// get the latest mouse coordinate.
+			lastDragEventPositionX = newX;
+			lastDragEventPositionY = newY;
 		};
 	}
 
@@ -191,12 +184,12 @@ class Tile {
 		return event -> {
  			if (!Tile.this.isDraggable()) return;
 
- 			Point2D drop = center();
-			int snappedX = (int) ((drop.getX() - ORIGIN_LEFT) / GRID_FACTOR);
-			int snappedY = (int) ((drop.getY() - ORIGIN_TOP) / GRID_FACTOR);
+ 			Point2D quantizedDrop = GridManager.pixelsToGrid(center());
+ 			int column = (int) quantizedDrop.getX();
+ 			int row = (int) quantizedDrop.getY();
 
-			if (validate(snappedX, snappedY) && event.getClickCount() == 1)
-				placeAtIndices(snappedX, snappedY);
+			if (validate(column, row) && event.getClickCount() == 1)
+				placeAtIndices(column, row);
 			else {
 				reset();
 				return;
@@ -209,7 +202,7 @@ class Tile {
 	}
 
 	void setToOpaque() {
-		_tileViewer.setOpacity(1.0);
+		tileViewer.setOpacity(1.0);
 	}
 
 	private void refreshPlayerInfo() {
@@ -227,7 +220,7 @@ class Tile {
 		_pieceShadow.setHeight(25);
 		_pieceShadow.setWidth(25);
 		_pieceShadow.setBlurType(BlurType.GAUSSIAN);
-		_tileViewer.setEffect(_pieceShadow);
+		tileViewer.setEffect(_pieceShadow);
 	}
 
 	void add(Pane boardPane, double x, double y, ScrabbleGame thisGame, PlayerNum tileAffiliation) {
@@ -236,18 +229,18 @@ class Tile {
 
 		_scrabbleGame = thisGame;
 
-		this.setUpFlash();
+		this.initializeOverlays();
 		_flashable = true;
 
 		this.addRoot();
 
 		_tileAffiliation = tileAffiliation;
 
-		_tileViewer.setLayoutX(x * GRID_FACTOR + TILE_PADDING);
-		_tileViewer.setLayoutY(y * GRID_FACTOR + TILE_PADDING);
+		tileViewer.setLayoutX(x * GRID_FACTOR + TILE_PADDING);
+		tileViewer.setLayoutY(y * GRID_FACTOR + TILE_PADDING);
 
 		_boardPane = boardPane;
-		_boardPane.getChildren().add(_tileViewer);
+		_boardPane.getChildren().add(tileViewer);
 	}
 
 	void placeAtIndices(int xIndex, int yIndex) {
@@ -271,7 +264,7 @@ class Tile {
 		if (_newestWord.occupies(Tile.this, _xIndex, _yIndex)) {
 			_overlapFlash.play();
 			_overlapScale.play();
-			_tileViewer.setEffect(null);
+			tileViewer.setEffect(null);
 		}
 	}
 
@@ -290,123 +283,53 @@ class Tile {
 		_overlapFlash.stop();
 		_overlapScale.stop();
 
-		_tileViewer.setScaleX(1);
-		_tileViewer.setScaleY(1);
-		_tileViewer.setOpacity(1.0);
-		_tileViewer.setEffect(_pieceShadow);
+		tileViewer.setScaleX(1);
+		tileViewer.setScaleY(1);
+		tileViewer.setOpacity(1.0);
+		tileViewer.setEffect(_pieceShadow);
 	}
 
-	private void setUpFlash() {
-		_checkViewer = new ImageView(ImageHelper.create("Interaction Feedback/greencheck.png"));
-		_checkViewer.setFitWidth(GRID_FACTOR - (TILE_PADDING * 2));
-		_checkViewer.setLayoutX(GRID_FACTOR * 5);
-		_checkViewer.setLayoutY(GRID_FACTOR * 4);
-		_checkViewer.setOpacity(0);
-		_checkViewer.setCache(true);
-		_checkViewer.setPreserveRatio(true);
-		_checkViewer.setLayoutX(initialX * GRID_FACTOR + TILE_PADDING);
-		_checkViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
+	private void initializeOverlays() {
+		String[] resources = new String[] { "greencheck", "redx", "yellowminus" };
 
-		displays.add(_checkViewer);
+		for (int i = 0; i < 3; i++) {
+			ImageView view = new ImageView(ImageHelper.create("Interaction Feedback/" + resources[i]));
+			view.setFitWidth(GRID_FACTOR - (TILE_PADDING * 2));
+			view.setLayoutX(GRID_FACTOR * 5);
+			view.setLayoutY(GRID_FACTOR * 4);
+			view.setOpacity(0);
+			view.setCache(true);
+			view.setPreserveRatio(true);
+			view.setLayoutX(initialX * GRID_FACTOR + TILE_PADDING);
+			view.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
+			displays.add(view);
 
-		_addedFlash = new FadeTransition(Duration.seconds(FEEDBACK_FLASH_DURATION), _checkViewer);
-		_addedFlash.setFromValue(1.0);
-		_addedFlash.setToValue(0.0);
-		_addedFlash.setAutoReverse(false);
-		_addedFlash.setCycleCount(1);
-		_addedFlash.setOnFinished(new RemoveIconsHandler(WordAddition.Success));
+			FadeTransition flash = new FadeTransition(Duration.seconds(FEEDBACK_FLASH_DURATION), view);
+			flash.setFromValue(1.0);
+			flash.setToValue(0.0);
+			flash.setAutoReverse(false);
+			flash.setCycleCount(1);
+			flash.setOnFinished((e) -> _root.getChildren().remove(view));
 
-		_xViewer = new ImageView(ImageHelper.create("Interaction Feedback/redx.png"));
-		_xViewer.setFitWidth(GRID_FACTOR - (TILE_PADDING * 2));
-		_xViewer.setLayoutX(GRID_FACTOR * 5);
-		_xViewer.setLayoutY(GRID_FACTOR * 4);
-		_xViewer.setOpacity(0);
-		_xViewer.setCache(true);
-		_xViewer.setPreserveRatio(true);
-		_xViewer.setLayoutX(initialX * GRID_FACTOR + TILE_PADDING);
-		_xViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-
-		displays.add(_xViewer);
-
-		_failedFlash = new FadeTransition(Duration.seconds(FEEDBACK_FLASH_DURATION), _xViewer);
-		_failedFlash.setFromValue(1.0);
-		_failedFlash.setToValue(0.0);
-		_failedFlash.setAutoReverse(false);
-		_failedFlash.setCycleCount(1);
-		_failedFlash.setOnFinished(new RemoveIconsHandler(WordAddition.Failure));
-
-		_minusViewer = new ImageView(ImageHelper.create("Interaction Feedback/yellowminus.png"));
-		_minusViewer.setFitWidth(GRID_FACTOR - (TILE_PADDING * 2));
-		_minusViewer.setLayoutX(GRID_FACTOR * 5);
-		_minusViewer.setLayoutY(GRID_FACTOR * 4);
-		_minusViewer.setOpacity(0);
-		_minusViewer.setCache(true);
-		_minusViewer.setPreserveRatio(true);
-		_minusViewer.setLayoutX(initialX * GRID_FACTOR + TILE_PADDING);
-		_minusViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-
-		_partialFlash = new FadeTransition(Duration.seconds(FEEDBACK_FLASH_DURATION), _minusViewer);
-		_partialFlash.setFromValue(1.0);
-		_partialFlash.setToValue(0.0);
-		_partialFlash.setAutoReverse(false);
-		_partialFlash.setCycleCount(1);
-		_partialFlash.setOnFinished(new RemoveIconsHandler(WordAddition.Partial));
-
-		displays.add(_minusViewer);
-	}
-
-	void playFlash(WordAddition outcome) {
-	    if (!_flashable) return;
-
-	    switch (outcome) {
-            case Success:
-                _root.getChildren().add(_checkViewer);
-                _addedFlash.play();
-                break;
-            case Partial:
-                _root.getChildren().add(_minusViewer);
-                _partialFlash.play();
-                break;
-            case Failure:
-                _root.getChildren().add(_xViewer);
-                _failedFlash.play();
-                break;
-        }
-
-        _flashable = false;
-	}
-
-	private class RemoveIconsHandler implements EventHandler<ActionEvent> {
-		private final WordAddition _outcome;
-
-		RemoveIconsHandler(WordAddition outcome) {
-			_outcome = outcome;
+			flashes.put(WordAddition.values()[i], () -> {
+				if (_flashable) return;
+				_flashable = true;
+				_root.getChildren().add(view);
+				flash.play();
+			});
 		}
-
-		@Override
-		public void handle(ActionEvent event) {
-			switch(_outcome) {
-				case Success:
-					_root.getChildren().remove(_checkViewer);
-					break;
-				case Partial:
-					_root.getChildren().remove(_minusViewer);
-					break;
-				case Failure:
-					_root.getChildren().remove(_xViewer);
-					break;
-			}
-			_flashable = true;
-			event.consume();
-		}
-
 	}
+
+	void playFlash(WordAddition outcome) { flashes.get(outcome).flash(); }
+
+	@Override
+	public Node node() { return tileViewer; }
 
 	void initialize(int x, int y) {
 		initialX = x;
 		initialY = y;
 
-		setImageViewLoc(_tileViewer, x, y);
+		setImageViewLoc(tileViewer, x, y);
 		setImageViewLoc(_checkViewer, x, y);
 		setImageViewLoc(_minusViewer, x, y);
 		setImageViewLoc(_xViewer, x, y);
@@ -437,7 +360,7 @@ class Tile {
 	}
 
 	ImageView getTileViewer() {
-		return _tileViewer;
+		return tileViewer;
 	}
 
 	int getValue() {
@@ -445,7 +368,7 @@ class Tile {
 	}
 
 	void hide() {
-		_tileViewer.setOpacity(0);
+		tileViewer.setOpacity(0);
 	}
 
 	String getLetter() {
@@ -455,37 +378,27 @@ class Tile {
 	void stopOverlapFlash() {
 		_overlapFlash.stop();
 		_overlapScale.stop();
-		_tileViewer.setScaleX(1);
-		_tileViewer.setScaleY(1);
-		_tileViewer.setOpacity(1.0);
+		tileViewer.setScaleX(1);
+		tileViewer.setScaleY(1);
+		tileViewer.setOpacity(1.0);
 	}
 
 	void resetShadow() {
-		_tileViewer.setEffect(_pieceShadow);
+		tileViewer.setEffect(_pieceShadow);
 	}
 
-	void moveDown(String letter) {
-		if (_xIndex == -1 && _yIndex == -1) {
-			initialY++;
-			_tileViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-			_checkViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-			_minusViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-			_xViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-		} else {
-			System.out.printf("\nNOT INCREMENTED! %s had indices (%s, %s)", letter, _xIndex, _yIndex);
-		}
-	}
-	
-	void moveUp(String letter) {
-		if (_xIndex == -1 && _yIndex == -1) {
-			initialY--;
-			_tileViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-			_checkViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-			_minusViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-			_xViewer.setLayoutY(initialY * GRID_FACTOR + TILE_PADDING);
-		} else {
-			System.out.printf("\nNOT INCREMENTED! %s had indices (%s, %s)", letter, _xIndex, _yIndex);
-		}
+	/**
+	 * Used during the shuffling of the tiles
+	 * while still on the rack.
+	 * @param increment the amount by which to offset the tile,
+	 *                  either positive or negative
+	 */
+	void verticalShift(int increment) {
+		if (_xIndex >= 0 || _yIndex >= 0) return;
+
+		initialY += increment;
+		double computed = initialY * GRID_FACTOR + TILE_PADDING;
+		displays.forEach(d -> d.setLayoutY(computed));
 	}
 	
 	boolean isOnBoard() {

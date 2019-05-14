@@ -1,7 +1,8 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Scrabble;
 
+import javafx.geometry.Point2D;
+import javafx.scene.Node;
 import javafx.scene.shape.*;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.event.*;
 import javafx.scene.input.*;
@@ -17,54 +18,37 @@ import javafx.scene.text.Font;
  * move AI move calculation and human player score assignment.
  * 
  */
-class BoardSquare {
+class BoardSquare implements VisualElement {
 	private Rectangle _square;
 	private Label _label;
-	private ScrabbleGame _scrabbleGame;
-	
-	private final int _x;
-	private final int _y;
-	private SquareIdentity _identity;
-	
-	private final Pane _boardPane;
-	private final Pane _labelPane;
-	
+
+	private final int layoutX;
+	private final int layoutY;
+	private SquareIdentity identity;
+
 	private Boolean _labelIsShown;
 	private Boolean _alreadyPlayed;
-	
-	private Boolean _is2W;
-	private Boolean _is2L;
-	private Boolean _is3W;
-	private Boolean _is3L;
-	private Boolean _isNormal;
 
 	/**
-	 *  @param x - width of square
-	 * @param y - height of square
-	 * @param boardPane - the pane displaying the graphical squares that comprise the board
-	 * @param labelPane - the pane displaying the identifying white text of each board square
-	 * 
+	 * @param column - the column coordinate
+	 * @param row - the row coordinate
+	 *
 	 */
-	BoardSquare(int x, int y, Pane boardPane, Pane labelPane) {
-		_x = x;
-		_y = y;
-		_identity = SquareIdentity.Normal;
-		
-		_boardPane = boardPane;
-		_labelPane = labelPane;
+	BoardSquare(int column, int row) {
+
+		identity = SquareIdentity.Normal;
 		
 		_labelIsShown = false;
 		_alreadyPlayed = false;
-		
-		// Default booleans
-		_is2W = false;
-		_is2L = false;
-		_is3W = false;
-		_is3L = false;
-		_isNormal = true;
-		
-		// Constructs the actual square
-		this.formatSquare();
+
+		Point2D pixelLayout = GridManager.gridToPixels(column, row);
+		layoutX = (int) pixelLayout.getX();
+		layoutY = (int) pixelLayout.getY();
+
+		_square = new Rectangle(layoutX, layoutY, Constants.GRID_FACTOR, Constants.GRID_FACTOR);
+		_square.setFill(Constants.BOARD_FILL);
+		_square.setStroke(Color.BLACK);
+		_square.setStrokeWidth(1);
 	}
 	
 	/**
@@ -129,20 +113,6 @@ class BoardSquare {
 	}
 
 	/**
-	 * 
-	 * The de-facto "constructor" of the graphical board square, which relies on the
-	 * constants class for formatting before adding the square to the board pane
-	 * 
-	 */
-	private void formatSquare() {
-		_square = new Rectangle(_x, _y, Constants.GRID_FACTOR, Constants.GRID_FACTOR);
-		_square.setFill(Constants.BOARD_FILL);
-		_square.setStroke(Color.BLACK);
-		_square.setStrokeWidth(1);
-		_boardPane.getChildren().add(_square);
-	}
-
-	/**
 	 *
 	 * Called post initialization to establish score multiplier squares 
 	 * @param identity - the specific nature of the multiplier
@@ -151,9 +121,9 @@ class BoardSquare {
 	void setID(SquareIdentity identity) {
 		_isNormal = false;
 		_alreadyPlayed = false;
-		_identity = identity;
+		this.identity = identity;
 
-		switch (_identity) {
+		switch (this.identity) {
 
 			case Normal:
 				break;
@@ -161,32 +131,32 @@ class BoardSquare {
 				_square.setFill(Constants.DOUBLE_LETTER_SCORE);
 				_square.setOpacity(Constants.BOARD_OPACITY);
 				_label = new Label("Lx2");
-				_label.setLayoutX(_x + 8);
-				_label.setLayoutY(_y + 12);
+				_label.setLayoutX(layoutX + 8);
+				_label.setLayoutY(layoutY + 12);
 				_is2L = true;
 				break;
 			case TripleLetterScore:
 				_square.setFill(Constants.TRIPLE_LETTER_SCORE);
 				_square.setOpacity(Constants.BOARD_OPACITY);
 				_label = new Label("Lx3");
-				_label.setLayoutX(_x + 8);
-				_label.setLayoutY(_y + 12);
+				_label.setLayoutX(layoutX + 8);
+				_label.setLayoutY(layoutY + 12);
 				_is3L = true;
 				break;
 			case DoubleWordScore:
 				_square.setFill(Constants.DOUBLE_WORD_SCORE);
 				_square.setOpacity(Constants.BOARD_OPACITY);
 				_label = new Label("Wx2");
-				_label.setLayoutX(_x + 7);
-				_label.setLayoutY(_y + 12);
+				_label.setLayoutX(layoutX + 7);
+				_label.setLayoutY(layoutY + 12);
 				_is2W = true;
 				break;
 			case TripleWordScore:
 				_square.setFill(Constants.TRIPLE_WORD_SCORE);
 				_square.setOpacity(Constants.BOARD_OPACITY);
 				_label = new Label("Wx3");
-				_label.setLayoutX(_x + 7);
-				_label.setLayoutY(_y + 12);
+				_label.setLayoutX(layoutX + 7);
+				_label.setLayoutY(layoutY + 12);
 				_is3W = true;
 				break;
 			// Exists only as a transparent square to "cover" the diamond above the middle-most square
@@ -239,7 +209,7 @@ class BoardSquare {
 	 * 
 	 */
 	SquareIdentity getIdentity() {
-		return _identity;
+		return identity;
 	}
 
 	/**
@@ -262,12 +232,17 @@ class BoardSquare {
 		_square.addEventHandler(MouseEvent.MOUSE_RELEASED, new ConcealHandler());
 	}
 
+	@Override
+	public Node node() {
+		return _square;
+	}
+
 	private class DisplayHandler implements EventHandler<MouseEvent> {
 
 		@Override
 		public void handle(MouseEvent event) {
 			if (_scrabbleGame.getIsShiftDown() && !_scrabbleGame.getReferee().isThinking()) {
-				_scrabbleGame.fadeOutOtherSquares(_identity);
+				_scrabbleGame.fadeOutOtherSquares(identity);
 				_labelIsShown = true;
 			}
 			event.consume();
@@ -279,7 +254,7 @@ class BoardSquare {
 
 		@Override
 		public void handle(MouseEvent event) {
-			if (_labelIsShown) _scrabbleGame.fadeInOtherSquares(_identity);
+			if (_labelIsShown) _scrabbleGame.fadeInOtherSquares(identity);
 			_labelIsShown = false;
 			event.consume();
 		} 
