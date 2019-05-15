@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     public static double screenWidth = Screen.getPrimary().getBounds().getWidth();
-    public static double ScreenHeight = Screen.getPrimary().getBounds().getHeight();
+    public static double screenHeight = Screen.getPrimary().getBounds().getHeight();
 
     @Override
     public void start(Stage primaryStage) throws Exception{

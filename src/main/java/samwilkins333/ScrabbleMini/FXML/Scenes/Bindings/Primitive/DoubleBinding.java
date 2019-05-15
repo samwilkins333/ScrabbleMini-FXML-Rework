@@ -7,6 +7,14 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 public class DoubleBinding {
   private SimpleDoubleProperty value = new SimpleDoubleProperty();
 
+  public DoubleBinding(double initial) {
+    this.value.set(initial);
+  }
+
+  public DoubleBinding() {
+    this.value.set(0);
+  }
+
   public double getValue() {
     return value.get();
   }

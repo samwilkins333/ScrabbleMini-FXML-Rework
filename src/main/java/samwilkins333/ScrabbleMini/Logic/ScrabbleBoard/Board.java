@@ -33,8 +33,8 @@ public class Board {
     multipliers = attributes.locationMapping();
     colors = attributes.attributeMapping();
 
-    root.prefWidth(squareCount * squareSize);
-    root.prefHeight(squareCount * squareSize);
+    root.setPrefWidth(squareCount * squareSize);
+    root.setPrefHeight(squareCount * squareSize);
 
     for (int col = 0; col < squareCount; col++) {
       for (int row = 0; row < squareCount; row++) {
@@ -46,6 +46,10 @@ public class Board {
       }
     }
 
+  }
+
+  public BoardInitializer.BoardAttributes<Multiplier, Paint> attributes() {
+    return attributes;
   }
 
 }
