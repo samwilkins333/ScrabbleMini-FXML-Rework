@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.DoubleBinding;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.TextConfigurer;
@@ -16,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class BackgroundController implements Initializable {
   @FXML public ImageView desktopView; private ObservableImage desktop;
-  @FXML public Pane boardRoot; private DoubleBinding boardRootLayoutX;
+  @FXML public Pane boardRoot;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {

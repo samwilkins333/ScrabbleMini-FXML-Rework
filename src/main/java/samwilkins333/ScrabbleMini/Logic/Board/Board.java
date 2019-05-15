@@ -1,37 +1,39 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
-import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
+  private final Tile[][] internalState;
+
   private final Pane root;
   private int squareCount;
-  private int squareSize;
   private final BoardInitializer<Multiplier, Paint> initializer;
   private BoardInitializer.BoardAttributes<Multiplier, Paint> attributes;
 
   private Multiplier[][] multipliers;
-  private Map<Multiplier, Paint> colors = new HashMap<>();
 
   public Board(Pane root, BoardInitializer<Multiplier, Paint> initializer) {
     this.root = root;
     this.initializer = initializer;
 
     initializeLayout();
+
+    this.internalState = new Tile[squareCount][squareCount];
   }
 
   private void initializeLayout() {
     attributes = initializer.initialize();
 
     squareCount = attributes.squareCount();
-    squareSize = attributes.squareSize();
     multipliers = attributes.locationMapping();
-    colors = attributes.attributeMapping();
+
+    int squareSize = attributes.squareSize();
+    Map<Multiplier, Paint> colors = attributes.attributeMapping();
 
     root.setPrefWidth(squareCount * squareSize);
     root.setPrefHeight(squareCount * squareSize);
@@ -45,11 +47,18 @@ public class Board {
         root.getChildren().add(square.node());
       }
     }
-
   }
 
   public BoardInitializer.BoardAttributes<Multiplier, Paint> attributes() {
     return attributes;
+  }
+
+  public boolean has(int column, int row) {
+    return internalState[column][row] != null;
+  }
+
+  public void play(Tile tile, int column, int row) {
+    this.internalState[column][row] = tile;
   }
 
 }
