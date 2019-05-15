@@ -22,11 +22,11 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
   private static final String SIZING_DELIMITER = " squares @ ";
   private static final String PAIR_DELIMITER = " _ ";
   private static final String VALUE_DELIMITER = ",";
-
+  private static final String UNIT = "px";
 
   private static final Pattern SIZING = Pattern.compile("\\d+" + SIZING_DELIMITER + "\\d+px");
   private static final Pattern CONTROL = Pattern.compile("( _ )?(\\d+,\\d+)");
-  private static final Pattern COLOR_MAPPING = Pattern.compile("\\d+,\\d+ _ [A-Z]+");
+  private static final Pattern COLOR_MAPPING = Pattern.compile("\\d+,\\d+ _ #[A-Za_z0-9]{3,6}");
 
   private static final String PREFIX = "Invalid board configuration! ";
 
@@ -60,12 +60,12 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
 
       String[] sizes = sizing.split(SIZING_DELIMITER);
       squareCount = Integer.valueOf(sizes[0]);
-      squareSize = Integer.valueOf(sizes[1].replace("px", ""));
+      squareSize = Integer.valueOf(sizes[1].replace(UNIT, ""));
       multiplierMapping = new Multiplier[squareCount][squareCount];
 
       reader.readLine();
       String line;
-      while (!(line = reader.readLine()).equals("")) {
+      while (!(line = reader.readLine().trim()).equals("")) {
         int pairs = 0;
         Matcher controller = CONTROL.matcher(line);
         while (controller.find()) pairs++;
@@ -101,14 +101,14 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
         if (entry == null || !COLOR_MAPPING.matcher(entry.trim()).find())
           throw new IOException(INVALID_MAPPING);
         String[] mapping = entry.split(PAIR_DELIMITER);
-        Multiplier read = Multiplier.parse(mapping[0], VALUE_DELIMITER);
-        Paint color = Color.valueOf(mapping[1]);
+        Multiplier read = Multiplier.parse(mapping[0].trim(), VALUE_DELIMITER);
+        Paint color = Color.web(mapping[1].trim());
         colorMapping.put(read, color);
       }
 
       String trailing;
       while ((trailing = reader.readLine()) != null) {
-        if (!trailing.equals("")) throw new IOException(EXCESS_INFO);
+        if (!trailing.trim().equals("")) throw new IOException(EXCESS_INFO);
       }
 
     } catch (IOException e) {

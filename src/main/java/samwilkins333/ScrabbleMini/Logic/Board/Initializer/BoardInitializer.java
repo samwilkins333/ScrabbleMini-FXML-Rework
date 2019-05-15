@@ -1,7 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer;
 
-import javafx.geometry.Point2D;
-
 import java.util.Map;
 
 public interface BoardInitializer<D, C> {
