@@ -2,11 +2,169 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/swilkinss2012.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/swilkinss2012.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/BoardInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/TextConfigurer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardSquare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Multiplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/configuration/board_config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/background/desktop.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/background/desktop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/dictionary.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/Free-Hexagonal-Outline-Icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/ai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/aiaccept.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/aieye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/aireject.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/aithinking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/AI/human.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/RedXx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/check.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/greencheck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/heart-shape-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/redx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/unedited.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Interaction Feedback/yellowminus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/Texture-Background-68F.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/bag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/baglogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/bluepostit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/checkbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/coffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/desktop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/diamond.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/greenpostit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/hi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/highlight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/intro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/introLeft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/introRight.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/leatherframe - Original.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/leatherframe - Rounded Corners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/logo.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/paper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/pencil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/postit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Main Theme and GUI/scrabble_logo_small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/blank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/g.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/i.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/k.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/o.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/q.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/r.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/t.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/u.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/Scrabble Tiles/z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/AIPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Alpha.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/BoardSquare.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/CollectionOrientation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Direction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/HumanPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/PaneOrganizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Playable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/PlayerNum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/PlayerType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Referee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/ScrabbleGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/SquareIdentity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/TileBag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Winner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Word.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/WordAddition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/WordOrientation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/dictionary.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/Free-Hexagonal-Outline-Icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/ai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/aiaccept.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/aieye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/aireject.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/aithinking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/AI/human.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/RedXx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/check.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/greencheck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/heart-shape-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/redx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/unedited.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Interaction Feedback/yellowminus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/Texture-Background-68F.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/bag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/baglogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/bluepostit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/checkbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/coffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/desktop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/diamond.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/greenpostit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/hi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/highlight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/intro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/introLeft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/introRight.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/leather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/leatherframe - Original.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/leatherframe - Rounded Corners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/logo.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/paper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/pencil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/postit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Main Theme and GUI/scrabble_logo_small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/blank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/g.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/i.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/k.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/o.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/q.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/r.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/t.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/u.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Scrabble Tiles/z.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,123 +180,111 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceLoader.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Alpha.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="171">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#482#483#0" expanded="true" />
-                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1030#1031#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageHelper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+            <state relative-caret-position="286">
+              <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#245#246#0" expanded="true" />
-                <element signature="e#322#323#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/App.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardSquare.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Direction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/HumanPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/PaneOrganizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="919" column="27" lean-forward="true" selection-start-line="919" selection-start-column="27" selection-end-line="919" selection-end-column="27" />
+              <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#16208#16209#0" expanded="true" />
-                <element signature="e#16237#16238#0" expanded="true" />
-                <element signature="e#17247#17248#0" expanded="true" />
-                <element signature="e#17262#17263#0" expanded="true" />
-                <element signature="e#18434#18435#0" expanded="true" />
-                <element signature="e#18455#18456#0" expanded="true" />
-                <element signature="e#22721#22722#0" expanded="true" />
-                <element signature="e#22744#22745#0" expanded="true" />
-                <element signature="e#29240#29241#0" expanded="true" />
-                <element signature="e#29265#29266#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/ScrabbleGame.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/BoardInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="845" column="32" selection-start-line="845" selection-start-column="32" selection-end-line="845" selection-end-column="32" />
+            <state relative-caret-position="120">
+              <caret line="8" column="83" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#31364#31365#0" expanded="true" />
-                <element signature="e#31406#31407#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Tile.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/TextConfigurer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10005">
-              <caret line="687" lean-forward="true" selection-start-line="686" selection-start-column="3" selection-end-line="687" />
+            <state relative-caret-position="1485">
+              <caret line="99" column="69" selection-start-line="99" selection-start-column="69" selection-end-line="99" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#18473#18474#0" expanded="true" />
-                <element signature="e#18494#18495#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/configuration/board_config.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Multiplier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding>
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#337#338#0" expanded="true" />
+                <element signature="e#358#359#0" expanded="true" />
+                <element signature="e#709#710#0" expanded="true" />
+                <element signature="e#752#753#0" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#822#823#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="27" column="97" selection-start-line="27" selection-start-column="97" selection-end-line="27" selection-end-column="97" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,6 +297,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -162,7 +309,15 @@
       <find>contains</find>
       <find>dictionar</find>
       <find>new Image</find>
+      <find>,</find>
+      <find>-</find>
+      <find>x = 14.0, y = 14.0</find>
+      <find>3,1</find>
     </findStrings>
+    <replaceStrings>
+      <replace>_</replace>
+      <replace>,</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -170,22 +325,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/Display/FXMLRoots/Scrabble.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/Display/FXMLControllers/BackgroundController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Display/FXMLRoots/Background.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Display/FXMLControllers/BackgroundController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Display/Utilities.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Utilities.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ImageLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ResourceLoaders/ImageLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ResourceLoaders/ResourceType.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ResourceLoaders/ResourceLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Beans/DoubleBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Beans/DoubleBinding.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/BindingMode.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/DoubleBinding.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/ImageBindings.java" />
@@ -195,9 +334,6 @@
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/Composite/ImageBindings.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/ImageUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" />
-        <option value="$PROJECT_DIR$/src/module-info.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/AIPlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/BoardSquare.java" />
@@ -216,17 +352,36 @@
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/WordOrientation.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/Image.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Alpha.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/PaneOrganizer.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/ScrabbleGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Tile.java" />
+        <option value="$PROJECT_DIR$/src/module-info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoardSquare.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/ScrabbleBoardSquare.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/ResourceType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ResourceCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/ScrabbleBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/ScrabbleBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Multiplier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/BoardInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardSquare.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/TextConfigurer.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/configuration/board_config.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="720" />
     <option name="height" value="829" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -237,8 +392,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,6 +434,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
               <item name="FXML" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
+              <item name="FXML" type="462c0819:PsiDirectoryNode" />
               <item name="Image" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -287,7 +451,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Scrabble" type="462c0819:PsiDirectoryNode" />
+              <item name="ScrabbleBoard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
@@ -317,6 +481,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="main.java.samwilkins333.ScrabbleMini.Logic" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/samwilkins333/Main/UserInterface/FXMLControllers/FXMLRoots" />
       <recent name="$PROJECT_DIR$/src/main/java/samwilkins333/Main/UserInterface/FXMLControllers" />
@@ -336,7 +503,7 @@
   </component>
   <component name="RunManager">
     <configuration name="ScrabbleMini" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="main.java.samwilkins333.ScrabbleMini.Logic.Scrabble.App" />
+      <option name="MAIN_CLASS_NAME" value="main.java.samwilkins333.ScrabbleMini.Main" />
       <module name="ScrabbleMini-FXML-Rework" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -367,13 +534,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17813000" />
+    <option name="totallyTimeSpent" value="28796000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="829" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28540772" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -382,19 +549,20 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32880434" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32971507" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39891452" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32971507" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3283582" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -418,16 +586,11 @@
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/ScrabbleGame.java</url>
-          <line>951</line>
-          <properties class="main.java.samwilkins333.ScrabbleMini.Logic.Scrabble.ScrabbleGame" method="dictionaryContains">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ScrabbleMini_FXML_Rework$ScrabbleMini.ic" NAME="ScrabbleMini Coverage Results" MODIFIED="1557862249604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -469,94 +632,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/images/Background/desktop.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/loader/ClassLoaders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-          <folding>
-            <element signature="e#2684#2685#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/images/background/ImageLoader.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/loader/BootLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
-          <folding>
-            <element signature="e#4217#4218#0" expanded="true" />
-            <element signature="e#4284#4285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="242" column="6" selection-start-line="242" selection-start-column="6" selection-end-line="242" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/image/Image.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="423" column="27" lean-forward="true" selection-start-line="423" selection-start-column="27" selection-end-line="423" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceLoaders/ImageLoader.java" />
-    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.fxml.jar!/javafx/fxml/FXMLLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="475" selection-start-line="475" selection-end-line="475" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="71" column="33" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="220" selection-start-line="220" selection-end-line="220" />
-          <folding>
-            <element signature="e#5733#5734#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="2711" selection-start-line="2711" selection-end-line="2711" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="1391" selection-start-line="1391" selection-end-line="1391" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/BindingMode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -596,23 +671,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageUtils.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/Primitive/DoubleBinding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -630,23 +688,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -704,15 +745,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Word.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="1785">
+          <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/WordAddition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -725,15 +766,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/AIPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="4740">
+          <caret line="326" selection-start-line="326" selection-end-line="326" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/BoardSquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="1485">
+          <caret line="258" column="7" selection-start-line="258" selection-start-column="7" selection-end-line="258" selection-end-column="7" />
+          <folding>
+            <element signature="e#1865#1866#0" expanded="true" />
+            <element signature="e#1893#1894#0" expanded="true" />
+            <element signature="e#1941#1942#0" expanded="true" />
+            <element signature="e#1969#1970#0" expanded="true" />
+            <element signature="e#2087#2088#0" expanded="true" />
+            <element signature="e#2106#2107#0" expanded="true" />
+            <element signature="e#2226#2227#0" expanded="true" />
+            <element signature="e#2245#2246#0" expanded="true" />
+            <element signature="e#2363#2364#0" expanded="true" />
+            <element signature="e#2382#2383#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+            <element signature="e#2663#2664#0" expanded="true" />
+            <element signature="e#5651#5652#0" expanded="true" />
+            <element signature="e#5674#5675#0" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#5839#5840#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -772,41 +831,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ImageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Alpha.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -844,12 +872,191 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Scrabble/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10005">
-          <caret line="687" lean-forward="true" selection-start-line="686" selection-start-column="3" selection-end-line="687" />
+        <state relative-caret-position="-48">
+          <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18473#18474#0" expanded="true" />
-            <element signature="e#18494#18495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.fxml.jar!/javafx/fxml/FXMLLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="388" column="16" selection-start-line="388" selection-start-column="16" selection-end-line="388" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="264" column="12" selection-start-line="264" selection-start-column="12" selection-end-line="264" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/shape/Rectangle.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/layout/GridPane.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="541" column="15" selection-start-line="541" selection-start-column="15" selection-end-line="541" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="97" selection-start-line="27" selection-start-column="97" selection-end-line="27" selection-end-column="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="390" column="18" selection-start-line="390" selection-start-column="18" selection-end-line="390" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ResourceLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Multiplier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#822#823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/paint/Color.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="402" column="22" selection-start-line="402" selection-start-column="22" selection-end-line="402" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Override.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/BoardInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="83" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration/board_config.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/ScrabbleBoard/BoardInitializer/TextConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="99" column="69" selection-start-line="99" selection-start-column="69" selection-end-line="99" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,8 @@ package main.resources;
 
 public enum ResourceType {
   IMAGE("images"),
-  FONT("fonts");
+  FONT("fonts"),
+  CONFIG("configuration");
 
   private final String text;
 

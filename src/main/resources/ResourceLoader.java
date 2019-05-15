@@ -7,10 +7,9 @@ public class ResourceLoader {
 
   private ResourceLoader() {}
 
-  public String load(ResourceType type, String relativePath) {
+  public URL load(ResourceType type, String relativePath) {
     String url = String.format("%s/%s", type, relativePath);
-    URL resource = getClass().getResource(url);
-    return resource.toExternalForm();
+    return getClass().getResource(url);
   }
 
 }

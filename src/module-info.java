@@ -6,7 +6,6 @@ module ScrabbleMini {
   requires kotlin.stdlib;
 
   exports main.java.samwilkins333.ScrabbleMini.FXML.Controllers;
-  exports main.java.samwilkins333.ScrabbleMini.Logic.Scrabble;
 
   opens main.java.samwilkins333.ScrabbleMini;
 }
