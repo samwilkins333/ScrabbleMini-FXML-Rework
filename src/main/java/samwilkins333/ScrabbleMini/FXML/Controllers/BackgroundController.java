@@ -7,12 +7,11 @@ import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.DoubleBinding;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard.BoardInitializer.TextConfigurer;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.TextConfigurer;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.net.URL;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class BackgroundController implements Initializable {

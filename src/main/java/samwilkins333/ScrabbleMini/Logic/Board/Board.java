@@ -1,9 +1,9 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard;
+package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-import main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard.BoardInitializer.BoardInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ public class Board {
   private final BoardInitializer<Multiplier, Paint> initializer;
   private BoardInitializer.BoardAttributes<Multiplier, Paint> attributes;
 
-  private Map<Point2D, Multiplier> multipliers = new HashMap<>();
+  private Multiplier[][] multipliers;
   private Map<Multiplier, Paint> colors = new HashMap<>();
 
   public Board(Pane root, BoardInitializer<Multiplier, Paint> initializer) {
@@ -40,7 +40,7 @@ public class Board {
       for (int row = 0; row < squareCount; row++) {
         int layoutX = squareSize * col;
         int layoutY = squareSize * row;
-        Paint fill = colors.get(multipliers.get(new Point2D(col, row)));
+        Paint fill = colors.get(multipliers[col][row]);
         BoardSquare square = new BoardSquare(layoutX, layoutY, squareSize, fill);
         root.getChildren().add(square.node());
       }

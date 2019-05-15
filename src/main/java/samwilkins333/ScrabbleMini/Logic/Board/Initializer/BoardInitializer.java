@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard.BoardInitializer;
+package main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer;
 
 import javafx.geometry.Point2D;
 
@@ -10,10 +10,10 @@ public interface BoardInitializer<D, C> {
   class BoardAttributes<D, C> {
     int squareCount;
     int squareSize;
-    Map<Point2D, D> locationMapping;
+    D[][] locationMapping;
     Map<D, C> attributeMapping;
 
-    BoardAttributes(int squareCount, int squareSize, Map<Point2D, D> locationMapping, Map<D, C> attributeMapping) {
+    BoardAttributes(int squareCount, int squareSize, D[][] locationMapping, Map<D, C> attributeMapping) {
       this.squareCount = squareCount;
       this.squareSize = squareSize;
       this.locationMapping = locationMapping;
@@ -28,7 +28,7 @@ public interface BoardInitializer<D, C> {
       return squareSize;
     }
 
-    public Map<Point2D, D> locationMapping() {
+    public D[][] locationMapping() {
       return locationMapping;
     }
 

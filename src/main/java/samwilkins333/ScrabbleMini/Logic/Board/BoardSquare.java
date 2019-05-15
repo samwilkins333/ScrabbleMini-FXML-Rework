@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard;
+package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;

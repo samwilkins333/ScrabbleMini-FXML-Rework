@@ -1,9 +1,9 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard.BoardInitializer;
+package main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer;
 
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import main.java.samwilkins333.ScrabbleMini.Logic.ScrabbleBoard.Multiplier;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Multiplier;
 import main.resources.ResourceCreator;
 
 import java.io.BufferedReader;
@@ -42,7 +42,7 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
   public BoardAttributes<Multiplier, Paint> initialize() {
     int squareCount = 0;
     int squareSize = 0;
-    Map<Point2D, Multiplier> multiplierMapping = new HashMap<>();
+    Multiplier[][] multiplierMapping = new Multiplier[15][15];
     Map<Multiplier, Paint> colorMapping = new HashMap<>();
 
     try {
@@ -58,9 +58,10 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
       if (!SIZING.matcher((sizing = reader.readLine().trim())).find())
         throw new IOException(INVALID_SIZING);
 
-      String[] sizings = sizing.split(SIZING_DELIMITER);
-      squareCount = Integer.valueOf(sizings[0]);
-      squareSize = Integer.valueOf(sizings[1].replace("px", ""));
+      String[] sizes = sizing.split(SIZING_DELIMITER);
+      squareCount = Integer.valueOf(sizes[0]);
+      squareSize = Integer.valueOf(sizes[1].replace("px", ""));
+      multiplierMapping = new Multiplier[squareCount][squareCount];
 
       reader.readLine();
       String line;
@@ -79,12 +80,9 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
 
         int column = 0;
         for (String pair : values) {
-          String[] split = pair.split(VALUE_DELIMITER);
-          int letterValue = Integer.valueOf(split[0]);
-          int wordValue = Integer.valueOf(split[1]);
-          Multiplier multiplier = new Multiplier(letterValue, wordValue);
+          Multiplier multiplier = Multiplier.parse(pair, VALUE_DELIMITER);
           multipliers.add(multiplier);
-          multiplierMapping.put(new Point2D(column, row), multiplier);
+          multiplierMapping[column][row] = multiplier;
           column++;
         }
         row++;
