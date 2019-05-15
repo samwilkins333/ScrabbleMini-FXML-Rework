@@ -26,14 +26,11 @@ public class BackgroundController implements Initializable {
   private void initializeImages() {
     desktop = ObservableImage.create(desktopView,"background/desktop.jpg", BindingMode.BIDIRECTIONAL);
     desktop.control().width(Main.screenWidth);
+    desktop.control().height(Main.screenHeight);
     desktop.control().opacity(1);
   }
 
   private void initializeBoard() {
     Board board = new Board(boardRoot, new TextConfigurer());
-
-    // centers the board in the primary desk space regardless of actual width and height
-    boardRoot.setLayoutX((Main.screenWidth - boardRoot.getPrefWidth()) / 2);
-    boardRoot.setLayoutY((Main.screenHeight * 0.85 - boardRoot.getPrefHeight()) / 2 + Main.screenHeight * 0.15);
   }
 }

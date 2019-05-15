@@ -27,7 +27,7 @@ public class ObservableImage {
   public static ObservableImage create(ImageView target, String location, BindingMode mode) {
     String resource = ResourceLoader.instance.load(ResourceType.IMAGE, location).toExternalForm();
     target.setImage(new Image(resource));
-    target.setPreserveRatio(true);
+    target.setPreserveRatio(false);
 
     ImageBindings bindings = new ImageBindings();
     bindings.bind(target, mode);

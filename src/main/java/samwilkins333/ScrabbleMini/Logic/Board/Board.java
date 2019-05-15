@@ -4,8 +4,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
-
+import main.java.samwilkins333.ScrabbleMini.Main;
 import java.util.Map;
+
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
 
 public class Board {
   private final Tile[][] internalState;
@@ -32,18 +34,30 @@ public class Board {
     squareCount = attributes.squareCount();
     multipliers = attributes.locationMapping();
 
-    int squareSize = attributes.squareSize();
+    squareSidePixels = attributes.squareSize();
+    dimensions = attributes.squareCount();
+    sideLengthPixels = squareCount * squareSidePixels;
+
     Map<Multiplier, Paint> colors = attributes.attributeMapping();
 
-    root.setPrefWidth(squareCount * squareSize);
-    root.setPrefHeight(squareCount * squareSize);
+    root.setPrefWidth(sideLengthPixels);
+    root.setPrefHeight(sideLengthPixels);
+
+    // centers the board in the primary desk space regardless of actual width and height
+    originLeftPixels = (Main.screenWidth - sideLengthPixels) / 2;
+    originTopPixels = (Main.screenHeight * 0.85 - sideLengthPixels) / 2 + Main.screenHeight * 0.15;
+
+    root.setLayoutX(originLeftPixels);
+    root.setLayoutY(originTopPixels);
+
+    dimensions = squareCount;
 
     for (int col = 0; col < squareCount; col++) {
       for (int row = 0; row < squareCount; row++) {
-        int layoutX = squareSize * col;
-        int layoutY = squareSize * row;
+        int layoutX = squareSidePixels * col;
+        int layoutY = squareSidePixels * row;
         Paint fill = colors.get(multipliers[col][row]);
-        BoardSquare square = new BoardSquare(layoutX, layoutY, squareSize, fill);
+        BoardSquare square = new BoardSquare(layoutX, layoutY, squareSidePixels, fill);
         root.getChildren().add(square.node());
       }
     }
