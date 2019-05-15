@@ -17,18 +17,21 @@ import java.util.regex.Pattern;
 
 public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
 
-  private static final String CONFIG = "board_config.txt";
+  private static final String CONFIG_FILE = "board_config.txt";
+
+  private static final String SIZING_DELIMITER = " squares @ ";
   private static final String PAIR_DELIMITER = " _ ";
   private static final String VALUE_DELIMITER = ",";
 
-  private static final Pattern MULTIPLIERS = Pattern.compile("MULTIPLIERS \\(\\d+ x \\d+\\)");
+
+  private static final Pattern SIZING = Pattern.compile("\\d+" + SIZING_DELIMITER + "\\d+px");
   private static final Pattern CONTROL = Pattern.compile("( _ )?(\\d+,\\d+)");
   private static final Pattern COLOR_MAPPING = Pattern.compile("\\d+,\\d+ _ [A-Z]+");
 
   private static final String PREFIX = "Invalid board configuration! ";
 
   private static final String INVALID_HEADER =  PREFIX + "The given file's header is invalid";
-  private static final String INVALID_OVERVIEW = PREFIX + "The given file's dimensions are invalid";
+  private static final String INVALID_SIZING = PREFIX + "The given file's dimensions are invalid.";
   private static final String INSUFFICIENT_PAIRS = PREFIX + " Line %d did not contain %d value pairs.";
   private static final String INSUFFICIENT_ROWS = PREFIX + "File specifies only %d of the required %s rows.";
   private static final String COLORS_ABSENT = PREFIX + "No color mapping header encountered.";
@@ -36,22 +39,31 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
   private static final String EXCESS_INFO = PREFIX + "The file contains more than the necessary information.";
 
   @Override
-  public Map<Multiplier, Paint> initialize(Map<Point2D, Multiplier> customValueMapping, int squareCount) {
-    Map<Multiplier, Paint> customColorMapping = new HashMap<>();
+  public BoardAttributes<Multiplier, Paint> initialize() {
+    int squareCount = 0;
+    int squareSize = 0;
+    Map<Point2D, Multiplier> multiplierMapping = new HashMap<>();
+    Map<Multiplier, Paint> colorMapping = new HashMap<>();
+
     try {
       Set<Multiplier> multipliers = new HashSet<>();
-      String line;
       int row = 0;
-      BufferedReader reader = ResourceCreator.read(CONFIG);
+      BufferedReader reader = ResourceCreator.read(CONFIG_FILE);
 
       if (!Pattern.compile("SCRABBLE BOARD CONFIGURATION").matcher(reader.readLine().trim()).find())
         throw new IOException(INVALID_HEADER);
 
       reader.readLine();
-      if (!MULTIPLIERS.matcher(reader.readLine().trim()).find())
-        throw new IOException(INVALID_OVERVIEW);
+      String sizing;
+      if (!SIZING.matcher((sizing = reader.readLine().trim())).find())
+        throw new IOException(INVALID_SIZING);
+
+      String[] sizings = sizing.split(SIZING_DELIMITER);
+      squareCount = Integer.valueOf(sizings[0]);
+      squareSize = Integer.valueOf(sizings[1].replace("px", ""));
 
       reader.readLine();
+      String line;
       while (!(line = reader.readLine()).equals("")) {
         int pairs = 0;
         Matcher controller = CONTROL.matcher(line);
@@ -72,7 +84,7 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
           int wordValue = Integer.valueOf(split[1]);
           Multiplier multiplier = new Multiplier(letterValue, wordValue);
           multipliers.add(multiplier);
-          customValueMapping.put(new Point2D(column, row), multiplier);
+          multiplierMapping.put(new Point2D(column, row), multiplier);
           column++;
         }
         row++;
@@ -87,12 +99,13 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
       reader.readLine();
       String entry;
       for (int i = 0; i < multipliers.size(); i++) {
-        if (!COLOR_MAPPING.matcher((entry = reader.readLine().trim())).find())
+        entry = reader.readLine();
+        if (entry == null || !COLOR_MAPPING.matcher(entry.trim()).find())
           throw new IOException(INVALID_MAPPING);
         String[] mapping = entry.split(PAIR_DELIMITER);
         Multiplier read = Multiplier.parse(mapping[0], VALUE_DELIMITER);
         Paint color = Color.valueOf(mapping[1]);
-        customColorMapping.put(read, color);
+        colorMapping.put(read, color);
       }
 
       String trailing;
@@ -105,7 +118,7 @@ public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
       System.exit(1);
     }
 
-    return customColorMapping;
+    return new BoardAttributes<>(squareCount, squareSize, multiplierMapping, colorMapping);
   }
 
 }

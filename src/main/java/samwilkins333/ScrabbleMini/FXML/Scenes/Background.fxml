@@ -1,13 +1,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.GridPane?>
 
 <Pane
         fx:controller="main.java.samwilkins333.ScrabbleMini.FXML.Controllers.BackgroundController"
         xmlns:fx="http://javafx.com/fxml"
 >
-    <children>
-        <ImageView fx:id="desktopView"/>
-        <GridPane fx:id="boardRoot"/>
-    </children>
+    <ImageView fx:id="desktopView"/>
+    <Pane fx:id="boardRoot"/>
 </Pane>
