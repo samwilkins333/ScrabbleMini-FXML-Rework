@@ -24,10 +24,10 @@ public class ObservableImage {
     return view;
   }
 
-  public static ObservableImage create(ImageView target, String location, BindingMode mode) {
+  public static ObservableImage create(ImageView target, String location, BindingMode mode, boolean ratio) {
     String resource = ResourceLoader.instance.load(ResourceType.IMAGE, location).toExternalForm();
     target.setImage(new Image(resource));
-    target.setPreserveRatio(false);
+    target.setPreserveRatio(ratio);
 
     ImageBindings bindings = new ImageBindings();
     bindings.bind(target, mode);

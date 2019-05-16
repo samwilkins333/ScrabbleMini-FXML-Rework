@@ -13,24 +13,46 @@ import main.java.samwilkins333.ScrabbleMini.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
+
 public class BackgroundController implements Initializable {
-  @FXML public ImageView desktopView; private ObservableImage desktop;
-  @FXML public Pane boardRoot;
+  @FXML
+  public ImageView desktop;
+  private ObservableImage desktopObservable;
+  @FXML
+  public ImageView leather;
+  private ObservableImage leatherObservable;
+  @FXML
+  public ImageView tilebag;
+  private ObservableImage tilebagObservable;
+  @FXML
+  public Pane boardRoot;
+  private Board board;
+
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    board = new Board(boardRoot, new TextConfigurer());
     initializeImages();
-    initializeBoard();
   }
 
   private void initializeImages() {
-    desktop = ObservableImage.create(desktopView,"background/desktop.jpg", BindingMode.BIDIRECTIONAL);
-    desktop.control().width(Main.screenWidth);
-    desktop.control().height(Main.screenHeight);
-    desktop.control().opacity(1);
-  }
+    desktopObservable = ObservableImage.create(desktop, "background/desktop.jpg", BindingMode.BIDIRECTIONAL, true);
+    desktopObservable.control().width(Main.screenWidth);
+    desktopObservable.control().opacity(1);
 
-  private void initializeBoard() {
-    Board board = new Board(boardRoot, new TextConfigurer());
+    int padding = 15;
+    leatherObservable = ObservableImage.create(leather, "background/leather.png", BindingMode.BIDIRECTIONAL, false);
+    leatherObservable.control().width(sideLengthPixels + padding * 2);
+    leatherObservable.control().height(sideLengthPixels + padding * 2);
+    leatherObservable.control().layoutX(originLeftPixels - padding);
+    leatherObservable.control().layoutY(originTopPixels - padding);
+    leatherObservable.control().opacity(1);
+
+    tilebagObservable = ObservableImage.create(tilebag, "background/tilebag.png", BindingMode.BIDIRECTIONAL, true);
+    tilebagObservable.control().width(250);
+    tilebagObservable.control().layoutX(200);
+    tilebagObservable.control().layoutY(350);
+    tilebagObservable.control().opacity(1);
   }
 }

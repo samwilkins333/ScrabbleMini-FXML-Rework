@@ -10,7 +10,7 @@ import java.util.Map;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
 
 public class Board {
-  private final Tile[][] internalState;
+  private BoardSquare[][] internalState;
 
   private final Pane root;
   private int squareCount;
@@ -24,8 +24,6 @@ public class Board {
     this.initializer = initializer;
 
     initializeLayout();
-
-    this.internalState = new Tile[squareCount][squareCount];
   }
 
   private void initializeLayout() {
@@ -44,20 +42,20 @@ public class Board {
     root.setPrefHeight(sideLengthPixels);
 
     // centers the board in the primary desk space regardless of actual width and height
-    originLeftPixels = (Main.screenWidth - sideLengthPixels) / 2;
+    originLeftPixels = (Main.screenWidth * 0.9 - sideLengthPixels) / 2 + Main.screenWidth * 0.1;
     originTopPixels = (Main.screenHeight * 0.85 - sideLengthPixels) / 2 + Main.screenHeight * 0.15;
 
     root.setLayoutX(originLeftPixels);
     root.setLayoutY(originTopPixels);
 
-    dimensions = squareCount;
-
+    internalState = new BoardSquare[squareCount][squareCount];
     for (int col = 0; col < squareCount; col++) {
       for (int row = 0; row < squareCount; row++) {
         int layoutX = squareSidePixels * col;
         int layoutY = squareSidePixels * row;
         Paint fill = colors.get(multipliers[col][row]);
         BoardSquare square = new BoardSquare(layoutX, layoutY, squareSidePixels, fill);
+        internalState[col][row] = square;
         root.getChildren().add(square.node());
       }
     }
@@ -72,7 +70,7 @@ public class Board {
   }
 
   public void play(Tile tile, int column, int row) {
-    this.internalState[column][row] = tile;
+    this.internalState[column][row].play(tile);
   }
 
 }

@@ -8,12 +8,16 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.Doubl
 public class ImageBindings {
   private DoubleBinding width;
   private DoubleBinding height;
+  private DoubleBinding layoutX;
+  private DoubleBinding layoutY;
   private BooleanBinding cache;
   private DoubleBinding opacity;
 
   public ImageBindings() {
     this.width = new DoubleBinding();
     this.height = new DoubleBinding();
+    this.layoutX = new DoubleBinding();
+    this.layoutY = new DoubleBinding();
     this.cache = new BooleanBinding();
     this.opacity = new DoubleBinding();
   }
@@ -21,6 +25,8 @@ public class ImageBindings {
   public void bind(ImageView target, BindingMode mode) {
     width.bind(target.fitWidthProperty(), mode);
     height.bind(target.fitHeightProperty(), mode);
+    layoutX.bind(target.layoutXProperty(), mode);
+    layoutY.bind(target.layoutYProperty(), mode);
     cache.bind(target.cacheProperty(), mode);
     opacity.bind(target.opacityProperty(), mode);
   }
@@ -35,6 +41,14 @@ public class ImageBindings {
 
   public boolean cached() {
     return cache.getValue();
+  }
+
+  public void layoutX(double xPixels) {
+    this.layoutX.setValue(xPixels);
+  }
+
+  public void layoutY(double yPixels) {
+    this.layoutY.setValue(yPixels);
   }
 
   public void width(double width) {

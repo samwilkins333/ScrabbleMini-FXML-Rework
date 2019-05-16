@@ -5,6 +5,8 @@
         fx:controller="main.java.samwilkins333.ScrabbleMini.FXML.Controllers.BackgroundController"
         xmlns:fx="http://javafx.com/fxml"
 >
-    <ImageView fx:id="desktopView"/>
+    <ImageView fx:id="desktop"/>
+    <ImageView fx:id="leather"/>
+    <ImageView fx:id="tilebag"/>
     <Pane fx:id="boardRoot"/>
 </Pane>
