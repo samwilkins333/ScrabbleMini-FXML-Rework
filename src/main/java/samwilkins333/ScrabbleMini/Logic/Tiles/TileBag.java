@@ -3,11 +3,13 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Tiles;
 import javafx.scene.image.ImageView;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagAttributes;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagInitializer;
 
 public class TileBag {
   private ObservableImage root;
   private TileBagInitializer initializer;
+  private TileBagAttributes attributes;
 
   public TileBag(ImageView root, TileBagInitializer initializer) {
     this.initializer = initializer;
@@ -23,6 +25,10 @@ public class TileBag {
     root.shadow(true);
     root.control().rotate(45);
 
-    initializer.initialize();
+    attributes = initializer.initialize();
+  }
+
+  public TileBagAttributes attributes() {
+    return attributes;
   }
 }
