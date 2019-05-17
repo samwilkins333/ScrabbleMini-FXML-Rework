@@ -48,11 +48,13 @@ public class BackgroundController implements Initializable {
     leatherObservable.control().layoutX(originLeftPixels - padding);
     leatherObservable.control().layoutY(originTopPixels - padding);
     leatherObservable.control().opacity(1);
+    leatherObservable.shadow(true);
 
     tilebagObservable = ObservableImage.create(tilebag, "background/tilebag.png", BindingMode.BIDIRECTIONAL, true);
     tilebagObservable.control().width(250);
     tilebagObservable.control().layoutX(200);
     tilebagObservable.control().layoutY(350);
     tilebagObservable.control().opacity(1);
+    tilebagObservable.shadow(true);
   }
 }
