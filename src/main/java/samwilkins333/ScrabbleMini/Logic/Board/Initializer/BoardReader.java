@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TextConfigurer implements BoardInitializer<Multiplier, Paint> {
+public class BoardReader implements BoardInitializer<Multiplier, Paint> {
 
   private static final String CONFIG_FILE = "board_config.txt";
 

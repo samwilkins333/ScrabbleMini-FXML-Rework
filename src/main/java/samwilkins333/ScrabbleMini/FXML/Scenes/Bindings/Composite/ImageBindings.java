@@ -12,6 +12,7 @@ public class ImageBindings {
   private DoubleBinding layoutY;
   private BooleanBinding cache;
   private DoubleBinding opacity;
+  private DoubleBinding rotation;
 
   public ImageBindings() {
     this.width = new DoubleBinding();
@@ -20,6 +21,7 @@ public class ImageBindings {
     this.layoutY = new DoubleBinding();
     this.cache = new BooleanBinding();
     this.opacity = new DoubleBinding();
+    this.rotation = new DoubleBinding();
   }
 
   public void bind(ImageView target, BindingMode mode) {
@@ -29,6 +31,7 @@ public class ImageBindings {
     layoutY.bind(target.layoutYProperty(), mode);
     cache.bind(target.cacheProperty(), mode);
     opacity.bind(target.opacityProperty(), mode);
+    rotation.bind(target.rotateProperty(), mode);
   }
 
   public double width() {
@@ -42,6 +45,8 @@ public class ImageBindings {
   public boolean cached() {
     return cache.getValue();
   }
+
+  public double rotation() { return rotation.getValue(); }
 
   public void layoutX(double xPixels) {
     this.layoutX.setValue(xPixels);
@@ -64,4 +69,7 @@ public class ImageBindings {
   }
 
   public void opacity(double opacity) { this.opacity.setValue(opacity); }
+
+  public void rotate(double degrees) { this.rotation.setValue(degrees); }
+
 }

@@ -42,7 +42,7 @@ public class Board {
     root.setPrefHeight(sideLengthPixels);
 
     // centers the board in the primary desk space regardless of actual width and height
-    originLeftPixels = (Main.screenWidth * 0.9 - sideLengthPixels) / 2 + Main.screenWidth * 0.1;
+    originLeftPixels = (Main.screenWidth * 0.75 - sideLengthPixels) / 2 + Main.screenWidth * 0.25;
     originTopPixels = (Main.screenHeight * 0.85 - sideLengthPixels) / 2 + Main.screenHeight * 0.15;
 
     root.setLayoutX(originLeftPixels);
