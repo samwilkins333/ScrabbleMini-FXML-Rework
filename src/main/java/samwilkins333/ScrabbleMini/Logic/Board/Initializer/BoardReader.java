@@ -4,6 +4,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Multiplier;
+import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;
 
 import java.io.BufferedReader;
@@ -113,7 +114,7 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
 
     } catch (IOException e) {
       e.printStackTrace();
-      System.exit(1);
+      Main.exit(null);
     }
 
     return new BoardAttributes<>(squareCount, squareSize, multiplierMapping, colorMapping);

@@ -1,6 +1,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.control.Button?>
 <Pane
         fx:controller="main.java.samwilkins333.ScrabbleMini.FXML.Controllers.BackgroundController"
         xmlns:fx="http://javafx.com/fxml"
@@ -8,5 +9,6 @@
     <ImageView fx:id="desktopView"/>
     <ImageView fx:id="leatherView"/>
     <ImageView fx:id="tilebagView"/>
-    <Pane fx:id="boardRoot"/>
+    <Pane fx:id="boardPane"/>
+    <Button onAction="#begin"/>
 </Pane>

@@ -48,6 +48,10 @@ public class ImageBindings {
 
   public double rotation() { return rotation.getValue(); }
 
+  public double layoutX() { return layoutX.getValue(); }
+
+  public double layoutY() { return layoutY.getValue(); }
+
   public void layoutX(double xPixels) {
     this.layoutX.setValue(xPixels);
   }

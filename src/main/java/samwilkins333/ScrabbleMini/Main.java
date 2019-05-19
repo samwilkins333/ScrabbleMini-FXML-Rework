@@ -15,7 +15,14 @@ public class Main extends Application {
     public static double screenWidth = Screen.getPrimary().getBounds().getWidth();
     public static double screenHeight = Screen.getPrimary().getBounds().getHeight();
 
-    @Override
+  public static void exit(String reason) {
+    if (reason != null) {
+      System.out.printf("The application had to exit:\n%s", reason);
+    }
+    System.exit(1);
+  }
+
+  @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("FXML/Scenes/Background.fxml"));
         primaryStage.setTitle("Hello World");

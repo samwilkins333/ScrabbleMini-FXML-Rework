@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer;
 
+import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;
 
 import java.io.BufferedReader;
@@ -10,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public class TileReader implements TileBagInitializer {
+public class TileBagReader implements TileBagInitializer {
 
   private static final String CONFIG_FILE = "tilebag_config.txt";
   private static final String VALUE_DELIMITER = ", ";
@@ -43,7 +44,7 @@ public class TileReader implements TileBagInitializer {
           throw new IOException(String.format(INVALID_MAPPING, count));
 
         String[] components = line.split(VALUE_DELIMITER);
-        String letter = components[0];
+        String letter = components[0].toLowerCase();
 
         if (encountered.contains(letter))
           throw new IOException(DUPLICATE_MAPPING);
@@ -65,7 +66,7 @@ public class TileReader implements TileBagInitializer {
 
     } catch (IOException e) {
       e.printStackTrace();
-      System.exit(1);
+      Main.exit(null);
     }
 
     return new TileBagAttributes(metadataMapping);

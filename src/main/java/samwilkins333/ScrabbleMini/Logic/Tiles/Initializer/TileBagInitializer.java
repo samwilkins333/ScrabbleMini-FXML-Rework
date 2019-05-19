@@ -6,14 +6,14 @@ public interface TileBagInitializer {
   TileBagAttributes initialize();
 
   class TileBagAttributes {
-    private Map<String, TileMetaData> metadata;
+    private Map<String, TileMetaData> metadataMapping;
 
     TileBagAttributes(Map<String, TileMetaData> metadata) {
-      this.metadata = metadata;
+      this.metadataMapping = metadata;
     }
 
-    public TileMetaData request(String letter) {
-      return metadata.get(letter);
+    public Map<String, TileMetaData> metadataMapping() {
+      return metadataMapping;
     }
   }
 

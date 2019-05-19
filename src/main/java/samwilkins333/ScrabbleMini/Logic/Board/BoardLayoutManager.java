@@ -8,6 +8,7 @@ public final class BoardLayoutManager {
   public static int squareSidePixels;
   public static double dimensions;
   public static double sideLengthPixels;
+  private static int rackSize = 7;
 
   public static Point2D toPixels(int column, int row) {
     double sceneXPixels = originLeftPixels + squareSidePixels * column;
@@ -19,5 +20,15 @@ public final class BoardLayoutManager {
     double column = (int) (sceneXPixels - originLeftPixels) / squareSidePixels;
     double row = (int) (sceneYPixels - originTopPixels) / squareSidePixels;
     return new Point2D(column, row);
+  }
+
+  public final class LeftRack {
+    public double originLeftPixels() { return BoardLayoutManager.originLeftPixels - squareSidePixels; }
+    public double originTopPixels() { return BoardLayoutManager.originTopPixels + ((dimensions - rackSize) * squareSidePixels) / 2; }
+  }
+
+  public final class RightRack {
+    public double originLeftPixels = BoardLayoutManager.originLeftPixels + sideLengthPixels + squareSidePixels;
+    public double originTopPixels() { return BoardLayoutManager.originTopPixels + ((dimensions - rackSize) * squareSidePixels) / 2; }
   }
 }
