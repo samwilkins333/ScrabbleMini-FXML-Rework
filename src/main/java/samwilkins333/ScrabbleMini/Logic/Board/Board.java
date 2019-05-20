@@ -79,7 +79,7 @@ public class Board {
   }
 
   public boolean has(int column, int row) {
-    return internalState[column][row] != null;
+    return internalState[column][row].played();
   }
 
   public void play(Tile tile) {
@@ -101,7 +101,7 @@ public class Board {
     placed.clear();
   }
 
-  public Iterator<Tile> placements() {
-    return placed.isEmpty() ? null : placed.iterator();
+  public List<Tile> placements() {
+    return List.copyOf(placed);
   }
 }

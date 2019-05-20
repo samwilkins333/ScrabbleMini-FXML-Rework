@@ -7,9 +7,10 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 import java.util.List;
 
 public abstract class Referee {
-  private final List<Player> players;
-  private final Board board;
-  private int current;
+  protected final List<Player> players;
+  protected final Board board;
+  protected int current;
+  protected int moves = 0;
 
   Referee(List<Player> players, Board board, TileBag tileBag) {
     this.players = players;
