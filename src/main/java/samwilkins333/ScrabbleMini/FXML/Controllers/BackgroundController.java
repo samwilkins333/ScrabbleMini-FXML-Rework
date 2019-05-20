@@ -45,16 +45,16 @@ public class BackgroundController implements Initializable {
 
   private void initializeBackground() {
     ObservableImage desktopObservable = ObservableImage.create(desktopView, "background/desktop.jpg", BindingMode.BIDIRECTIONAL, true);
-    desktopObservable.control().width(Main.screenWidth);
-    desktopObservable.control().opacity(1);
+    desktopObservable.bindings().width(Main.screenWidth);
+    desktopObservable.bindings().opacity(1);
 
     int padding = 15;
     ObservableImage leatherObservable = ObservableImage.create(leatherView, "background/leather.png", BindingMode.BIDIRECTIONAL, false);
-    leatherObservable.control().width(sideLengthPixels + padding * 2);
-    leatherObservable.control().height(sideLengthPixels + padding * 2);
-    leatherObservable.control().layoutX(originLeftPixels - padding);
-    leatherObservable.control().layoutY(originTopPixels - padding);
-    leatherObservable.control().opacity(1);
+    leatherObservable.bindings().width(sideLengthPixels + padding * 2);
+    leatherObservable.bindings().height(sideLengthPixels + padding * 2);
+    leatherObservable.bindings().layoutX(originLeftPixels - padding);
+    leatherObservable.bindings().layoutY(originTopPixels - padding);
+    leatherObservable.bindings().opacity(1);
     leatherObservable.shadow(true);
   }
 

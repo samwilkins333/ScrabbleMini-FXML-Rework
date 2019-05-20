@@ -14,7 +14,6 @@ import main.java.samwilkins333.ScrabbleMini.Main;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squareSidePixels;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.tileWidth;
 
 public class TileBag {
@@ -36,12 +35,12 @@ public class TileBag {
   }
 
   private void initializeLayout() {
-    root.control().width(250);
-    root.control().layoutX(100);
-    root.control().layoutY(400);
-    root.control().opacity(1);
+    root.bindings().width(250);
+    root.bindings().layoutX(100);
+    root.bindings().layoutY(400);
+    root.bindings().opacity(1);
     root.shadow(true);
-    root.control().rotate(45);
+    root.bindings().rotate(45);
 
     attributes = initializer.initialize();
     attributes.metadataMapping().forEach((letter, metadata) -> {
@@ -58,8 +57,8 @@ public class TileBag {
     shake.setAutoReverse(true);
 
     hide = new TranslateTransition(Duration.seconds(3), root.imageView());
-    hide.setByX(-1 * (root.control().layoutX() + root.control().width()));
-    hide.setByY(Main.screenHeight - root.control().layoutY());
+    hide.setByX(-1 * (root.bindings().layoutX() + root.bindings().width()));
+    hide.setByY(Main.screenHeight - root.bindings().layoutY());
   }
 
   public TileBagInitializer.TileBagAttributes attributes() {
@@ -74,11 +73,11 @@ public class TileBag {
 
   private ObservableImage createVisual(String letter) {
     String url = String.format("tiles/%s.png", letter);
-    ObservableImage visual = ObservableImage.create(new ImageView(), url, BindingMode.BIDIRECTIONAL, true);
-    visual.control().width(tileWidth);
+    ObservableImage visual = ObservableImage.createStandard(url, BindingMode.BIDIRECTIONAL);
+    visual.bindings().width(tileWidth);
     visual.shadow(true);
     visual.shadowColor(Color.BLACK);
-    visual.control().opacity(1);
+    visual.bindings().opacity(1);
     return visual;
   }
 

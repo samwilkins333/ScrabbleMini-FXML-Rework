@@ -1,7 +1,9 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Tiles;
 
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
@@ -11,6 +13,8 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManage
 public class Tile {
   private final String letter;
   private final ObservableImage root;
+  private TileOverlayStack overlays;
+  private Point2D actualIndices;
   private Point2D initialLayout;
 
   private double dragReferenceX;
@@ -19,8 +23,17 @@ public class Tile {
   Tile(String letter, ObservableImage root) {
     this.letter = letter;
     this.root = root;
+    this.actualIndices = new Point2D(-1, -1);
 
     initializeInteractions();
+  }
+
+  public void initializeOverlays(ObservableList<Node> visibleElements) {
+    this.overlays = new TileOverlayStack(root.bindings(), visibleElements);
+  }
+
+  public String letter() {
+    return letter;
   }
 
   private void initializeInteractions() {
@@ -44,7 +57,7 @@ public class Tile {
       double deltaX = observedX - dragReferenceX;
       double deltaY = observedY - dragReferenceY;
 
-      ImageBindings bindings = root.control();
+      ImageBindings bindings = root.bindings();
       bindings.layoutX(bindings.layoutX() + deltaX);
       bindings.layoutY(bindings.layoutY() + deltaY);
 
@@ -55,21 +68,23 @@ public class Tile {
 
   private EventHandler<MouseEvent> onMouseReleased() {
     return e -> {
-      ImageBindings bindings = root.control();
+      ImageBindings bindings = root.bindings();
       double centerX = bindings.layoutX() + tileWidth / 2;
       double centerY = bindings.layoutY() + tileWidth / 2;
 
+      if (e.getClickCount() > 1) overlays.flash(OverlayType.SUCCESS);
+
       Point2D indices;
       if ((indices = toIndices(new Point2D(centerX, centerY))) != null) {
-        Point2D quantized = toPixels(indices);
-        bindings.layoutX(quantized.getX() + tilePadding);
-        bindings.layoutY(quantized.getY() + tilePadding);
+        actualIndices = toPixels(indices);
+        bindings.layoutX(actualIndices.getX() + tilePadding);
+        bindings.layoutY(actualIndices.getY() + tilePadding);
       } else reset();
     };
   }
 
   private void reset() {
-    ImageBindings bindings = root.control();
+    ImageBindings bindings = root.bindings();
     bindings.layoutX(initialLayout.getX());
     bindings.layoutY(initialLayout.getY());
   }

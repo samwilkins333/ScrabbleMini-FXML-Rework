@@ -11,18 +11,20 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManage
 
 public abstract class Player {
   PlayerType type;
+  private final int playerNumber;
   Rack rack;
 
 
-  Player(PlayerType type) {
+  Player(PlayerType type, int playerNumber) {
     this.type = type;
+    this.playerNumber = playerNumber;
     this.rack = new Rack(7);
   }
 
-  public static Player fromType(PlayerType type) {
+  public static Player fromType(PlayerType type, int playerNumber) {
     switch (type) {
-      case HUMAN: return new HumanPlayer();
-      case SIMULATED: return new SimulatedPlayer();
+      case HUMAN: return new HumanPlayer(playerNumber);
+      case SIMULATED: return new SimulatedPlayer(playerNumber);
       default: return null;
     }
   }
@@ -31,12 +33,13 @@ public abstract class Player {
     while (!rack.isFull()) {
       Tile drawn = tileBag.draw();
 
-      ImageBindings bindings = drawn.observableImage().control();
-      double initialX = tilePadding - 2 * squareSidePixels;
+      ImageBindings bindings = drawn.observableImage().bindings();
+      double initialX = tilePadding + (playerNumber == 1 ? -2 * squareSidePixels : sideLengthPixels + squareSidePixels);
       double initialY = tilePadding + originTopPixelsLeftRack() + squareSidePixels * rack.size();
       bindings.layoutX(initialX);
       bindings.layoutY(initialY);
       drawn.initialLayout(initialX, initialY);
+      drawn.initializeOverlays(boardPane);
 
       rack.add(drawn);
       boardPane.add(drawn.observableImage().imageView());

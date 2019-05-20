@@ -9,6 +9,6 @@ public class PlayerSchema extends ArrayList<Player> {
   }
 
   public void initialize(int playerNumber, PlayerType type) {
-    add(playerNumber - 1, Player.fromType(type));
+    add(playerNumber - 1, Player.fromType(type, playerNumber));
   }
 }

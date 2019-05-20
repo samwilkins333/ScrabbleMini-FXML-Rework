@@ -12,8 +12,23 @@ import javafx.stage.Stage;
 // https://scss.tcd.ie/publications/theses/diss/2015/TCD-SCSS-DISSERTATION-2015-069.pdf
 
 public class Main extends Application {
-    public static double screenWidth = Screen.getPrimary().getBounds().getWidth();
-    public static double screenHeight = Screen.getPrimary().getBounds().getHeight();
+  public static double screenWidth = Screen.getPrimary().getBounds().getWidth();
+  public static double screenHeight = Screen.getPrimary().getBounds().getHeight();
+
+  @Override
+  public void start(Stage primaryStage) throws Exception{
+      Parent root = FXMLLoader.load(getClass().getResource("FXML/Scenes/Background.fxml"));
+      primaryStage.setTitle("ScrabbleMini");
+
+      Rectangle2D bounds = Screen.getPrimary().getBounds();
+
+      primaryStage.setScene(new Scene(root, bounds.getWidth(), bounds.getHeight()));
+      primaryStage.show();
+  }
+
+  public static void main(String[] args) {
+      launch(args);
+  }
 
   public static void exit(String reason) {
     if (reason != null) {
@@ -21,19 +36,4 @@ public class Main extends Application {
     }
     System.exit(1);
   }
-
-  @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FXML/Scenes/Background.fxml"));
-        primaryStage.setTitle("Hello World");
-
-        Rectangle2D bounds = Screen.getPrimary().getBounds();
-
-        primaryStage.setScene(new Scene(root, bounds.getWidth(), bounds.getHeight()));
-        primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

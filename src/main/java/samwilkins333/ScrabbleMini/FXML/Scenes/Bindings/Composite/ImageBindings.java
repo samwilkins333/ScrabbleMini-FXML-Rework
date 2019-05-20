@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite;
 
+import javafx.beans.property.DoubleProperty;
 import javafx.scene.image.ImageView;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.BooleanBinding;
@@ -24,7 +25,7 @@ public class ImageBindings {
     this.rotation = new DoubleBinding();
   }
 
-  public void bind(ImageView target, BindingMode mode) {
+  public void bindAll(ImageView target, BindingMode mode) {
     width.bind(target.fitWidthProperty(), mode);
     height.bind(target.fitHeightProperty(), mode);
     layoutX.bind(target.layoutXProperty(), mode);
@@ -51,6 +52,34 @@ public class ImageBindings {
   public double layoutX() { return layoutX.getValue(); }
 
   public double layoutY() { return layoutY.getValue(); }
+
+  public DoubleBinding widthBinding() {
+    return width;
+  }
+
+  public DoubleBinding heightBinding() {
+    return height;
+  }
+
+  public DoubleBinding layoutXBinding() {
+    return layoutX;
+  }
+
+  public DoubleBinding layoutYBinding() {
+    return layoutY;
+  }
+
+  public BooleanBinding cacheBinding() {
+    return cache;
+  }
+
+  public DoubleBinding opacityBinding() {
+    return opacity;
+  }
+
+  public DoubleBinding rotationBinding() {
+    return rotation;
+  }
 
   public void layoutX(double xPixels) {
     this.layoutX.setValue(xPixels);

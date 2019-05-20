@@ -27,7 +27,7 @@ public class ObservableImage {
     shadow.setHeight(25);
   }
 
-  public ImageBindings control() {
+  public ImageBindings bindings() {
     return bindings;
   }
 
@@ -49,10 +49,16 @@ public class ObservableImage {
     target.setPreserveRatio(ratio);
 
     ImageBindings bindings = new ImageBindings();
-    bindings.bind(target, mode);
-    bindings.cached(true);
+    if (mode != BindingMode.NONE) {
+      bindings.bindAll(target, mode);
+      bindings.cached(true);
+    }
 
     return new ObservableImage(target, bindings);
+  }
+
+  public static ObservableImage createStandard(String location, BindingMode mode) {
+    return ObservableImage.create(new ImageView(), location, mode, true);
   }
 
 }
