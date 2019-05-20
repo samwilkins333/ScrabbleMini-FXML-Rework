@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Tiles;
 
+import javafx.scene.Node;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 
 public class Tile {
@@ -11,5 +12,7 @@ public class Tile {
     this.root = root;
   }
 
-
+  public Node node() {
+    return root.imageView();
+  }
 }

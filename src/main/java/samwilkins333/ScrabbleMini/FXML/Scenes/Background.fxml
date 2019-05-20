@@ -10,5 +10,5 @@
     <ImageView fx:id="leatherView"/>
     <ImageView fx:id="tilebagView"/>
     <Pane fx:id="boardPane"/>
-    <Button onAction="#begin"/>
+    <Button onAction="#begin" layoutX="200" layoutY="200"/>
 </Pane>

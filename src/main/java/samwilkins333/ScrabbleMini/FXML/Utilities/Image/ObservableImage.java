@@ -13,16 +13,18 @@ import main.resources.ResourceType;
 public class ObservableImage {
   private ImageView view;
   private ImageBindings bindings;
-
-  private static DropShadow SHADOW = new DropShadow(BlurType.GAUSSIAN, Color.GRAY, 120, 0.0, 4, 4);
-  static {
-    SHADOW.setWidth(25);
-    SHADOW.setHeight(25);
-  }
+  private DropShadow shadow;
 
   private ObservableImage(ImageView view, ImageBindings bindings) {
     this.view = view;
     this.bindings = bindings;
+    initializeShadow();
+  }
+
+  private void initializeShadow() {
+    shadow = new DropShadow(BlurType.GAUSSIAN, Color.GRAY, 120, 0.0, 4, 4);
+    shadow.setWidth(25);
+    shadow.setHeight(25);
   }
 
   public ImageBindings control() {
@@ -34,7 +36,7 @@ public class ObservableImage {
   }
 
   public void shadow(boolean display) {
-    imageView().setEffect(display ? SHADOW : null);
+    imageView().setEffect(display ? shadow : null);
   }
 
   public static ObservableImage create(ImageView target, String location, BindingMode mode, boolean ratio) {

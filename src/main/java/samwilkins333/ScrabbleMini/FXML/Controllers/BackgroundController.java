@@ -9,8 +9,9 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Match.Match;
-import main.java.samwilkins333.ScrabbleMini.Logic.Control.Match.PlayerSchema;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Match.VisualElements;
+import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerSchema;
+import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Main;
@@ -27,7 +28,7 @@ public class BackgroundController implements Initializable {
   @FXML public Pane boardPane;
 
   private VisualElements visuals;
-  private PlayerSchema players = new PlayerSchema();
+  private PlayerSchema players = new PlayerSchema(2);
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,6 +59,8 @@ public class BackgroundController implements Initializable {
   }
 
   public void begin() {
+    players.initialize(1, PlayerType.HUMAN);
+    players.initialize(2, PlayerType.SIMULATED);
     new Match(visuals, players).begin();
   }
 }

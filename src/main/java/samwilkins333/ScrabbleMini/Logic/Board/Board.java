@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
@@ -24,6 +25,10 @@ public class Board {
     this.initializer = initializer;
 
     initializeLayout();
+  }
+
+  public Pane node() {
+    return root;
   }
 
   private void initializeLayout() {

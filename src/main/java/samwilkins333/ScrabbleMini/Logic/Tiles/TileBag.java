@@ -22,8 +22,7 @@ public class TileBag {
   private TileBagInitializer.TileBagAttributes attributes;
 
   private List<String> internalState = new ArrayList<>();
-  private Map<String, ObservableImage> imageCache = new HashMap<>();
-  
+
   private RotateTransition shake;
   private TranslateTransition hide;
 
@@ -69,19 +68,18 @@ public class TileBag {
   public Tile draw() {
     int index = (int) (Math.random() * internalState.size());
     String letter = internalState.remove(index);
-    return new Tile(letter, getOrCreateVisual(letter));
+    return new Tile(letter, createVisual(letter));
   }
 
-  private ObservableImage getOrCreateVisual(String letter) {
-    if (imageCache.containsKey(letter))
-      return imageCache.get(letter);
-
+  private ObservableImage createVisual(String letter) {
     String url = String.format("tiles/%s.png", letter);
     ObservableImage visual = ObservableImage.create(new ImageView(), url, BindingMode.BIDIRECTIONAL, true);
     visual.control().width(BoardLayoutManager.squareSidePixels * 0.9);
+    visual.control().layoutX(100);
+    visual.control().layoutY(100);
     visual.shadow(true);
-
-    return imageCache.put(letter, visual);
+    visual.control().opacity(1);
+    return visual;
   }
 
   public void shake() {
