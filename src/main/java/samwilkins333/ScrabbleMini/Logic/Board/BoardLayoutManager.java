@@ -8,27 +8,27 @@ public final class BoardLayoutManager {
   public static int squareSidePixels;
   public static double dimensions;
   public static double sideLengthPixels;
+  public static double tilePadding;
+  public static double tileWidth;
   private static int rackSize = 7;
 
-  public static Point2D toPixels(int column, int row) {
-    double sceneXPixels = originLeftPixels + squareSidePixels * column;
-    double sceneYPixels = originTopPixels + squareSidePixels * row;
+  public static Point2D toPixels(Point2D coordinates) {
+    double sceneXPixels = squareSidePixels * coordinates.getX();
+    double sceneYPixels = squareSidePixels * coordinates.getY();
     return new Point2D(sceneXPixels, sceneYPixels);
   }
 
-  public static Point2D toIndices(double sceneXPixels, double sceneYPixels) {
-    double column = (int) (sceneXPixels - originLeftPixels) / squareSidePixels;
-    double row = (int) (sceneYPixels - originTopPixels) / squareSidePixels;
+  public static Point2D toIndices(Point2D observedPixels) {
+    double column = (int) observedPixels.getX() / squareSidePixels;
+    double row = (int) observedPixels.getY()  / squareSidePixels;
+
+    if (column < 0 || column > dimensions || row < 0 || row > dimensions) return null;
+
     return new Point2D(column, row);
   }
 
-  public final class LeftRack {
-    public double originLeftPixels() { return BoardLayoutManager.originLeftPixels - squareSidePixels; }
-    public double originTopPixels() { return BoardLayoutManager.originTopPixels + ((dimensions - rackSize) * squareSidePixels) / 2; }
-  }
+  public static double originTopPixelsLeftRack() { return ((dimensions - rackSize) * squareSidePixels) / 2; }
 
-  public final class RightRack {
-    public double originLeftPixels = BoardLayoutManager.originLeftPixels + sideLengthPixels + squareSidePixels;
-    public double originTopPixels() { return BoardLayoutManager.originTopPixels + ((dimensions - rackSize) * squareSidePixels) / 2; }
-  }
+  public static double originLeftPixelsRightRack() { return originLeftPixels + sideLengthPixels + squareSidePixels; }
+  public static double originTopPixelsRightRack() { return originTopPixels + ((dimensions - rackSize) * squareSidePixels) / 2; }
 }

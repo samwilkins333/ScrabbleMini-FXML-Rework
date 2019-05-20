@@ -23,7 +23,11 @@ public class Rack {
     return internalState.size() == capacity;
   }
 
+  public int size() {
+    return internalState.size();
+  }
+
   public List<Node> node() {
-    return internalState.stream().map(Tile::node).collect(Collectors.toList());
+    return internalState.stream().map(t -> t.observableImage().imageView()).collect(Collectors.toList());
   }
 }

@@ -16,6 +16,8 @@ public class Match {
 
   public void begin() {
     playersSchema.forEach(p -> p.fillRack(visuals.tileBag(), visuals.board().node().getChildren()));
+
+
   }
 
 }

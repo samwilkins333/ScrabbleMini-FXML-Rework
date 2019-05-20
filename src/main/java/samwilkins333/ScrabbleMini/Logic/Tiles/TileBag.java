@@ -4,17 +4,18 @@ import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagInitializer;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squareSidePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.tileWidth;
 
 public class TileBag {
   private ObservableImage root;
@@ -74,10 +75,9 @@ public class TileBag {
   private ObservableImage createVisual(String letter) {
     String url = String.format("tiles/%s.png", letter);
     ObservableImage visual = ObservableImage.create(new ImageView(), url, BindingMode.BIDIRECTIONAL, true);
-    visual.control().width(BoardLayoutManager.squareSidePixels * 0.9);
-    visual.control().layoutX(100);
-    visual.control().layoutY(100);
+    visual.control().width(tileWidth);
     visual.shadow(true);
+    visual.shadowColor(Color.BLACK);
     visual.control().opacity(1);
     return visual;
   }

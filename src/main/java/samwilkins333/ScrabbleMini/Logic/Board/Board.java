@@ -50,6 +50,9 @@ public class Board {
     originLeftPixels = (Main.screenWidth * 0.75 - sideLengthPixels) / 2 + Main.screenWidth * 0.25;
     originTopPixels = (Main.screenHeight * 0.85 - sideLengthPixels) / 2 + Main.screenHeight * 0.15;
 
+    tilePadding = 0.1 * squareSidePixels;
+    tileWidth = 0.8 * squareSidePixels;
+
     root.setLayoutX(originLeftPixels);
     root.setLayoutY(originTopPixels);
 

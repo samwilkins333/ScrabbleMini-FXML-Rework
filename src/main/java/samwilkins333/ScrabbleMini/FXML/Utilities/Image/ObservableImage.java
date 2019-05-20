@@ -39,6 +39,10 @@ public class ObservableImage {
     imageView().setEffect(display ? shadow : null);
   }
 
+  public void shadowColor(Color color) {
+    shadow.setColor(color);
+  }
+
   public static ObservableImage create(ImageView target, String location, BindingMode mode, boolean ratio) {
     String resource = ResourceLoader.instance.load(ResourceType.IMAGE, location).toExternalForm();
     target.setImage(new Image(resource));
