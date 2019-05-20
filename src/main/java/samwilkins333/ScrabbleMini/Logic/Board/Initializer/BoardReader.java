@@ -29,7 +29,7 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
   private static final Pattern CONTROL = Pattern.compile("( _ )?(\\d+,\\d+)");
   private static final Pattern COLOR_MAPPING = Pattern.compile("\\d+,\\d+ _ #[A-Za_z0-9]{3,6}");
 
-  private static final String PREFIX = "Invalid board configuration! ";
+  private static final String PREFIX = "Invalid boardPane configuration! ";
 
   private static final String INVALID_HEADER =  PREFIX + "The given file's header is invalid.";
   private static final String INVALID_SIZING = PREFIX + "The given file's dimensions are invalid.";

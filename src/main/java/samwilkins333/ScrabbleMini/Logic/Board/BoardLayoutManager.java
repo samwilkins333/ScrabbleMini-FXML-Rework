@@ -22,7 +22,7 @@ public final class BoardLayoutManager {
     double column = (int) observedPixels.getX() / squareSidePixels;
     double row = (int) observedPixels.getY()  / squareSidePixels;
 
-    if (column < 0 || column > dimensions || row < 0 || row > dimensions) return null;
+    if (column < 0 || column >= dimensions || row < 0 || row >= dimensions) return null;
 
     return new Point2D(column, row);
   }

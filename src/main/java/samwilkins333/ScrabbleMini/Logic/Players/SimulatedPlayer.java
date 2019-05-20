@@ -1,13 +1,15 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Players;
 
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
+
 public class SimulatedPlayer extends Player {
 
-  public SimulatedPlayer(int playerNumber) {
+  SimulatedPlayer(int playerNumber) {
     super(PlayerType.SIMULATED, playerNumber);
   }
 
   @Override
-  public void play() {
+  public void play(Board board) {
 
   }
 

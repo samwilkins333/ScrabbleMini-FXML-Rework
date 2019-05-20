@@ -3,14 +3,15 @@ package main.java.samwilkins333.ScrabbleMini.FXML.Controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Match.Match;
-import main.java.samwilkins333.ScrabbleMini.Logic.Control.Match.VisualElements;
-import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerSchema;
+import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.StandardReferee;
+import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
@@ -27,8 +28,9 @@ public class BackgroundController implements Initializable {
   @FXML public ImageView tilebagView;
   @FXML public Pane boardPane;
 
-  private VisualElements visuals;
-  private PlayerSchema players = new PlayerSchema(2);
+  private Match match;
+  private Board board;
+  private TileBag tileBag;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -37,19 +39,17 @@ public class BackgroundController implements Initializable {
   }
 
   private void initializeVisualElements() {
-    visuals = new VisualElements(
-      new Board(boardPane, new BoardReader()),
-      new TileBag(tilebagView, new TileBagReader())
-    );
+    board = new Board(boardPane, new BoardReader());
+    tileBag = new TileBag(tilebagView, new TileBagReader());
   }
 
   private void initializeBackground() {
-    ObservableImage desktopObservable = ObservableImage.create(desktopView, "background/desktop.jpg", BindingMode.BIDIRECTIONAL, true);
+    ObservableImage desktopObservable = ObservableImage.initialize(desktopView, "background/desktop.jpg", BindingMode.BIDIRECTIONAL, true);
     desktopObservable.bindings().width(Main.screenWidth);
     desktopObservable.bindings().opacity(1);
 
     int padding = 15;
-    ObservableImage leatherObservable = ObservableImage.create(leatherView, "background/leather.png", BindingMode.BIDIRECTIONAL, false);
+    ObservableImage leatherObservable = ObservableImage.initialize(leatherView, "background/leather.png", BindingMode.BIDIRECTIONAL, false);
     leatherObservable.bindings().width(sideLengthPixels + padding * 2);
     leatherObservable.bindings().height(sideLengthPixels + padding * 2);
     leatherObservable.bindings().layoutX(originLeftPixels - padding);
@@ -59,8 +59,15 @@ public class BackgroundController implements Initializable {
   }
 
   public void begin() {
-    players.initialize(1, PlayerType.HUMAN);
-    players.initialize(2, PlayerType.SIMULATED);
-    new Match(visuals, players).begin();
+    PlayerList players = new PlayerList(2);
+    players.register(1, PlayerType.HUMAN);
+    players.register(2, PlayerType.SIMULATED);
+
+    match = new Match(new StandardReferee(players, board, tileBag));
+    match.begin();
+  }
+
+  public void onKeyPressed(KeyEvent e) {
+    if (match != null) match.notify(e);
   }
 }

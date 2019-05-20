@@ -5,6 +5,7 @@
 <Pane
         fx:controller="main.java.samwilkins333.ScrabbleMini.FXML.Controllers.BackgroundController"
         xmlns:fx="http://javafx.com/fxml"
+        onKeyPressed="#onKeyPressed"
 >
     <ImageView fx:id="desktopView"/>
     <ImageView fx:id="leatherView"/>

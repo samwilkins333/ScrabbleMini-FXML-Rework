@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
 
@@ -14,26 +15,33 @@ public class Tile {
   private final String letter;
   private final ObservableImage root;
   private TileOverlayStack overlays;
-  private Point2D actualIndices;
+  private Point2D indices;
   private Point2D initialLayout;
 
   private double dragReferenceX;
   private double dragReferenceY;
+  private Board board;
 
   Tile(String letter, ObservableImage root) {
     this.letter = letter;
     this.root = root;
-    this.actualIndices = new Point2D(-1, -1);
+    this.indices = new Point2D(-1, -1);
 
     initializeInteractions();
   }
 
-  public void initializeOverlays(ObservableList<Node> visibleElements) {
-    this.overlays = new TileOverlayStack(root.bindings(), visibleElements);
+  public void render(Board board) {
+    this.board = board;
+    this.board.node().getChildren().add(root.imageView());
+    overlays = new TileOverlayStack(root.bindings(), board.node().getChildren());
   }
 
   public String letter() {
     return letter;
+  }
+
+  public Point2D indices() {
+    return indices;
   }
 
   private void initializeInteractions() {
@@ -44,9 +52,17 @@ public class Tile {
 
   private EventHandler<MouseEvent> onMousePressed() {
     return e -> {
+      toFront();
+      board.discard(this);
       dragReferenceX = e.getSceneX();
       dragReferenceY = e.getSceneY();
     };
+  }
+
+  private void toFront() {
+    ObservableList<Node> visibleElements = board.node().getChildren();
+    visibleElements.remove(root.imageView());
+    visibleElements.add(root.imageView());
   }
 
   private EventHandler<MouseEvent> onMouseDragged() {
@@ -76,14 +92,15 @@ public class Tile {
 
       Point2D indices;
       if ((indices = toIndices(new Point2D(centerX, centerY))) != null) {
-        actualIndices = toPixels(indices);
-        bindings.layoutX(actualIndices.getX() + tilePadding);
-        bindings.layoutY(actualIndices.getY() + tilePadding);
+        this.indices = toPixels(indices);
+        board.place(this);
+        bindings.layoutX(this.indices.getX() + tilePadding);
+        bindings.layoutY(this.indices.getY() + tilePadding);
       } else reset();
     };
   }
 
-  private void reset() {
+  public void reset() {
     ImageBindings bindings = root.bindings();
     bindings.layoutX(initialLayout.getX());
     bindings.layoutY(initialLayout.getY());

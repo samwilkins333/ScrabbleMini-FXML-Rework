@@ -3,6 +3,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Players;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
@@ -29,22 +30,29 @@ public abstract class Player {
     }
   }
 
-  public void fillRack(TileBag tileBag, ObservableList<Node> boardPane) {
+  public void fillRack(Board board, TileBag tileBag) {
+    tileBag.shake();
     while (!rack.isFull()) {
       Tile drawn = tileBag.draw();
 
-      ImageBindings bindings = drawn.observableImage().bindings();
       double initialX = tilePadding + (playerNumber == 1 ? -2 * squareSidePixels : sideLengthPixels + squareSidePixels);
       double initialY = tilePadding + originTopPixelsLeftRack() + squareSidePixels * rack.size();
+
+      ImageBindings bindings = drawn.observableImage().bindings();
       bindings.layoutX(initialX);
       bindings.layoutY(initialY);
+      bindings.opacity(0);
       drawn.initialLayout(initialX, initialY);
-      drawn.initializeOverlays(boardPane);
+
+      drawn.render(board);
 
       rack.add(drawn);
-      boardPane.add(drawn.observableImage().imageView());
     }
   }
 
-  public abstract void play();
+  public void setRackVisible(boolean state) {
+    rack.setVisible(state);
+  }
+
+  public abstract void play(Board board);
 }

@@ -28,7 +28,7 @@ public class TileBag {
 
   public TileBag(ImageView root, TileBagInitializer initializer) {
     this.initializer = initializer;
-    this.root = ObservableImage.create(root, "background/tilebag.png", BindingMode.BIDIRECTIONAL, true);
+    this.root = ObservableImage.initialize(root, "background/tilebag.png", BindingMode.BIDIRECTIONAL, true);
 
     initializeLayout();
     initializeAnimation();
@@ -73,7 +73,7 @@ public class TileBag {
 
   private ObservableImage createVisual(String letter) {
     String url = String.format("tiles/%s.png", letter);
-    ObservableImage visual = ObservableImage.createStandard(url, BindingMode.BIDIRECTIONAL);
+    ObservableImage visual = ObservableImage.create(url, BindingMode.BIDIRECTIONAL);
     visual.bindings().width(tileWidth);
     visual.shadow(true);
     visual.shadowColor(Color.BLACK);

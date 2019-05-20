@@ -6,12 +6,17 @@ import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Main;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
 
 public class Board {
   private BoardSquare[][] internalState;
+  private List<Tile> placed = new ArrayList<>();
 
   private final Pane root;
   private int squareCount;
@@ -46,7 +51,7 @@ public class Board {
     root.setPrefWidth(sideLengthPixels);
     root.setPrefHeight(sideLengthPixels);
 
-    // centers the board in the primary desk space regardless of actual width and height
+    // centers the boardPane in the primary desk space regardless of actual width and height
     originLeftPixels = (Main.screenWidth * 0.75 - sideLengthPixels) / 2 + Main.screenWidth * 0.25;
     originTopPixels = (Main.screenHeight * 0.85 - sideLengthPixels) / 2 + Main.screenHeight * 0.15;
 
@@ -77,8 +82,26 @@ public class Board {
     return internalState[column][row] != null;
   }
 
-  public void play(Tile tile, int column, int row) {
+  public void play(Tile tile) {
+    int column = (int) tile.indices().getX();
+    int row = (int) tile.indices().getY();
     this.internalState[column][row].play(tile);
   }
 
+  public void place(Tile tile) {
+    placed.add(tile);
+  }
+
+  public void discard(Tile tile) {
+    placed.remove(tile);
+  }
+
+  public void clearPlacements() {
+    placed.forEach(Tile::reset);
+    placed.clear();
+  }
+
+  public Iterator<Tile> placements() {
+    return placed.isEmpty() ? null : placed.iterator();
+  }
 }

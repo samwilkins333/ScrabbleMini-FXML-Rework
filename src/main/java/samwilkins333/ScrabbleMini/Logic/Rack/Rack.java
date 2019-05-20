@@ -1,11 +1,11 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Rack;
 
 import javafx.scene.Node;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Rack {
   private final int capacity;
@@ -27,7 +27,7 @@ public class Rack {
     return internalState.size();
   }
 
-  public List<Node> node() {
-    return internalState.stream().map(t -> t.observableImage().imageView()).collect(Collectors.toList());
+  public void setVisible(boolean visible) {
+    internalState.forEach(tile -> tile.observableImage().bindings().opacity(visible ? 1 : 0));
   }
 }

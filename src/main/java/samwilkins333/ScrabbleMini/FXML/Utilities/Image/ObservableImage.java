@@ -43,7 +43,7 @@ public class ObservableImage {
     shadow.setColor(color);
   }
 
-  public static ObservableImage create(ImageView target, String location, BindingMode mode, boolean ratio) {
+  public static ObservableImage initialize(ImageView target, String location, BindingMode mode, boolean ratio) {
     String resource = ResourceLoader.instance.load(ResourceType.IMAGE, location).toExternalForm();
     target.setImage(new Image(resource));
     target.setPreserveRatio(ratio);
@@ -57,8 +57,8 @@ public class ObservableImage {
     return new ObservableImage(target, bindings);
   }
 
-  public static ObservableImage createStandard(String location, BindingMode mode) {
-    return ObservableImage.create(new ImageView(), location, mode, true);
+  public static ObservableImage create(String location, BindingMode mode) {
+    return ObservableImage.initialize(new ImageView(), location, mode, true);
   }
 
 }

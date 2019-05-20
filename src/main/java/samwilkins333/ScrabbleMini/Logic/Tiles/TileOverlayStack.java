@@ -48,7 +48,7 @@ class TileOverlayStack {
 
     private void initializeImage(String url) {
       String complete = String.format("tiles/overlays/%s.png", url);
-      root = ObservableImage.createStandard(complete, BindingMode.NONE);
+      root = ObservableImage.create(complete, BindingMode.NONE);
 
       ImageView target = root.imageView();
       tileBindings.widthBinding().bind(target.fitWidthProperty(), BindingMode.UNIDIRECTIONAL);
