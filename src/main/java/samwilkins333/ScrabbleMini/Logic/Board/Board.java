@@ -1,8 +1,11 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 import main.java.samwilkins333.ScrabbleMini.Main;
@@ -14,7 +17,7 @@ import java.util.Map;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
 
 public class Board {
-  private BoardSquare[][] internalState;
+  private Tile[][] internalState;
   private List<Tile> placed = new ArrayList<>();
 
   private final Pane root;
@@ -60,15 +63,17 @@ public class Board {
     root.setLayoutX(originLeftPixels);
     root.setLayoutY(originTopPixels);
 
-    internalState = new BoardSquare[squareCount][squareCount];
+    internalState = new Tile[squareCount][squareCount];
+
     for (int column = 0; column < squareCount; column++) {
       for (int row = 0; row < squareCount; row++) {
         int layoutX = squareSidePixels * column;
         int layoutY = squareSidePixels * row;
         Paint fill = colors.get(multipliers[column][row]);
-        BoardSquare square = new BoardSquare(layoutX, layoutY, squareSidePixels, fill);
-        internalState[column][row] = square;
-        root.getChildren().add(square.node());
+        Rectangle rectangle = new Rectangle(layoutX, layoutY, squareSidePixels, squareSidePixels);
+        rectangle.setFill(fill);
+        rectangle.setStroke(Color.BLACK);
+        root.getChildren().add(rectangle);
       }
     }
   }
@@ -78,11 +83,19 @@ public class Board {
   }
 
   public boolean has(int column, int row) {
-    return internalState[column][row].played() != null;
+    return internalState[column][row] != null;
   }
 
   public void place(Tile tile) {
     placed.add(tile);
+  }
+
+  public void play(Tile tile) {
+    placed.remove(tile);
+    int column = (int) tile.indices().getX();
+    int row = (int) tile.indices().getY();
+    internalState[column][row] = tile;
+    tile.flash(OverlayType.SUCCESS);
   }
 
   public void discard(Tile tile) {
@@ -114,8 +127,6 @@ public class Board {
 
       wordMultiplier *= multiplier.wordValue();
       score += tile.score() * multiplier.letterValue();
-
-      internalState[column][row].play(tile);
     }
 
     return score * wordMultiplier;

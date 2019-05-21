@@ -36,9 +36,14 @@ public class BackgroundController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     initializeVisualElements();
     initializeBackground();
+    begin();
   }
 
   private void initializeVisualElements() {
+    boardPane.setFocusTraversable(true);
+    boardPane.requestFocus();
+    boardPane.setOnKeyPressed(e -> { if (match != null) match.notify(e); });
+
     board = new Board(boardPane, new BoardReader());
     tileBag = new TileBag(tilebagView, new TileBagReader());
   }
@@ -65,9 +70,5 @@ public class BackgroundController implements Initializable {
 
     match = new Match(new StandardReferee(players, board, tileBag));
     match.begin();
-  }
-
-  public void onKeyPressed(KeyEvent e) {
-    if (match != null) match.notify(e);
   }
 }

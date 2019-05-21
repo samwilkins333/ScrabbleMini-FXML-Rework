@@ -15,7 +15,7 @@ public abstract class Referee {
   protected final Board board;
   protected int current = 0;
   protected int moves = 0;
-  protected Set<String> dictionary;
+  private Set<String> dictionary;
 
   Referee(List<Player> players, Board board, TileBag tileBag, DictionaryInitializer initializer) {
     this.players = players;
@@ -52,10 +52,12 @@ public abstract class Referee {
       return;
     }
 
-    word.forEach(tile -> current().transfer(tile));
-    current().increment(board.score(word));
+    word.forEach(tile -> {
+      current().transfer(tile);
+      board.play(tile);
+    });
 
-    board.clearPlacements();
+    current().increment(board.score(word));
     nextMove();
   }
 
