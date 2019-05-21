@@ -116,8 +116,8 @@ public class Tile {
   }
 
   public void reset() {
-    ImageBindings bindings = root.bindings();
     indices = new Point2D(-1, -1);
+    ImageBindings bindings = root.bindings();
     bindings.layoutX(initialLayout.getX());
     bindings.layoutY(initialLayout.getY());
   }

@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Tiles;
 
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -28,6 +29,7 @@ class TileOverlayStack {
 
   void flash(OverlayType type) {
     Overlay requested = overlays.get(type.ordinal());
+    if (requested.flash.getStatus() == Animation.Status.RUNNING) return;
     visibleElements.add(requested.root.imageView());
     requested.flash.play();
   }

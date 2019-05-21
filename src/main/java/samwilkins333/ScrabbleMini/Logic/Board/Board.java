@@ -4,6 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.util.ArrayList;
@@ -103,7 +104,7 @@ public class Board {
     placed.clear();
   }
 
-  public List<Tile> placements() {
-    return new ArrayList<>(placed);
+  public Word placements() {
+    return new Word(placed);
   }
 }
