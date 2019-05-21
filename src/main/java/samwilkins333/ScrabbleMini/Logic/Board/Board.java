@@ -21,7 +21,6 @@ public class Board {
   private List<Tile> placed = new ArrayList<>();
 
   private final Pane root;
-  private int squareCount;
   private final BoardInitializer<Multiplier, Paint> initializer;
   private BoardInitializer.BoardAttributes<Multiplier, Paint> attributes;
 
@@ -30,7 +29,6 @@ public class Board {
   public Board(Pane root, BoardInitializer<Multiplier, Paint> initializer) {
     this.root = root;
     this.initializer = initializer;
-
     initializeLayout();
   }
 
@@ -40,13 +38,11 @@ public class Board {
 
   private void initializeLayout() {
     attributes = initializer.initialize();
-
-    squareCount = attributes.squareCount();
     multipliers = attributes.locationMapping();
 
     squareSidePixels = attributes.squareSize();
     dimensions = attributes.squareCount();
-    sideLengthPixels = squareCount * squareSidePixels;
+    sideLengthPixels = dimensions * squareSidePixels;
 
     Map<Multiplier, Paint> colors = attributes.attributeMapping();
 
@@ -63,10 +59,10 @@ public class Board {
     root.setLayoutX(originLeftPixels);
     root.setLayoutY(originTopPixels);
 
-    internalState = new Tile[squareCount][squareCount];
+    internalState = new Tile[(int) dimensions][(int) dimensions];
 
-    for (int column = 0; column < squareCount; column++) {
-      for (int row = 0; row < squareCount; row++) {
+    for (int column = 0; column < dimensions; column++) {
+      for (int row = 0; row < dimensions; row++) {
         int layoutX = squareSidePixels * column;
         int layoutY = squareSidePixels * row;
         Paint fill = colors.get(multipliers[column][row]);
@@ -90,6 +86,10 @@ public class Board {
     placed.add(tile);
   }
 
+  public void discard(Tile tile) {
+    placed.remove(tile);
+  }
+
   public void play(Tile tile) {
     placed.remove(tile);
     int column = (int) tile.indices().getX();
@@ -98,16 +98,8 @@ public class Board {
     tile.flash(OverlayType.SUCCESS);
   }
 
-  public void discard(Tile tile) {
-    placed.remove(tile);
-  }
-
   public void resetPlacements() {
     placed.forEach(Tile::reset);
-    placed.clear();
-  }
-
-  public void clearPlacements() {
     placed.clear();
   }
 
