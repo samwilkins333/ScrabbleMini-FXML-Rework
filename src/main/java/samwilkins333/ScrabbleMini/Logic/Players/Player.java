@@ -49,6 +49,7 @@ public abstract class Player {
   }
 
   public void increment(int value) {
+    System.out.println(value);
     score += value;
   }
 

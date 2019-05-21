@@ -63,8 +63,8 @@ public class Tile {
   }
 
   private boolean played() {
-    int row = (int) indices.getX();
-    int column = (int) indices.getY();
+    int column = (int) indices.getX();
+    int row = (int) indices.getY();
     if (column < 0 && row < 0) return false;
     return board.has(column, row);
   }

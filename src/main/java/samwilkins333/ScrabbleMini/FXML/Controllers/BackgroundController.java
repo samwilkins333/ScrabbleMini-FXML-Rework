@@ -61,7 +61,7 @@ public class BackgroundController implements Initializable {
   public void begin() {
     PlayerList players = new PlayerList(2);
     players.register(1, PlayerType.HUMAN);
-    players.register(2, PlayerType.SIMULATED);
+    players.register(2, PlayerType.HUMAN);
 
     match = new Match(new StandardReferee(players, board, tileBag));
     match.begin();
