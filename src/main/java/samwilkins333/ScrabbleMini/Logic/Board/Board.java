@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
-import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
@@ -8,7 +7,6 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -96,12 +94,16 @@ public class Board {
     placed.remove(tile);
   }
 
-  public void clearPlacements() {
+  public void resetPlacements() {
     placed.forEach(Tile::reset);
     placed.clear();
   }
 
+  public void clearPlacements() {
+    placed.clear();
+  }
+
   public List<Tile> placements() {
-    return List.copyOf(placed);
+    return new ArrayList<>(placed);
   }
 }

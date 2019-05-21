@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 
@@ -48,6 +49,10 @@ public abstract class Player {
 
       rack.add(drawn);
     }
+  }
+
+  public void transfer(Tile tile) {
+    rack.remove(tile);
   }
 
   public void setRackVisible(boolean state) {

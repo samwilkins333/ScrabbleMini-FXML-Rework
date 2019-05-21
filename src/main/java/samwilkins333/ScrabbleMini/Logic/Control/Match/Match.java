@@ -22,7 +22,7 @@ public class Match {
         if (e.isMetaDown()) referee.evaluateHumanPlacements();
         break;
       case ESCAPE:
-        referee.clearBoard();
+        referee.resetBoard();
         break;
     }
   }

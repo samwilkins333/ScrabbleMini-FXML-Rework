@@ -50,8 +50,23 @@ public class Tile {
     root.imageView().setOnMouseReleased(this.onMouseReleased());
   }
 
+  private void toFront() {
+    ObservableList<Node> visibleElements = board.node().getChildren();
+    visibleElements.remove(root.imageView());
+    visibleElements.add(root.imageView());
+  }
+
+  private boolean played() {
+    int row = (int) indices.getX();
+    int column = (int) indices.getY();
+    if (column < 0 && row < 0) return false;
+    return board.has(row, column);
+  }
+
   private EventHandler<MouseEvent> onMousePressed() {
     return e -> {
+      if (played()) return;
+
       toFront();
       board.discard(this);
       dragReferenceX = e.getSceneX();
@@ -59,14 +74,10 @@ public class Tile {
     };
   }
 
-  private void toFront() {
-    ObservableList<Node> visibleElements = board.node().getChildren();
-    visibleElements.remove(root.imageView());
-    visibleElements.add(root.imageView());
-  }
-
   private EventHandler<MouseEvent> onMouseDragged() {
     return e -> {
+      if (played()) return;
+
       double observedX = e.getSceneX();
       double observedY = e.getSceneY();
 
@@ -84,26 +95,35 @@ public class Tile {
 
   private EventHandler<MouseEvent> onMouseReleased() {
     return e -> {
+      if (played()) return;
+
       ImageBindings bindings = root.bindings();
       double centerX = bindings.layoutX() + tileWidth / 2;
       double centerY = bindings.layoutY() + tileWidth / 2;
 
-      if (e.getClickCount() > 1) overlays.flash(OverlayType.SUCCESS);
+      Point2D layout;
+      indices = toIndices(new Point2D(centerX, centerY));
+      boolean inColumnRange = indices.getX() >= 0 && indices.getX() < dimensions;
+      boolean inRowRange = indices.getY() >= 0 && indices.getY() < dimensions;
 
-      Point2D indices;
-      if ((indices = toIndices(new Point2D(centerX, centerY))) != null) {
-        this.indices = toPixels(indices);
+      if (inColumnRange && inRowRange && e.getClickCount() == 1) {
+        layout = toPixels(indices);
         board.place(this);
-        bindings.layoutX(this.indices.getX() + tilePadding);
-        bindings.layoutY(this.indices.getY() + tilePadding);
+        bindings.layoutX(layout.getX() + tilePadding);
+        bindings.layoutY(layout.getY() + tilePadding);
       } else reset();
     };
   }
 
   public void reset() {
     ImageBindings bindings = root.bindings();
+    indices = new Point2D(-1, -1);
     bindings.layoutX(initialLayout.getX());
     bindings.layoutY(initialLayout.getY());
+  }
+
+  public void flash(OverlayType type) {
+    overlays.flash(type);
   }
 
   public ObservableImage observableImage() {

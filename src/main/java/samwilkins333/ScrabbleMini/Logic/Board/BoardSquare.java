@@ -3,6 +3,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
 class BoardSquare {
@@ -20,6 +21,7 @@ class BoardSquare {
   }
 
   void play(Tile tile) {
+    tile.flash(OverlayType.SUCCESS);
     this.tile = tile;
   }
 

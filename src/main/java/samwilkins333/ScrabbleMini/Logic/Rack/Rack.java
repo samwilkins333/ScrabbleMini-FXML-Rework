@@ -1,7 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Rack;
 
-import javafx.scene.Node;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
 import java.util.ArrayList;
@@ -17,6 +15,10 @@ public class Rack {
 
   public void add(Tile tile) {
     internalState.add(tile);
+  }
+
+  public void remove(Tile tile) {
+    internalState.remove(tile);
   }
 
   public boolean isFull() {

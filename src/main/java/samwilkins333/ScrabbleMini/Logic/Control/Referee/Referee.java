@@ -34,12 +34,16 @@ public abstract class Referee {
 
   public void evaluateHumanPlacements() {
     if (!validatePlacements()) return;
-
+    board.placements().forEach(tile -> {
+      current().transfer(tile);
+      board.play(tile);
+    });
+    board.clearPlacements();
     nextMove();
   }
 
-  public void clearBoard() {
-    board.clearPlacements();
+  public void resetBoard() {
+    board.resetPlacements();
   }
 
   protected abstract boolean validatePlacements();

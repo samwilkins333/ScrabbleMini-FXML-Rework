@@ -21,9 +21,6 @@ public final class BoardLayoutManager {
   public static Point2D toIndices(Point2D observedPixels) {
     double column = (int) observedPixels.getX() / squareSidePixels;
     double row = (int) observedPixels.getY()  / squareSidePixels;
-
-    if (column < 0 || column >= dimensions || row < 0 || row >= dimensions) return null;
-
     return new Point2D(column, row);
   }
 
