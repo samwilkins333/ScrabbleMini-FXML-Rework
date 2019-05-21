@@ -40,24 +40,22 @@ public abstract class Referee {
   }
 
   public void evaluateHumanPlacements() {
-    Word placements = board.placements();
+    Word word = board.placements();
 
-    if (placements.isEmpty() || !isFormatted(placements) || !dictionary.contains(placements.toString())) {
-      placements.flash(OverlayType.FAILURE);
+    if (word.isEmpty() || !isFormatted(word) || !dictionary.contains(word.toString())) {
+      word.flash(OverlayType.FAILURE);
       return;
     }
 
-    if (!isPositioned(placements)) {
-      placements.flash(OverlayType.INVALID);
+    if (!isPositioned(word)) {
+      word.flash(OverlayType.INVALID);
       return;
     }
 
-    placements.forEach(tile -> {
-      current().transfer(tile);
-      board.play(tile);
-    });
+    word.forEach(tile -> current().transfer(tile));
+    current().increment(board.score(word));
+
     board.clearPlacements();
-
     nextMove();
   }
 

@@ -25,7 +25,7 @@ class BoardSquare {
     this.tile = tile;
   }
 
-  boolean played() {
-    return tile != null;
+  Tile played() {
+    return tile;
   }
 }

@@ -61,13 +61,13 @@ public class Board {
     root.setLayoutY(originTopPixels);
 
     internalState = new BoardSquare[squareCount][squareCount];
-    for (int col = 0; col < squareCount; col++) {
+    for (int column = 0; column < squareCount; column++) {
       for (int row = 0; row < squareCount; row++) {
-        int layoutX = squareSidePixels * col;
+        int layoutX = squareSidePixels * column;
         int layoutY = squareSidePixels * row;
-        Paint fill = colors.get(multipliers[col][row]);
+        Paint fill = colors.get(multipliers[column][row]);
         BoardSquare square = new BoardSquare(layoutX, layoutY, squareSidePixels, fill);
-        internalState[col][row] = square;
+        internalState[column][row] = square;
         root.getChildren().add(square.node());
       }
     }
@@ -78,13 +78,7 @@ public class Board {
   }
 
   public boolean has(int column, int row) {
-    return internalState[column][row].played();
-  }
-
-  public void play(Tile tile) {
-    int column = (int) tile.indices().getX();
-    int row = (int) tile.indices().getY();
-    this.internalState[column][row].play(tile);
+    return internalState[column][row].played() != null;
   }
 
   public void place(Tile tile) {
@@ -106,5 +100,24 @@ public class Board {
 
   public Word placements() {
     return new Word(placed);
+  }
+
+  public int score(Word word) {
+    int score = 0;
+    int wordMultiplier = 1;
+
+    for (Tile tile : word) {
+      int column = (int) tile.indices().getX();
+      int row = (int) tile.indices().getY();
+
+      Multiplier multiplier = multipliers[column][row];
+
+      wordMultiplier *= multiplier.wordValue();
+      score += tile.score() * multiplier.letterValue();
+
+      internalState[column][row].play(tile);
+    }
+
+    return score * wordMultiplier;
   }
 }

@@ -13,6 +13,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManage
 
 public class Tile {
   private final String letter;
+  private final int score;
   private final ObservableImage root;
   private TileOverlayStack overlays;
   private Point2D indices;
@@ -22,8 +23,9 @@ public class Tile {
   private double dragReferenceY;
   private Board board;
 
-  Tile(String letter, ObservableImage root) {
+  Tile(String letter, int score, ObservableImage root) {
     this.letter = letter;
+    this.score = score;
     this.root = root;
     this.indices = new Point2D(-1, -1);
 
@@ -38,6 +40,10 @@ public class Tile {
 
   public String letter() {
     return letter;
+  }
+
+  public int score() {
+    return score;
   }
 
   public Point2D indices() {
@@ -60,7 +66,7 @@ public class Tile {
     int row = (int) indices.getX();
     int column = (int) indices.getY();
     if (column < 0 && row < 0) return false;
-    return board.has(row, column);
+    return board.has(column, row);
   }
 
   private EventHandler<MouseEvent> onMousePressed() {
@@ -103,10 +109,12 @@ public class Tile {
 
       Point2D layout;
       indices = toIndices(new Point2D(centerX, centerY));
-      boolean inColumnRange = indices.getX() >= 0 && indices.getX() < dimensions;
-      boolean inRowRange = indices.getY() >= 0 && indices.getY() < dimensions;
+      int column = (int) indices.getX();
+      int row = (int) indices.getY();
+      boolean inColumnRange = column >= 0 && column < dimensions;
+      boolean inRowRange = row >= 0 && row < dimensions;
 
-      if (inColumnRange && inRowRange && e.getClickCount() == 1) {
+      if (inColumnRange && inRowRange && !board.has(column, row) && e.getClickCount() == 1) {
         layout = toPixels(indices);
         board.place(this);
         bindings.layoutX(layout.getX() + tilePadding);

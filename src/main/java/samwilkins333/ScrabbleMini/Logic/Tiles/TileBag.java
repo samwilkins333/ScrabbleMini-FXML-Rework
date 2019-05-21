@@ -68,7 +68,7 @@ public class TileBag {
   public Tile draw() {
     int index = (int) (Math.random() * internalState.size());
     String letter = internalState.remove(index);
-    return new Tile(letter, createVisual(letter));
+    return new Tile(letter, attributes.metadataMapping().get(letter).score(), createVisual(letter));
   }
 
   private ObservableImage createVisual(String letter) {
