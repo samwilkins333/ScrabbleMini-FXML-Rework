@@ -53,8 +53,9 @@ public abstract class Player {
     score += value;
   }
 
-  public void transfer(Tile tile) {
+  public Tile transfer(Tile tile) {
     rack.remove(tile);
+    return tile;
   }
 
   public void setRackVisible(boolean state) {

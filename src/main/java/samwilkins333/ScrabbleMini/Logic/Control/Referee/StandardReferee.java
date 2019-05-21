@@ -10,13 +10,20 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.dimensions;
 
 public class StandardReferee extends Referee {
+  private Set<String> dictionary = new DictionaryReader().initialize();
 
   public StandardReferee(List<Player> players, Board board, TileBag tileBag) {
-    super(players, board, tileBag, new DictionaryReader());
+    super(players, board, tileBag);
+  }
+
+  @Override
+  protected boolean isValid(Word word) {
+    return dictionary.contains(word.toString());
   }
 
   @Override
