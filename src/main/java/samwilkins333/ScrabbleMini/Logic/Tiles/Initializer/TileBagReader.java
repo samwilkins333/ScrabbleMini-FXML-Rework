@@ -21,7 +21,7 @@ public class TileBagReader implements TileBagInitializer {
   private static final String PREFIX = "Invalid tile configuration! ";
   private static final String INVALID_HEADER =  PREFIX + "The given file's header is invalid.";
   private static final String INVALID_MAPPING = PREFIX + "Line %d's specifications do not match requirements.";
-  private static final String DUPLICATE_MAPPING = PREFIX + "The character %s already has a specified mapping.";
+  private static final String DUPLICATE_MAPPING = PREFIX + "The character %s already occupied a specified mapping.";
   private static final String EXCESS_INFO = PREFIX + "The file contains more than the necessary information.";
 
   @Override

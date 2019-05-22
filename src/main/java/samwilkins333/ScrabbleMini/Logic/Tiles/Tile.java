@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Pair;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
@@ -16,8 +17,8 @@ public class Tile {
   private final int score;
   private final ObservableImage root;
   private TileOverlayStack overlays;
-  private Point2D indices;
-  private Point2D initialLayout;
+  private Indices indices;
+  private Point2D rackPosition;
 
   private double dragReferenceX;
   private double dragReferenceY;
@@ -27,7 +28,7 @@ public class Tile {
     this.letter = letter;
     this.score = score;
     this.root = root;
-    this.indices = new Point2D(-1, -1);
+    this.indices = new Indices(-1, -1);
 
     initializeInteractions();
   }
@@ -46,7 +47,7 @@ public class Tile {
     return score;
   }
 
-  public Point2D indices() {
+  public Indices indices() {
     return indices;
   }
 
@@ -63,10 +64,10 @@ public class Tile {
   }
 
   private boolean played() {
-    int column = (int) indices.getX();
-    int row = (int) indices.getY();
+    int column = indices.column();
+    int row = indices.row();
     if (column < 0 && row < 0) return false;
-    return board.has(column, row);
+    return board.occupied(column, row);
   }
 
   private EventHandler<MouseEvent> onMousePressed() {
@@ -109,12 +110,12 @@ public class Tile {
 
       Point2D layout;
       indices = toIndices(new Point2D(centerX, centerY));
-      int column = (int) indices.getX();
-      int row = (int) indices.getY();
+      int column = indices.column();
+      int row = indices.row();
       boolean inColumnRange = column >= 0 && column < dimensions;
       boolean inRowRange = row >= 0 && row < dimensions;
 
-      if (inColumnRange && inRowRange && !board.has(column, row) && e.getClickCount() == 1) {
+      if (inColumnRange && inRowRange && !board.occupied(column, row) && e.getClickCount() == 1) {
         layout = toPixels(indices);
         board.place(this);
         bindings.layoutX(layout.getX() + tilePadding);
@@ -124,10 +125,10 @@ public class Tile {
   }
 
   public void reset() {
-    indices = new Point2D(-1, -1);
+    indices = new Indices(-1, -1);
     ImageBindings bindings = root.bindings();
-    bindings.layoutX(initialLayout.getX());
-    bindings.layoutY(initialLayout.getY());
+    bindings.layoutX(rackPosition.getX());
+    bindings.layoutY(rackPosition.getY());
   }
 
   public void flash(OverlayType type) {
@@ -138,7 +139,16 @@ public class Tile {
     return root;
   }
 
-  public void initialLayout(double initialX, double initialY) {
-    initialLayout = new Point2D(initialX, initialY);
+  public void adjustRackHeight(double adjustedY) {
+    rackPosition = new Point2D(rackPosition.getX(), adjustedY);
+    ImageBindings bindings = new ImageBindings();
+    bindings.layoutY(adjustedY);
+  }
+
+  public void setRackPosition(double initialX, double initialY) {
+    rackPosition = new Point2D(initialX, initialY);
+    ImageBindings bindings = root.bindings();
+    bindings.layoutX(initialX);
+    bindings.layoutY(initialY);
   }
 }

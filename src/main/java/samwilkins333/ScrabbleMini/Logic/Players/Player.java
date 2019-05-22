@@ -3,10 +3,12 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Players;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
+import main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager.*;
 
 public abstract class Player {
   protected PlayerType type;
@@ -17,7 +19,7 @@ public abstract class Player {
   Player(PlayerType type, int playerNumber) {
     this.type = type;
     this.playerNumber = playerNumber;
-    this.rack = new Rack(7);
+    this.rack = new Rack(7, playerNumber);
   }
 
   static Player fromType(PlayerType type, int playerNumber) {
@@ -29,18 +31,22 @@ public abstract class Player {
   }
 
   public void fillRack(Board board, TileBag tileBag) {
+    if (rack.isFull()) return;
+
+    rack.consolidate();
+
     tileBag.shake();
     while (!rack.isFull()) {
       Tile drawn = tileBag.draw();
 
-      double initialX = tilePadding + (playerNumber == 1 ? -2 * squareSidePixels : sideLengthPixels + squareSidePixels);
-      double initialY = tilePadding + originTopPixelsLeftRack() + squareSidePixels * rack.size();
+      double initialX = playerNumber == 1 ? leftOriginLeftPixels : rightOriginLeftPixels;
+      double initialY = RackLayoutManager.originTopPixels + squareSidePixels * rack.size();
 
       ImageBindings bindings = drawn.observableImage().bindings();
       bindings.layoutX(initialX);
       bindings.layoutY(initialY);
       bindings.opacity(0);
-      drawn.initialLayout(initialX, initialY);
+      drawn.setRackPosition(initialX, initialY);
 
       drawn.render(board);
 
