@@ -50,6 +50,10 @@ public class Tile {
     return indices;
   }
 
+  public double rackPlacement() {
+    return rackPosition.getY();
+  }
+
   private void initializeInteractions() {
     root.imageView().setOnMousePressed(this.onMousePressed());
     root.imageView().setOnMouseDragged(this.onMouseDragged());

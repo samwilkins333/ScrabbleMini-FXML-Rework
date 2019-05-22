@@ -14,14 +14,14 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager.
 
 public abstract class Player {
   protected PlayerType type;
-  protected final int playerNumber;
+  private final int playerNumber;
   protected Rack rack;
   protected int score = 0;
 
   Player(PlayerType type, int playerNumber) {
     this.type = type;
     this.playerNumber = playerNumber;
-    this.rack = new Rack(7, playerNumber);
+    this.rack = new Rack(7);
   }
 
   static Player fromType(PlayerType type, int playerNumber) {
@@ -37,10 +37,8 @@ public abstract class Player {
 
     rack.consolidate();
 
-    int i = 0;
     tileBag.shake();
     while (!rack.isFull()) {
-      i++;
       Tile drawn = tileBag.draw();
 
       double initialX = playerNumber == 1 ? leftOriginLeftPixels : rightOriginLeftPixels;
@@ -52,7 +50,7 @@ public abstract class Player {
       bindings.opacity(1);
       drawn.setRackPosition(initialX, initialY);
 
-      TransitionHelper.pause(0.25 * (i + rack.size()), e -> drawn.render(board)).play();
+      TransitionHelper.pause(Rack.DELAY * rack.size(), e -> drawn.render(board)).play();
 
       rack.add(drawn);
     }
@@ -72,5 +70,9 @@ public abstract class Player {
     rack.setVisible(state);
   }
 
-  public abstract void play(Board board);
+  public void shuffleRack(Board board) {
+    rack.shuffle(board);
+  }
+
+  public abstract void makeMove(Board board);
 }

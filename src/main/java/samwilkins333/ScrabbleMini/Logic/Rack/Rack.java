@@ -1,21 +1,23 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Rack;
 
-import javafx.geometry.Point2D;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squareSidePixels;
 
 public class Rack {
+  public static final double DELAY = 0.25;
+
   private final int capacity;
   private List<Tile> internalState = new ArrayList<>();
-  private Point2D origin;
 
-  public Rack(int capacity, int playerNumber) {
+  public Rack(int capacity) {
     this.capacity = capacity;
   }
 
@@ -40,10 +42,16 @@ public class Rack {
   }
 
   public void consolidate() {
-    IntStream.range(0, size()).forEach(i -> TransitionHelper.pause(0.25 * i, e -> placeAt(i)).play());
+    IntStream.range(0, size()).forEach(i -> TransitionHelper.pause(DELAY * i, e -> placeAt(i)).play());
   }
 
   private void placeAt(int position) {
     internalState.get(position).adjustRackHeight(RackLayoutManager.originTopPixels + (position * squareSidePixels));
+  }
+
+  public void shuffle(Board board) {
+    if (!board.placements().isEmpty()) return;
+
+    internalState.sort(Comparator.comparing(Tile::rackPlacement));
   }
 }

@@ -9,7 +9,7 @@ public class HumanPlayer extends Player {
   }
 
   @Override
-  public void play(Board board) {
+  public void makeMove(Board board) {
     board.resetPlacements();
   }
 

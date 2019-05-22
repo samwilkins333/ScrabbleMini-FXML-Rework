@@ -8,7 +8,7 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardReader;
-import main.java.samwilkins333.ScrabbleMini.Logic.Control.Match.Match;
+import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.Referee;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.StandardReferee;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerType;
@@ -27,7 +27,7 @@ public class BackgroundController implements Initializable {
   @FXML public ImageView tilebagView;
   @FXML public Pane boardPane;
 
-  private Match match;
+  private Referee referee;
   private Board board;
   private TileBag tileBag;
 
@@ -41,7 +41,7 @@ public class BackgroundController implements Initializable {
   private void initializeVisualElements() {
     boardPane.setFocusTraversable(true);
     boardPane.requestFocus();
-    boardPane.setOnKeyPressed(e -> { if (match != null) match.notify(e); });
+    boardPane.setOnKeyPressed(e -> { if (referee != null) referee.notify(e); });
 
     board = new Board(boardPane, new BoardReader());
     tileBag = new TileBag(tilebagView, new TileBagReader());
@@ -67,6 +67,6 @@ public class BackgroundController implements Initializable {
     players.register(1, PlayerType.HUMAN);
     players.register(2, PlayerType.HUMAN);
 
-    match = new Match(new StandardReferee(players, board, tileBag));
+    referee = new StandardReferee(players, board, tileBag);
   }
 }
