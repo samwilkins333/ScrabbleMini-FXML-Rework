@@ -1,16 +1,17 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.Player;
-import main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+
+import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.*;
 
 public abstract class Referee {
   protected final List<Player> players;
@@ -38,10 +39,8 @@ public abstract class Referee {
     current = (current + 1) % players.size();
     current().setRackVisible(true);
 
-    Executors.newScheduledThreadPool(1).schedule(() -> {
-      current().fillRack(board, tileBag);
-      current().play(board);
-    }, 3, TimeUnit.SECONDS);
+    current().fillRack(board, tileBag);
+    current().play(board);
   }
 
   public void evaluateHumanPlacements() {
@@ -58,28 +57,31 @@ public abstract class Referee {
 
     // order the tiles from left to right or top to bottom ('read' them)
     word.sort(Word.reader(orientation));
+    boolean wordValid = isValid(word);
 
     List<Word> crosses = board.crosses(word, orientation.invert());
     boolean allValid = true;
     boolean anyValid = false;
 
     if (!crosses.isEmpty()) {
-      for (Word cross: crosses) {
-        boolean valid = isValid(cross);
-        allValid &= valid;
-        anyValid |= valid;
-        cross.flash(valid ? OverlayType.SUCCESS : OverlayType.FAILURE);
+      for (int i = 0; i < crosses.size(); i++) {
+        Word cross = crosses.get(i);
+        boolean crossValid = isValid(cross);
+        allValid &= crossValid;
+        anyValid |= crossValid;
+        EventHandler<ActionEvent> flash = e -> cross.flash(crossValid ? (wordValid ? SUCCESS : INVALID) : FAILURE);
+        TransitionHelper.pause((i + 1) * 0.55, flash).play();
       }
       if (!allValid) {
-        word.flash(anyValid ? OverlayType.INVALID : OverlayType.FAILURE);
+        word.flash(anyValid ? INVALID : FAILURE);
         return;
       }
     }
 
-    if (!isValid(word)) {
-      word.flash(OverlayType.FAILURE);
+    if (!wordValid) {
+      word.flash(FAILURE);
     } else if (!isPositioned(word, orientation)) {
-      word.flash(OverlayType.INVALID);
+      word.flash(INVALID);
     } else {
       word.forEach(tile -> board.play(current().transfer(tile)));
       current().increment(board.score(word, true));
