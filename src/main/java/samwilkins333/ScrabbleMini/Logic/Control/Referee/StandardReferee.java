@@ -22,6 +22,16 @@ public class StandardReferee extends Referee {
 
   @Override
   protected Orientation analyzeOrientation(Word placements) {
+    if (placements.size() == 1) {
+      Tile singleton = placements.get(0);
+      int column = singleton.indices().column();
+      int row = singleton.indices().row();
+      boolean verticalNeighbors = board.occupied(column, row + 1) || board.occupied(column, row  - 1);
+      boolean horizontalNeighbors = board.occupied(column + 1, row) || board.occupied(column - 1, row);
+      if (verticalNeighbors && !horizontalNeighbors) return Orientation.VERTICAL;
+      if (horizontalNeighbors && !verticalNeighbors) return Orientation.HORIZONTAL;
+      if (!verticalNeighbors) return Orientation.UNDEFINED;
+    }
     if (isAlignedHorizontally(placements)) return Orientation.HORIZONTAL;
     if (isAlignedVertically(placements)) return Orientation.VERTICAL;
     return Orientation.UNDEFINED;

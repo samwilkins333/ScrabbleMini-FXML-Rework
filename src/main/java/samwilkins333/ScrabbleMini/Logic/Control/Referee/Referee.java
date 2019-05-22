@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public abstract class Referee {
   protected final List<Player> players;
   protected final Board board;
-  protected final TileBag tileBag;
+  private final TileBag tileBag;
   protected int current = 0;
   protected int moves = 0;
 
@@ -50,7 +50,7 @@ public abstract class Referee {
     // ensure we have a non-empty...
     if (word.isEmpty()) return;
 
-    // ...properly oriented word
+    // ...properly oriented and appropriately complete (no gaps) word
     Orientation orientation;
     if ((orientation = analyzeOrientation(word)) == Orientation.UNDEFINED || !board.complete(word, orientation)) {
       return;
@@ -60,12 +60,20 @@ public abstract class Referee {
     word.sort(Word.reader(orientation));
 
     List<Word> crosses = board.crosses(word, orientation.invert());
+    boolean allValid = true;
+    boolean anyValid = false;
+
     if (!crosses.isEmpty()) {
-      if (!crosses.stream().allMatch(this::isValid)) {
-        word.flash(OverlayType.FAILURE);
+      for (Word cross: crosses) {
+        boolean valid = isValid(cross);
+        allValid &= valid;
+        anyValid |= valid;
+        cross.flash(valid ? OverlayType.SUCCESS : OverlayType.FAILURE);
+      }
+      if (!allValid) {
+        word.flash(anyValid ? OverlayType.INVALID : OverlayType.FAILURE);
         return;
       }
-      crosses.forEach(c -> c.flash(OverlayType.SUCCESS));
     }
 
     if (!isValid(word)) {
@@ -73,10 +81,9 @@ public abstract class Referee {
     } else if (!isPositioned(word, orientation)) {
       word.flash(OverlayType.INVALID);
     } else {
-      // SUCCESS
-      // remove from rack (transfer) and play on board (which removes from placement, if present)
       word.forEach(tile -> board.play(current().transfer(tile)));
-      current().increment(board.score(word));
+      current().increment(board.score(word, true));
+      crosses.forEach(cross -> current().increment(board.score(cross, true)));
       nextMove();
     }
   }

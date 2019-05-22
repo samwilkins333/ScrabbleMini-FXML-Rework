@@ -120,7 +120,7 @@ public class Board {
     return new Word(placed);
   }
 
-  public int score(Word word) {
+  public int score(Word word, boolean official) {
     int score = 0;
     int wordMultiplier = 1;
 
@@ -132,6 +132,8 @@ public class Board {
 
       wordMultiplier *= multiplier.wordValue();
       score += tile.score() * multiplier.letterValue();
+
+      if (official) multipliers[column][row] = new Multiplier(1, 1);
     }
 
     return score * wordMultiplier;
@@ -158,10 +160,10 @@ public class Board {
 
       if (occupied(column, row)) continue;
 
-      Word cross = new Word();
+      Word cross = new Word(tile);
       collect(cross, column, row, inverted);
 
-      if (!cross.isEmpty()) {
+      if (cross.size() > 1) {
         cross.sort(Word.reader(inverted));
         crosses.add(cross);
       }
