@@ -23,6 +23,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation.*;
 
 public class Board {
   private Tile[][] internalState;
+  private Rectangle[][] squares;
   private List<Tile> placed = new ArrayList<>();
 
   private final Pane root;
@@ -68,7 +69,9 @@ public class Board {
     root.setLayoutX(originLeftPixels);
     root.setLayoutY(originTopPixels);
 
-    internalState = new Tile[(int) dimensions][(int) dimensions];
+    int dim = (int) dimensions;
+    internalState = new Tile[dim][dim];
+    squares = new Rectangle[dim][dim];
 
     for (int column = 0; column < dimensions; column++) {
       for (int row = 0; row < dimensions; row++) {
@@ -79,6 +82,7 @@ public class Board {
         rectangle.setFill(fill);
         rectangle.setStroke(Color.BLACK);
         root.getChildren().add(rectangle);
+        squares[column][row] = rectangle;
       }
     }
   }
@@ -108,6 +112,7 @@ public class Board {
     int column = tile.indices().column();
     int row = tile.indices().row();
     internalState[column][row] = tile;
+    squares[column][row].setFill(Color.GRAY);
     tile.flash(OverlayType.SUCCESS);
   }
 
