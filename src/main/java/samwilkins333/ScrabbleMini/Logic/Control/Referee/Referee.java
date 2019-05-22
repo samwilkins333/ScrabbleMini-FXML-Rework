@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.Player;
+import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
@@ -14,33 +15,32 @@ import java.util.List;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.*;
 
 public abstract class Referee {
-  protected final List<Player> players;
+  protected final PlayerList players;
   protected final Board board;
   private final TileBag tileBag;
-  protected int current = 0;
   protected int moves = 0;
 
-  Referee(List<Player> players, Board board, TileBag tileBag) {
+  Referee(PlayerList players, Board board, TileBag tileBag) {
     this.players = players;
     this.board = board;
     this.tileBag = tileBag;
 
-    players.forEach(p -> p.fillRack(board, tileBag)); // populate racks
-//    current = (int) (Math.random() * players.size()); //coin toss
+    players.forEach(p -> p.fillRack(board, tileBag));
+    players.forEach(p -> p.setRackVisible(p == current()));
   }
 
   public Player current() {
-    return players.get(current);
+    return players.current();
   }
 
   private void nextMove() {
     moves++;
-    current().setRackVisible(false);
-    current = (current + 1) % players.size();
-    current().setRackVisible(true);
-
-    current().fillRack(board, tileBag);
-    current().play(board);
+    Player current = players.current();
+    current.setRackVisible(false);
+    current = players.next();
+    current.setRackVisible(true);
+    current.fillRack(board, tileBag);
+    current.play(board);
   }
 
   public void evaluateHumanPlacements() {
@@ -61,19 +61,17 @@ public abstract class Referee {
 
     List<Word> crosses = board.crosses(word, orientation.invert());
     boolean allValid = true;
-    boolean anyValid = false;
 
     if (!crosses.isEmpty()) {
       for (int i = 0; i < crosses.size(); i++) {
         Word cross = crosses.get(i);
         boolean crossValid = isValid(cross);
         allValid &= crossValid;
-        anyValid |= crossValid;
         EventHandler<ActionEvent> flash = e -> cross.flash(crossValid ? (wordValid ? SUCCESS : INVALID) : FAILURE);
         TransitionHelper.pause((i + 1) * 0.55, flash).play();
       }
       if (!allValid) {
-        word.flash(anyValid ? INVALID : FAILURE);
+        word.flash(wordValid ? INVALID : FAILURE);
         return;
       }
     }
@@ -83,9 +81,11 @@ public abstract class Referee {
     } else if (!isPositioned(word, orientation)) {
       word.flash(INVALID);
     } else {
-      word.forEach(tile -> board.play(current().transfer(tile)));
-      current().increment(board.score(word, true));
-      crosses.forEach(cross -> current().increment(board.score(cross, true)));
+      Player current = players.current();
+      if (crosses.isEmpty()) crosses.add(word);
+      else crosses.set(0, word);
+      word.forEach(tile -> board.play(current.transfer(tile)));
+      crosses.forEach(cross -> current.apply(board.score(cross, true)));
       nextMove();
     }
   }

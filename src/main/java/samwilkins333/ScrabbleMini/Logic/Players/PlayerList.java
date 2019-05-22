@@ -16,4 +16,9 @@ public class PlayerList extends ArrayList<Player> {
   public Player current() {
     return get(current);
   }
+
+  public Player next() {
+    current = (current + 1) % size();
+    return get(current);
+  }
 }

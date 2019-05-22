@@ -68,6 +68,5 @@ public class BackgroundController implements Initializable {
     players.register(2, PlayerType.HUMAN);
 
     match = new Match(new StandardReferee(players, board, tileBag));
-    match.begin();
   }
 }

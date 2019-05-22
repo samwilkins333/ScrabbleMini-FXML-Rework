@@ -3,12 +3,12 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.Initializer.DictionaryReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.Player;
+import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 
-import java.util.List;
 import java.util.Set;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.dimensions;
@@ -16,7 +16,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManage
 public class StandardReferee extends Referee {
   private Set<String> dictionary = new DictionaryReader().initialize();
 
-  public StandardReferee(List<Player> players, Board board, TileBag tileBag) {
+  public StandardReferee(PlayerList players, Board board, TileBag tileBag) {
     super(players, board, tileBag);
   }
 

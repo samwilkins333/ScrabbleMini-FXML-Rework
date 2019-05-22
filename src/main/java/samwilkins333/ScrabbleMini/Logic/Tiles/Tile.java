@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Pair;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
@@ -35,7 +34,7 @@ public class Tile {
 
   public void render(Board board) {
     this.board = board;
-    this.board.node().getChildren().add(root.imageView());
+    board.node().getChildren().add(root.imageView());
     overlays = new TileOverlayStack(root.bindings(), board.node().getChildren());
   }
 
@@ -141,7 +140,7 @@ public class Tile {
 
   public void adjustRackHeight(double adjustedY) {
     rackPosition = new Point2D(rackPosition.getX(), adjustedY);
-    ImageBindings bindings = new ImageBindings();
+    ImageBindings bindings = root.bindings();
     bindings.layoutY(adjustedY);
   }
 

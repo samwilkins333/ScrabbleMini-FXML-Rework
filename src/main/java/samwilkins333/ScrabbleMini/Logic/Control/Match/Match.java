@@ -11,10 +11,6 @@ public class Match {
     this.referee = referee;
   }
 
-  public void begin() {
-    referee.current().setRackVisible(true);
-  }
-
   public void notify(KeyEvent e) {
     if (!(referee.current() instanceof HumanPlayer)) return;
     switch (e.getCode()) {

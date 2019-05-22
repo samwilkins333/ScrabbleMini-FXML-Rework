@@ -120,7 +120,7 @@ public class Board {
     return new Word(placed);
   }
 
-  public int score(Word word, boolean official) {
+  public BoardScore score(Word word, boolean official) {
     int score = 0;
     int wordMultiplier = 1;
 
@@ -136,7 +136,7 @@ public class Board {
       if (official) multipliers[column][row] = new Multiplier(1, 1);
     }
 
-    return score * wordMultiplier;
+    return new BoardScore(score * wordMultiplier, word.toString());
   }
 
   public boolean complete(Word word, Orientation orientation) {

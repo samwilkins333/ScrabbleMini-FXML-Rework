@@ -1,7 +1,9 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Players;
 
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardScore;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
@@ -35,8 +37,10 @@ public abstract class Player {
 
     rack.consolidate();
 
+    int i = 0;
     tileBag.shake();
     while (!rack.isFull()) {
+      i++;
       Tile drawn = tileBag.draw();
 
       double initialX = playerNumber == 1 ? leftOriginLeftPixels : rightOriginLeftPixels;
@@ -45,18 +49,18 @@ public abstract class Player {
       ImageBindings bindings = drawn.observableImage().bindings();
       bindings.layoutX(initialX);
       bindings.layoutY(initialY);
-      bindings.opacity(0);
+      bindings.opacity(1);
       drawn.setRackPosition(initialX, initialY);
 
-      drawn.render(board);
+      TransitionHelper.pause(0.25 * (i + rack.size()), e -> drawn.render(board)).play();
 
       rack.add(drawn);
     }
   }
 
-  public void increment(int value) {
-    System.out.println(value);
-    score += value;
+  public void apply(BoardScore result) {
+    System.out.printf("Player %s played %s for %d points\n", playerNumber, result.word().toUpperCase(), result.score());
+    score += result.score();
   }
 
   public Tile transfer(Tile tile) {
