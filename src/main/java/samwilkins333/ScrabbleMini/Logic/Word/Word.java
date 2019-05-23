@@ -7,10 +7,10 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import java.util.*;
 
 public class Word extends ArrayList<Tile> {
-  private static Map<Orientation, Comparator<Tile>> readers = new HashMap<>();
+  private static Map<Axis, Comparator<Tile>> readers = new HashMap<>();
   static {
-    readers.put(Orientation.HORIZONTAL, Comparator.comparingDouble(t -> t.indices().column()));
-    readers.put(Orientation.VERTICAL, Comparator.comparingDouble(t -> t.indices().row()));
+    readers.put(Axis.HORIZONTAL, Comparator.comparingDouble(t -> t.indices().column()));
+    readers.put(Axis.VERTICAL, Comparator.comparingDouble(t -> t.indices().row()));
   }
 
   public Word(Tile... initial) {
@@ -25,12 +25,12 @@ public class Word extends ArrayList<Tile> {
     forEach(tile -> tile.flash(type));
   }
 
-  public Tile first(Orientation orientation) {
-    return stream().min(Word.reader(orientation)).orElse(get(0));
+  public Tile first(Axis axis) {
+    return stream().min(Word.reader(axis)).orElse(get(0));
   }
 
-  public Tile last(Orientation orientation) {
-    return stream().max(Word.reader(orientation)).orElse(get(size() - 1));
+  public Tile last(Axis axis) {
+    return stream().max(Word.reader(axis)).orElse(get(size() - 1));
   }
 
   public boolean contains(int column, int row) {
@@ -49,8 +49,8 @@ public class Word extends ArrayList<Tile> {
     return word.toString();
   }
 
-  public static Comparator<Tile> reader(Orientation orientation) {
-    return readers.get(orientation);
+  public static Comparator<Tile> reader(Axis axis) {
+    return readers.get(axis);
   }
 
   public boolean internalOverlap() {

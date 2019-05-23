@@ -6,68 +6,78 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
+import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squarePixels;
 
-public class Rack {
+/**
+ * Models a player's rack of 7 tiles, encompassing both
+ * the logic and the graphical state.
+ */
+public class Rack extends ArrayList<Tile> {
   public static final double DELAY = 0.25;
+  public static final int CAPACITY = 7;
   public int animationsInProgress = 0;
 
-  private final int capacity;
-  private List<Tile> internalState = new ArrayList<>();
-
-  public Rack(int capacity) {
-    this.capacity = capacity;
-  }
-
-  public void add(Tile tile) {
-    internalState.add(tile);
-  }
-
-  public void remove(Tile tile) {
-    internalState.remove(tile);
-  }
-
+  /**
+   * @return whether or not the rack is at capacity
+   */
   public boolean isFull() {
-    return internalState.size() == capacity;
+    return size() == CAPACITY;
   }
 
-  public int size() {
-    return internalState.size();
-  }
-
+  /**
+   * Either displays or conceals all the tiles
+   * present in the rack.
+   * @param visible whether or not the tiles should be visible
+   */
   public void setVisible(boolean visible) {
-    internalState.forEach(tile -> tile.observableImage().bindings().opacity(visible ? 1 : 0));
+    forEach(tile -> tile.observableImage().bindings().opacity(visible ? 1 : 0));
   }
 
+  /**
+   * Takes the tiles remaining in the rack after placement
+   * and positions them in an immediate sequence beginning
+   * at the top of the rack (with an animation).
+   */
   public void consolidate() {
-    IntStream.range(0, size()).forEach(i -> TransitionHelper.pause(DELAY * i, e -> placeAt(i)).play());
+    IntConsumer placeTile =
+        i -> TransitionHelper.pause(DELAY * i, e -> placeAt(i)).play();
+    IntStream.range(0, size()).forEach(placeTile);
   }
 
-  private void placeAt(int position) {
-    internalState.get(position).set(RackLayoutManager.originTopPixels + (position * squarePixels));
+  private void placeAt(int pos) {
+    double layoutY = RackLayoutManager.originTopPixels + (pos * squarePixels);
+    get(pos).set(layoutY);
   }
 
+  /**
+   * Logically and graphically shuffles the vertical
+   * ordering of the tiles in the rack, non-deterministically.
+   * @param board state indicates whether or not the rack can be
+   *              shuffled.
+   */
   public void shuffle(Board board) {
-    if (!board.placements().isEmpty() || animationsInProgress > 0) return;
+    if (!board.placements().isEmpty() || animationsInProgress > 0) {
+      return;
+    }
 
-    internalState.sort(Comparator.comparing(Tile::rackPlacement));
+    sort(Comparator.comparing(Tile::rackPlacement));
 
-    for (int i = 0; i < internalState.size() - 1; i++) {
-      Tile upperTile = internalState.get(i);
-      Tile lowerTile = internalState.get(i + 1);
+    for (int i = 0; i < size() - 1; i++) {
+      Tile upperTile = get(i);
+      Tile lowerTile = get(i + 1);
 
       switch ((int) (Math.random() * 3)) {
         case 0:
         case 1:
           upperTile.shift(1);
           lowerTile.shift(-1);
-
-          internalState.set(i + 1, upperTile);
-          internalState.set(i, lowerTile);
+          set(i + 1, upperTile);
+          set(i, lowerTile);
           break;
+        default:
         case 2:
           break;
       }

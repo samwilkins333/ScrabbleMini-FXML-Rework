@@ -2,7 +2,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Board;
 
 /**
  * A utility struct that ensures gives the caller
- * of a scored word both the score and the <code>String</code>
+ * of a scored word both the moves and the <code>String</code>
  * version, as both are commonly needed in tandem.
  */
 public class BoardScore {
@@ -15,7 +15,7 @@ public class BoardScore {
   }
 
   /**
-   * @return the numeric score associated
+   * @return the numeric moves associated
    * with this word
    */
   public int score() {

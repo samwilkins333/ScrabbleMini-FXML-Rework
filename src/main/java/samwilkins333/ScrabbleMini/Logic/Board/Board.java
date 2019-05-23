@@ -6,11 +6,12 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer.BoardAttributes;
+import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Indices;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
-import main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation;
+import main.java.samwilkins333.ScrabbleMini.Logic.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 
 import java.util.ArrayList;
@@ -25,9 +26,8 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManage
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.originTopPixels;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.originLeftPixels;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Rack.RackLayoutManager.rackSize;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation.UNDEFINED;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation.VERTICAL;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Word.Axis.UNDEFINED;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Word.Axis.VERTICAL;
 import static main.java.samwilkins333.ScrabbleMini.Main.screenHeight;
 import static main.java.samwilkins333.ScrabbleMini.Main.screenWidth;
 
@@ -37,7 +37,7 @@ import static main.java.samwilkins333.ScrabbleMini.Main.screenWidth;
  * multiplier mappings and the colors of each square.
  * In addition to graphical components and display
  * management, the board maintains an internal state
- * of permanently played tiles, and can score
+ * of permanently played tiles, and can moves
  * sequences and analyze tiles relevant in a sequence (word).
  */
 public class Board {
@@ -98,7 +98,7 @@ public class Board {
     tileWidth = TILE_RATIO * squarePixels;
 
     RackLayoutManager.originTopPixels = tilePadding
-            + ((dimensions - rackSize) * squarePixels) / 2;
+            + ((dimensions - Rack.CAPACITY) * squarePixels) / 2;
     RackLayoutManager.leftOriginLeftPixels = tilePadding
             - 2 * squarePixels;
     RackLayoutManager.rightOriginLeftPixels = tilePadding
@@ -145,17 +145,37 @@ public class Board {
 
   /**
    * Determines whether a tile has any permanently placed
-   * neighbors directly above, below, right or left of it.
+   * neighbors directly adjacent to it.
    * @param column the target column
    * @param row the target row
    * @return whether or not any permanently played neighbors exist
    */
-  public boolean hasNeighbors(int column, int row) {
-    return
-        occupied(column + 1, row)
-        || occupied(column - 1, row)
-        || occupied(column, row + 1)
-        || occupied(column, row - 1);
+  public boolean neighbors(int column, int row) {
+    return horizontalNeighbors(column, row) || verticalNeighbors(column, row);
+  }
+
+  /**
+   * Determines whether a tile has any permanently placed
+   * neighbors directly above or below it.
+   * @param column the target column
+   * @param row the target row
+   * @return whether or not any permanently played neighbors exist
+   * above it or below it
+   */
+  public boolean verticalNeighbors(int column, int row) {
+    return occupied(column, row + 1) || occupied(column, row - 1);
+  }
+
+  /**
+   * Determines whether a tile has any permanently placed
+   * neighbors directly to its left or right.
+   * @param column the target column
+   * @param row the target row
+   * @return whether or not any permanently played neighbors exist
+   * to its left or right
+   */
+  public boolean horizontalNeighbors(int column, int row) {
+    return occupied(column + 1, row) || occupied(column - 1, row);
   }
 
   /**
@@ -170,8 +190,6 @@ public class Board {
   public Tile get(int column, int row) {
     return internalState[column][row];
   }
-
-  // Placement
 
   /**
    * Adds a tile to the list of temporarily placed words
@@ -230,13 +248,13 @@ public class Board {
   }
 
   /**
-   * Assigns a score value to a given word (not just text
+   * Assigns a moves value to a given word (not just text
    * but a series of located tiles) based on multipliers
    * mapped during the board's initialization.
-   * @param word the tiles to score
+   * @param word the tiles to moves
    * @param official whether or not this is an official placement
    *                 or just used for computation (SimulatedPlayer)
-   * @return a struct containing the numerical score and the string version
+   * @return a struct containing the numerical moves and the string version
    * of the word for convenience
    */
   public BoardScore score(Word word, boolean official) {
@@ -265,21 +283,21 @@ public class Board {
   /**
    * Given a word of temporarily placed tiles and starting
    * at the indices of the first tile, follows
-   * the orientation axis of the word and adds consecutive
+   * the axis axis of the word and adds consecutive
    * permanently played tiles to the word until the end condition.
-   * (See collect(Word word, int column, int row, Orientation o, int dir)
+   * (See collect(Word word, int column, int row, Axis o, int dir)
    * for details of end condition).
    * @param word the word to complete
-   * @param orientation the word's orientation
+   * @param axis the word's axis
    * @return whether or not the word is compact along its
-   * axis of orientation
+   * axis of axis
    */
-  public boolean complete(Word word, Orientation orientation) {
-    assert orientation != UNDEFINED;
+  public boolean complete(Word word, Axis axis) {
+    assert axis != UNDEFINED;
 
-    Tile first = word.first(orientation);
-    Indices last = word.last(orientation).indices();
-    int endCoordinate = orientation == VERTICAL ? last.row() : last.column();
+    Tile first = word.first(axis);
+    Indices last = word.last(axis).indices();
+    int endCoordinate = axis == VERTICAL ? last.row() : last.column();
 
     int column = first.indices().column();
     int row = first.indices().row();
@@ -288,22 +306,22 @@ public class Board {
     // returned from the method) is equal to or before the last row or
     // column in the temporarily placed word, there must have been an invalid
     // gap in the tiles.
-    int failedAt = collect(word, column, row, orientation);
+    int failedAt = collect(word, column, row, axis);
     // Thus, if greater, the tiles must form a compact, unbroken sequence.
     return failedAt > endCoordinate;
   }
 
   /**
    * Given a completed word of placed tiles on the board, computes
-   * all the words in the opposite orientation that would be created
+   * all the words in the opposite axis that would be created
    * by playing the given word. Before adding a cross to the list, it
    * ensures the ordering of the list reflects the lexigraphical ordering
-   * of the word, depending on the orientation.
+   * of the word, depending on the axis.
    * @param word the word from which crosses will occur
    * @param inverted vertical, if the word is horizontal, and visa versa
    * @return a list of computed, lexigraphically accurate crosses
    */
-  public List<Word> crosses(Word word, Orientation inverted) {
+  public List<Word> crosses(Word word, Axis inverted) {
     List<Word> crosses = new ArrayList<>();
 
     for (Tile tile : word) {
@@ -329,16 +347,16 @@ public class Board {
   /**
    * A convenience method that starts at a pair of indices and collects
    * all relevant/immediately adjacent tiles in both directions of the
-   * given orientation.
+   * given axis.
    * @param word the word to which the collected tiles will be added
    * @param column the column coordinate of reference location
    * @param row the row coordinate of reference location
-   * @param orientation the orientation with which to scan for tiles to add
+   * @param axis the axis with which to scan for tiles to add
    * @return the row or column at which the collection stopped
    */
-  private int collect(Word word, int column, int row, Orientation orientation) {
-    collect(word, column, row, orientation, -1);
-    return collect(word, column, row, orientation, 1);
+  private int collect(Word word, int column, int row, Axis axis) {
+    collect(word, column, row, axis, -1);
+    return collect(word, column, row, axis, 1);
   }
 
   /**
@@ -350,13 +368,13 @@ public class Board {
    * @param word the word to which the collected tiles will be added
    * @param column the column coordinate of reference location
    * @param row the row coordinate of reference location
-   * @param o the orientation with which to scan for tiles to add
+   * @param a the orientation with which to scan for tiles to add
    * @param dir the direction in which to search (-1 up / left, 1 right / down)
    * @return the row or column at which the collection stopped
    */
-  private int collect(Word word, int column, int row, Orientation o, int dir) {
-    assert o != UNDEFINED;
-    boolean v = o == VERTICAL;
+  private int collect(Word word, int column, int row, Axis a, int dir) {
+    assert a != UNDEFINED;
+    boolean v = a == VERTICAL;
     int target = v ? row : column;
     while ((target += dir) >= 0 && target < dimensions) {
       int c = v ? column : target;

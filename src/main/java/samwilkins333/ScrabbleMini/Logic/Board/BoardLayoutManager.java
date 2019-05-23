@@ -12,7 +12,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Indices;
  */
 public final class BoardLayoutManager {
   private BoardLayoutManager() {
-    // prevents instantiation
+    //prevents instantiation
   }
 
   public static double originLeftPixels;

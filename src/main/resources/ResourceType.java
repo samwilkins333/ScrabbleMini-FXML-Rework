@@ -1,5 +1,11 @@
 package main.resources;
 
+/**
+ * A repository enumerating all
+ * immediate child folders (and
+ * correspondingly file types) of the
+ * resources directory.
+ */
 public enum ResourceType {
   IMAGE("images"),
   FONT("fonts"),

@@ -5,9 +5,9 @@ import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagInitializer;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
@@ -16,6 +16,11 @@ import java.util.List;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.tileWidth;
 
+/**
+ * A class that logically and graphically models a
+ * finite container for tiles, from which they can
+ * be drawn at random.
+ */
 public class TileBag {
   private ObservableImage root;
   private TileBagInitializer initializer;
@@ -26,21 +31,42 @@ public class TileBag {
   private RotateTransition shake;
   private TranslateTransition hide;
 
+  private static final double SHAKE_DURATION = 0.5;
+  private static final double SHAKE_BY = 15;
+  private static final int SHAKE_CYCLES = 4;
+
+  private static final int WIDTH = 250;
+  private static final int LAYOUT_X = 100;
+  private static final int LAYOUT_Y = 400;
+  private static final int ROTATION = 45;
+
+  /**
+   * Constructor.
+   * @param root the FXML generated <code>ImageView</code> displaying
+   *             the tile container
+   * @param initializer the caller-specified initializer
+   *                    used to initialize the TileBag
+   */
   public TileBag(ImageView root, TileBagInitializer initializer) {
     this.initializer = initializer;
-    this.root = ObservableImage.initialize(root, "background/tilebag.png", BindingMode.BIDIRECTIONAL, true);
+    this.root = ObservableImage.initialize(
+            root,
+            "background/tilebag.png",
+            BindingMode.BIDIRECTIONAL,
+            true
+    );
 
     initializeLayout();
     initializeAnimation();
   }
 
   private void initializeLayout() {
-    root.bindings().width(250);
-    root.bindings().layoutX(100);
-    root.bindings().layoutY(400);
+    root.bindings().width(WIDTH);
+    root.bindings().layoutX(LAYOUT_X);
+    root.bindings().layoutY(LAYOUT_Y);
     root.bindings().opacity(1);
     root.shadow(true);
-    root.bindings().rotate(45);
+    root.bindings().rotate(ROTATION);
 
     attributes = initializer.initialize();
     attributes.metadataMapping().forEach((letter, metadata) -> {
@@ -51,29 +77,36 @@ public class TileBag {
   }
 
   private void initializeAnimation() {
-    shake = new RotateTransition(Duration.millis(190), root.imageView());
-    shake.setByAngle(15);
-    shake.setCycleCount(4);
-    shake.setAutoReverse(true);
-
-    hide = new TranslateTransition(Duration.seconds(3), root.imageView());
-    hide.setByX(-1 * (root.bindings().layoutX() + root.bindings().width()));
-    hide.setByY(Main.screenHeight - root.bindings().layoutY());
+    shake = TransitionHelper.rotate(
+            root.imageView(),
+            SHAKE_DURATION,
+            SHAKE_BY,
+            SHAKE_CYCLES,
+            true
+    );
+    hide = TransitionHelper.translate(
+            root.imageView(),
+            3,
+            -1 * (root.bindings().layoutX() + root.bindings().width()),
+            Main.screenHeight - root.bindings().layoutY()
+    );
   }
 
-  public TileBagInitializer.TileBagAttributes attributes() {
-    return attributes;
-  }
-
+  /**
+   * @return the next tile drawn from the bag. Logically
+   * initialized, but the layout is uninitialized.
+   */
   public Tile draw() {
     int index = (int) (Math.random() * internalState.size());
     String letter = internalState.remove(index);
-    return new Tile(letter, attributes.metadataMapping().get(letter).score(), createVisual(letter));
+    int score = attributes.metadataMapping().get(letter).score();
+    return new Tile(letter, score, createVisual(letter));
   }
 
   private ObservableImage createVisual(String letter) {
     String url = String.format("tiles/%s.png", letter);
-    ObservableImage visual = ObservableImage.create(url, BindingMode.BIDIRECTIONAL);
+    ObservableImage visual =
+            ObservableImage.create(url, BindingMode.BIDIRECTIONAL);
     visual.bindings().width(tileWidth);
     visual.shadow(true);
     visual.shadowColor(Color.BLACK);
@@ -81,13 +114,25 @@ public class TileBag {
     return visual;
   }
 
+  /**
+   * Causes the TileBag to shake graphically, indicating
+   * tiles have been dispensed.
+   */
   public void shake() {
-    if (shake.getStatus() == Animation.Status.RUNNING) return;
+    if (shake.getStatus() == Animation.Status.RUNNING) {
+      return;
+    }
     shake.play();
   }
 
+  /**
+   * Causes the TileBag to slide offscreen to the bottom-
+   * left corner, once all tiles have been drawn.
+   */
   public void hide() {
-    if (hide.getStatus() == Animation.Status.RUNNING) return;
+    if (hide.getStatus() == Animation.Status.RUNNING) {
+      return;
+    }
     hide.play();
   }
 }

@@ -8,14 +8,23 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
-import main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation;
+import main.java.samwilkins333.ScrabbleMini.Logic.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Word;
 
 import java.util.List;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.*;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.FAILURE;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.QUALIFIED_FAILURE;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.SUCCESS;
 
+/**
+ * Models a referee capable of mediating the Scrabble match at hand.
+ * It possesses the references to the <code>Board</code> and
+ * <code>TileBag</code> which it controls in addition to player
+ * movement sequencing and move validation.
+ */
 public abstract class Referee {
   private static final double DELAY = 0.55;
   protected final PlayerList players;
@@ -23,6 +32,13 @@ public abstract class Referee {
   private final TileBag tileBag;
   protected int moves = 0;
 
+  /**
+   * Constructor.
+   * @param players the list of player instances involved in the match
+   * @param board the fully initialized board on which moves will be played
+   * @param tileBag the fully initialized TileBag used to populate
+   *                the players' racks
+   */
   Referee(PlayerList players, Board board, TileBag tileBag) {
     this.players = players;
     this.board = board;
@@ -32,21 +48,42 @@ public abstract class Referee {
     players.forEach(p -> p.setRackVisible(p == players.current()));
   }
 
-  protected abstract Orientation analyzeOrientation(Word placements);
+  protected abstract Axis analyzeOrientation(Word placements);
 
-  protected abstract boolean isPositioned(Word placements, Orientation orientation);
+  protected abstract boolean isPositioned(Word placements, Axis axis);
 
   protected abstract boolean isValid(Word word);
 
+  /**
+   * Enables this <code>Referee</code> instance to
+   * react to key events from the user.
+   * @param e the key event received
+   */
   public void notify(KeyEvent e) {
-    if (!(players.current() instanceof HumanPlayer)) return;
+    if (!(players.current() instanceof HumanPlayer)) {
+      return;
+    }
     switch (e.getCode()) {
-      case ENTER: if (e.isMetaDown()) evaluateHumanPlacements(); break;
-      case ESCAPE: board.resetPlacements(); break;
-      case SPACE: players.current().shuffleRack(board); break;
+      case ENTER:
+        if (e.isMetaDown()) {
+          evaluateHumanPlacements();
+        }
+        break;
+      case ESCAPE:
+        board.resetPlacements();
+        break;
+      case SPACE:
+        players.current().shuffleRack(board);
+        break;
+      default:
     }
   }
 
+  /**
+   * Registers the next player as the new current,
+   * hides the old rack and displays the new,
+   * and invokes the new current's move().
+   */
   private void nextMove() {
     moves++;
     Player current = players.current();
@@ -61,20 +98,26 @@ public abstract class Referee {
     Word word = board.placements();
 
     // ensure we have a non-empty...
-    if (word.isEmpty() || word.internalOverlap()) return;
+    if (word.isEmpty() || word.internalOverlap()) {
+      return;
+    }
 
     // ...properly oriented and appropriately complete (no gaps) word
-    Orientation orientation;
-    if ((orientation = analyzeOrientation(word)) == Orientation.UNDEFINED) return;
+    Axis axis;
+    if ((axis = analyzeOrientation(word)) == Axis.UNDEFINED) {
+      return;
+    }
 
-    boolean wordPositioned = isPositioned(word, orientation);
-    if (!board.complete(word, orientation)) return;
+    boolean wordPositioned = isPositioned(word, axis);
+    if (!board.complete(word, axis)) {
+      return;
+    }
 
     // order the tiles from left to right or top to bottom ('read' them)
-    word.sort(Word.reader(orientation));
+    word.sort(Word.reader(axis));
     boolean wordValid = isValid(word);
 
-    List<Word> crosses = board.crosses(word, orientation.invert());
+    List<Word> crosses = board.crosses(word, axis.perpendicular());
     boolean allValid = true;
 
     if (!crosses.isEmpty()) {
@@ -82,11 +125,13 @@ public abstract class Referee {
         Word cross = crosses.get(i);
         boolean crossValid = isValid(cross);
         allValid &= crossValid;
-        EventHandler<ActionEvent> flash = e -> cross.flash(crossValid ? (wordValid ? SUCCESS : INVALID) : FAILURE);
+        OverlayType overlay = crossValid
+                ? (wordValid ? SUCCESS : QUALIFIED_FAILURE) : FAILURE;
+        EventHandler<ActionEvent> flash = e -> cross.flash(overlay);
         TransitionHelper.pause((i + 1) * DELAY, flash).play();
       }
       if (!allValid) {
-        word.flash(wordValid ? INVALID : FAILURE);
+        word.flash(wordValid ? QUALIFIED_FAILURE : FAILURE);
         return;
       }
     }
@@ -94,11 +139,14 @@ public abstract class Referee {
     if (!wordValid) {
       word.flash(FAILURE);
     } else if (!wordPositioned) {
-      word.flash(INVALID);
+      word.flash(QUALIFIED_FAILURE);
     } else {
       Player current = players.current();
-      if (crosses.isEmpty()) crosses.add(word);
-      else crosses.add(0, word);
+      if (crosses.isEmpty()) {
+        crosses.add(word);
+      } else {
+        crosses.add(0, word);
+      }
       word.forEach(tile -> board.play(current.transfer(tile)));
       crosses.forEach(cross -> current.apply(board.score(cross, true)));
       nextMove();

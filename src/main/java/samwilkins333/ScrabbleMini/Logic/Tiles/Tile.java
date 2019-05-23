@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Tiles;
 
-import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -13,8 +12,18 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelpe
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squarePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.dimensions;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.tilePadding;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.toPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.toIndices;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.tileWidth;
 
+/**
+ * Models a lettered game tile with a given value.
+ * Encapsulates both the logical tile and its graphical
+ * counterpart.
+ */
 public class Tile {
   private final String letter;
   private final int score;
@@ -38,36 +47,56 @@ public class Tile {
     initializeInteractions();
   }
 
-  public void render(Board board) {
-    this.board = board;
-    board.node().getChildren().add(root.imageView());
-    overlays = new TileOverlayStack(root.bindings(), board.node().getChildren());
+  /**
+   * Stores a reference to the game board and
+   * adds this tile's node to the board's node's children.
+   * @param b the reference to the board
+   */
+  public void render(Board b) {
+    this.board = b;
+    b.node().getChildren().add(root.imageView());
+    overlays = new TileOverlayStack(root.bindings(), b.node().getChildren());
   }
 
-  // getters
-
+  /**
+   * @return the letter associated with this tile
+   */
   public String letter() {
     return letter;
   }
 
+  /**
+   * @return the score associated with this tile
+   */
   public int score() {
     return score;
   }
 
+  /**
+   * The (column, row) of the board this tile
+   * occupies. If the tile is not on the board,
+   * the indices will be (-1, -1).
+   * @return this tile's board location
+   */
   public Indices indices() {
     return indices;
   }
 
+  /**
+   * @return the pixel layoutY of this tile's position in
+   * the rack.
+   */
   public double rackPlacement() {
     return rackPosition.getY();
   }
 
+  /**
+   * @return the <code>ObservableImage</code> that
+   * encompasses the view of this tile.
+   */
   public ObservableImage observableImage() {
     return root;
   }
-
-
-  // layout
 
   private void toFront() {
     ObservableList<Node> visibleElements = board.node().getChildren();
@@ -79,9 +108,13 @@ public class Tile {
     root.imageView().setOnMousePressed(this.onMousePressed());
     root.imageView().setOnMouseDragged(this.onMouseDragged());
     root.imageView().setOnMouseReleased(this.onMouseReleased());
-    overlap = TransitionHelper.flash(root.imageView(), Rack.DELAY, Animation.INDEFINITE);
+    overlap = TransitionHelper.flash(root.imageView(), Rack.DELAY, -1);
   }
 
+  /**
+   * Graphically and logically returns this tile to
+   * its initial starting place in the rack.
+   */
   public void reset() {
     indices = new Indices(-1, -1);
     ImageBindings bindings = root.bindings();
@@ -90,15 +123,20 @@ public class Tile {
     bindings.opacity(1);
   }
 
+  /**
+   * Triggers the flash associated with the
+   * given type.
+   * @param type the outcome to flash
+   */
   public void flash(OverlayType type) {
     overlays.flash(type);
   }
 
-  // drag and drop
-
   private EventHandler<MouseEvent> onMousePressed() {
     return e -> {
-      if (played()) return;
+      if (played()) {
+        return;
+      }
 
       toFront();
       overlap.stop();
@@ -111,7 +149,9 @@ public class Tile {
 
   private EventHandler<MouseEvent> onMouseDragged() {
     return e -> {
-      if (played()) return;
+      if (played()) {
+        return;
+      }
 
       double observedX = e.getSceneX();
       double observedY = e.getSceneY();
@@ -147,10 +187,11 @@ public class Tile {
         overlap.play();
       }
 
-      boolean inColumnRange = column >= 0 && column < dimensions;
-      boolean inRowRange = row >= 0 && row < dimensions;
+      boolean validCol = column >= 0 && column < dimensions;
+      boolean validRow = row >= 0 && row < dimensions;
+      boolean single = e.getClickCount() == 1;
 
-      if (inColumnRange && inRowRange && !board.occupied(column, row) && e.getClickCount() == 1) {
+      if (validCol && validRow && !board.occupied(column, row) && !single) {
         layout = toPixels(indices);
         board.place(this);
         bindings.layoutX(layout.getX() + tilePadding);
@@ -160,8 +201,6 @@ public class Tile {
       }
     };
   }
-
-  // rack management
 
   /**
    * @return whether or not this tile has been permanently played on the board
