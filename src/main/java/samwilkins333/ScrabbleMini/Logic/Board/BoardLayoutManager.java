@@ -4,6 +4,10 @@ import javafx.geometry.Point2D;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Indices;
 
 public final class BoardLayoutManager {
+  private BoardLayoutManager() {
+    // prevents instantiation
+  }
+
   public static double originLeftPixels;
   public static double originTopPixels;
   public static int squarePixels;

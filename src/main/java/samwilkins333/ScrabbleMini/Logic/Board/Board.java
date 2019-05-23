@@ -365,6 +365,9 @@ public class Board {
       if (get != null) {
         word.add(get);
       } else if (!word.contains(c, r)) {
+        // neither the board nor the word
+        // has a tile associated with this
+        // position, so it must be a gap
         break;
       }
     }
