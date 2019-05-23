@@ -43,7 +43,7 @@ public abstract class Player {
       Tile drawn = tileBag.draw();
 
       double initialX = playerNumber == 1 ? leftOriginLeftPixels : rightOriginLeftPixels;
-      double initialY = RackLayoutManager.originTopPixels + squareSidePixels * rack.size();
+      double initialY = RackLayoutManager.originTopPixels + squarePixels * rack.size();
 
       ImageBindings bindings = drawn.observableImage().bindings();
       bindings.layoutX(initialX);

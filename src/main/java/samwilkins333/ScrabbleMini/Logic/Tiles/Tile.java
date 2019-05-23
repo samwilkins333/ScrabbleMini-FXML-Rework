@@ -44,6 +44,8 @@ public class Tile {
     overlays = new TileOverlayStack(root.bindings(), board.node().getChildren());
   }
 
+  // getters
+
   public String letter() {
     return letter;
   }
@@ -60,12 +62,12 @@ public class Tile {
     return rackPosition.getY();
   }
 
-  private void initializeInteractions() {
-    root.imageView().setOnMousePressed(this.onMousePressed());
-    root.imageView().setOnMouseDragged(this.onMouseDragged());
-    root.imageView().setOnMouseReleased(this.onMouseReleased());
-    overlap = TransitionHelper.flash(root.imageView(), Rack.DELAY, Animation.INDEFINITE);
+  public ObservableImage observableImage() {
+    return root;
   }
+
+
+  // layout
 
   private void toFront() {
     ObservableList<Node> visibleElements = board.node().getChildren();
@@ -73,12 +75,26 @@ public class Tile {
     visibleElements.add(root.imageView());
   }
 
-  private boolean played() {
-    int column = indices.column();
-    int row = indices.row();
-    if (column < 0 && row < 0) return false;
-    return board.occupied(column, row);
+  private void initializeInteractions() {
+    root.imageView().setOnMousePressed(this.onMousePressed());
+    root.imageView().setOnMouseDragged(this.onMouseDragged());
+    root.imageView().setOnMouseReleased(this.onMouseReleased());
+    overlap = TransitionHelper.flash(root.imageView(), Rack.DELAY, Animation.INDEFINITE);
   }
+
+  public void reset() {
+    indices = new Indices(-1, -1);
+    ImageBindings bindings = root.bindings();
+    bindings.layoutX(rackPosition.getX());
+    bindings.layoutY(rackPosition.getY());
+    bindings.opacity(1);
+  }
+
+  public void flash(OverlayType type) {
+    overlays.flash(type);
+  }
+
+  // drag and drop
 
   private EventHandler<MouseEvent> onMousePressed() {
     return e -> {
@@ -114,7 +130,9 @@ public class Tile {
 
   private EventHandler<MouseEvent> onMouseReleased() {
     return e -> {
-      if (played()) return;
+      if (played()) {
+        return;
+      }
 
       ImageBindings bindings = root.bindings();
       double centerX = bindings.layoutX() + tileWidth / 2;
@@ -125,7 +143,9 @@ public class Tile {
       int column = indices.column();
       int row = indices.row();
 
-      if (board.placements().contains(column, row)) overlap.play();
+      if (board.placements().contains(column, row)) {
+        overlap.play();
+      }
 
       boolean inColumnRange = column >= 0 && column < dimensions;
       boolean inRowRange = row >= 0 && row < dimensions;
@@ -135,38 +155,55 @@ public class Tile {
         board.place(this);
         bindings.layoutX(layout.getX() + tilePadding);
         bindings.layoutY(layout.getY() + tilePadding);
-      } else reset();
+      } else {
+        reset();
+      }
     };
   }
 
-  public void reset() {
-    indices = new Indices(-1, -1);
-    ImageBindings bindings = root.bindings();
-    bindings.layoutX(rackPosition.getX());
-    bindings.layoutY(rackPosition.getY());
-    bindings.opacity(1);
+  // rack management
+
+  /**
+   * @return whether or not this tile has been permanently played on the board
+   */
+  private boolean played() {
+    int column = indices.column();
+    int row = indices.row();
+    if (column < 0 && row < 0) {
+      return false;
+    }
+    return board.occupied(column, row);
   }
 
-  public void flash(OverlayType type) {
-    overlays.flash(type);
-  }
-
-  public ObservableImage observableImage() {
-    return root;
-  }
-
-  public void adjustRackHeight(double adjustedY) {
+  /**
+   * An analog to shift, but rather than shifting by some
+   * amount, it specifically sets the new layoutY. Used in
+   * consolidating a rack before refilling.
+   * @param adjustedY the new placement in the rack
+   */
+  public void set(double adjustedY) {
     rackPosition = new Point2D(rackPosition.getX(), adjustedY);
     ImageBindings bindings = root.bindings();
     bindings.layoutY(adjustedY);
   }
 
+  /**
+   * Shifts a tile up or down the equivalent of one
+   * position. Used in shuffling tiles in a rack.
+   * @param dir -1 for up, 1 for down
+   */
   public void shift(int dir) {
-    double adjustedY = root.bindings().layoutY() + dir * squareSidePixels;
+    double adjustedY = root.bindings().layoutY() + dir * squarePixels;
     rackPosition = new Point2D(rackPosition.getX(), adjustedY);
     root.bindings().layoutY(adjustedY);
   }
 
+  /**
+   * Called immediately after a tile has been drawn.
+   * Records the tile's initial pixel location in the rack (used for resetting)
+   * @param initialX the initial layoutX
+   * @param initialY the initial layoutY
+   */
   public void setRackPosition(double initialX, double initialY) {
     rackPosition = new Point2D(initialX, initialY);
     ImageBindings bindings = root.bindings();

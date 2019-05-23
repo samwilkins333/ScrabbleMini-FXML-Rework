@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squareSidePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.squarePixels;
 
 public class Rack {
   public static final double DELAY = 0.25;
@@ -47,7 +47,7 @@ public class Rack {
   }
 
   private void placeAt(int position) {
-    internalState.get(position).adjustRackHeight(RackLayoutManager.originTopPixels + (position * squareSidePixels));
+    internalState.get(position).set(RackLayoutManager.originTopPixels + (position * squarePixels));
   }
 
   public void shuffle(Board board) {

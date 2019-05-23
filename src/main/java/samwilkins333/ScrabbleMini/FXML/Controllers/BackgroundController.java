@@ -19,9 +19,16 @@ import main.java.samwilkins333.ScrabbleMini.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.sideLengthPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.originTopPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.originLeftPixels;
 
+/**
+ * A controller that acts as the root pane in the JavaFX hierarchy.
+ * Here, the referee is created to initialize the match.
+ */
 public class BackgroundController implements Initializable {
+  private static final int LEATHER_PADDING = 15;
   @FXML public ImageView desktopView;
   @FXML public ImageView leatherView;
   @FXML public ImageView tilebagView;
@@ -41,27 +48,44 @@ public class BackgroundController implements Initializable {
   private void initializeVisualElements() {
     boardPane.setFocusTraversable(true);
     boardPane.requestFocus();
-    boardPane.setOnKeyPressed(e -> { if (referee != null) referee.notify(e); });
+    boardPane.setOnKeyPressed(e -> {
+      if (referee != null) {
+        referee.notify(e);
+      }
+    });
 
     board = new Board(boardPane, new BoardReader());
     tileBag = new TileBag(tilebagView, new TileBagReader());
   }
 
   private void initializeBackground() {
-    ObservableImage desktopObservable = ObservableImage.initialize(desktopView, "background/desktop.jpg", BindingMode.BIDIRECTIONAL, true);
+    ObservableImage desktopObservable = ObservableImage.initialize(
+            desktopView,
+            "background/desktop.jpg",
+            BindingMode.BIDIRECTIONAL,
+            true
+    );
     desktopObservable.bindings().width(Main.screenWidth);
     desktopObservable.bindings().opacity(1);
 
-    int padding = 15;
-    ObservableImage leatherObservable = ObservableImage.initialize(leatherView, "background/leather.png", BindingMode.BIDIRECTIONAL, false);
-    leatherObservable.bindings().width(sideLengthPixels + padding * 2);
-    leatherObservable.bindings().height(sideLengthPixels + padding * 2);
-    leatherObservable.bindings().layoutX(originLeftPixels - padding);
-    leatherObservable.bindings().layoutY(originTopPixels - padding);
+    ObservableImage leatherObservable = ObservableImage.initialize(
+            leatherView,
+            "background/leather.png",
+            BindingMode.BIDIRECTIONAL,
+            false
+    );
+    leatherObservable.bindings().width(sideLengthPixels + LEATHER_PADDING * 2);
+    leatherObservable.bindings().height(sideLengthPixels + LEATHER_PADDING * 2);
+    leatherObservable.bindings().layoutX(originLeftPixels - LEATHER_PADDING);
+    leatherObservable.bindings().layoutY(originTopPixels - LEATHER_PADDING);
     leatherObservable.bindings().opacity(1);
     leatherObservable.shadow(true);
   }
 
+  /**
+   * Initializes the referee / match based on GUI-entered player
+   * information.
+   */
   public void begin() {
     PlayerList players = new PlayerList(2);
     players.register(1, PlayerType.HUMAN);
