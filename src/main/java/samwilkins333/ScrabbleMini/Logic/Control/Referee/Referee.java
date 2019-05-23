@@ -39,7 +39,7 @@ public abstract class Referee {
   protected abstract boolean isValid(Word word);
 
   public void notify(KeyEvent e) {
-    if (players.current() instanceof HumanPlayer) return;
+    if (!(players.current() instanceof HumanPlayer)) return;
     switch (e.getCode()) {
       case ENTER: if (e.isMetaDown()) evaluateHumanPlacements(); break;
       case ESCAPE: board.resetPlacements(); break;
@@ -65,9 +65,10 @@ public abstract class Referee {
 
     // ...properly oriented and appropriately complete (no gaps) word
     Orientation orientation;
-    if ((orientation = analyzeOrientation(word)) == Orientation.UNDEFINED || !board.complete(word, orientation)) {
-      return;
-    }
+    if ((orientation = analyzeOrientation(word)) == Orientation.UNDEFINED) return;
+
+    boolean wordPositioned = isPositioned(word, orientation);
+    if (!board.complete(word, orientation)) return;
 
     // order the tiles from left to right or top to bottom ('read' them)
     word.sort(Word.reader(orientation));
@@ -92,7 +93,7 @@ public abstract class Referee {
 
     if (!wordValid) {
       word.flash(FAILURE);
-    } else if (!isPositioned(word, orientation)) {
+    } else if (!wordPositioned) {
       word.flash(INVALID);
     } else {
       Player current = players.current();

@@ -92,6 +92,8 @@ public class Board {
   }
 
   public boolean occupied(int column, int row) {
+    if (column < 0 || column >= dimensions) return false;
+    if (row < 0 || row >= dimensions) return false;
     return internalState[column][row] != null;
   }
 

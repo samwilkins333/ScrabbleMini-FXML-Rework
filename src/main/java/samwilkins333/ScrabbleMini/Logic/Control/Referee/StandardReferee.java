@@ -58,25 +58,22 @@ public class StandardReferee extends Referee {
 
   @Override
   protected boolean isPositioned(Word placements, Orientation orientation) {
-    if (orientation == Orientation.HORIZONTAL) {
-      if (moves == 0 && validFirstMove(placements)) return true;
+    if (moves == 0 && validFirstMove(placements)) return true;
 
-      for (Tile placed : placements) {
-        int column = placed.indices().column();
-        int row = placed.indices().row();
-        if ((row + 1 < dimensions && board.occupied(column, row + 1)) || (row > 0 && board.occupied(column, row - 1)))
-          return true;
-      }
-    } else if (orientation == Orientation.VERTICAL) {
-      if (moves == 0 && validFirstMove(placements)) return true;
-
-      for (Tile placed : placements) {
-        int column = placed.indices().column();
-        int row = placed.indices().row();
-        if ((column + 1 < dimensions && board.occupied(column + 1, row)) || (column > 0 && board.occupied(column - 1, row)))
-          return true;
-      }
+    for (Tile placed : placements) {
+      int column = placed.indices().column();
+      int row = placed.indices().row();
+      if ((column + 1 < dimensions && board.occupied(column + 1, row)) || (column > 0 && board.occupied(column - 1, row)))
+        return true;
     }
+
+    for (Tile placed : placements) {
+      int column = placed.indices().column();
+      int row = placed.indices().row();
+      if ((row + 1 < dimensions && board.occupied(column, row + 1)) || (row > 0 && board.occupied(column, row - 1)))
+        return true;
+    }
+
     return false;
   }
 
