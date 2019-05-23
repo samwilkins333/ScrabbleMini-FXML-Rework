@@ -61,7 +61,7 @@ public abstract class Referee {
     Word word = board.placements();
 
     // ensure we have a non-empty...
-    if (word.isEmpty()) return;
+    if (word.isEmpty() || word.internalOverlap()) return;
 
     // ...properly oriented and appropriately complete (no gaps) word
     Orientation orientation;

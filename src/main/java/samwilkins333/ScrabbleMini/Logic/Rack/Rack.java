@@ -13,6 +13,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManage
 
 public class Rack {
   public static final double DELAY = 0.25;
+  public int animationsInProgress = 0;
 
   private final int capacity;
   private List<Tile> internalState = new ArrayList<>();
@@ -50,8 +51,26 @@ public class Rack {
   }
 
   public void shuffle(Board board) {
-    if (!board.placements().isEmpty()) return;
+    if (!board.placements().isEmpty() || animationsInProgress > 0) return;
 
     internalState.sort(Comparator.comparing(Tile::rackPlacement));
+
+    for (int i = 0; i < internalState.size() - 1; i++) {
+      Tile upperTile = internalState.get(i);
+      Tile lowerTile = internalState.get(i + 1);
+
+      switch ((int) (Math.random() * 3)) {
+        case 0:
+        case 1:
+          upperTile.shift(1);
+          lowerTile.shift(-1);
+
+          internalState.set(i + 1, upperTile);
+          internalState.set(i, lowerTile);
+          break;
+        case 2:
+          break;
+      }
+    }
   }
 }

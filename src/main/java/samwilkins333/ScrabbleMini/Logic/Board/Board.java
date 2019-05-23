@@ -97,6 +97,10 @@ public class Board {
     return internalState[column][row] != null;
   }
 
+  public boolean hasNeighbors(int column, int row) {
+    return occupied(column + 1, row) || occupied(column - 1, row) || occupied(column, row + 1) || occupied(column, row - 1);
+  }
+
   public Tile get(int column, int row) {
     return internalState[column][row];
   }

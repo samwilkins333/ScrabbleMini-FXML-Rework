@@ -2,8 +2,8 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.Initializer.DictionaryReader;
-import main.java.samwilkins333.ScrabbleMini.Logic.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Indices;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.Word.Orientation;
@@ -61,16 +61,8 @@ public class StandardReferee extends Referee {
     if (moves == 0 && validFirstMove(placements)) return true;
 
     for (Tile placed : placements) {
-      int column = placed.indices().column();
-      int row = placed.indices().row();
-      if ((column + 1 < dimensions && board.occupied(column + 1, row)) || (column > 0 && board.occupied(column - 1, row)))
-        return true;
-    }
-
-    for (Tile placed : placements) {
-      int column = placed.indices().column();
-      int row = placed.indices().row();
-      if ((row + 1 < dimensions && board.occupied(column, row + 1)) || (row > 0 && board.occupied(column, row - 1)))
+      Indices indices = placed.indices();
+      if (board.hasNeighbors(indices.column(), indices.row()))
         return true;
     }
 

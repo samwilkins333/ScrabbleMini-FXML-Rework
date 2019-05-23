@@ -1,5 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Tiles;
 
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
@@ -7,7 +9,9 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.*;
 
@@ -18,6 +22,8 @@ public class Tile {
   private TileOverlayStack overlays;
   private Indices indices;
   private Point2D rackPosition;
+
+  private FadeTransition overlap;
 
   private double dragReferenceX;
   private double dragReferenceY;
@@ -58,6 +64,7 @@ public class Tile {
     root.imageView().setOnMousePressed(this.onMousePressed());
     root.imageView().setOnMouseDragged(this.onMouseDragged());
     root.imageView().setOnMouseReleased(this.onMouseReleased());
+    overlap = TransitionHelper.flash(root.imageView(), Rack.DELAY, Animation.INDEFINITE);
   }
 
   private void toFront() {
@@ -78,6 +85,8 @@ public class Tile {
       if (played()) return;
 
       toFront();
+      overlap.stop();
+      root.bindings().opacity(1);
       board.discard(this);
       dragReferenceX = e.getSceneX();
       dragReferenceY = e.getSceneY();
@@ -115,6 +124,9 @@ public class Tile {
       indices = toIndices(new Point2D(centerX, centerY));
       int column = indices.column();
       int row = indices.row();
+
+      if (board.placements().contains(column, row)) overlap.play();
+
       boolean inColumnRange = column >= 0 && column < dimensions;
       boolean inRowRange = row >= 0 && row < dimensions;
 
@@ -132,6 +144,7 @@ public class Tile {
     ImageBindings bindings = root.bindings();
     bindings.layoutX(rackPosition.getX());
     bindings.layoutY(rackPosition.getY());
+    bindings.opacity(1);
   }
 
   public void flash(OverlayType type) {
@@ -146,6 +159,12 @@ public class Tile {
     rackPosition = new Point2D(rackPosition.getX(), adjustedY);
     ImageBindings bindings = root.bindings();
     bindings.layoutY(adjustedY);
+  }
+
+  public void shift(int dir) {
+    double adjustedY = root.bindings().layoutY() + dir * squareSidePixels;
+    rackPosition = new Point2D(rackPosition.getX(), adjustedY);
+    root.bindings().layoutY(adjustedY);
   }
 
   public void setRackPosition(double initialX, double initialY) {

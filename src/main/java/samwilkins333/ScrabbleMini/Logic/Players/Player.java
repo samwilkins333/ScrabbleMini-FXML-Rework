@@ -36,6 +36,7 @@ public abstract class Player {
     if (rack.isFull()) return;
 
     rack.consolidate();
+    rack.animationsInProgress = rackSize - rack.size();
 
     tileBag.shake();
     while (!rack.isFull()) {
@@ -50,7 +51,10 @@ public abstract class Player {
       bindings.opacity(1);
       drawn.setRackPosition(initialX, initialY);
 
-      TransitionHelper.pause(Rack.DELAY * rack.size(), e -> drawn.render(board)).play();
+      TransitionHelper.pause(Rack.DELAY * rack.size(), e -> {
+        drawn.render(board);
+        rack.animationsInProgress--;
+      }).play();
 
       rack.add(drawn);
     }

@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Word;
 
+import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Indices;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
@@ -50,5 +51,13 @@ public class Word extends ArrayList<Tile> {
 
   public static Comparator<Tile> reader(Orientation orientation) {
     return readers.get(orientation);
+  }
+
+  public boolean internalOverlap() {
+    Set<Indices> indices = new HashSet<>();
+    for (Tile tile : this) {
+      if (!indices.add(tile.indices())) return true;
+    }
+    return false;
   }
 }
