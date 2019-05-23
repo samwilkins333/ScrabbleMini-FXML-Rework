@@ -2,6 +2,12 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Players;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
 
+/**
+ * Models a human scrabble player. In effect, it is a
+ * lightweight wrapper whose <code>move()</code> method
+ * just nominally encapsulates the manual dragging and
+ * checking of tiles by an actual human player.
+ */
 public class HumanPlayer extends Player {
 
   HumanPlayer(int playerNumber) {
@@ -9,7 +15,7 @@ public class HumanPlayer extends Player {
   }
 
   @Override
-  public void makeMove(Board board) {
+  public void move(Board board) {
     board.resetPlacements();
   }
 

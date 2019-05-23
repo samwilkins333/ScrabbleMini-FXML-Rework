@@ -54,7 +54,7 @@ public abstract class Referee {
     current = players.next();
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
-    current.makeMove(board);
+    current.move(board);
   }
 
   private void evaluateHumanPlacements() {

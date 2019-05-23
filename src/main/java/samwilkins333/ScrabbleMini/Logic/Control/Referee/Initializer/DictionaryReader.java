@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * An implementer of <code>DictionaryInitializer</code>
+ * that reads the appropriate information from a text file
+ * of word candidates in the project's configuration folder.
+ */
 public class DictionaryReader implements DictionaryInitializer {
 
   @Override

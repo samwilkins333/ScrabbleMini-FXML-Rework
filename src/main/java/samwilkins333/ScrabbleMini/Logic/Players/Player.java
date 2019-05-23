@@ -78,5 +78,5 @@ public abstract class Player {
     rack.shuffle(board);
   }
 
-  public abstract void makeMove(Board board);
+  public abstract void move(Board board);
 }

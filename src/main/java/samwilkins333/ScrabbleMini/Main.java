@@ -8,28 +8,42 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-// https://docs.oracle.com/javafx/2/fxml_get_started/why_use_fxml.htm#CHDCHIBE
-// https://scss.tcd.ie/publications/theses/diss/2015/TCD-SCSS-DISSERTATION-2015-069.pdf
-
+/**
+ * The main class of the application that initializes the
+ * FXML controller and records screen dimensions.
+ */
 public class Main extends Application {
-  public static double screenWidth = Screen.getPrimary().getBounds().getWidth();
-  public static double screenHeight = Screen.getPrimary().getBounds().getHeight();
+  public static double screenWidth;
+  public static double screenHeight;
+  static {
+    Rectangle2D bounds = Screen.getPrimary().getBounds();
+    screenWidth = bounds.getWidth();
+    screenHeight = bounds.getHeight();
+  }
 
   @Override
-  public void start(Stage primaryStage) throws Exception{
-      Parent root = FXMLLoader.load(getClass().getResource("FXML/Scenes/Background.fxml"));
-      primaryStage.setTitle("ScrabbleMini");
+  public void start(Stage primaryStage) throws Exception {
+    String path = "FXML/Scenes/Background.fxml";
+    Parent root = FXMLLoader.load(getClass().getResource(path));
+    primaryStage.setTitle("ScrabbleMini");
 
-      Rectangle2D bounds = Screen.getPrimary().getBounds();
-
-      primaryStage.setScene(new Scene(root, bounds.getWidth(), bounds.getHeight()));
-      primaryStage.show();
+    primaryStage.setScene(new Scene(root, screenWidth, screenHeight));
+    primaryStage.show();
   }
 
+  /**
+   * @param args command line arguments
+   */
   public static void main(String[] args) {
-      launch(args);
+    launch(args);
   }
 
+  /**
+   * A utility method that
+   * prints the given reason, if any,
+   * before exiting the application.
+   * @param reason why the application must exit.
+   */
   public static void exit(String reason) {
     if (reason != null) {
       System.out.printf("The application had to exit:\n%s", reason);
