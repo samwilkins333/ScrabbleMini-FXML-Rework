@@ -1,17 +1,17 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Initializer.BoardInitializer;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Initializer.BoardInitializer.BoardAttributes;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Initializer.BoardInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Initializer.BoardInitializer.BoardAttributes;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.OverlayType;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Indices;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.OverlayType;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word.Word;
 
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.tileWidth;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.tilePadding;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.dimensions;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.sideLengthPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.squarePixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.originTopPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.originLeftPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.dimensions;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.tileWidth;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.tilePadding;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.originTopPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.originLeftPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.squarePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.sideLengthPixels;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word.Axis.UNDEFINED;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word.Axis.VERTICAL;
@@ -53,7 +53,7 @@ public class Board {
   private static final double H_OFFSET = 0.75;
   private static final double V_OFFSET = 0.85;
   private static final double TILE_RATIO = 0.8;
-  private static final double DURATION = 0.5;
+  public static final double DURATION = 0.5;
 
   /**
    * Constructor.
@@ -222,13 +222,32 @@ public class Board {
    */
   public void play(Tile tile) {
     placed.remove(tile);
+
     int column = tile.indices().column();
     int row = tile.indices().row();
+
     internalState[column][row] = tile;
+
     Rectangle square = squares[column][row];
     Color from = (Color) square.getFill();
     TransitionHelper.gradient(square, DURATION, from, Color.GRAY).play();
     tile.flash(OverlayType.SUCCESS);
+  }
+
+  /**
+   * To be called after a word has been placed, this
+   * ensures that all tiles on the board receive
+   * consistent shadowing.
+   */
+  public void correctShadows() {
+    for (int column = 0; column < dimensions; column++) {
+      for (int row = 0; row < dimensions; row++) {
+        Tile candidate = internalState[column][row];
+        if (candidate != null) {
+          candidate.toFront();
+        }
+      }
+    }
   }
 
   /**

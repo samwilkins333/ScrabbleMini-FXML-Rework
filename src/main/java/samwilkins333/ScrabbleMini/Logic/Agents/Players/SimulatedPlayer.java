@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board;
 
 /**
  * Models an artificially intelligent player

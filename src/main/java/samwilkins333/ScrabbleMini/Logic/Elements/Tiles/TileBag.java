@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles;
 
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
@@ -8,13 +8,13 @@ import javafx.scene.paint.Color;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Initializer.TileBagInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Initializer.TileBagInitializer;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.tileWidth;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.tileWidth;
 
 /**
  * A class that logically and graphically models a

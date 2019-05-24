@@ -1,7 +1,7 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board;
 
 import javafx.geometry.Point2D;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Indices;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Indices;
 
 /**
  * A utility class that allows other

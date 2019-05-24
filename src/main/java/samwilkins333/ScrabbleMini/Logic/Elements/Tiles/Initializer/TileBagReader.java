@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Initializer;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Initializer;
 
 import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;

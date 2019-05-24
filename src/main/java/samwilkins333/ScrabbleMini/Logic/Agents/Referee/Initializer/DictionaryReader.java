@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.Initializer;
+package main.java.samwilkins333.ScrabbleMini.Logic.Agents.Referee.Initializer;
 
 import main.resources.ResourceCreator;
 

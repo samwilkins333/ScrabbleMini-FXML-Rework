@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles;
 
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
@@ -9,15 +9,15 @@ import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Rack;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.squarePixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.dimensions;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.tilePadding;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.toPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.toIndices;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.tileWidth;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.tilePadding;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.dimensions;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.tileWidth;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.toIndices;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.toPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.squarePixels;
 
 /**
  * Models a lettered game tile with a given value.
@@ -98,7 +98,12 @@ public class Tile {
     return root;
   }
 
-  private void toFront() {
+  /**
+   * Manipulates ordering of child elements
+   * to bring this Tile's view to the front
+   * of the pane.
+   */
+  public void toFront() {
     ObservableList<Node> visibleElements = board.node().getChildren();
     visibleElements.remove(root.imageView());
     visibleElements.add(root.imageView());

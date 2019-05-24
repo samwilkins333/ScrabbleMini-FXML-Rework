@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles;
 
 import java.util.Objects;
 

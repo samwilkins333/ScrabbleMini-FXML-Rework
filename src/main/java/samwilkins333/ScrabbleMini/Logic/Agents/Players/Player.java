@@ -2,17 +2,17 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players;
 
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardScore;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardScore;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Tile;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.TileBag;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.TileBag;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.squarePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.squarePixels;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.RackLayoutManager.leftOriginLeftPixels;
 import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.RackLayoutManager.rightOriginLeftPixels;

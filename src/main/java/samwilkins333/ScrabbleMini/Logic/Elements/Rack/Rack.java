@@ -1,15 +1,15 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack;
 
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Tile;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.squarePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.squarePixels;
 
 /**
  * Models a player's rack of 7 tiles, encompassing both

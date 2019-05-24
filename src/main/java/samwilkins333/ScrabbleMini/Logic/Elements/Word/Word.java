@@ -1,10 +1,10 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.OverlayType;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.DataStructures.UtilityArrayList;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Indices;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.OverlayType;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Tile;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ import java.util.HashSet;
  * logically models a word, or an ordered, axial
  * sequence of tiles.
  */
-public class Word extends ArrayList<Tile> {
+public class Word extends UtilityArrayList<Tile> {
   private static Map<Axis, Comparator<Tile>> readers = new HashMap<>();
   static {
     readers.put(Axis.HORIZONTAL,

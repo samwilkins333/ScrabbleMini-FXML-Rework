@@ -1,23 +1,24 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee;
+package main.java.samwilkins333.ScrabbleMini.Logic.Agents.Referee;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.PlayerList;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.OverlayType;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.TileBag;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.OverlayType;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Word.Word;
 
 import java.util.List;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.OverlayType.FAILURE;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.OverlayType.QUALIFIED_FAILURE;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.OverlayType.SUCCESS;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board.DURATION;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.OverlayType.SUCCESS;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.OverlayType.QUALIFIED_FAILURE;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.OverlayType.FAILURE;
 
 /**
  * Models a referee capable of mediating the Scrabble match at hand.
@@ -147,7 +148,9 @@ public abstract class Referee {
       } else {
         crosses.add(0, word);
       }
+
       word.forEach(tile -> board.play(current.transfer(tile)));
+      TransitionHelper.pause(2 * DURATION, e -> board.correctShadows()).play();
       crosses.forEach(cross -> current.apply(board.score(cross, true)));
       nextMove();
     }

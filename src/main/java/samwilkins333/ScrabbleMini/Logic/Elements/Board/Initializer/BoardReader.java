@@ -1,8 +1,8 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Initializer;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Initializer;
 
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Multiplier;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Multiplier;
 import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;
 

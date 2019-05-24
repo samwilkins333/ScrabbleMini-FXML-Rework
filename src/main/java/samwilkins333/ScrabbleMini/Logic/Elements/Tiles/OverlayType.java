@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles;
+package main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles;
 
 /**
  * Enumerates the possible outcomes for playing a tile.
