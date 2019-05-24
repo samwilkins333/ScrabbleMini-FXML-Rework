@@ -4,6 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardInitializer.BoardAttributes;
 import main.java.samwilkins333.ScrabbleMini.Logic.Rack.Rack;
@@ -52,6 +53,7 @@ public class Board {
   private static final double H_OFFSET = 0.75;
   private static final double V_OFFSET = 0.85;
   private static final double TILE_RATIO = 0.8;
+  private static final double DURATION = 0.5;
 
   /**
    * Constructor.
@@ -223,7 +225,9 @@ public class Board {
     int column = tile.indices().column();
     int row = tile.indices().row();
     internalState[column][row] = tile;
-    squares[column][row].setFill(Color.GRAY);
+    Rectangle square = squares[column][row];
+    Color from = (Color) square.getFill();
+    TransitionHelper.gradient(square, DURATION, from, Color.GRAY).play();
     tile.flash(OverlayType.SUCCESS);
   }
 

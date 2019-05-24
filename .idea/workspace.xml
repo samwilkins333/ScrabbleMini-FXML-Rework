@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,40 +33,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagInitializer.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="140">
+              <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
               <folding>
-                <element signature="e#700#701#0" expanded="true" />
-                <element signature="e#745#746#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
-                <element signature="e#839#840#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagReader.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+            <state relative-caret-position="1210">
+              <caret line="174" column="7" lean-forward="true" selection-start-line="174" selection-start-column="7" selection-end-line="174" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileMetaData.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+            <state relative-caret-position="328">
+              <caret line="230" column="36" lean-forward="true" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
               <folding>
-                <element signature="e#283#284#0" expanded="true" />
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
-                <element signature="e#359#360#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,21 +84,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-422">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-180">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module-info.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#359#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-542">
-              <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+            <state relative-caret-position="234">
+              <caret line="131" column="32" lean-forward="true" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,22 +106,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Initializer/BoardReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-115">
-              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#774#775#0" expanded="true" />
@@ -144,21 +133,12 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/StandardReferee.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="590">
-              <caret line="68" column="16" lean-forward="true" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+              <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2860#2861#0" expanded="true" />
                 <element signature="e#2913#2914#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Initializer/BoardInitializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -177,8 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>,</find>
-      <find>-</find>
       <find>x = 14.0, y = 14.0</find>
       <find>3,1</find>
       <find>Integer.va</find>
@@ -207,6 +185,8 @@
       <find>vis</find>
       <find>v</find>
       <find>analyzeor</find>
+      <find>gray</find>
+      <find>0.55</find>
     </findStrings>
     <replaceStrings>
       <replace>_</replace>
@@ -244,7 +224,6 @@
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Initializer/DictionaryReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/Primitive/DoubleBinding.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/HumanPlayer.java" />
-        <option value="$PROJECT_DIR$/src/module-info.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Bindings/Composite/ImageBindings.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Indices.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Main.java" />
@@ -263,17 +242,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ResourceType.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/SimulatedPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/StandardReferee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileMetaData.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" />
+        <option value="$PROJECT_DIR$/src/module-info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java" />
       </list>
     </option>
   </component>
@@ -403,12 +383,12 @@
       <workItem from="1558377742347" duration="20375000" />
       <workItem from="1558412779494" duration="11768000" />
       <workItem from="1558467018893" duration="44216000" />
-      <workItem from="1558582054369" duration="21860000" />
+      <workItem from="1558582054369" duration="22556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171289000" />
+    <option name="totallyTimeSpent" value="171985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="6" />
@@ -425,13 +405,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32700136" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32971507" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49570817" weight="0.39484397" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49570817" visible="true" weight="0.39484397" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32971507" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="CheckStyle" order="9" sideWeight="0.49356222" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="CheckStyle" order="9" sideWeight="0.49356222" weight="0.3283582" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5064378" side_tool="true" weight="0.3283582" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49928468" weight="0.32700136" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -529,27 +509,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/geometry/Point2D.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/function/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/TimSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="219" column="29" selection-start-line="219" selection-start-column="29" selection-end-line="219" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/concurrent/ScheduledExecutorService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -888,38 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1502">
-          <caret line="128" column="37" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1578#1579#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#2510#2511#0" expanded="true" />
-            <element signature="e#2534#2535#0" expanded="true" />
-            <element signature="e#2569#2570#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
-            <element signature="e#2651#2652#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="e#3450#3451#0" expanded="true" />
-            <element signature="e#3480#3481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -940,24 +867,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Initializer/BoardInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#700#701#0" expanded="true" />
             <element signature="e#745#746#0" expanded="true" />
@@ -980,14 +900,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileMetaData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
-          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
           <folding>
             <element signature="e#283#284#0" expanded="true" />
             <element signature="e#305#306#0" expanded="true" />
@@ -997,40 +917,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-542">
-          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/StandardReferee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="590">
-          <caret line="68" column="16" lean-forward="true" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2860#2861#0" expanded="true" />
@@ -1039,19 +929,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#359#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#774#775#0" expanded="true" />
@@ -1066,6 +947,98 @@
             <element signature="e#1164#1165#0" expanded="true" />
             <element signature="e#2612#2613#0" expanded="true" />
             <element signature="e#2646#2647#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/shape/Shape.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="193" column="21" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
+          <folding>
+            <element signature="e#6353#6354#0" expanded="true" />
+            <element signature="e#6435#6436#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/animation/Interpolatable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/paint/Color.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="131" column="32" lean-forward="true" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="230" column="36" lean-forward="true" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1210">
+          <caret line="174" column="7" lean-forward="true" selection-start-line="174" selection-start-column="7" selection-end-line="174" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

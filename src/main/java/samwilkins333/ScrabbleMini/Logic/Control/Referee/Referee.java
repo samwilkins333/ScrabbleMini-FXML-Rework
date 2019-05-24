@@ -26,7 +26,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.Tiles.OverlayType.SUCCE
  * movement sequencing and move validation.
  */
 public abstract class Referee {
-  private static final double DELAY = 0.55;
+  private static final double DELAY = 0.65;
   protected final PlayerList players;
   protected final Board board;
   private final TileBag tileBag;

@@ -191,7 +191,7 @@ public class Tile {
       boolean validRow = row >= 0 && row < dimensions;
       boolean single = e.getClickCount() == 1;
 
-      if (validCol && validRow && !board.occupied(column, row) && !single) {
+      if (validCol && validRow && !board.occupied(column, row) && single) {
         layout = toPixels(indices);
         board.place(this);
         bindings.layoutX(layout.getX() + tilePadding);

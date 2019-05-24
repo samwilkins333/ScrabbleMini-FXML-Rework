@@ -31,7 +31,7 @@ public class TileBag {
   private RotateTransition shake;
   private TranslateTransition hide;
 
-  private static final double SHAKE_DURATION = 0.5;
+  private static final double SHAKE_DURATION = 0.25;
   private static final double SHAKE_BY = 15;
   private static final int SHAKE_CYCLES = 4;
 
