@@ -6,6 +6,11 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Tile;
 
 import java.util.*;
 
+/**
+ * An augmented ArrayList of tiles that only
+ * logically models a word, or an ordered, axial
+ * sequence of tiles.
+ */
 public class Word extends ArrayList<Tile> {
   private static Map<Axis, Comparator<Tile>> readers = new HashMap<>();
   static {
@@ -37,7 +42,9 @@ public class Word extends ArrayList<Tile> {
     for (Tile tile : this) {
       int c = tile.indices().column();
       int r = tile.indices().row();
-      if (column == c && row == r) return true;
+      if (column == c && row == r) {
+        return true;
+      }
     }
     return false;
   }
@@ -56,7 +63,9 @@ public class Word extends ArrayList<Tile> {
   public boolean internalOverlap() {
     Set<Indices> indices = new HashSet<>();
     for (Tile tile : this) {
-      if (!indices.add(tile.indices())) return true;
+      if (!indices.add(tile.indices())) {
+        return true;
+      }
     }
     return false;
   }

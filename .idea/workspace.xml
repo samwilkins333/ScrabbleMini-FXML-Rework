@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/swilkinss2012.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/swilkinss2012.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/ObservableImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/BoardLayoutManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/BoardLayoutManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/BoardScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/BoardScore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Multiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/Multiplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/Referee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/StandardReferee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Referee/StandardReferee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/PlayerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/PlayerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/PlayerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/PlayerType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/SimulatedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Players/SimulatedPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Rack/Rack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Rack/Rack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Rack/RackLayoutManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Rack/RackLayoutManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileBagReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileMetaData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/OverlayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/OverlayType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Orientation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Axis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceType.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+            <state relative-caret-position="-542">
+              <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,6 +101,30 @@
               <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#710#711#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#769#770#0" expanded="true" />
+                <element signature="e#812#813#0" expanded="true" />
+                <element signature="e#846#847#0" expanded="true" />
+                <element signature="e#909#910#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+                <element signature="e#1014#1015#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+                <element signature="e#1513#1514#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Board/BoardSquare.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Scenes/Background.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Control/Match/Match.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" />
         <option value="$PROJECT_DIR$/checkstyle/suppressions.xml" />
         <option value="$PROJECT_DIR$/checkstyle/suppression.xml" />
         <option value="$PROJECT_DIR$/checkstyle/standards.xml" />
@@ -252,6 +249,7 @@
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/Initializer/TileMetaData.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Tiles/TileOverlayStack.java" />
         <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java" />
       </list>
     </option>
   </component>
@@ -381,12 +379,12 @@
       <workItem from="1558377742347" duration="20375000" />
       <workItem from="1558412779494" duration="11768000" />
       <workItem from="1558467018893" duration="44216000" />
-      <workItem from="1558582054369" duration="19954000" />
+      <workItem from="1558582054369" duration="21083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169383000" />
+    <option name="totallyTimeSpent" value="170512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="6" />
@@ -570,18 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1032,10 +1018,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/Image/TransitionHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+        <state relative-caret-position="-542">
+          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Word/Word.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1513#1514#0" expanded="true" />
           </folding>
         </state>
       </provider>
