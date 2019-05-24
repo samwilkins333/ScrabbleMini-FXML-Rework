@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -7,9 +8,10 @@ import java.util.List;
  * to a list of candidates to ultimately
  * select just one from the list.
  * @param <T> the type of candidate being selected
- * @param <I> the type of input used to contextualize selection
+ * @param <C> the type of input used to contextualize selection
  */
-public interface CandidateSelector<T, I> {
+public interface CandidateSelector<T,
+        C extends Context<? extends Collection<String>>> {
 
   /**
    * Selects the optimal candidate from the list.
@@ -18,5 +20,5 @@ public interface CandidateSelector<T, I> {
    *              selection
    * @return the optimal candidate
    */
-  T select(List<T> candidates, I input);
+  T select(List<T> candidates, C input);
 }

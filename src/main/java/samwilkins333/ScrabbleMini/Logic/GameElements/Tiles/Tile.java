@@ -38,13 +38,15 @@ public class Tile {
   private double dragReferenceY;
   private Board board;
 
-  Tile(String letter, int score, ObservableImage root) {
+  Tile(String letter, int score, ObservableImage root, boolean interactive) {
     this.letter = letter;
     this.score = score;
     this.root = root;
     this.indices = new Indices(-1, -1);
 
-    initializeInteractions();
+    if (interactive) {
+      initializeInteractions();
+    }
   }
 
   /**

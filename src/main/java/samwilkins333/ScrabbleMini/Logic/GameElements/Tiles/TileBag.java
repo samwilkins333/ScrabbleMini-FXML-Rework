@@ -95,12 +95,14 @@ public class TileBag {
   /**
    * @return the next tile drawn from the bag. Logically
    * initialized, but the layout is uninitialized.
+   * @param interactive whether or not the tile can ever be
+   *                    dragged or dropped
    */
-  public Tile draw() {
+  public Tile draw(boolean interactive) {
     int index = (int) (Math.random() * internalState.size());
     String letter = internalState.remove(index);
     int score = attributes.metadataMapping().get(letter).score();
-    return new Tile(letter, score, createVisual(letter));
+    return new Tile(letter, score, createVisual(letter), interactive);
   }
 
   private ObservableImage createVisual(String letter) {

@@ -62,7 +62,7 @@ public abstract class Player<T extends Collection<String>> {
 
     tileBag.shake();
     while (!rack.isFull()) {
-      Tile drawn = tileBag.draw();
+      Tile drawn = tileBag.draw(this instanceof HumanPlayer);
 
       double initialX = playerNumber == 1
               ? leftOriginLeftPixels : rightOriginLeftPixels;
