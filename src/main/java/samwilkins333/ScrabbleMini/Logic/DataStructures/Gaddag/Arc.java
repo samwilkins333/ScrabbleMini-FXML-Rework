@@ -6,6 +6,11 @@ package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag;
  */
 public class Arc {
 
+  /**
+   * @param let the specified letter key
+   * @return whether or not the given letter
+   * is contained on this arc
+   */
   public boolean has(String let) {
     return false;
   }

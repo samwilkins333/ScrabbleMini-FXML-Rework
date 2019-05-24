@@ -8,9 +8,9 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
 import java.util.List;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
 
-//https://github.com/ppuryear/ScrabbleTool/blob/master/src/scrabbletool/game/movegen/MoveGenerator.java
+//https://bit.ly/2VQNrrz
 
 /**
  * An implementor of <code>CandidateGenerator</code>, produces
@@ -56,13 +56,14 @@ public class WordGenerator implements
     }
   }
 
-  private void follow(int pos, String let, String word, Rack rack, Arc newArc, Arc old) {
+  private void follow(int pos, String let, String word, Rack rack, Arc newArc,
+                      Arc old) {
     if (pos <= 0) {
       word = let == null ? let : word;
       boolean leftNeighbor = ctx.board().occupied(column + pos - 1, row);
       boolean rightNeighbor = ctx.board().occupied(column + pos + 1, row);
       if (old.has(let) && !leftNeighbor) {
-        //record play
+        System.out.println(word);
       }
       if (newArc != null) {
         if (!leftNeighbor) {
@@ -77,7 +78,7 @@ public class WordGenerator implements
       word = word == null ? word : let;
       boolean rightNeighbor = ctx.board().occupied(column + pos + 1, row);
       if (old.has(let) && !rightNeighbor) {
-        //record play
+        System.out.println(word);
       }
       if (newArc != null && !rightNeighbor) {
         generate(pos + 1, word, rack, newArc);
