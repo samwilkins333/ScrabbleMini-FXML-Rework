@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,8 +10,18 @@ import java.util.Set;
  * extremely efficiently.
  */
 public class Gaddag extends HashSet<String> {
-  public static final String DELIMITER = "#";
-  private Set<String> raw = new HashSet<>();
+  public final String delimiter;
+  private final Set<String> raw;
+
+  /**
+   * Constructor.
+   * @param delimiter the delimiter used to separate
+   *                  reversed prefixes and suffixes
+   */
+  public Gaddag(String delimiter) {
+    this.raw = new HashSet<>();
+    this.delimiter = delimiter;
+  }
 
   @Override
   public boolean contains(Object o) {
@@ -23,7 +34,7 @@ public class Gaddag extends HashSet<String> {
     Set<String> representations = new HashSet<>();
     for (int i = 1; i < word.length() + 1; i++) {
       String rev = new StringBuilder(word.substring(0, i)).reverse().toString();
-      String result = rev + DELIMITER + word.substring(i);
+      String result = rev + delimiter + word.substring(i);
       representations.add(result);
       success &= super.add(result);
     }
@@ -35,7 +46,23 @@ public class Gaddag extends HashSet<String> {
     return success;
   }
 
-  public Arc nextArc(Arc arc, String l) {
+  @Override
+  public boolean addAll(Collection<? extends String> c) {
+    boolean success = true;
+    for (String w : c) {
+      success &= add(w);
+    }
+    return success;
+  }
+
+  /**
+   * Retrieves the next arc associated
+   * with the given arc via the given letter.
+   * @param arc the reference arc
+   * @param l the associated letter
+   * @return the next arc pointed to by the reference and letter pair
+   */
+  public Arc getArc(Arc arc, String l) {
     return null;
   }
 }

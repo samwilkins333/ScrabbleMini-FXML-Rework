@@ -26,7 +26,7 @@ public class StandardReferee extends Referee<Gaddag> {
    */
   public StandardReferee(PlayerList<Gaddag> players, Board board,
                          TileBag tileBag) {
-    super(players, board, tileBag, new GaddagInitializer());
+    super(players, board, tileBag, new GaddagInitializer("#"));
   }
 
   @Override

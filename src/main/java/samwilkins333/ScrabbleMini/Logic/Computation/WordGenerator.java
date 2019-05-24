@@ -48,7 +48,7 @@ public class WordGenerator implements
     Tile get = ctx.board().get(column + pos, row);
     if (get != null) {
       String l = get.letter();
-      follow(pos, l, word, rack, ctx.lexicon().nextArc(arc, l), arc);
+      follow(pos, l, word, rack, ctx.lexicon().getArc(arc, l), arc);
     } else if (!ctx.rack().isEmpty()) {
       ctx.rack().forEach(tile -> {
 //        follow(pos, tile.letter(), word, rack.c);
@@ -68,7 +68,7 @@ public class WordGenerator implements
         if (!leftNeighbor) {
           generate(pos - 1, word, rack, newArc);
         }
-        newArc = ctx.lexicon().nextArc(newArc, Gaddag.DELIMITER);
+        newArc = ctx.lexicon().getArc(newArc, ctx.lexicon().delimiter);
         if (newArc != null && !leftNeighbor && !rightNeighbor) {
           generate(1, word, rack, newArc);
         }
