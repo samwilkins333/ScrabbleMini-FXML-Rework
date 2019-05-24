@@ -10,6 +10,8 @@ import java.util.List;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
 
+//https://github.com/ppuryear/ScrabbleTool/blob/master/src/scrabbletool/game/movegen/MoveGenerator.java
+
 /**
  * An implementor of <code>CandidateGenerator</code>, produces
  * a list of all possible words that can be played
@@ -49,7 +51,7 @@ public class WordGenerator implements
       follow(pos, l, word, rack, ctx.lexicon().nextArc(arc, l), arc);
     } else if (!ctx.rack().isEmpty()) {
       ctx.rack().forEach(tile -> {
-        follow(pos, tile.letter(), word, rack.c);
+//        follow(pos, tile.letter(), word, rack.c);
       });
     }
   }
