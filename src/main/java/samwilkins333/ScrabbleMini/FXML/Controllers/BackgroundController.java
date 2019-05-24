@@ -6,22 +6,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.Logic.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.Board.Initializer.BoardReader;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.Initializer.BoardReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.Referee;
 import main.java.samwilkins333.ScrabbleMini.Logic.Control.Referee.StandardReferee;
-import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerList;
-import main.java.samwilkins333.ScrabbleMini.Logic.Players.PlayerType;
-import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.Initializer.TileBagReader;
-import main.java.samwilkins333.ScrabbleMini.Logic.Tiles.TileBag;
+import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.PlayerType;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.Initializer.TileBagReader;
+import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.sideLengthPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.originTopPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Board.BoardLayoutManager.originLeftPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.sideLengthPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.originTopPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Rack.Board.BoardLayoutManager.originLeftPixels;
 
 /**
  * A controller that acts as the root pane in the JavaFX hierarchy.
