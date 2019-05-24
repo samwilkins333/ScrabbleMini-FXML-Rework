@@ -6,22 +6,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Referee.Referee;
-import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Referee.StandardReferee;
-import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.PlayerList;
-import main.java.samwilkins333.ScrabbleMini.Logic.Agents.Players.PlayerType;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.Initializer.BoardReader;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.Initializer.TileBagReader;
-import main.java.samwilkins333.ScrabbleMini.Logic.Elements.Tiles.TileBag;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Referee;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.StandardReferee;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.PlayerType;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardReader;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagReader;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.sideLengthPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.originTopPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.Elements.Board.BoardLayoutManager.originLeftPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.sideLengthPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.originTopPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.originLeftPixels;
 
 /**
  * A controller that acts as the root pane in the JavaFX hierarchy.
