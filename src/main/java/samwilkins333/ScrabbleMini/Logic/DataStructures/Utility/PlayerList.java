@@ -1,14 +1,20 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
+package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility;
+
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * A specialized <code>ArrayList</code> that maintains
  * an internal state tracking the current player as it
  * cycles through its members and exposes a convenience
  * methods for initialization of players.
+ * @param <T> the context containing the type of data structure that
+ *           holds the entire vocabulary of valid words in the game
  */
-public class PlayerList extends ArrayList<Player> {
+public class PlayerList<T extends Collection<String>>
+        extends ArrayList<Player<T>> {
   private int current = 0;
 
   /**
@@ -20,21 +26,16 @@ public class PlayerList extends ArrayList<Player> {
     super(capacity);
   }
 
-  /**
-   * Inserts a new player of the specified type
-   * into the end of the list.
-   * @param playerNumber 1-indexed number of the player
-   * @param type the type of the player, used to construct the
-   *             appropriate implementor of <code>Player</code>
-   */
-  public void register(int playerNumber, PlayerType type) {
-    add(playerNumber - 1, Player.fromType(type, playerNumber));
+  @Override
+  public boolean add(Player<T> player) {
+    player.setPlayerNumber(size() + 1);
+    return super.add(player);
   }
 
   /**
    * @return retrieves the current player in the cycle
    */
-  public Player current() {
+  public Player<T> current() {
     return get(current);
   }
 
@@ -43,7 +44,7 @@ public class PlayerList extends ArrayList<Player> {
    * the current player.
    * @return the *new* current player
    */
-  public Player next() {
+  public Player<T> next() {
     current = (current + 1) % size();
     return get(current);
   }

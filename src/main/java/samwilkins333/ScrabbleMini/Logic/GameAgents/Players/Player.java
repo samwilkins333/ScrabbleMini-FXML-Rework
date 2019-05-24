@@ -2,20 +2,19 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.WordGenerator;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.WordSelector;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
-
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager.leftOriginLeftPixels;
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager.rightOriginLeftPixels;
 
@@ -23,29 +22,26 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackL
  * A template that models a Scrabble player. Each player
  * is given a rack of tiles to manipulate, maintains a moves
  * and, in some implementer-specified way, makes a move in the game.
+ * @param <T> the type of data structure that holds the entire vocabulary
+ *           of valid words in the game
  */
-public abstract class Player {
-  protected PlayerType type;
-  private final int playerNumber;
+public abstract class Player<T extends Collection<String>> {
+  private int playerNumber;
   protected Rack rack;
   protected Map<Integer, BoardScore> score = new HashMap<>();
   protected int moves = 0;
 
-  Player(PlayerType type, int playerNumber) {
-    this.type = type;
-    this.playerNumber = playerNumber;
+  Player() {
     this.rack = new Rack();
   }
 
-  static Player fromType(PlayerType type, int playerNumber) {
-    switch (type) {
-      case HUMAN:
-        return new HumanPlayer(playerNumber);
-      case SIMULATED:
-        return new SimulatedPlayer(playerNumber,
-                new WordGenerator(), new WordSelector());
-      default: return null;
-    }
+  /**
+   * Register's this player's 1-indexed
+   * number in the match.
+   * @param number player number
+   */
+  public void setPlayerNumber(int number) {
+    playerNumber = number;
   }
 
   /**
@@ -136,8 +132,9 @@ public abstract class Player {
   /**
    * A method invoked whenever the player must make
    * the next play on the board.
-   * @param board the game board, which holds the current
-   *              state of the game at the time of invocation
+   * @param context the game board, which holds the current
+   *              state of the game at the time of invocation,
+   *                and the data structure containing the lexicon
    */
-  public abstract void move(Board board);
+  public abstract void move(Context<T> context);
 }

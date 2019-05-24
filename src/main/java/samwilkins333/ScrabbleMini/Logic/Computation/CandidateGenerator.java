@@ -1,19 +1,21 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
  * Produces a list of items of the
  * specified type.
  * @param <T> the type of the candidates produced
- * @param <I> the type of the input used to contextualize generation
+ * @param <C> the type of the input used to contextualize generation
  */
-public interface CandidateGenerator<T, I> {
+public interface CandidateGenerator<T,
+        C extends Context<? extends Collection<String>>> {
 
   /**
-   * @param input the input used to give information specific
+   * @param context the input used to give information specific
    *              to generation
    * @return the generated list of candidates
    */
-  List<T> generate(I input);
+  List<T> generate(C context);
 }

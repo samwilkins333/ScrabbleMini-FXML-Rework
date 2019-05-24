@@ -4,15 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.DictionaryInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
+import java.util.Collection;
 import java.util.List;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board.DURATION;
@@ -25,12 +28,15 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Over
  * It possesses the references to the <code>Board</code> and
  * <code>TileBag</code> which it controls in addition to player
  * movement sequencing and move validation.
+ * @param <T> the data structure the referee will use to store the lexicon
  */
-public abstract class Referee {
+public abstract class Referee<T extends Collection<String>> {
   private static final double DELAY = 0.65;
-  protected final PlayerList players;
+  protected final PlayerList<T> players;
   protected final Board board;
   private final TileBag tileBag;
+  public final T lexicon;
+
   protected int moves = 0;
 
   /**
@@ -40,16 +46,18 @@ public abstract class Referee {
    * @param tileBag the fully initialized TileBag used to populate
    *                the players' racks
    */
-  Referee(PlayerList players, Board board, TileBag tileBag) {
+  Referee(PlayerList<T> players, Board board, TileBag tileBag,
+          DictionaryInitializer<T> initializer) {
     this.players = players;
     this.board = board;
     this.tileBag = tileBag;
+    this.lexicon = initializer.initialize();
 
     players.forEach(p -> p.fillRack(board, tileBag));
     players.forEach(p -> p.setRackVisible(p == players.current()));
   }
 
-  protected abstract Axis analyzeOrientation(Word placements);
+  protected abstract Axis analyzeAxis(Word placements);
 
   protected abstract boolean isPositioned(Word placements, Axis axis);
 
@@ -87,12 +95,12 @@ public abstract class Referee {
    */
   private void nextMove() {
     moves++;
-    Player current = players.current();
+    Player<T> current = players.current();
     current.setRackVisible(false);
     current = players.next();
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
-    current.move(board);
+    current.move(new Context<>(board, lexicon));
   }
 
   private void evaluateHumanPlacements() {
@@ -105,7 +113,7 @@ public abstract class Referee {
 
     // ...properly oriented and appropriately complete (no gaps) word
     Axis axis;
-    if ((axis = analyzeOrientation(word)) == Axis.UNDEFINED) {
+    if ((axis = analyzeAxis(word)) == Axis.UNDEFINED) {
       return;
     }
 
