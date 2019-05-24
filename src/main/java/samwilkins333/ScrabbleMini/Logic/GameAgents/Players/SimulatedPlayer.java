@@ -34,7 +34,7 @@ public class SimulatedPlayer extends Player<Gaddag> {
 
   @Override
   public void move(Context<Gaddag> context) {
-    List<Word> candidates = generator.generate(context);
+    List<Word> candidates = generator.generate(context.rack(rack));
     Word optimal = heuristic.select(candidates, context.board());
   }
 

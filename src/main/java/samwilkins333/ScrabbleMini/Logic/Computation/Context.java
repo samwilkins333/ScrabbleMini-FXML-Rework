@@ -1,6 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
 
 import java.util.Collection;
 
@@ -13,6 +14,7 @@ import java.util.Collection;
 public class Context<T extends Collection<String>> {
   private final Board board;
   private final T lexicon;
+  private Rack rack;
 
   /**
    * Constructor.
@@ -37,5 +39,23 @@ public class Context<T extends Collection<String>> {
    */
   public T lexicon() {
     return lexicon;
+  }
+
+  /**
+   * @return the player's tile rack associated with this context
+   */
+  public Rack rack() {
+    return rack;
+  }
+
+  /**
+   * A convenience mutator that returns
+   * this instance, for easy method chaining.
+   * @param r the rack to embed in this instance
+   * @return this instance itself
+   */
+  public Context<T> rack(Rack r) {
+    this.rack = r;
+    return this;
   }
 }
