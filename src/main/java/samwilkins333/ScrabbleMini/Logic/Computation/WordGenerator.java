@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
 import java.util.List;
@@ -10,10 +9,11 @@ import java.util.List;
  * a list of all possible words that can be played
  * on the given board.
  */
-public class WordGenerator implements CandidateGenerator<Word, Board> {
+public class WordGenerator implements
+        CandidateGenerator<Word, Context> {
 
   @Override
-  public List<Word> generate(Board board) {
+  public List<Word> generate(Context context) {
     return null;
   }
 }

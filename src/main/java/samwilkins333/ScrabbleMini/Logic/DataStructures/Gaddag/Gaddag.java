@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
@@ -10,16 +9,6 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
  * extremely efficiently.
  */
 public class Gaddag {
-  private final Board board;
-
-  /**
-   * Constructor.
-   * @param board the board on which
-   *              move generation is calculated
-   */
-  public Gaddag(Board board) {
-    this.board = board;
-  }
 
   /**
    * One of two recursive backtracking co-routines
