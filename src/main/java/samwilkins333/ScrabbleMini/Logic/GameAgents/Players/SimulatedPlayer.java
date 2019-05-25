@@ -5,7 +5,6 @@ import main.java.samwilkins333.ScrabbleMini.Logic.Computation.CandidateSelector;
 import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
 import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Move;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.GADDAG;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
 import java.util.Set;
 
@@ -37,6 +36,10 @@ public class SimulatedPlayer extends Player<GADDAG> {
     Set<Move> candidates = generator.generate(context.rack(rack));
     Move optimal = heuristic.select(candidates, context);
     generator.update(optimal);
+  }
+
+  public void update(Move external) {
+    generator.update(external);
   }
 
 }

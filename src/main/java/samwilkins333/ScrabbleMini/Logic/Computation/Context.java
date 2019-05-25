@@ -14,16 +14,20 @@ import java.util.Collection;
 public class Context<T extends Collection<String>> {
   private final Board board;
   private final T lexicon;
+  private final boolean firstMoveMade;
   private Rack rack;
 
   /**
    * Constructor.
    * @param board the board state at time of generation
    * @param lexicon the entire vocabulary of valid words
+   * @param firstMoveMade whether or not the first move
+   *                      has been made on the board
    */
-  public Context(Board board, T lexicon) {
+  public Context(Board board, T lexicon, boolean firstMoveMade) {
     this.board = board;
     this.lexicon = lexicon;
+    this.firstMoveMade = firstMoveMade;
   }
 
   /**
@@ -46,6 +50,10 @@ public class Context<T extends Collection<String>> {
    */
   public Rack rack() {
     return rack;
+  }
+
+  public boolean isFirstMoveMade() {
+    return firstMoveMade;
   }
 
   /**

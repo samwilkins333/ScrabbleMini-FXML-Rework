@@ -20,9 +20,11 @@ import java.util.*;
 public class MoveGenerator implements
         CandidateGenerator<Move, Context<GADDAG>> {
   private Set<Move> moves;
+  private Set<String> encountered;
   private Board board;
   private GADDAG gaddag;
   private LetterSetMapping letterSets;
+  private CrossSetUpdater updater = new CrossSetUpdater();
 
   private int anchorColumn;
   private int anchorRow;
@@ -32,6 +34,7 @@ public class MoveGenerator implements
   @Override
   public Set<Move> generate(Context<GADDAG> context) {
     moves = new HashSet<>();
+    encountered = new HashSet<>();
     board = context.board();
     gaddag = context.lexicon();
 
@@ -42,10 +45,17 @@ public class MoveGenerator implements
 
     int size = board.size();
 
-    for (anchorColumn = 0; anchorColumn < size; anchorColumn++) {
-      for (anchorRow = 0; anchorRow < size; anchorRow++) {
-        if (board.horizontalNeighbors(anchorColumn, anchorRow) > 0) {
-          generateOn(anchorColumn, word, rack, gaddag.getRootArc());
+    if (!context.isFirstMoveMade()) {
+      int mid = (int) Math.floor(size / 2.0);
+      anchorColumn = mid;
+      anchorRow = mid;
+      generateOn(anchorColumn, word, rack, gaddag.getRootArc());
+    } else {
+      for (anchorColumn = 0; anchorColumn < size; anchorColumn++) {
+        for (anchorRow = 0; anchorRow < size; anchorRow++) {
+          if (board.horizontalNeighbors(anchorColumn, anchorRow) > 0) {
+            generateOn(anchorColumn, word, rack, gaddag.getRootArc());
+          }
         }
       }
     }
@@ -54,7 +64,7 @@ public class MoveGenerator implements
 
   @Override
   public void update(Move move) {
-    letterSets.update(move);
+    updater.update(move);
   }
 
   /**
@@ -115,9 +125,7 @@ public class MoveGenerator implements
           generateOn(targetCol + 1, word, rack, delimiterArc);
         }
       }
-
       word.removeFirst();
-
     } else {
       word.addLast(tile);
 
@@ -140,14 +148,22 @@ public class MoveGenerator implements
     for (int i = 0; i < word.size(); i++) {
       Tile wordTile = word.get(i);
       int target = start + i;
+      if (target >= board.size()) {
+        return;
+      }
       if (board.get(target, anchorRow) == null) {
         move.addTile(wordTile, target);
       }
     }
     StringBuilder builder = new StringBuilder();
     word.forEach(tile -> builder.append(tile.letter().raw()));
-    System.out.printf("Potential play found! %s going across at (%d, %d)\n", builder.toString(), start, anchorRow);
-    moves.add(move);
+//    System.out.printf("Potential play found! %s going across at (%d, %d)\n", builder.toString(), start, anchorRow);
+    String found = builder.toString();
+    if (gaddag.contains(found) && !encountered.contains(found)) {
+      System.out.println(found);
+      encountered.add(found);
+      moves.add(move);
+    }
   }
 
   /**
@@ -220,7 +236,9 @@ public class MoveGenerator implements
       // raw-set on the current arc.
       if (!board.isValidPosition(row, col + direction)
               || board.get(row, col + direction) == null) {
-        crossSet.addAll(arc.letters());
+        if (arc != null) {
+          crossSet.addAll(arc.letters());
+        }
       } else {
         // Otherwise, we must try every possible raw and see if we can reach
         // the /next/ word boundary by following the GADDAG. If we can, then the
@@ -250,19 +268,20 @@ public class MoveGenerator implements
     private void traverseToWordBoundary(int dir) {
       while (board.isValidPosition(row, col) && arc != null) {
         Tile tile = board.get(row, col);
-        if (tile == null)
+        if (tile == null) {
           break;
+        }
         arc = gaddag.getArc(arc.destination(), tile.letter());
         col += dir;
       }
     }
 
-    private int findWordBoundary(int row, int internalPos, int dir) {
-      int col = internalPos;
-      while (board.isValidPosition(row, col) && board.get(row, col) != null) {
-        col += dir;
+    private int findWordBoundary(int r, int internalPos, int dir) {
+      int c = internalPos;
+      while (board.isValidPosition(r, c) && board.get(r, c) != null) {
+        c += dir;
       }
-      return col - dir;
+      return c - dir;
     }
   }
 }

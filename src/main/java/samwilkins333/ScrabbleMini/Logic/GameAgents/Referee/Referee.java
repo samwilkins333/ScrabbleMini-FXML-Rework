@@ -5,9 +5,11 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Move;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.DictionaryInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
@@ -55,6 +57,9 @@ public abstract class Referee<T extends Collection<String>> {
 
     players.forEach(p -> p.fillRack(board, tileBag));
     players.forEach(p -> p.setRackVisible(p == players.current()));
+
+    players.previous();
+    nextMove();
   }
 
   protected abstract Axis analyzeAxis(Word placements);
@@ -94,13 +99,18 @@ public abstract class Referee<T extends Collection<String>> {
    * and invokes the new current's move().
    */
   private void nextMove() {
-    moves++;
     Player<T> current = players.current();
     current.setRackVisible(false);
     current = players.next();
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
-    current.move(new Context<>(board, lexicon));
+    current.move(new Context<>(board, lexicon, moves > 0));
+    if (current instanceof SimulatedPlayer) {
+      moves++;
+      nextMove();
+      return;
+    }
+    moves++;
   }
 
   private void evaluateHumanPlacements() {
@@ -147,8 +157,6 @@ public abstract class Referee<T extends Collection<String>> {
 
     if (!wordValid) {
       word.flash(FAILURE);
-    } else if (!wordPositioned) {
-      word.flash(QUALIFIED_FAILURE);
     } else {
       Player current = players.current();
       if (crosses.isEmpty()) {
@@ -157,10 +165,23 @@ public abstract class Referee<T extends Collection<String>> {
         crosses.add(0, word);
       }
 
+      broadcast(word, axis);
+
       word.forEach(tile -> board.play(current.transfer(tile)));
       TransitionHelper.pause(2 * DURATION, e -> board.correctShadows()).play();
       crosses.forEach(cross -> current.apply(board.score(cross, true)));
       nextMove();
     }
+  }
+
+  private void broadcast(Word word, Axis axis) {
+    Move move = new Move(axis == Axis.HORIZONTAL, word.first(axis).indices().row());
+    word.forEach(t -> move.addTile(t, t.indices().column()));
+
+    players.forEach(p -> {
+      if (p instanceof SimulatedPlayer) {
+        ((SimulatedPlayer) p).update(move);
+      }
+    });
   }
 }

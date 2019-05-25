@@ -12,6 +12,6 @@ import java.util.Set;
 public class MoveSelector implements CandidateSelector<Move, Context<GADDAG>> {
   @Override
   public Move select(Set<Move> candidates, Context<GADDAG> context) {
-    return null;
+    return candidates.iterator().next();
   }
 }

@@ -48,4 +48,9 @@ public class PlayerList<T extends Collection<String>>
     current = (current + 1) % size();
     return get(current);
   }
+
+  public Player<T> previous() {
+    current = (current > 0 ? current : size()) - 1;
+    return get(current);
+  }
 }
