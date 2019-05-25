@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Gaddag;
+import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.GADDAG;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.GaddagInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
@@ -16,7 +16,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Boar
  * Models a referee that enforces all the rules and move
  * conditions of standard Scrabble.
  */
-public class StandardReferee extends Referee<Gaddag> {
+public class StandardReferee extends Referee<GADDAG> {
   /**
    * Constructor.
    * @param players the list of player instances involved in the match
@@ -24,9 +24,9 @@ public class StandardReferee extends Referee<Gaddag> {
    * @param tileBag the fully initialized TileBag used to populate
    *                the players' racks
    */
-  public StandardReferee(PlayerList<Gaddag> players, Board board,
+  public StandardReferee(PlayerList<GADDAG> players, Board board,
                          TileBag tileBag) {
-    super(players, board, tileBag, new GaddagInitializer("#"));
+    super(players, board, tileBag, new GaddagInitializer(tileBag.metaDataMap()));
   }
 
   @Override
@@ -35,8 +35,8 @@ public class StandardReferee extends Referee<Gaddag> {
       Tile singleton = placements.get(0);
       int column = singleton.indices().column();
       int row = singleton.indices().row();
-      boolean vertical = board.verticalNeighbors(column, row);
-      boolean horizontal = board.horizontalNeighbors(column, row);
+      boolean vertical = board.verticalNeighbors(column, row) > 0;
+      boolean horizontal = board.horizontalNeighbors(column, row) > 0;
       if (vertical && !horizontal) {
         return Axis.VERTICAL;
       }

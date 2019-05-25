@@ -1,7 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Gaddag;
+import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.GADDAG;
 
 /**
  * Models a human scrabble player. In effect, it is a
@@ -9,7 +9,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Gaddag;
  * just nominally encapsulates the manual dragging and
  * checking of tiles by an actual human player.
  */
-public class HumanPlayer extends Player<Gaddag> {
+public class HumanPlayer extends Player<GADDAG> {
 
   /**
    * Constructor.
@@ -19,7 +19,7 @@ public class HumanPlayer extends Player<Gaddag> {
   }
 
   @Override
-  public void move(Context<Gaddag> context) {
+  public void move(Context<GADDAG> context) {
     context.board().resetPlacements();
   }
 }

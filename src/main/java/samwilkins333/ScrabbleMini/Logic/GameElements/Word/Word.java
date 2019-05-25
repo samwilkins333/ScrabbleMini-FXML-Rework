@@ -97,7 +97,7 @@ public class Word extends UtilityArrayList<Tile> {
   @Override
   public String toString() {
     StringBuilder word = new StringBuilder();
-    forEach(t -> word.append(t.letter()));
+    forEach(t -> word.append(t.letter().raw()));
     return word.toString();
   }
 

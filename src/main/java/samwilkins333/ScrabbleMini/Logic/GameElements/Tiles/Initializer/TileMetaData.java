@@ -2,7 +2,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initialize
 
 /**
  * A convenience struct that stores
- * information about a given letter.
+ * information about a given raw.
  * Appears in a mapping from String letters
  * to TileMetaData.
  */
@@ -16,14 +16,14 @@ public class TileMetaData {
   }
 
   /**
-   * @return the score of a tile with this letter
+   * @return the score of a tile with this raw
    */
   public int score() {
     return score;
   }
 
   /**
-   * @return the frequency with which tiles of this letter occur
+   * @return the frequency with which tiles of this raw occur
    */
   public int frequency() {
     return frequency;

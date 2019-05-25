@@ -6,9 +6,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.WordGenerator;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.WordSelector;
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Gaddag;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.MoveGenerator;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.MoveSelector;
+import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.GADDAG;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
@@ -91,9 +91,9 @@ public class BackgroundController implements Initializable {
    * information.
    */
   public void begin() {
-    PlayerList<Gaddag> players = new PlayerList<>(2);
+    PlayerList<GADDAG> players = new PlayerList<>(2);
     players.add(new HumanPlayer());
-    players.add(new SimulatedPlayer(new WordGenerator(), new WordSelector()));
+    players.add(new SimulatedPlayer(new MoveGenerator(), new MoveSelector()));
 
     referee = new StandardReferee(players, board, tileBag);
   }

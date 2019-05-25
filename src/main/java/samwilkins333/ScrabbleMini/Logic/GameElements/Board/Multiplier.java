@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * Models a multiplier for a scrabble <code>Board</code> square.
- * Consists of a multiplier for both the given letter and the overall
+ * Consists of a multiplier for both the given raw and the overall
  * given word.
  */
 public class Multiplier {
@@ -13,7 +13,7 @@ public class Multiplier {
 
   /**
    * Constructor.
-   * @param letter the numeric letter multiplier
+   * @param letter the numeric raw multiplier
    * @param word the numeric word multiplier
    */
   Multiplier(double letter, double word) {
@@ -29,7 +29,7 @@ public class Multiplier {
    * @param raw the String to parse
    * @param delimiter the delimiter separating
    *                  the two numbers
-   * @return an <code>Multiplier</code> whose letter multiplier
+   * @return an <code>Multiplier</code> whose raw multiplier
    * is the first number, and whose word is the second
    */
   public static Multiplier parse(String raw, String delimiter) {
@@ -40,7 +40,7 @@ public class Multiplier {
   }
 
   /**
-   * @return the numeric letter multiplier
+   * @return the numeric raw multiplier
    */
   double letterValue() {
     return letter;

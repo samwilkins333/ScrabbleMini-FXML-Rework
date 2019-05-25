@@ -1,7 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Produces a list of items of the
@@ -17,5 +17,7 @@ public interface CandidateGenerator<T,
    *              to generation
    * @return the generated list of candidates
    */
-  List<T> generate(C context);
+  Set<T> generate(C context);
+
+  void update(T selected);
 }

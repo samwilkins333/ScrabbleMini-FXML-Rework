@@ -6,7 +6,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
 import java.util.Collection;
 
 /**
- * Provides the <code>WordGenerator</code> with all
+ * Provides the <code>MoveGenerator</code> with all
  * the relevant game state needed to compute all possibilities.
  * @param <T> the type of collection used to store the game's
  *           lexicon

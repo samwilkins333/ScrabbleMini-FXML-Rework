@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Letter;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
 
@@ -25,8 +26,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Boar
  * counterpart.
  */
 public class Tile {
-  private final String letter;
-  private final int score;
+  private final Letter letter;
   private final ObservableImage root;
   private TileOverlayStack overlays;
   private Indices indices;
@@ -38,9 +38,8 @@ public class Tile {
   private double dragReferenceY;
   private Board board;
 
-  Tile(String letter, int score, ObservableImage root, boolean interactive) {
+  Tile(Letter letter, ObservableImage root, boolean interactive) {
     this.letter = letter;
-    this.score = score;
     this.root = root;
     this.indices = new Indices(-1, -1);
 
@@ -61,17 +60,10 @@ public class Tile {
   }
 
   /**
-   * @return the letter associated with this tile
+   * @return the raw associated with this tile
    */
-  public String letter() {
+  public Letter letter() {
     return letter;
-  }
-
-  /**
-   * @return the score associated with this tile
-   */
-  public int score() {
-    return score;
   }
 
   /**

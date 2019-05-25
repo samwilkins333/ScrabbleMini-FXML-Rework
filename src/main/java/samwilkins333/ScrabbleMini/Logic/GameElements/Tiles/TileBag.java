@@ -8,11 +8,15 @@ import javafx.scene.paint.Color;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Letter;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
 
@@ -26,7 +30,7 @@ public class TileBag {
   private TileBagInitializer initializer;
   private TileBagInitializer.TileBagAttributes attributes;
 
-  private List<String> internalState = new ArrayList<>();
+  private List<Letter> internalState = new ArrayList<>();
 
   private RotateTransition shake;
   private TranslateTransition hide;
@@ -39,6 +43,10 @@ public class TileBag {
   private static final int LAYOUT_X = 100;
   private static final int LAYOUT_Y = 400;
   private static final int ROTATION = 45;
+
+  public Map<String, TileMetaData> metaDataMap() {
+    return Collections.unmodifiableMap(attributes.metadataMapping());
+  }
 
   /**
    * Constructor.
@@ -71,7 +79,7 @@ public class TileBag {
     attributes = initializer.initialize();
     attributes.metadataMapping().forEach((letter, metadata) -> {
       for (int i = 0; i < metadata.frequency(); i++) {
-        internalState.add(letter);
+        internalState.add(new Letter(letter, metadata.score()));
       }
     });
   }
@@ -100,13 +108,12 @@ public class TileBag {
    */
   public Tile draw(boolean interactive) {
     int index = (int) (Math.random() * internalState.size());
-    String letter = internalState.remove(index);
-    int score = attributes.metadataMapping().get(letter).score();
-    return new Tile(letter, score, createVisual(letter), interactive);
+    Letter letter = internalState.remove(index);
+    return new Tile(letter, createVisual(letter), interactive);
   }
 
-  private ObservableImage createVisual(String letter) {
-    String url = String.format("tiles/%s.png", letter);
+  private ObservableImage createVisual(Letter letter) {
+    String url = String.format("tiles/%s.png", letter.raw());
     ObservableImage visual =
             ObservableImage.create(url, BindingMode.BIDIRECTIONAL);
     visual.bindings().width(tileWidth);

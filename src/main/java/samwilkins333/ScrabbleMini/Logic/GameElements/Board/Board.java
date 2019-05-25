@@ -19,14 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tilePadding;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.originTopPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.originLeftPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.sideLengthPixels;
-
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis.UNDEFINED;
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis.VERTICAL;
 import static main.java.samwilkins333.ScrabbleMini.Main.screenHeight;
@@ -42,6 +35,7 @@ import static main.java.samwilkins333.ScrabbleMini.Main.screenWidth;
  * sequences and analyze tiles relevant in a sequence (word).
  */
 public class Board {
+  private BoardAttributes<Multiplier, Paint> attributes;
   private Tile[][] internalState;
   private Rectangle[][] squares;
   private List<Tile> placed = new ArrayList<>();
@@ -77,7 +71,7 @@ public class Board {
   }
 
   private void initializeLayout() {
-    BoardAttributes<Multiplier, Paint> attributes = initializer.initialize();
+    attributes = initializer.initialize();
     multipliers = attributes.locationMapping();
 
     squarePixels = attributes.squareSize();
@@ -153,7 +147,8 @@ public class Board {
    * @return whether or not any permanently played neighbors exist
    */
   public boolean neighbors(int column, int row) {
-    return horizontalNeighbors(column, row) || verticalNeighbors(column, row);
+    return horizontalNeighbors(column, row)
+            + verticalNeighbors(column, row) > 0;
   }
 
   /**
@@ -164,8 +159,15 @@ public class Board {
    * @return whether or not any permanently played neighbors exist
    * above it or below it
    */
-  public boolean verticalNeighbors(int column, int row) {
-    return occupied(column, row + 1) || occupied(column, row - 1);
+  public int verticalNeighbors(int column, int row) {
+    int total = 0;
+    if (occupied(column, row + 1)) {
+      total++;
+    }
+    if (occupied(column, row - 1)) {
+      total++;
+    }
+    return total;
   }
 
   /**
@@ -176,8 +178,15 @@ public class Board {
    * @return whether or not any permanently played neighbors exist
    * to its left or right
    */
-  public boolean horizontalNeighbors(int column, int row) {
-    return occupied(column + 1, row) || occupied(column - 1, row);
+  public int horizontalNeighbors(int column, int row) {
+    int total = 0;
+    if (occupied(column + 1, row)) {
+      total++;
+    }
+    if (occupied(column - 1, row)) {
+      total++;
+    }
+    return total;
   }
 
   /**
@@ -291,7 +300,7 @@ public class Board {
       Multiplier multiplier = multipliers[column][row];
 
       wordMultiplier *= multiplier.wordValue();
-      score += tile.score() * multiplier.letterValue();
+      score += tile.letter().score() * multiplier.letterValue();
 
       if (official) {
         // ensure that the multiplier at this cell can't be double-
@@ -413,5 +422,17 @@ public class Board {
       }
     }
     return target;
+  }
+
+  /**
+   * @return the dimensions of each board side
+   * length.
+   */
+  public int size() {
+    return attributes.squareCount();
+  }
+
+  public boolean isValidPosition(int column, int row) {
+    return column >= 0 && column < size() && row >= 0 && row < size();
   }
 }

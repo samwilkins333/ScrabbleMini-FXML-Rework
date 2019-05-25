@@ -1,7 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 /**
  * In effect, a heuristic applied
@@ -20,5 +20,5 @@ public interface CandidateSelector<T,
    *              selection
    * @return the optimal candidate
    */
-  T select(List<T> candidates, C input);
+  T select(Set<T> candidates, C input);
 }
