@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScrabbleMini-FXML-Rework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ScrabbleMini-FXML-Rework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScrabbleMini.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/META-INF/ScrabbleMini-FXML-Rework.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/META-INF/ScrabbleMini-FXML-Rework.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Multiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Multiplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/GaddagInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/GaddagInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,49 +40,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>removeBag</find>
-      <find>System.exit</find>
-      <find>Button</find>
-      <find>enter</find>
-      <find>new Trans</find>
-      <find>_tiles</find>
-      <find>copyof</find>
-      <find>[row</find>
-      <find>has(ro</find>
-      <find>has(r</find>
-      <find>[row]</find>
-      <find>adjustra</find>
-      <find>render</find>
-      <find>!=</find>
-      <find>pause(</find>
-      <find>0.</find>
-      <find>consol</find>
-      <find>visibi</find>
-      <find>vis</find>
-      <find>v</find>
-      <find>analyzeor</find>
-      <find>gray</find>
-      <find>0.55</find>
-      <find>play(</find>
-      <find>@NotNull</find>
-      <find>Node</find>
-      <find>gaddagin</find>
-      <find>malfor</find>
-      <find>self</find>
-      <find>simple</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>_</replace>
-      <replace>,</replace>
-      <replace>root</replace>
-      <replace>shake</replace>
-      <replace>hide</replace>
-      <replace>placements</replace>
-      <replace>State</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -208,7 +156,7 @@
       <workItem from="1562556930831" duration="399000" />
       <workItem from="1564415101164" duration="6000" />
       <workItem from="1590293718079" duration="108000" />
-      <workItem from="1590390886827" duration="956000" />
+      <workItem from="1590390886827" duration="1248000" />
     </task>
     <servers />
   </component>
@@ -224,34 +172,39 @@
       <screen x="0" y="23" width="1440" height="839" />
     </state>
     <state x="558" y="160" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.839@0.23.1440.839" timestamp="1590390901010" />
-    <state width="1398" height="217" key="GridCell.Tab.0.bottom" timestamp="1590391544881">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom" timestamp="1590392130117">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1590391544881" />
-    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1590391483371" />
-    <state width="1398" height="217" key="GridCell.Tab.0.center" timestamp="1590391544880">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1590391967468" />
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1590392130117" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center" timestamp="1590392130116">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1590391544880" />
-    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1590391483370" />
-    <state width="1398" height="217" key="GridCell.Tab.0.left" timestamp="1590391544880">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1590391967466" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1590392130116" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left" timestamp="1590392130115">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1590391544880" />
-    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1590391483370" />
-    <state width="1398" height="217" key="GridCell.Tab.0.right" timestamp="1590391544881">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1590391967466" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1590392130115" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right" timestamp="1590392130116">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1590391544881" />
-    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1590391483371" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1590391967467" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1590392130116" />
     <state x="208" y="24" key="SettingsEditor" timestamp="1590390922191">
       <screen x="0" y="23" width="1440" height="839" />
     </state>
     <state x="208" y="24" key="SettingsEditor/0.23.1440.839@0.23.1440.839" timestamp="1590390922191" />
-    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup" timestamp="1590391794505">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state x="386" y="199" width="667" height="486" key="find.popup" timestamp="1590392120784">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state x="386" y="199" width="667" height="486" key="find.popup/0.23.1440.840@0.23.1440.840" timestamp="1590392120784" />
+    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup" timestamp="1590392281405">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1590391794505" />
+    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1590392281405" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ScrabbleMini_FXML_Rework$ScrabbleMini.ic" NAME="ScrabbleMini Coverage Results" MODIFIED="1557862249604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
