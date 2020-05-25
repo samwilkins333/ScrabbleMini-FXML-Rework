@@ -105,12 +105,10 @@ public abstract class Referee<T extends Collection<String>> {
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
     current.move(new Context<>(board, lexicon, moves > 0));
-    if (current instanceof SimulatedPlayer) {
-      moves++;
-      nextMove();
-      return;
-    }
     moves++;
+    if (current instanceof SimulatedPlayer) {
+      nextMove();
+    }
   }
 
   private void evaluateHumanPlacements() {
@@ -158,7 +156,7 @@ public abstract class Referee<T extends Collection<String>> {
     if (!wordValid) {
       word.flash(FAILURE);
     } else {
-      Player current = players.current();
+      Player<T> current = players.current();
       if (crosses.isEmpty()) {
         crosses.add(word);
       } else {
@@ -175,7 +173,8 @@ public abstract class Referee<T extends Collection<String>> {
   }
 
   private void broadcast(Word word, Axis axis) {
-    Move move = new Move(axis == Axis.HORIZONTAL, word.first(axis).indices().row());
+    int row = word.first(axis).indices().row();
+    Move move = new Move(axis == Axis.HORIZONTAL, row);
     word.forEach(t -> move.addTile(t, t.indices().column()));
 
     players.forEach(p -> {

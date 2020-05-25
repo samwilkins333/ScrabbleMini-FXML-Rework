@@ -49,6 +49,11 @@ public class PlayerList<T extends Collection<String>>
     return get(current);
   }
 
+  /**
+   * Updates the internal state, making the previous player in line
+   * the current player.
+   * @return the *new* current player
+   */
   public Player<T> previous() {
     current = (current > 0 ? current : size()) - 1;
     return get(current);

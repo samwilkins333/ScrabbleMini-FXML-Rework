@@ -55,8 +55,8 @@ public class Tile {
    */
   public void render(Board b) {
     this.board = b;
-    b.node().getChildren().add(root.imageView());
-    overlays = new TileOverlayStack(root.bindings(), b.node().getChildren());
+    this.board.node().getChildren().add(root.imageView());
+    overlays = new TileOverlayStack(root.bindings(), this.board.node().getChildren());
   }
 
   /**
@@ -244,8 +244,7 @@ public class Tile {
    */
   public void setRackPosition(double initialX, double initialY) {
     rackPosition = new Point2D(initialX, initialY);
-    ImageBindings bindings = root.bindings();
-    bindings.layoutX(initialX);
-    bindings.layoutY(initialY);
+    root.bindings().layoutX(initialX);
+    root.bindings().layoutY(initialY);
   }
 }
