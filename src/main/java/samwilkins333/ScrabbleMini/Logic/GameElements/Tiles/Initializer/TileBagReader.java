@@ -63,8 +63,8 @@ public class TileBagReader implements TileBagInitializer {
           throw new IOException(DUPLICATE_MAPPING);
         }
 
-        int frequency = Integer.valueOf(components[1]);
-        int score = Integer.valueOf(components[2]);
+        int frequency = Integer.parseInt(components[1]);
+        int score = Integer.parseInt(components[2]);
 
         encountered.add(letter);
         metadataMapping.put(letter, new TileMetaData(score, frequency));

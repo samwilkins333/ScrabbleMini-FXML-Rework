@@ -34,8 +34,8 @@ public class Multiplier {
    */
   public static Multiplier parse(String raw, String delimiter) {
     String[] split = raw.split(delimiter);
-    int letterValue = Integer.valueOf(split[0]);
-    int wordValue = Integer.valueOf(split[1]);
+    int letterValue = Integer.parseInt(split[0]);
+    int wordValue = Integer.parseInt(split[1]);
     return new Multiplier(letterValue, wordValue);
   }
 

@@ -20,7 +20,6 @@ import java.util.*;
 public class MoveGenerator implements
         CandidateGenerator<Move, Context<GADDAG>> {
   private Set<Move> moves;
-  private Set<String> encountered;
   private Board board;
   private GADDAG gaddag;
   private LetterSetMapping letterSets;
@@ -34,7 +33,6 @@ public class MoveGenerator implements
   @Override
   public Set<Move> generate(Context<GADDAG> context) {
     moves = new HashSet<>();
-    encountered = new HashSet<>();
     board = context.board();
     gaddag = context.lexicon();
 
@@ -67,6 +65,12 @@ public class MoveGenerator implements
     updater.update(move);
   }
 
+  private List<Tile> remove(List<Tile> rack, Tile rackTile) {
+    rack.remove(rackTile);
+    rack.add(rackTile);
+    return rack.subList(0, rack.size() - 1);
+  }
+
   /**
    * One of two recursive backtracking co-routines
    * used to generateOn all possible words.
@@ -97,12 +101,6 @@ public class MoveGenerator implements
         }
       }
     }
-  }
-
-  private List<Tile> remove(List<Tile> rack, Tile rackTile) {
-    rack.remove(rackTile);
-    rack.add(rackTile);
-    return rack.subList(0, rack.size() - 1);
   }
 
   private void follow(int targetCol, Tile tile, LinkedList<Tile> word, List<Tile> rack, Arc newArc, Arc oldArc) {
@@ -159,9 +157,8 @@ public class MoveGenerator implements
     word.forEach(tile -> builder.append(tile.letter().raw()));
 //    System.out.printf("Potential play found! %s going across at (%d, %d)\n", builder.toString(), start, anchorRow);
     String found = builder.toString();
-    if (gaddag.contains(found) && !encountered.contains(found)) {
-      System.out.println(found);
-      encountered.add(found);
+    if (gaddag.contains(found)) {
+      System.out.println(move.toString());
       moves.add(move);
     }
   }

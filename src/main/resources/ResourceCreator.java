@@ -13,9 +13,9 @@ import java.net.URL;
  * initialization of common resources.
  */
 public final class ResourceCreator {
-  private ResourceCreator() {
-    //prevents instantiation
-  }
+
+  //prevents instantiation
+  private ResourceCreator() { }
 
   /**
    * Creates an <code>Image</code> instance by loading

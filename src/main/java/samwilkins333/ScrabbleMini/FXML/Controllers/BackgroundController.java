@@ -38,7 +38,7 @@ public class BackgroundController implements Initializable {
   @FXML public ImageView tilebagView;
   @FXML public Pane boardPane;
 
-  private Referee referee;
+  private Referee<GADDAG> referee;
   private Board board;
   private TileBag tileBag;
 

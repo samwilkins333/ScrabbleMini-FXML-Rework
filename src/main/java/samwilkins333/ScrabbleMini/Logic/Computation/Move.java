@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
 /**
  * A Scrabble move, consisting of a set of tiles to be placed at specified board
@@ -127,5 +128,14 @@ public class Move {
   public int hashCode() {
     int hashCode = rowOrCol ^ tileMap.hashCode();
     return across ? hashCode : -hashCode;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder stringBuilder = new StringBuilder();
+    tileMap.forEach((i, t) -> {
+      stringBuilder.append("[").append(t.letter().raw()).append(" (").append(i).append(", ").append(rowOrCol).append(")]");
+    });
+    return stringBuilder.toString();
   }
 }

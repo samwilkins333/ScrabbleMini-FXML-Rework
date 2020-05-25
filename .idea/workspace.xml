@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleMini-FXML-Rework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ScrabbleMini-FXML-Rework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrabbleMini.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/META-INF/ScrabbleMini-FXML-Rework.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/META-INF/ScrabbleMini-FXML-Rework.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Multiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Multiplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ResourceCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -33,145 +38,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1879">
-              <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1830#1831#0" expanded="true" />
-                <element signature="e#1863#1864#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/GADDAG.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#964#965#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
-                <element signature="e#1237#1238#0" expanded="true" />
-                <element signature="e#1444#1445#0" expanded="true" />
-                <element signature="e#1497#1498#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/LetterSetMapping.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1547#1548#0" expanded="true" />
-                <element signature="e#1575#1576#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="159" column="6" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="201" selection-start-line="201" selection-end-line="201" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#7145#7146#0" expanded="true" />
-                <element signature="e#9205#9206#0" expanded="true" />
-                <element signature="e#9238#9239#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveSelector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/StandardReferee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2982#2983#0" expanded="true" />
-                <element signature="e#3032#3033#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -230,236 +96,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Elements/Word/Word.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Elements/Board/Board.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/MoveGeneration/Arc.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/MoveGeneration/Gaddag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Agents/Referee/Referee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/DataStructures/UtilityArrayList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/MoveGeneration/CandidateGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/MoveGeneration/WordGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/MoveGeneration/CandidateSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Agents/Players/Player.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/MoveGeneration/WordSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Agents/Players/SimulatedPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/GenerationContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/GameContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/DictionaryInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/NotNull.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/configuration/sample.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/DictionaryReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/PlayerList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Players.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Player.java" />
-        <option value="$PROJECT_DIR$/src/module-info.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Arc.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Delimiter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Gaddag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileBag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Tile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Blank.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/WordGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/WordSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/CandidateSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/DataManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/CandidateGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Letter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/ArcLetter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/State.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/StandardReferee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Word/Word.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/GADDAG.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/LetterSetMapping.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/GaddagInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Board.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Context.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveSelector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java" />
-      </list>
-    </option>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="829" />
+    <option name="height" value="834" />
   </component>
+  <component name="ProjectId" id="1cL2n9mFDUNdzKcwkMnqVHe6WpH" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="FXML" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="FXML" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="Computation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="DataStructures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="DataStructures" type="462c0819:PsiDirectoryNode" />
-              <item name="Gaddag" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="DataStructures" type="462c0819:PsiDirectoryNode" />
-              <item name="Utility" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="GameAgents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="GameAgents" type="462c0819:PsiDirectoryNode" />
-              <item name="Players" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="GameAgents" type="462c0819:PsiDirectoryNode" />
-              <item name="Referee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="GameElements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="GameElements" type="462c0819:PsiDirectoryNode" />
-              <item name="Board" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrabbleMini" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-              <item name="GameElements" type="462c0819:PsiDirectoryNode" />
-              <item name="Tiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ScrabbleMini-FXML-Rework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScrabbleMini-FXML-Rework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -489,22 +141,11 @@
       <recent name="$PROJECT_DIR$/src/main/java/samwilkins333/Main/UserInterface/FXMLControllers" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="ScrabbleMini" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.java.samwilkins333.ScrabbleMini.Main" />
       <module name="ScrabbleMini-FXML-Rework" />
+      <option name="VM_PARAMETERS" value="--module-path /Library/Java/Extensions/javafx-sdk-11.0.2/lib/javafx.base.jar:/Library/Java/Extensions/javafx-sdk-11.0.2/lib/javafx.controls.jar:/Library/Java/Extensions/javafx-sdk-11.0.2/lib/javafx.graphics.jar:/Library/Java/Extensions/javafx-sdk-11.0.2/lib/javafx.fxml.jar --add-modules javafx.base,javafx.controls,javafx.graphics,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -516,6 +157,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -548,54 +201,57 @@
       <workItem from="1558687713887" duration="6819000" />
       <workItem from="1558694806750" duration="6459000" />
       <workItem from="1558729474819" duration="389000" />
-      <workItem from="1558730126400" duration="18930000" />
+      <workItem from="1558730126400" duration="19161000" />
+      <workItem from="1558767644944" duration="1908000" />
+      <workItem from="1559342229419" duration="3491000" />
+      <workItem from="1561930836406" duration="72000" />
+      <workItem from="1562556930831" duration="399000" />
+      <workItem from="1564415101164" duration="6000" />
+      <workItem from="1590293718079" duration="108000" />
+      <workItem from="1590390886827" duration="956000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211114000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="828" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23462088" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32608697" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32971507" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49570817" visible="true" weight="0.39402175" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32971507" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="CheckStyle" order="9" sideWeight="0.49356222" weight="0.32744566" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5064378" side_tool="true" weight="0.3283582" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49928468" weight="0.32428765" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.32971507" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3297568" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="195" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590391032942">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state x="195" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.839@0.23.1440.839" timestamp="1590391032942" />
+    <state x="558" y="160" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1590390901010">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state x="558" y="160" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.839@0.23.1440.839" timestamp="1590390901010" />
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom" timestamp="1590391544881">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1590391544881" />
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1590391483371" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center" timestamp="1590391544880">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1590391544880" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1590391483370" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left" timestamp="1590391544880">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1590391544880" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1590391483370" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right" timestamp="1590391544881">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1590391544881" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1590391483371" />
+    <state x="208" y="24" key="SettingsEditor" timestamp="1590390922191">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state x="208" y="24" key="SettingsEditor/0.23.1440.839@0.23.1440.839" timestamp="1590390922191" />
+    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup" timestamp="1590391794505">
+      <screen x="0" y="23" width="1440" height="839" />
+    </state>
+    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1590391794505" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ScrabbleMini_FXML_Rework$ScrabbleMini.ic" NAME="ScrabbleMini Coverage Results" MODIFIED="1557862249604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -603,52 +259,121 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>word.toString()</expression-string>
+        <expression-string>gaddag.contains(&quot;dabled&quot;)</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>o instanceof Delimiter</expression-string>
+        <expression-string>gaddag.contains(&quot;cable&quot;)</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dictionary.contains(&quot;twa&quot;)</expression-string>
+        <expression-string>gaddag.contains(&quot;cabled&quot;)</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>internalState[v ? offset : column][v ? row : offset]</expression-string>
+        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
+while (arc.destination() != null) {
+  String concat = arc.letters().stream().map(Letter::raw).collect(Collectors.joining());
+  System.out.println(concat.isEmpty() ? &quot;EMPTY SET&quot; : concat);
+  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
+  if (!iterator.hasNext()) break;
+  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
+  System.out.printf(&quot;Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
+  arc = entry.getValue();
+}</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>internalState[v ? column : offset][v ? offset : row]</expression-string>
+        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
+while (arc.destination() != null) {
+  String concat = arc.letters().stream().map(Letter::raw).collect(Collectors.joining());
+  System.out.println(concat.isEmpty() ? &quot;EMPTY SET&quot; : concat);
+  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
+  if (!iterator.hasNext()) break; 
+  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
+  System.out.printf(&quot;  Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
+  arc = entry.getValue();
+}</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>board.has(column, row + 1)</expression-string>
+        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
+while (arc.destination() != null) {
+  String concat = arc.letters().stream().map(Letter::raw).collect(Collectors.joining());
+  System.out.println(concat.isEmpty() ? &quot;EMPTY SET&quot; : concat);
+  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
+  if (!iterator.hasNext()) break; 
+  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
+  System.out.printf(&quot;Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
+  arc = entry.getValue();
+}</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>board.has(column, row)</expression-string>
+        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
+while (arc.destination() != null) {
+  System.out.println(arc.letters().stream().map(Letter::raw).collect(Collectors.joining()));
+  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
+  if (!iterator.hasNext()) break; 
+  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
+  System.out.printf(&quot;Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
+  arc = entry.getValue();
+}</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>row + 1 &lt; dimensions</expression-string>
+        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
+while (arc.destination() != null) {
+  System.out.println(arc.letters().stream().map(Letter::raw).collect(Collectors.joining()));
+  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
+  if (!iterator.hasNext()) break; 
+  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
+  if (entry.getKey() == null) {
+    System.out.println(&quot;NULL&quot;);
+    continue;
+  }
+  System.out.printf(&quot;Following %s\n&quot;, entry.getKey().letter.raw());
+  arc = entry.getValue();
+}</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(current + 1) % players.size()</expression-string>
+        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
+while (arc.destination() != null) {
+  System.out.println(arc.letters().stream().map(Letter::raw).collect(Collectors.joining()));
+  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
+  if (!iterator.hasNext()) break; 
+  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
+  System.out.printf(&quot;Following %s\n&quot;, entry.getKey().letter.raw());
+  arc = entry.getValue();
+}</expression-string>
         <language-id>JAVA</language-id>
+        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>letter == null</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>o == null || letter == null</expression-string>
         <language-id>JAVA</language-id>
@@ -685,545 +410,5 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/BoardLayoutManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Initializer/BoardInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Initializer/BoardReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/PlayerType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Utilities/DataStructures/Action.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/UtilityArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/NotNull.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Override.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="1871" column="18" selection-start-line="1871" selection-start-column="18" selection-end-line="1871" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration/sample.txt" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Set.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Players.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6735">
-          <caret line="495" column="19" selection-start-line="495" selection-start-column="19" selection-end-line="495" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/DictionaryInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Rack/Rack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Collections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="1118" column="29" selection-start-line="1118" selection-start-column="29" selection-end-line="1118" selection-end-column="29" />
-          <folding>
-            <element signature="e#46892#46893#0" expanded="true" />
-            <element signature="e#46939#46940#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/HashSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="218" column="19" selection-start-line="218" selection-start-column="19" selection-end-line="218" selection-end-column="19" />
-          <folding>
-            <element signature="e#7997#7998#0" expanded="true" />
-            <element signature="e#8045#8046#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileBag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1251">
-          <caret line="116" column="28" lean-forward="true" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1747#1748#0" expanded="true" />
-            <element signature="e#1821#1822#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Blank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding>
-            <element signature="e#139#140#0" expanded="true" />
-            <element signature="e#178#179#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="271" column="29" lean-forward="true" selection-start-line="271" selection-start-column="29" selection-end-line="271" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/CandidateSelector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/CandidateGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.3.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="242" column="6" selection-start-line="242" selection-start-column="6" selection-end-line="242" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Arc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib/javafx.fxml.jar!/javafx/fxml/FXMLLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="475" selection-start-line="475" selection-end-line="475" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Delimiter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#161#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Letter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-          <folding>
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/ArcLetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding>
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Word/Word.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/GaddagInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="184" column="16" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1485#1486#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="97" column="24" lean-forward="true" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/StandardReferee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2982#2983#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7145#7146#0" expanded="true" />
-            <element signature="e#9205#9206#0" expanded="true" />
-            <element signature="e#9238#9239#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/LetterSetMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveSelector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
-            <element signature="e#1444#1445#0" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/GADDAG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#964#965#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1879">
-          <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1547#1548#0" expanded="true" />
-            <element signature="e#1575#1576#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="159" column="6" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>javafx-11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>ScrabbleMini-FXML-Rework</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
