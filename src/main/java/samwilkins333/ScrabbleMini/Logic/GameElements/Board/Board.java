@@ -44,8 +44,6 @@ public class Board {
   private final BoardInitializer<Multiplier, Paint> initializer;
 
   private Multiplier[][] multipliers;
-  private static final double H_OFFSET = 0.75;
-  private static final double V_OFFSET = 0.85;
   private static final double TILE_RATIO = 0.8;
   public static final double DURATION = 0.5;
 
@@ -85,10 +83,8 @@ public class Board {
 
     // centers the boardPane in the primary desk space regardless
     // of actual width and height
-    originLeftPixels = (screenWidth * H_OFFSET - sideLengthPixels) / 2
-            + screenWidth * (1 - H_OFFSET);
-    originTopPixels = (screenHeight * V_OFFSET - sideLengthPixels) / 2
-            + screenHeight * (1 - V_OFFSET);
+    originLeftPixels = screenWidth / 2 - sideLengthPixels / 2;
+    originTopPixels = (screenHeight - 82) / 2 - sideLengthPixels / 2;
 
     tilePadding = ((1 - TILE_RATIO) / 2) * squarePixels;
     tileWidth = TILE_RATIO * squarePixels;

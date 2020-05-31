@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.net.URL;
+
 /**
  * The main class of the application that initializes the
  * FXML controller and records screen dimensions.
@@ -23,8 +25,8 @@ public class Main extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    String path = "FXML/Scenes/Background.fxml";
-    Parent root = FXMLLoader.load(getClass().getResource(path));
+    URL resource = getClass().getResource("FXML/Scenes/Background.fxml");
+    Parent root = FXMLLoader.load(resource);
     primaryStage.setTitle("ScrabbleMini");
 
     primaryStage.setScene(new Scene(root, screenWidth, screenHeight));

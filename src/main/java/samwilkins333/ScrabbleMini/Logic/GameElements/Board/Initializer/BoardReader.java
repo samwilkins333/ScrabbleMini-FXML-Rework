@@ -76,8 +76,8 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
       }
 
       String[] sizes = sizing.split(SIZING_DELIMITER);
-      dim = Integer.valueOf(sizes[0]);
-      squareSize = Integer.valueOf(sizes[1].replace(UNIT, ""));
+      dim = Integer.parseInt(sizes[0]);
+      squareSize = Integer.parseInt(sizes[1].replace(UNIT, ""));
       multiplierMap = new Multiplier[dim][dim];
 
       reader.readLine();

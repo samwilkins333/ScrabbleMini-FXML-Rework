@@ -40,8 +40,8 @@ public class TileBag {
   private static final int SHAKE_CYCLES = 4;
 
   private static final int WIDTH = 250;
-  private static final int LAYOUT_X = 100;
-  private static final int LAYOUT_Y = 400;
+  private static final int LAYOUT_X = -100;
+  private static final int LAYOUT_Y = 500;
   private static final int ROTATION = 45;
 
   public Map<String, TileMetaData> metaDataMap() {
