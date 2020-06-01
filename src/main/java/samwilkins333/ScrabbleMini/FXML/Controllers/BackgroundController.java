@@ -92,9 +92,9 @@ public class BackgroundController implements Initializable {
    */
   public void begin() {
     PlayerList<GADDAG> players = new PlayerList<>(2);
-    players.add(new SimulatedPlayer(new MoveGenerator(), new MoveSelector()));
     players.add(new HumanPlayer());
-
+    players.add(new HumanPlayer());
+//    players.add(new SimulatedPlayer(new MoveGenerator(), new MoveSelector()));
     referee = new StandardReferee(players, board, tileBag);
   }
 }
