@@ -4,8 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Move;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
@@ -17,7 +17,6 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
-import java.util.Collection;
 import java.util.List;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board.DURATION;
@@ -32,14 +31,14 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Over
  * movement sequencing and move validation.
  * @param <T> the data structure the referee will use to store the lexicon
  */
-public abstract class Referee<T extends Collection<String>> {
+public abstract class Referee<T extends Trie> {
   private static final double DELAY = 0.65;
   protected final PlayerList<T> players;
   protected final Board board;
   private final TileBag tileBag;
   public final T lexicon;
 
-  protected int moves = 0;
+  protected int movesInitiated = 0;
 
   /**
    * Constructor.
@@ -104,8 +103,8 @@ public abstract class Referee<T extends Collection<String>> {
     current = players.next();
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
-    current.move(new Context<>(board, lexicon, moves > 0));
-    moves++;
+    movesInitiated++;
+    current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated)));
     if (current instanceof SimulatedPlayer) {
       nextMove();
     }
@@ -163,24 +162,10 @@ public abstract class Referee<T extends Collection<String>> {
         crosses.add(0, word);
       }
 
-      broadcast(word, axis);
-
       word.forEach(tile -> board.play(current.transfer(tile)));
       TransitionHelper.pause(2 * DURATION, e -> board.correctShadows()).play();
       crosses.forEach(cross -> current.apply(board.score(cross, true)));
       nextMove();
     }
-  }
-
-  private void broadcast(Word word, Axis axis) {
-    int row = word.first(axis).indices().row();
-    Move move = new Move(axis == Axis.HORIZONTAL, row);
-    word.forEach(t -> move.addTile(t, t.indices().column()));
-
-    players.forEach(p -> {
-      if (p instanceof SimulatedPlayer) {
-        ((SimulatedPlayer) p).update(move);
-      }
-    });
   }
 }

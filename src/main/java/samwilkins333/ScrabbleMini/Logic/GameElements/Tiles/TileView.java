@@ -9,9 +9,9 @@ import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Letter;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tilePadding;
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
@@ -25,8 +25,8 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Boar
  * Encapsulates both the logical tile and its graphical
  * counterpart.
  */
-public class Tile {
-  private final Letter letter;
+public class TileView {
+  private final Tile tile;
   private final ObservableImage root;
   private TileOverlayStack overlays;
   private Indices indices;
@@ -38,8 +38,8 @@ public class Tile {
   private double dragReferenceY;
   private Board board;
 
-  Tile(Letter letter, ObservableImage root, boolean interactive) {
-    this.letter = letter;
+  TileView(Tile tile, ObservableImage root, boolean interactive) {
+    this.tile = tile;
     this.root = root;
     this.indices = new Indices(-1, -1);
 
@@ -57,13 +57,6 @@ public class Tile {
     this.board = b;
     this.board.node().getChildren().add(root.imageView());
     overlays = new TileOverlayStack(root.bindings(), this.board.node().getChildren());
-  }
-
-  /**
-   * @return the raw associated with this tile
-   */
-  public Letter letter() {
-    return letter;
   }
 
   /**
@@ -107,7 +100,7 @@ public class Tile {
     root.imageView().setOnMousePressed(this.onMousePressed());
     root.imageView().setOnMouseDragged(this.onMouseDragged());
     root.imageView().setOnMouseReleased(this.onMouseReleased());
-    overlap = TransitionHelper.flash(root.imageView(), Rack.DELAY, -1);
+    overlap = TransitionHelper.flash(root.imageView(), RackView.DELAY, -1);
   }
 
   /**
@@ -247,4 +240,9 @@ public class Tile {
     root.bindings().layoutX(initialX);
     root.bindings().layoutY(initialY);
   }
+
+  public Tile getTile() {
+    return tile;
+  }
+
 }

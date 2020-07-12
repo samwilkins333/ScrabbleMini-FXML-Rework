@@ -3,7 +3,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.UtilityArrayList;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -18,8 +18,8 @@ import java.util.HashSet;
  * logically models a word, or an ordered, axial
  * sequence of tiles.
  */
-public class Word extends UtilityArrayList<Tile> {
-  private static Map<Axis, Comparator<Tile>> readers = new HashMap<>();
+public class Word extends UtilityArrayList<TileView> {
+  private static Map<Axis, Comparator<TileView>> readers = new HashMap<>();
   static {
     readers.put(Axis.HORIZONTAL,
             Comparator.comparingDouble(t -> t.indices().column()));
@@ -31,7 +31,7 @@ public class Word extends UtilityArrayList<Tile> {
    * Constructor.
    * @param initial any individual initial tiles to include in the word.
    */
-  public Word(Tile... initial) {
+  public Word(TileView... initial) {
     super(Arrays.asList(initial));
   }
 
@@ -39,7 +39,7 @@ public class Word extends UtilityArrayList<Tile> {
    * Constructor.
    * @param c a collection of initial tiles to include in the word.
    */
-  public Word(Collection<? extends Tile> c) {
+  public Word(Collection<? extends TileView> c) {
     super(c);
   }
 
@@ -59,7 +59,7 @@ public class Word extends UtilityArrayList<Tile> {
    * @param axis the orientation used to determine first tile
    * @return the lexigraphically / position-based first tile.
    */
-  public Tile first(Axis axis) {
+  public TileView first(Axis axis) {
     return stream().min(Word.reader(axis)).orElse(get(0));
   }
 
@@ -70,7 +70,7 @@ public class Word extends UtilityArrayList<Tile> {
    * @param axis the orientation used to determine last tile
    * @return the lexigraphically / position-based last tile.
    */
-  public Tile last(Axis axis) {
+  public TileView last(Axis axis) {
     return stream().max(Word.reader(axis)).orElse(get(size() - 1));
   }
 
@@ -84,7 +84,7 @@ public class Word extends UtilityArrayList<Tile> {
    * that has been placed at the indices.
    */
   public boolean contains(int column, int row) {
-    for (Tile tile : this) {
+    for (TileView tile : this) {
       int c = tile.indices().column();
       int r = tile.indices().row();
       if (column == c && row == r) {
@@ -97,7 +97,7 @@ public class Word extends UtilityArrayList<Tile> {
   @Override
   public String toString() {
     StringBuilder word = new StringBuilder();
-    forEach(t -> word.append(t.letter().raw()));
+    forEach(t -> word.append(t.getTile().getLetter()));
     return word.toString();
   }
 
@@ -111,7 +111,7 @@ public class Word extends UtilityArrayList<Tile> {
    *             the order in which the tiles should be read
    * @return the appropriate comparator
    */
-  public static Comparator<Tile> reader(Axis axis) {
+  public static Comparator<TileView> reader(Axis axis) {
     return readers.get(axis);
   }
 
@@ -122,7 +122,7 @@ public class Word extends UtilityArrayList<Tile> {
    */
   public boolean internalOverlap() {
     Set<Indices> indices = new HashSet<>();
-    for (Tile tile : this) {
+    for (TileView tile : this) {
       if (!indices.add(tile.indices())) {
         return true;
       }

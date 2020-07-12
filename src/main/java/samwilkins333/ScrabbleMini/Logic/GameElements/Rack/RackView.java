@@ -2,10 +2,10 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack;
 
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
-import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
@@ -15,7 +15,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Boar
  * Models a player's rack of 7 tiles, encompassing both
  * the logic and the graphical state.
  */
-public class Rack extends ArrayList<Tile> {
+public class RackView extends LinkedList<TileView> {
   public static final double DELAY = 0.25;
   public static final int CAPACITY = 7;
   public int animationsInProgress = 0;
@@ -63,11 +63,11 @@ public class Rack extends ArrayList<Tile> {
       return;
     }
 
-    sort(Comparator.comparing(Tile::rackPlacement));
+    sort(Comparator.comparing(TileView::rackPlacement));
 
     for (int i = 0; i < size() - 1; i++) {
-      Tile upperTile = get(i);
-      Tile lowerTile = get(i + 1);
+      TileView upperTile = get(i);
+      TileView lowerTile = get(i + 1);
 
       switch ((int) (Math.random() * 3)) {
         case 0:

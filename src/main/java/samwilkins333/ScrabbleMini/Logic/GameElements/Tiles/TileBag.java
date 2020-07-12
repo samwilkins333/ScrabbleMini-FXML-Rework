@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Letter;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
 import main.java.samwilkins333.ScrabbleMini.Main;
@@ -30,7 +30,7 @@ public class TileBag {
   private TileBagInitializer initializer;
   private TileBagInitializer.TileBagAttributes attributes;
 
-  private List<Letter> internalState = new ArrayList<>();
+  private List<Tile> internalState = new ArrayList<>();
 
   private RotateTransition shake;
   private TranslateTransition hide;
@@ -44,7 +44,7 @@ public class TileBag {
   private static final int LAYOUT_Y = 500;
   private static final int ROTATION = 45;
 
-  public Map<String, TileMetaData> metaDataMap() {
+  public Map<Character, TileMetaData> metaDataMap() {
     return Collections.unmodifiableMap(attributes.metadataMapping());
   }
 
@@ -79,7 +79,7 @@ public class TileBag {
     attributes = initializer.initialize();
     attributes.metadataMapping().forEach((letter, metadata) -> {
       for (int i = 0; i < metadata.frequency(); i++) {
-        internalState.add(new Letter(letter, metadata.score()));
+        internalState.add(new Tile(letter, metadata.score(), null));
       }
     });
   }
@@ -106,14 +106,14 @@ public class TileBag {
    * @param interactive whether or not the tile can ever be
    *                    dragged or dropped
    */
-  public Tile draw(boolean interactive) {
+  public TileView draw(boolean interactive) {
     int index = (int) (Math.random() * internalState.size());
-    Letter letter = internalState.remove(index);
-    return new Tile(letter, createVisual(letter), interactive);
+    Tile tile = internalState.remove(index);
+    return new TileView(tile, createVisual(tile.getLetter()), interactive);
   }
 
-  private ObservableImage createVisual(Letter letter) {
-    String url = String.format("tiles/%s.png", letter.raw());
+  private ObservableImage createVisual(char letter) {
+    String url = String.format("tiles/%s.png", letter);
     ObservableImage visual =
             ObservableImage.create(url, BindingMode.BIDIRECTIONAL);
     visual.bindings().width(tileWidth);

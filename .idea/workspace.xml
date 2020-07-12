@@ -2,8 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Alphabet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/BoardStateUnit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/DirectionName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/EnrichedTilePlacement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Generator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/NextTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/ScoredCandidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/SerializationResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/TilePlacement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Trie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/TrieNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/configuration/board_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/configuration/board_config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/FXML/Controllers/BackgroundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/CandidateGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/CandidateSelector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/GameContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Move.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/MoveSelector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Arc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/ArcLetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Delimiter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/GADDAG.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/Letter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Gaddag/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/DataStructures/Utility/PlayerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/SimulatedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/DictionaryInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/DictionaryInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/GaddagInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Initializer/TrieInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/Referee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/StandardReferee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Referee/StandardReferee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/LetterSetMapping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Multiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Multiplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Rack/Rack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Rack/RackView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Blank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Word/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Word/Word.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration/board_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration/board_config.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +81,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -46,11 +93,6 @@
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="834" />
   </component>
   <component name="ProjectId" id="1cL2n9mFDUNdzKcwkMnqVHe6WpH" />
   <component name="ProjectLevelVcsManager">
@@ -62,6 +104,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -77,7 +120,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -162,260 +205,160 @@
       <workItem from="1590390886827" duration="1248000" />
       <workItem from="1590436860271" duration="1652000" />
       <workItem from="1590966384153" duration="3397000" />
+      <workItem from="1590974779877" duration="371000" />
+      <workItem from="1590977115374" duration="343000" />
+      <workItem from="1591148980407" duration="6000" />
+      <workItem from="1591152993780" duration="1501000" />
+      <workItem from="1591486877337" duration="32000" />
+      <workItem from="1591488610306" duration="87000" />
+      <workItem from="1591489068447" duration="1067000" />
+      <workItem from="1591490574466" duration="4436000" />
+      <workItem from="1591495514632" duration="224000" />
+      <workItem from="1591592117580" duration="246000" />
+      <workItem from="1591594501511" duration="52000" />
+      <workItem from="1591598783821" duration="615000" />
+      <workItem from="1591675436384" duration="519000" />
+      <workItem from="1591676275594" duration="786000" />
+      <workItem from="1591830577923" duration="8000" />
+      <workItem from="1591840710989" duration="2074000" />
+      <workItem from="1591983685223" duration="8000" />
+      <workItem from="1592012829065" duration="669000" />
+      <workItem from="1594531858870" duration="5821000" />
+      <workItem from="1594544822677" duration="104000" />
+      <workItem from="1594570127878" duration="13256000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="195" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590391032942">
       <screen x="0" y="23" width="1440" height="839" />
     </state>
     <state x="195" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.839@0.23.1440.839" timestamp="1590391032942" />
+    <state x="533" y="165" key="#com.intellij.ide.util.MemberChooser" timestamp="1594590959654">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state x="533" y="165" key="#com.intellij.ide.util.MemberChooser/0.23.1440.840@0.23.1440.840" timestamp="1594590959654" />
     <state x="558" y="160" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1590390901010">
       <screen x="0" y="23" width="1440" height="839" />
     </state>
     <state x="558" y="160" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.839@0.23.1440.839" timestamp="1590390901010" />
-    <state width="1398" height="263" key="GridCell.Tab.0.bottom" timestamp="1590973821148">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state x="283" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594588937842">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="263" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1590973821148" />
-    <state width="1398" height="263" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1590967382854" />
-    <state width="1398" height="264" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1590443413172" />
-    <state width="1398" height="263" key="GridCell.Tab.0.center" timestamp="1590973821147">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state x="283" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.840@0.23.1440.840" timestamp="1594588937842" />
+    <state x="458" y="196" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594532778352">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="263" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1590973821147" />
-    <state width="1398" height="263" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1590967382853" />
-    <state width="1398" height="264" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1590443413171" />
-    <state width="1398" height="263" key="GridCell.Tab.0.left" timestamp="1590973821147">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state x="458" y="196" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.840@0.23.1440.840" timestamp="1594532778352" />
+    <state x="483" y="158" key="#xdebugger.evaluate" timestamp="1591495611077">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="263" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1590973821147" />
-    <state width="1398" height="263" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1590967382852" />
-    <state width="1398" height="264" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1590443413171" />
-    <state width="1398" height="263" key="GridCell.Tab.0.right" timestamp="1590973821148">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state x="483" y="158" key="#xdebugger.evaluate/0.23.1440.840@0.23.1440.840" timestamp="1591495611077" />
+    <state width="435" height="466" key="DebuggerActiveHint" timestamp="1594591528356">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state width="1398" height="263" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1590973821148" />
-    <state width="1398" height="263" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1590967382853" />
-    <state width="1398" height="264" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1590443413171" />
-    <state width="1398" height="263" key="GridCell.Tab.1.bottom" timestamp="1590973821150">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="435" height="466" key="DebuggerActiveHint/0.23.1440.840@0.23.1440.840" timestamp="1594591528356" />
+    <state width="415" height="466" key="DebuggerActiveHint/0.23.1440.841@0.23.1440.841" timestamp="1591153556045" />
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1594591781694">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1592035209681" />
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1594591781694" />
+    <state width="1398" height="263" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1591153862188" />
+    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1594591781693">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
+    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1592035209680" />
+    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1594591781693" />
+    <state width="1398" height="263" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1591153862187" />
+    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1594591781692">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
+    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1592035209680" />
+    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1594591781692" />
+    <state width="1398" height="263" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1591153862187" />
+    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1594591781693">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
+    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1592035209681" />
+    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1594591781693" />
+    <state width="1398" height="263" key="GridCell.Tab.0.right/0.23.1440.841@0.23.1440.841" timestamp="1591153862188" />
+    <state width="1398" height="263" key="GridCell.Tab.1.bottom" timestamp="1594591594946">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="263" key="GridCell.Tab.1.bottom/0.23.1440.838@0.23.1440.838" timestamp="1590973821150" />
     <state width="1398" height="263" key="GridCell.Tab.1.bottom/0.23.1440.839@0.23.1440.839" timestamp="1590967382855" />
-    <state width="1398" height="264" key="GridCell.Tab.1.bottom/0.23.1440.840@0.23.1440.840" timestamp="1590443413173" />
-    <state width="1398" height="263" key="GridCell.Tab.1.center" timestamp="1590973821149">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="263" key="GridCell.Tab.1.bottom/0.23.1440.840@0.23.1440.840" timestamp="1594591594946" />
+    <state width="1398" height="263" key="GridCell.Tab.1.bottom/0.23.1440.841@0.23.1440.841" timestamp="1591153497308" />
+    <state width="1398" height="263" key="GridCell.Tab.1.center" timestamp="1594591594945">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="263" key="GridCell.Tab.1.center/0.23.1440.838@0.23.1440.838" timestamp="1590973821149" />
     <state width="1398" height="263" key="GridCell.Tab.1.center/0.23.1440.839@0.23.1440.839" timestamp="1590967382854" />
-    <state width="1398" height="264" key="GridCell.Tab.1.center/0.23.1440.840@0.23.1440.840" timestamp="1590443413172" />
-    <state width="1398" height="263" key="GridCell.Tab.1.left" timestamp="1590973821148">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="263" key="GridCell.Tab.1.center/0.23.1440.840@0.23.1440.840" timestamp="1594591594945" />
+    <state width="1398" height="263" key="GridCell.Tab.1.center/0.23.1440.841@0.23.1440.841" timestamp="1591153497307" />
+    <state width="1398" height="263" key="GridCell.Tab.1.left" timestamp="1594591594945">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="263" key="GridCell.Tab.1.left/0.23.1440.838@0.23.1440.838" timestamp="1590973821148" />
     <state width="1398" height="263" key="GridCell.Tab.1.left/0.23.1440.839@0.23.1440.839" timestamp="1590967382854" />
-    <state width="1398" height="264" key="GridCell.Tab.1.left/0.23.1440.840@0.23.1440.840" timestamp="1590443413172" />
-    <state width="1398" height="263" key="GridCell.Tab.1.right" timestamp="1590973821149">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="263" key="GridCell.Tab.1.left/0.23.1440.840@0.23.1440.840" timestamp="1594591594945" />
+    <state width="1398" height="263" key="GridCell.Tab.1.left/0.23.1440.841@0.23.1440.841" timestamp="1591153497307" />
+    <state width="1398" height="263" key="GridCell.Tab.1.right" timestamp="1594591594946">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="263" key="GridCell.Tab.1.right/0.23.1440.838@0.23.1440.838" timestamp="1590973821149" />
     <state width="1398" height="263" key="GridCell.Tab.1.right/0.23.1440.839@0.23.1440.839" timestamp="1590967382855" />
-    <state width="1398" height="264" key="GridCell.Tab.1.right/0.23.1440.840@0.23.1440.840" timestamp="1590443413173" />
-    <state x="208" y="24" key="SettingsEditor" timestamp="1590390922191">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="263" key="GridCell.Tab.1.right/0.23.1440.840@0.23.1440.840" timestamp="1594591594946" />
+    <state width="1398" height="263" key="GridCell.Tab.1.right/0.23.1440.841@0.23.1440.841" timestamp="1591153497307" />
+    <state x="208" y="24" key="SettingsEditor" timestamp="1594533084278">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state x="208" y="24" key="SettingsEditor/0.23.1440.839@0.23.1440.839" timestamp="1590390922191" />
-    <state x="399" y="275" key="com.intellij.ide.util.TipDialog" timestamp="1590966388495">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state x="208" y="24" key="SettingsEditor/0.23.1440.840@0.23.1440.840" timestamp="1594533084278" />
+    <state x="399" y="276" key="com.intellij.ide.util.TipDialog" timestamp="1594570169199">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.838@0.23.1440.838" timestamp="1590966388495" />
-    <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.839@0.23.1440.839" timestamp="1590436859721" />
+    <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.838@0.23.1440.838" timestamp="1591840711365" />
+    <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.839@0.23.1440.839" timestamp="1591983685311" />
+    <state x="399" y="276" key="com.intellij.ide.util.TipDialog/0.23.1440.840@0.23.1440.840" timestamp="1594570169199" />
+    <state x="272" y="186" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594591206047">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state x="272" y="186" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.840@0.23.1440.840" timestamp="1594591206047" />
     <state x="386" y="199" width="667" height="486" key="find.popup" timestamp="1590392120784">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state x="386" y="199" width="667" height="486" key="find.popup/0.23.1440.840@0.23.1440.840" timestamp="1590392120784" />
-    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup" timestamp="1590967585861">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup" timestamp="1594591794698">
+      <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1590967585861" />
-    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1590392281405" />
+    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.838@0.23.1440.838" timestamp="1591840720558" />
+    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1590977388930" />
+    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1594591794698" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Main.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Board/Board.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Generator.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ScrabbleMini_FXML_Rework$ScrabbleMini.ic" NAME="ScrabbleMini Coverage Results" MODIFIED="1557862249604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateCodeFragment">
-      <expression>
-        <expression-string>gaddag.contains(&quot;dabled&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>gaddag.contains(&quot;cable&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>gaddag.contains(&quot;cabled&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
-while (arc.destination() != null) {
-  String concat = arc.letters().stream().map(Letter::raw).collect(Collectors.joining());
-  System.out.println(concat.isEmpty() ? &quot;EMPTY SET&quot; : concat);
-  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
-  if (!iterator.hasNext()) break;
-  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
-  System.out.printf(&quot;Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
-  arc = entry.getValue();
-}</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
-while (arc.destination() != null) {
-  String concat = arc.letters().stream().map(Letter::raw).collect(Collectors.joining());
-  System.out.println(concat.isEmpty() ? &quot;EMPTY SET&quot; : concat);
-  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
-  if (!iterator.hasNext()) break; 
-  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
-  System.out.printf(&quot;  Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
-  arc = entry.getValue();
-}</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
-while (arc.destination() != null) {
-  String concat = arc.letters().stream().map(Letter::raw).collect(Collectors.joining());
-  System.out.println(concat.isEmpty() ? &quot;EMPTY SET&quot; : concat);
-  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
-  if (!iterator.hasNext()) break; 
-  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
-  System.out.printf(&quot;Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
-  arc = entry.getValue();
-}</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
-while (arc.destination() != null) {
-  System.out.println(arc.letters().stream().map(Letter::raw).collect(Collectors.joining()));
-  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
-  if (!iterator.hasNext()) break; 
-  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
-  System.out.printf(&quot;Following %s\n&quot;, entry.getKey() instanceof Delimiter ? &quot;&lt;&gt;&quot; : entry.getKey().letter.raw());
-  arc = entry.getValue();
-}</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Delimiter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
-while (arc.destination() != null) {
-  System.out.println(arc.letters().stream().map(Letter::raw).collect(Collectors.joining()));
-  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
-  if (!iterator.hasNext()) break; 
-  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
-  if (entry.getKey() == null) {
-    System.out.println(&quot;NULL&quot;);
-    continue;
-  }
-  System.out.printf(&quot;Following %s\n&quot;, entry.getKey().letter.raw());
-  arc = entry.getValue();
-}</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Arc arc = gaddag.getRootArc().destination().outgoingArcs.entrySet().iterator().next().getValue();
-while (arc.destination() != null) {
-  System.out.println(arc.letters().stream().map(Letter::raw).collect(Collectors.joining()));
-  Iterator&lt;Map.Entry&lt;ArcLetter, Arc&gt;&gt; iterator = arc.destination.outgoingArcs.entrySet().iterator();
-  if (!iterator.hasNext()) break; 
-  Map.Entry&lt;ArcLetter, Arc&gt; entry = iterator.next();
-  System.out.printf(&quot;Following %s\n&quot;, entry.getKey().letter.raw());
-  arc = entry.getValue();
-}</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.Arc,java.util.stream.Collectors,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.State,main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.ArcLetter</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-    </expressions>
-    <expressions id="breakpointCondition">
-      <expression>
-        <expression-string>letter == null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>o == null || letter == null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>o == null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>letter instanceof Delimiter</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>letter.letter() == null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>letter.letter.letter.equals(&quot;a&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>resource == null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>resou</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
   </component>
 </project>

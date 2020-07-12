@@ -2,15 +2,15 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Context;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,14 +25,14 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackL
  * @param <T> the type of data structure that holds the entire vocabulary
  *           of valid words in the game
  */
-public abstract class Player<T extends Collection<String>> {
+public abstract class Player<T extends Trie> {
   private int playerNumber;
-  protected Rack rack;
+  protected RackView rack;
   protected Map<Integer, BoardScore> score = new HashMap<>();
   protected int moves = 0;
 
   Player() {
-    this.rack = new Rack();
+    this.rack = new RackView();
   }
 
   /**
@@ -42,6 +42,11 @@ public abstract class Player<T extends Collection<String>> {
    */
   public void setPlayerNumber(int number) {
     playerNumber = number;
+  }
+
+  public GameContext<T> initializeContext(GameContext<T> context) {
+    context.setRack(this.rack);
+    return context;
   }
 
   /**
@@ -58,11 +63,11 @@ public abstract class Player<T extends Collection<String>> {
     }
 
     rack.consolidate();
-    rack.animationsInProgress = Rack.CAPACITY - rack.size();
+    rack.animationsInProgress = RackView.CAPACITY - rack.size();
 
     tileBag.shake();
     while (!rack.isFull()) {
-      Tile drawn = tileBag.draw(this instanceof HumanPlayer);
+      TileView drawn = tileBag.draw(this instanceof HumanPlayer);
 
       double initialX = playerNumber == 1
               ? leftOriginLeftPixels : rightOriginLeftPixels;
@@ -75,7 +80,7 @@ public abstract class Player<T extends Collection<String>> {
       bindings.opacity(1);
       drawn.setRackPosition(initialX, initialY);
 
-      TransitionHelper.pause(Rack.DELAY * rack.size(), e -> {
+      TransitionHelper.pause(RackView.DELAY * rack.size(), e -> {
         drawn.render(board);
         rack.animationsInProgress--;
       }).play();
@@ -103,7 +108,7 @@ public abstract class Player<T extends Collection<String>> {
    * @param tile the tile to remove and then play
    * @return the removed tile, ready for playing
    */
-  public Tile transfer(Tile tile) {
+  public TileView transfer(TileView tile) {
     rack.remove(tile);
     return tile;
   }
@@ -136,5 +141,5 @@ public abstract class Player<T extends Collection<String>> {
    *              state of the game at the time of invocation,
    *                and the data structure containing the lexicon
    */
-  public abstract void move(Context<T> context);
+  public abstract void move(GameContext<T> context);
 }

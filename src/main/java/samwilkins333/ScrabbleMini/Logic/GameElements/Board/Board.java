@@ -5,13 +5,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.BoardStateUnit;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer.BoardAttributes;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
@@ -36,9 +37,10 @@ import static main.java.samwilkins333.ScrabbleMini.Main.screenWidth;
  */
 public class Board {
   private BoardAttributes<Multiplier, Paint> attributes;
-  private Tile[][] internalState;
+  private TileView[][] internalState;
   private Rectangle[][] squares;
-  private List<Tile> placed = new ArrayList<>();
+  private List<TileView> placed = new ArrayList<>();
+  private int wordCount = 0;
 
   private final Pane root;
   private final BoardInitializer<Multiplier, Paint> initializer;
@@ -46,6 +48,7 @@ public class Board {
   private Multiplier[][] multipliers;
   private static final double TILE_RATIO = 0.8;
   public static final double DURATION = 0.5;
+  private static final int OFFSET = 82;
 
   /**
    * Constructor.
@@ -58,6 +61,17 @@ public class Board {
     this.root = root;
     this.initializer = initializer;
     initializeLayout();
+  }
+
+  public BoardStateUnit[][] toContext() {
+    BoardStateUnit[][] state = new BoardStateUnit[15][15];
+    for (int y = 0; y < 15; y++) {
+      for (int x = 0; x < 15; x++) {
+          TileView view = this.internalState[x][y];
+          state[y][x] = new BoardStateUnit(this.multipliers[x][y], view != null ? view.getTile() : null);
+      }
+    }
+    return state;
   }
 
   /**
@@ -84,13 +98,13 @@ public class Board {
     // centers the boardPane in the primary desk space regardless
     // of actual width and height
     originLeftPixels = screenWidth / 2 - sideLengthPixels / 2;
-    originTopPixels = (screenHeight - 82) / 2 - sideLengthPixels / 2;
+    originTopPixels = (screenHeight - OFFSET) / 2 - sideLengthPixels / 2;
 
     tilePadding = ((1 - TILE_RATIO) / 2) * squarePixels;
     tileWidth = TILE_RATIO * squarePixels;
 
     RackLayoutManager.originTopPixels = tilePadding
-            + ((dimensions - Rack.CAPACITY) * squarePixels) / 2;
+            + ((dimensions - RackView.CAPACITY) * squarePixels) / 2;
     RackLayoutManager.leftOriginLeftPixels = tilePadding
             - 2 * squarePixels;
     RackLayoutManager.rightOriginLeftPixels = tilePadding
@@ -100,7 +114,7 @@ public class Board {
     root.setLayoutY(originTopPixels);
 
     int dim = (int) dimensions;
-    internalState = new Tile[dim][dim];
+    internalState = new TileView[dim][dim];
     squares = new Rectangle[dim][dim];
 
     for (int column = 0; column < dimensions; column++) {
@@ -194,7 +208,7 @@ public class Board {
    * @return the Tile instance at the location, or null if no
    * tile has been played there
    */
-  public Tile get(int column, int row) {
+  public TileView get(int column, int row) {
     return internalState[column][row];
   }
 
@@ -204,7 +218,7 @@ public class Board {
    * is NOT the same as permanently playing a tile.
    * @param tile the tile to place
    */
-  public void place(Tile tile) {
+  public void place(TileView tile) {
     placed.add(tile);
   }
 
@@ -213,7 +227,7 @@ public class Board {
    * on the board.
    * @param tile the tile to remove
    */
-  public void discard(Tile tile) {
+  public void discard(TileView tile) {
     placed.remove(tile);
   }
 
@@ -225,7 +239,7 @@ public class Board {
    * the success routine.
    * @param tile the tile to permanently play
    */
-  public void play(Tile tile) {
+  public void play(TileView tile) {
     placed.remove(tile);
 
     int column = tile.indices().column();
@@ -237,6 +251,15 @@ public class Board {
     Color from = (Color) square.getFill();
     TransitionHelper.gradient(square, DURATION, from, Color.GRAY).play();
     tile.flash(OverlayType.SUCCESS);
+    wordCount++;
+  }
+
+  /**
+   * @return the number of words played
+   * thus far on the board
+   */
+  public int getWordCount() {
+    return wordCount;
   }
 
   /**
@@ -247,7 +270,7 @@ public class Board {
   public void correctShadows() {
     for (int column = 0; column < dimensions; column++) {
       for (int row = 0; row < dimensions; row++) {
-        Tile candidate = internalState[column][row];
+        TileView candidate = internalState[column][row];
         if (candidate != null) {
           candidate.toFront();
         }
@@ -261,7 +284,7 @@ public class Board {
    * initial rack positions.
    */
   public void resetPlacements() {
-    placed.forEach(Tile::reset);
+    placed.forEach(TileView::reset);
     // logically updates collection of currently placed words
     placed.clear();
   }
@@ -289,14 +312,14 @@ public class Board {
     int score = 0;
     int wordMultiplier = 1;
 
-    for (Tile tile : word) {
+    for (TileView tile : word) {
       int column = tile.indices().column();
       int row = tile.indices().row();
 
       Multiplier multiplier = multipliers[column][row];
 
-      wordMultiplier *= multiplier.wordValue();
-      score += tile.letter().score() * multiplier.letterValue();
+      wordMultiplier *= multiplier.getWordValue();
+      score += tile.getTile().getScore() * multiplier.getLetterValue();
 
       if (official) {
         // ensure that the multiplier at this cell can't be double-
@@ -323,7 +346,7 @@ public class Board {
   public boolean complete(Word word, Axis axis) {
     assert axis != UNDEFINED;
 
-    Tile first = word.first(axis);
+    TileView first = word.first(axis);
     Indices last = word.last(axis).indices();
     int endCoordinate = axis == VERTICAL ? last.row() : last.column();
 
@@ -352,7 +375,7 @@ public class Board {
   public List<Word> crosses(Word word, Axis inverted) {
     List<Word> crosses = new ArrayList<>();
 
-    for (Tile tile : word) {
+    for (TileView tile : word) {
       int column = tile.indices().column();
       int row = tile.indices().row();
 
@@ -407,7 +430,7 @@ public class Board {
     while ((target += dir) >= 0 && target < dimensions) {
       int c = v ? column : target;
       int r = v ? target : row;
-      Tile get = get(c, r);
+      TileView get = get(c, r);
       if (get != null) {
         word.add(get);
       } else if (!word.contains(c, r)) {
@@ -428,6 +451,13 @@ public class Board {
     return attributes.squareCount();
   }
 
+  /**
+   * Whether or not the coordinates represent a place
+   * on the board.
+   * @param column the column
+   * @param row the row
+   * @return validity
+   */
   public boolean isValidPosition(int column, int row) {
     return column >= 0 && column < size() && row >= 0 && row < size();
   }

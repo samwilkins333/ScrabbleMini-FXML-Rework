@@ -8,15 +8,15 @@ import java.util.Objects;
  * given word.
  */
 public class Multiplier {
-  private final double letter;
-  private final double word;
+  private final int letter;
+  private final int word;
 
   /**
    * Constructor.
    * @param letter the numeric raw multiplier
    * @param word the numeric word multiplier
    */
-  Multiplier(double letter, double word) {
+  Multiplier(int letter, int word) {
     this.letter = letter;
     this.word = word;
   }
@@ -42,14 +42,14 @@ public class Multiplier {
   /**
    * @return the numeric raw multiplier
    */
-  double letterValue() {
+  public int getLetterValue() {
     return letter;
   }
 
   /**
    * @return the numeric word multiplier
    */
-  double wordValue() {
+  public int getWordValue() {
     return word;
   }
 
@@ -62,8 +62,7 @@ public class Multiplier {
       return false;
     }
     Multiplier that = (Multiplier) o;
-    return Double.compare(that.letter, letter) == 0
-            && Double.compare(that.word, word) == 0;
+    return that.letter == letter && that.word == word;
   }
 
   @Override
@@ -73,6 +72,6 @@ public class Multiplier {
 
   @Override
   public String toString() {
-    return String.format("Multiplier: Letter [%f], Word [%f]", letter, word);
+    return String.format("Multiplier: Letter [%d], Word [%d]", letter, word);
   }
 }

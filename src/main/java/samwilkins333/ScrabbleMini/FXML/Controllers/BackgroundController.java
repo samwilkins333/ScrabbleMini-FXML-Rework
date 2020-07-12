@@ -6,9 +6,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.MoveGenerator;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.MoveSelector;
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Gaddag.GADDAG;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Generator;
+import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
@@ -23,9 +23,7 @@ import main.java.samwilkins333.ScrabbleMini.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.sideLengthPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.originTopPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.originLeftPixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
 
 /**
  * A controller that acts as the root pane in the JavaFX hierarchy.
@@ -38,7 +36,7 @@ public class BackgroundController implements Initializable {
   @FXML public ImageView tilebagView;
   @FXML public Pane boardPane;
 
-  private Referee<GADDAG> referee;
+  private Referee<Trie> referee;
   private Board board;
   private TileBag tileBag;
 
@@ -91,10 +89,9 @@ public class BackgroundController implements Initializable {
    * information.
    */
   public void begin() {
-    PlayerList<GADDAG> players = new PlayerList<>(2);
+    PlayerList<Trie> players = new PlayerList<>(2);
     players.add(new HumanPlayer());
-    players.add(new HumanPlayer());
-//    players.add(new SimulatedPlayer(new MoveGenerator(), new MoveSelector()));
+    players.add(new SimulatedPlayer());
     referee = new StandardReferee(players, board, tileBag);
   }
 }

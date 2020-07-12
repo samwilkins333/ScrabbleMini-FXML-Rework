@@ -37,7 +37,7 @@ public class TileBagReader implements TileBagInitializer {
 
   @Override
   public TileBagAttributes initialize() {
-    Map<String, TileMetaData> metadataMapping = new HashMap<>();
+    Map<Character, TileMetaData> metadataMapping = new HashMap<>();
     Set<String> encountered = new HashSet<>();
 
     try {
@@ -67,7 +67,7 @@ public class TileBagReader implements TileBagInitializer {
         int score = Integer.parseInt(components[2]);
 
         encountered.add(letter);
-        metadataMapping.put(letter, new TileMetaData(score, frequency));
+        metadataMapping.put(letter.charAt(0), new TileMetaData(score, frequency));
         count++;
       }
 

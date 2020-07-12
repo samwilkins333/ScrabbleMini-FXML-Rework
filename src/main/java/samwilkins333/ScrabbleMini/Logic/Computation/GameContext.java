@@ -1,9 +1,11 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.Rack;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
-import java.util.Collection;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 /**
  * Provides the <code>MoveGenerator</code> with all
@@ -11,29 +13,30 @@ import java.util.Collection;
  * @param <T> the type of collection used to store the game's
  *           lexicon
  */
-public class Context<T extends Collection<String>> {
-  private final Board board;
+public class GameContext<T extends Trie> {
+
+  private final BoardStateUnit[][] board;
   private final T lexicon;
-  private final boolean firstMoveMade;
-  private Rack rack;
+  private final int moveCount;
+  private LinkedList<Tile> rack;
 
   /**
    * Constructor.
    * @param board the board state at time of generation
    * @param lexicon the entire vocabulary of valid words
-   * @param firstMoveMade whether or not the first move
-   *                      has been made on the board
+   * @param moveCount the total number of moves made on the board
+   *
    */
-  public Context(Board board, T lexicon, boolean firstMoveMade) {
-    this.board = board;
+  public GameContext(Board board, T lexicon, int moveCount) {
+    this.board = board.toContext();
     this.lexicon = lexicon;
-    this.firstMoveMade = firstMoveMade;
+    this.moveCount = moveCount;
   }
 
   /**
    * @return the board associated with this context
    */
-  public Board board() {
+  public BoardStateUnit[][] board() {
     return board;
   }
 
@@ -48,12 +51,16 @@ public class Context<T extends Collection<String>> {
   /**
    * @return the player's tile rack associated with this context
    */
-  public Rack rack() {
+  public LinkedList<Tile> getRack() {
     return rack;
   }
 
-  public boolean isFirstMoveMade() {
-    return firstMoveMade;
+  /**
+   * @return the number of moves made on the board as of this
+   * generation.
+   */
+  public int moveCount() {
+    return moveCount;
   }
 
   /**
@@ -62,8 +69,9 @@ public class Context<T extends Collection<String>> {
    * @param r the rack to embed in this instance
    * @return this instance itself
    */
-  public Context<T> rack(Rack r) {
-    this.rack = r;
+  public GameContext<T> setRack(RackView r) {
+    this.rack = r.stream().map(TileView::getTile).collect(Collectors.toCollection(LinkedList::new));
     return this;
   }
+
 }

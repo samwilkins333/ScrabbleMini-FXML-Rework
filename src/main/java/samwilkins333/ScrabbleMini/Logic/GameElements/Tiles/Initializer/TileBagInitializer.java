@@ -21,13 +21,13 @@ public interface TileBagInitializer {
    * needed to initialize a TileBag.
    */
   class TileBagAttributes {
-    private Map<String, TileMetaData> metadataMapping;
+    private Map<Character, TileMetaData> metadataMapping;
 
-    TileBagAttributes(Map<String, TileMetaData> metadata) {
+    TileBagAttributes(Map<Character, TileMetaData> metadata) {
       this.metadataMapping = metadata;
     }
 
-    public Map<String, TileMetaData> metadataMapping() {
+    public Map<Character, TileMetaData> metadataMapping() {
       return metadataMapping;
     }
   }
