@@ -8,10 +8,11 @@ import javafx.scene.paint.Color;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
 import main.java.samwilkins333.ScrabbleMini.Main;
+
+import ScrabbleBase.Tile;
 
 import java.util.*;
 

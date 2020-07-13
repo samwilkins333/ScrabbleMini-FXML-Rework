@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
+import ScrabbleBase.Trie;
 
 /**
  * Specifies an entity that populate the specified data structure.

@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
@@ -9,6 +8,8 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
+
+import ScrabbleBase.Trie;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
 

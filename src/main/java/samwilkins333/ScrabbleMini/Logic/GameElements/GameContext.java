@@ -3,9 +3,10 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameElements;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.BoardStateUnit;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Tile;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
+
+import ScrabbleBase.Tile;
+import ScrabbleBase.BoardStateUnit;
+import ScrabbleBase.Trie;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;

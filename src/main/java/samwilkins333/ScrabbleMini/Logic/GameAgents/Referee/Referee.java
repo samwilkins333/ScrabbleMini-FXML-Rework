@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
@@ -16,6 +15,8 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
+
+import ScrabbleBase.Trie;
 
 import java.util.List;
 

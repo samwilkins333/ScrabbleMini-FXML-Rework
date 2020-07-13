@@ -5,9 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.BoardStateUnit;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer.BoardAttributes;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
@@ -15,7 +13,9 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Multiplier;
+
+import ScrabbleBase.Multiplier;
+import ScrabbleBase.BoardStateUnit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ import static main.java.samwilkins333.ScrabbleMini.Main.screenWidth;
  * sequences and analyze tiles relevant in a sequence (word).
  */
 public class Board {
-  private BoardAttributes<Multiplier, Paint> attributes;
+  private BoardInitializer.BoardAttributes<Multiplier, Paint> attributes;
   private TileView[][] internalState;
   private Rectangle[][] squares;
   private List<TileView> placed = new ArrayList<>();
