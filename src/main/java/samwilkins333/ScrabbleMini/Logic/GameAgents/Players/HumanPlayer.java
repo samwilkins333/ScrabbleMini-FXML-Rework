@@ -2,9 +2,9 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
-import ScrabbleBase.Generator;
-import ScrabbleBase.ScoredCandidate;
-import ScrabbleBase.Trie;
+import ScrabbleBase.Generation.Generator;
+import ScrabbleBase.Generation.ScoredCandidate;
+import ScrabbleBase.Vocabulary.Trie;
 
 import java.util.List;
 

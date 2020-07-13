@@ -12,7 +12,7 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelpe
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 
-import ScrabbleBase.Tile;
+import ScrabbleBase.Board.State.Tile;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tilePadding;
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;

@@ -5,7 +5,7 @@ import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;
 
-import ScrabbleBase.Multiplier;
+import ScrabbleBase.Board.State.Multiplier;
 
 import java.io.BufferedReader;
 import java.io.IOException;

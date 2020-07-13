@@ -12,7 +12,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
-import ScrabbleBase.Tile;
+import ScrabbleBase.Board.State.Tile;
 
 import java.util.*;
 

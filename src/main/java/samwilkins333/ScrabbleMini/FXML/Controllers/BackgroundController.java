@@ -17,7 +17,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
-import ScrabbleBase.Trie;
+import ScrabbleBase.Vocabulary.Trie;
 
 import java.net.URL;
 import java.util.ResourceBundle;

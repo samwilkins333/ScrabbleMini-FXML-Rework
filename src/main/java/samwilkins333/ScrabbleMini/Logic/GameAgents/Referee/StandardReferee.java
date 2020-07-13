@@ -9,7 +9,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
-import ScrabbleBase.Trie;
+import ScrabbleBase.Vocabulary.Trie;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
 

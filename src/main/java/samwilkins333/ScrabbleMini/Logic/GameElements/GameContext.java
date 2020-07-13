@@ -4,9 +4,9 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
-import ScrabbleBase.Tile;
-import ScrabbleBase.BoardStateUnit;
-import ScrabbleBase.Trie;
+import ScrabbleBase.Board.State.Tile;
+import ScrabbleBase.Board.State.BoardStateUnit;
+import ScrabbleBase.Vocabulary.Trie;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;

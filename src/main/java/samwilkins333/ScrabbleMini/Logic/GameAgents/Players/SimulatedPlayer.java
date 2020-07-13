@@ -2,7 +2,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
-import ScrabbleBase.Trie;
+import ScrabbleBase.Vocabulary.Trie;
 
 /**
  * Models an artificially intelligent player

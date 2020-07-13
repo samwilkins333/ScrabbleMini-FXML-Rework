@@ -14,8 +14,8 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
-import ScrabbleBase.Multiplier;
-import ScrabbleBase.BoardStateUnit;
+import ScrabbleBase.Board.State.Multiplier;
+import ScrabbleBase.Board.State.BoardStateUnit;
 
 import java.util.ArrayList;
 import java.util.List;

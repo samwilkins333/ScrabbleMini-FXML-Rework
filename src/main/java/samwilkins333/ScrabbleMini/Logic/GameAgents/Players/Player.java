@@ -10,7 +10,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutMa
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 
-import ScrabbleBase.Trie;
+import ScrabbleBase.Vocabulary.Trie;
 
 import java.util.HashMap;
 import java.util.Map;

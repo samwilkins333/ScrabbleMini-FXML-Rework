@@ -3,8 +3,8 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initialize
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.resources.ResourceCreator;
 
-import ScrabbleBase.Trie;
-import ScrabbleBase.Generator;
+import ScrabbleBase.Vocabulary.Trie;
+import ScrabbleBase.Generation.Generator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
