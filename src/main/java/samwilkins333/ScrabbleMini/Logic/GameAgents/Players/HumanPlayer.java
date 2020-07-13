@@ -6,7 +6,6 @@ import ScrabbleBase.Generator;
 import ScrabbleBase.ScoredCandidate;
 import ScrabbleBase.Trie;
 
-
 import java.util.List;
 
 /**
