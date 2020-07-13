@@ -22,7 +22,7 @@ public class TileBagReader implements TileBagInitializer {
   private static final String VALUE_DELIMITER = ", ";
 
   private static final Pattern VALIDATOR =
-          Pattern.compile("[A-Z_], \\d+, \\d+");
+          Pattern.compile("[A-Z*], \\d+, \\d+");
 
   private static final String PREFIX =
           "Invalid tile configuration! ";

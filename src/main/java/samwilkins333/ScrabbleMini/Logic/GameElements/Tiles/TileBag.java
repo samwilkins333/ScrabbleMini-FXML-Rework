@@ -13,10 +13,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
 
@@ -30,7 +27,7 @@ public class TileBag {
   private TileBagInitializer initializer;
   private TileBagInitializer.TileBagAttributes attributes;
 
-  private List<Tile> internalState = new ArrayList<>();
+  private LinkedList<Tile> internalState = new LinkedList<>();
 
   private RotateTransition shake;
   private TranslateTransition hide;
@@ -107,6 +104,9 @@ public class TileBag {
    *                    dragged or dropped
    */
   public TileView draw(boolean interactive) {
+    if (this.internalState.size() == 0) {
+      return null;
+    }
     int index = (int) (Math.random() * internalState.size());
     Tile tile = internalState.remove(index);
     return new TileView(tile, createVisual(tile.getLetter()), interactive);

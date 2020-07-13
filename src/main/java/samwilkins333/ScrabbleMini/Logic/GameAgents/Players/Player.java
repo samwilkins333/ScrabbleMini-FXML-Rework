@@ -69,6 +69,10 @@ public abstract class Player<T extends Trie> {
     while (!rack.isFull()) {
       TileView drawn = tileBag.draw(this instanceof HumanPlayer);
 
+      if (drawn == null) {
+        break;
+      }
+
       double initialX = playerNumber == 1
               ? leftOriginLeftPixels : rightOriginLeftPixels;
       double initialY = RackLayoutManager.originTopPixels

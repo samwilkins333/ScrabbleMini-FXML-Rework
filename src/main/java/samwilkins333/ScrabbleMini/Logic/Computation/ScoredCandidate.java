@@ -29,6 +29,11 @@ public class ScoredCandidate {
 
   @Override
   public String toString() {
-    return this.placements.stream().map(p -> String.format("%c(%d, %d)", p.getTile().getLetter(), p.getX(), p.getY())).collect(Collectors.joining(" "));
+    String word = this.placements.stream().map(p -> {
+      Tile tile = p.getTile();
+      String resolved = tile.getLetterProxy() != null ? String.valueOf(tile.getLetterProxy()) : "";
+      return String.format("%s:%c(%d, %d)", resolved, tile.getLetter(), p.getX(), p.getY());
+    }).collect(Collectors.joining(" "));
+    return word + " [" + this.score + "] " + this.direction.name();
   }
 }

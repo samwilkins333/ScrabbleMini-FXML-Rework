@@ -26,6 +26,6 @@ public class HumanPlayer extends Player<Trie> {
   public void move(GameContext<Trie> context) {
     List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(context);
     System.out.println(candidates.size());
-    candidates.forEach(System.out::println);
+    System.out.println(candidates.get(0));
   }
 }

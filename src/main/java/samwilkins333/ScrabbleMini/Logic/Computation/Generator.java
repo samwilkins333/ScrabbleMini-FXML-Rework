@@ -39,7 +39,25 @@ public class Generator {
       }
     }
 
-    all.sort((one, two) -> two.getScore() - one.getScore());
+    all.sort((one, two) -> {
+      int scoreDiff = two.getScore() - one.getScore();
+      if (scoreDiff != 0) {
+        return scoreDiff;
+      }
+      StringBuilder oneSerialized = new StringBuilder();
+      for (TilePlacement placement : one.getPlacements()) {
+        oneSerialized.append(placement.getTile().getResolvedLetter());
+      }
+      StringBuilder twoSerialized = new StringBuilder();
+      for (TilePlacement placement : two.getPlacements()) {
+        twoSerialized.append(placement.getTile().getResolvedLetter());
+      }
+      int serializedDiff = oneSerialized.toString().compareTo(twoSerialized.toString());
+      if (serializedDiff != 0) {
+        return serializedDiff;
+      }
+      return one.getDirection().name().compareTo(two.getDirection().name());
+    });
     return all;
   }
 
@@ -195,8 +213,8 @@ public class Generator {
     placements.sort(Direction.along(normalized));
     String serialized = placements.stream().map(p -> {
       Tile tile = p.getTile();
-      char resolved =  tile.getLetterProxy() != null ? tile.getLetterProxy() : Character.MIN_VALUE;
-      return String.format("%c:%c%d,%d", resolved, tile.getLetter(), p.getX(), p.getY());
+      String resolved =  tile.getLetterProxy() != null ? String.valueOf(tile.getLetterProxy()) : "";
+      return String.format("%s:%c%d,%d", resolved, tile.getLetter(), p.getX(), p.getY());
     }).collect(Collectors.joining(","));
     return new SerializationResult(serialized, normalized.name());
   }
