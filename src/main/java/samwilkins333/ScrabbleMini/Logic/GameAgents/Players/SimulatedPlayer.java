@@ -1,9 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.GameContext;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
-
-import java.util.Set;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 
 /**
  * Models an artificially intelligent player

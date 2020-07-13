@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
+package main.java.samwilkins333.ScrabbleMini.Logic.Generation;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Multiplier;
 

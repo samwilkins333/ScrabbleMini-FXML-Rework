@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.BoardStateUnit;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.BoardStateUnit;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer.BoardAttributes;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;

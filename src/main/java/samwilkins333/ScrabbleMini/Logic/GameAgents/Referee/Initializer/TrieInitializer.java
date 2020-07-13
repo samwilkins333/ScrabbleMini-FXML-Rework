@@ -1,7 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Generator;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Generator;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 import main.resources.ResourceCreator;
 
 import java.io.BufferedReader;

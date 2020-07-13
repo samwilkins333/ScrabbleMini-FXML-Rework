@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Tile;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 

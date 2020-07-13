@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;

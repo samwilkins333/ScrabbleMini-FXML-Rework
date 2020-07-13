@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
+package main.java.samwilkins333.ScrabbleMini.Logic.Generation;
 
 import java.util.List;
 import java.util.stream.Collectors;

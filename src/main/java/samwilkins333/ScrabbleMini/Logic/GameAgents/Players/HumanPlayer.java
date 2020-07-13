@@ -1,9 +1,9 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.GameContext;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Generator;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.ScoredCandidate;
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Generator;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.ScoredCandidate;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Computation.Trie;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 
 import java.util.ArrayList;
