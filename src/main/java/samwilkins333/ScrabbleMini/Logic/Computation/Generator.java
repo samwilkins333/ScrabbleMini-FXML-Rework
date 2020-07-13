@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
  * given game context.
  */
 public class Generator {
+
   public static final Generator Instance = new Generator();
   private TrieNode root;
 
@@ -119,7 +120,7 @@ public class Generator {
           char letter = toPlace.getLetter();
           if (!visited.contains(letter)) {
             visited.add(letter);
-            if (letter == '*') {
+            if (letter == Tile.BLANK) {
               char[] alphabet = Alphabet.letters;
               for (int l = 1; l <= 26; l++) {
                 tryLetterPlacement.accept(alphabet[l], true);

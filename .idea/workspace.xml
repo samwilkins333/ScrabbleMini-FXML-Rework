@@ -3,16 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/configuration/tilebag_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/configuration/tilebag_config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ScrabbleMini-FXML-Rework/main/resources/images/tiles/_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Alphabet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Alphabet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/DirectionName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/DirectionName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Generator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/ScoredCandidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/ScoredCandidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/Initializer/TileBagReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameElements/Tiles/TileBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration/tilebag_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration/tilebag_config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/tiles/_.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/tiles/*.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/Computation/Trie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +183,7 @@
       <workItem from="1592012829065" duration="669000" />
       <workItem from="1594531858870" duration="5821000" />
       <workItem from="1594544822677" duration="104000" />
-      <workItem from="1594570127878" duration="20152000" />
+      <workItem from="1594570127878" duration="20615000" />
     </task>
     <servers />
   </component>
@@ -227,33 +223,33 @@
     </state>
     <state width="435" height="466" key="DebuggerActiveHint/0.23.1440.840@0.23.1440.840" timestamp="1594591528356" />
     <state width="415" height="466" key="DebuggerActiveHint/0.23.1440.841@0.23.1440.841" timestamp="1591153556045" />
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1594604695428">
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1594604816642">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
     <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1592035209681" />
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1594604695428" />
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1594604816642" />
     <state width="1398" height="263" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1591153862188" />
-    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1594604695428">
+    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1594604816641">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
     <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1592035209680" />
-    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1594604695428" />
+    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1594604816641" />
     <state width="1398" height="263" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1591153862187" />
-    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1594604695428">
+    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1594604816641">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
     <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1592035209680" />
-    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1594604695428" />
+    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1594604816641" />
     <state width="1398" height="263" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1591153862187" />
-    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1594604695428">
+    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1594604816642">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1590977458637" />
     <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1592035209681" />
-    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1594604695428" />
+    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1594604816642" />
     <state width="1398" height="263" key="GridCell.Tab.0.right/0.23.1440.841@0.23.1440.841" timestamp="1591153862188" />
     <state width="1398" height="263" key="GridCell.Tab.1.bottom" timestamp="1594598964804">
       <screen x="0" y="23" width="1440" height="840" />
@@ -298,16 +294,16 @@
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state x="272" y="186" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.840@0.23.1440.840" timestamp="1594591206047" />
-    <state x="386" y="199" width="667" height="486" key="find.popup" timestamp="1594594779964">
+    <state x="386" y="199" width="667" height="486" key="find.popup" timestamp="1594605087221">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
-    <state x="386" y="199" width="667" height="486" key="find.popup/0.23.1440.840@0.23.1440.840" timestamp="1594594779964" />
-    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup" timestamp="1594599762839">
+    <state x="386" y="199" width="667" height="486" key="find.popup/0.23.1440.840@0.23.1440.840" timestamp="1594605087221" />
+    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup" timestamp="1594605081766">
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.838@0.23.1440.838" timestamp="1591840720558" />
     <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1590977388930" />
-    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1594599762839" />
+    <state x="385" y="186" width="670" height="677" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1594605081766" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ScrabbleMini_FXML_Rework$ScrabbleMini.ic" NAME="ScrabbleMini Coverage Results" MODIFIED="1557862249604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

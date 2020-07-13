@@ -36,4 +36,5 @@ public class ScoredCandidate {
     }).collect(Collectors.joining(" "));
     return word + " [" + this.score + "] " + this.direction.name();
   }
+
 }

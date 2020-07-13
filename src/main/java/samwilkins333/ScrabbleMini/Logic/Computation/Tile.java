@@ -5,6 +5,7 @@ public class Tile {
   private final char letter;
   private final int score;
   private Character letterProxy;
+  public static final char BLANK = '*';
 
   public Tile(char letter, int score, Character letterProxy) {
     this.letter = letter;
@@ -26,10 +27,6 @@ public class Tile {
 
   public char getResolvedLetter() {
     return this.letterProxy != null ? this.letterProxy : this.letter;
-  }
-
-  public void setLetterProxy(char letterProxy) {
-    this.letterProxy = letterProxy;
   }
 
 }

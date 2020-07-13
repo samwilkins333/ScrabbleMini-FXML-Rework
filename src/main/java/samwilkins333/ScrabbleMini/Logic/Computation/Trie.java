@@ -3,8 +3,8 @@ package main.java.samwilkins333.ScrabbleMini.Logic.Computation;
 public class Trie {
 
   private TrieNode root = new TrieNode(TrieNode.ROOT, null, null);
-  private int wordCountState = 0;
-  private int nodeCountState = 0;
+  private int wordCount = 0;
+  private int nodeCount = 0;
   public static final char DELIMITER = '#';
 
   public void clear() {
@@ -15,12 +15,12 @@ public class Trie {
     return root;
   }
 
-  public int getWordCountState() {
-    return wordCountState;
+  public int getWordCount() {
+    return wordCount;
   }
 
-  public int getNodeCountState() {
-    return nodeCountState;
+  public int getNodeCount() {
+    return nodeCount;
   }
 
   public boolean includes(String word) {
@@ -45,7 +45,7 @@ public class Trie {
     }
     char[] letters = word.toCharArray();
     if (this.addNodes(letters)) {
-      this.wordCountState++;
+      this.wordCount++;
     }
 
     int count = letters.length;
@@ -73,7 +73,7 @@ public class Trie {
       terminal = i + 1 == count;
       if ((childNode = node.getChild(letters[i])) == null) {
         node = node.addChild(letters[i], terminal);
-        this.nodeCountState++;
+        this.nodeCount++;
       } else {
         if ((terminal &= !childNode.getTerminal())) {
           childNode.setTerminal(true);
