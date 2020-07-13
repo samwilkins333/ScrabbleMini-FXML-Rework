@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Generator;
 import main.java.samwilkins333.ScrabbleMini.Logic.Generation.ScoredCandidate;
 import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
@@ -24,7 +24,11 @@ public class HumanPlayer extends Player<Trie> {
 
   @Override
   public void move(GameContext<Trie> context) {
-    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(context);
+    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(
+            context.getRack(),
+            context.board(),
+            context.moveCount()
+    );
     System.out.println(candidates.size());
     System.out.println(candidates.get(0));
   }

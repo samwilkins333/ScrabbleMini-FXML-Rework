@@ -1,8 +1,11 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.Generation;
+package main.java.samwilkins333.ScrabbleMini.Logic.GameElements;
 
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.BoardStateUnit;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Tile;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;
@@ -17,20 +20,20 @@ public class GameContext<T extends Trie> {
 
   private final BoardStateUnit[][] board;
   private final T lexicon;
-  private final int moveCount;
+  private final int movesMade;
   private LinkedList<Tile> rack;
 
   /**
    * Constructor.
    * @param board the board state at time of generation
    * @param lexicon the entire vocabulary of valid words
-   * @param moveCount the total number of moves made on the board
+   * @param movesMade the total number of moves made on the board
    *
    */
-  public GameContext(Board board, T lexicon, int moveCount) {
+  public GameContext(Board board, T lexicon, int movesMade) {
     this.board = board.toContext();
     this.lexicon = lexicon;
-    this.moveCount = moveCount;
+    this.movesMade = movesMade;
   }
 
   /**
@@ -60,7 +63,7 @@ public class GameContext<T extends Trie> {
    * generation.
    */
   public int moveCount() {
-    return moveCount;
+    return movesMade;
   }
 
   /**

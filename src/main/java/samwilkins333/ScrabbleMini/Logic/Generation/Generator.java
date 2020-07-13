@@ -1,7 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.Generation;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -13,24 +11,27 @@ public class Generator {
 
   public static final Generator Instance = new Generator();
   private TrieNode root;
+  private int rackCapacity;
 
   public void setRoot(TrieNode root) {
     this.root = root;
   }
 
-  public List<ScoredCandidate> computeAllCandidates(GameContext<Trie> context)
+  public void setRackCapacity(int rackCapacity) {
+    this.rackCapacity = rackCapacity;
+  }
+
+  public List<ScoredCandidate> computeAllCandidates(LinkedList<Tile> rack, BoardStateUnit[][] played, int movesMade)
   {
     List<ScoredCandidate> all = new ArrayList<>();
     Set<String> unique = new HashSet<>();
-    LinkedList<Tile> rack = context.getRack();
-    BoardStateUnit[][] played = context.board();
 
     java.util.function.BiConsumer<Integer, Integer> generateAtHook = (x, y) -> {
       this.generate(x, y, x, y, rack, new LinkedList<>(), 0, all, unique, this.root, Direction.RIGHT, played);
       this.generate(x, y, x, y, rack, new LinkedList<>(), 0, all, unique, this.root, Direction.DOWN, played);
     };
 
-    if (context.moveCount() == 1) {
+    if (movesMade == 0) {
       generateAtHook.accept(7, 7);
     } else {
       for (int y = 0; y < 15; y++) {
@@ -242,7 +243,7 @@ public class Generator {
     }
 
     int total = wordMultiplier * sum;
-    if (newTiles == RackView.CAPACITY) {
+    if (newTiles == this.rackCapacity) {
       total += 50;
     }
     return total;

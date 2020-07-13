@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board;
+package main.java.samwilkins333.ScrabbleMini.Logic.Generation;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class Multiplier {
    * @param letter the numeric raw multiplier
    * @param word the numeric word multiplier
    */
-  Multiplier(int letter, int word) {
+  public Multiplier(int letter, int word) {
     this.letter = letter;
     this.word = word;
   }

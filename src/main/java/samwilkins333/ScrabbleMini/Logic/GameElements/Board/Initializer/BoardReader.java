@@ -2,7 +2,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initialize
 
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Multiplier;
+import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Multiplier;
 import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;
 

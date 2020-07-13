@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.Generation.GameContext;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import main.java.samwilkins333.ScrabbleMini.Logic.Generation.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
@@ -104,7 +104,7 @@ public abstract class Referee<T extends Trie> {
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
     movesInitiated++;
-    current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated)));
+    current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated - 1)));
     if (current instanceof SimulatedPlayer) {
       nextMove();
     }
