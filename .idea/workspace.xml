@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef97e08d-f3cf-4e22-a2fb-e25a1123c26c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samwilkins333/ScrabbleMini/Logic/GameAgents/Players/HumanPlayer.java" afterDir="false" />
     </list>
@@ -190,7 +191,9 @@
       <workItem from="1594611794071" duration="1550000" />
       <workItem from="1594620773375" duration="1537000" />
       <workItem from="1594622721166" duration="300000" />
-      <workItem from="1594629383692" duration="842000" />
+      <workItem from="1594629383692" duration="910000" />
+      <workItem from="1594659096335" duration="803000" />
+      <workItem from="1594660883759" duration="269000" />
     </task>
     <servers />
   </component>
@@ -238,32 +241,32 @@
     </state>
     <state width="435" height="466" key="DebuggerActiveHint/0.23.1440.840@0.23.1440.840" timestamp="1594591528356" />
     <state width="415" height="466" key="DebuggerActiveHint/0.23.1440.841@0.23.1440.841" timestamp="1591153556045" />
-    <state width="1398" height="213" key="GridCell.Tab.0.bottom" timestamp="1594630188827">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom" timestamp="1594660940362">
+      <screen x="0" y="23" width="1440" height="839" />
     </state>
-    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1594630188827" />
-    <state width="1398" height="214" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1594629660611" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1594630294318" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1594660940362" />
     <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1594623021198" />
     <state width="1398" height="263" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1591153862188" />
-    <state width="1398" height="213" key="GridCell.Tab.0.center" timestamp="1594630188826">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center" timestamp="1594660940360">
+      <screen x="0" y="23" width="1440" height="839" />
     </state>
-    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1594630188826" />
-    <state width="1398" height="214" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1594629660610" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1594630294318" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1594660940360" />
     <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1594623021197" />
     <state width="1398" height="263" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1591153862187" />
-    <state width="1398" height="213" key="GridCell.Tab.0.left" timestamp="1594630188825">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left" timestamp="1594660940359">
+      <screen x="0" y="23" width="1440" height="839" />
     </state>
-    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1594630188825" />
-    <state width="1398" height="214" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1594629660609" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1594630294317" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1594660940359" />
     <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1594623021196" />
     <state width="1398" height="263" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1591153862187" />
-    <state width="1398" height="213" key="GridCell.Tab.0.right" timestamp="1594630188827">
-      <screen x="0" y="23" width="1440" height="838" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right" timestamp="1594660940361">
+      <screen x="0" y="23" width="1440" height="839" />
     </state>
-    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1594630188827" />
-    <state width="1398" height="214" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1594629660610" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1594630294318" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1594660940361" />
     <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1594623021197" />
     <state width="1398" height="263" key="GridCell.Tab.0.right/0.23.1440.841@0.23.1440.841" timestamp="1591153862188" />
     <state width="1398" height="263" key="GridCell.Tab.1.bottom" timestamp="1594598964804">
@@ -300,11 +303,11 @@
     <state x="208" y="24" key="SettingsEditor/0.23.1440.838@0.23.1440.838" timestamp="1594629416536" />
     <state x="208" y="24" key="SettingsEditor/0.23.1440.839@0.23.1440.839" timestamp="1590390922191" />
     <state x="208" y="24" key="SettingsEditor/0.23.1440.840@0.23.1440.840" timestamp="1594622772521" />
-    <state x="399" y="276" key="com.intellij.ide.util.TipDialog" timestamp="1594570169199">
-      <screen x="0" y="23" width="1440" height="840" />
+    <state x="399" y="275" key="com.intellij.ide.util.TipDialog" timestamp="1594659096708">
+      <screen x="0" y="23" width="1440" height="839" />
     </state>
     <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.838@0.23.1440.838" timestamp="1591840711365" />
-    <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.839@0.23.1440.839" timestamp="1591983685311" />
+    <state x="399" y="275" key="com.intellij.ide.util.TipDialog/0.23.1440.839@0.23.1440.839" timestamp="1594659096708" />
     <state x="399" y="276" key="com.intellij.ide.util.TipDialog/0.23.1440.840@0.23.1440.840" timestamp="1594570169199" />
     <state x="272" y="186" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594591206047">
       <screen x="0" y="23" width="1440" height="840" />
@@ -319,11 +322,11 @@
       <screen x="0" y="23" width="1440" height="840" />
     </state>
     <state x="114" y="147" key="new project wizard/0.23.1440.840@0.23.1440.840" timestamp="1594608898092" />
-    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup" timestamp="1594630026082">
+    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup" timestamp="1594630269197">
       <screen x="0" y="23" width="1440" height="839" />
     </state>
     <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.838@0.23.1440.838" timestamp="1591840720558" />
-    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1594630026082" />
+    <state x="385" y="186" width="670" height="676" key="search.everywhere.popup/0.23.1440.839@0.23.1440.839" timestamp="1594630269197" />
     <state x="385" y="186" width="670" height="677" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1594622690416" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">

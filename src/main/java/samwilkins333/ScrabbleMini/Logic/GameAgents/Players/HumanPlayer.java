@@ -3,7 +3,7 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
 import ScrabbleBase.Generation.Generator;
-import ScrabbleBase.Generation.ScoredCandidate;
+import ScrabbleBase.Generation.Objects.ScoredCandidate;
 import ScrabbleBase.Vocabulary.Trie;
 
 import java.util.List;
