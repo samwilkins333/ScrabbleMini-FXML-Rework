@@ -31,6 +31,7 @@ public class HumanPlayer extends Player<Trie> {
             context.board(),
             context.moveCount()
     );
+    System.out.println(candidates.size());
     System.out.println(candidates.get(0));
   }
 }
