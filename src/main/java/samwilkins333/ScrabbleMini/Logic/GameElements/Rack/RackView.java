@@ -42,9 +42,9 @@ public class RackView extends LinkedList<TileView> {
    * at the top of the rack (with an animation).
    */
   public void consolidate() {
-    IntConsumer placeTile =
-        i -> TransitionHelper.pause(DELAY * i, e -> placeAt(i)).play();
-    IntStream.range(0, size()).forEach(placeTile);
+//    IntConsumer placeTile =
+//        i -> TransitionHelper.pause(DELAY * i, e -> placeAt(i)).play();
+    IntStream.range(0, size()).forEach(this::placeAt);
   }
 
   private void placeAt(int pos) {

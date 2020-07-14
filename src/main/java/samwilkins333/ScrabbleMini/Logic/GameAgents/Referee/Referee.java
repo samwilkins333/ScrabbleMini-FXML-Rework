@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
+import ScrabbleBase.Board.Location.TilePlacement;
 import ScrabbleBase.Vocabulary.Trie;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -54,7 +55,7 @@ public abstract class Referee<T extends Trie> {
     players.forEach(p -> p.setRackVisible(p == players.current()));
 
     players.previous();
-    nextMove();
+//    nextMove();
   }
 
   protected abstract Axis analyzeAxis(Word placements);
@@ -71,7 +72,8 @@ public abstract class Referee<T extends Trie> {
   public void notify(KeyEvent e) {
     switch (e.getCode()) {
       case ENTER:
-        this.completeMove(e.isShiftDown());
+        nextMove();
+//        this.completeMove(e.isShiftDown());
         break;
       case ESCAPE:
         board.resetPlacements();
@@ -95,12 +97,13 @@ public abstract class Referee<T extends Trie> {
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
     movesInitiated++;
+    completeMove(true);
   }
 
   public void completeMove(boolean permanent) {
     Player<T> current = players.current();
-    current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated - 1)), permanent);
-    if (permanent) {
+    List<TilePlacement> move = current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated - 1)), permanent);
+    if (permanent && move != null) {
       nextMove();
     }
   }

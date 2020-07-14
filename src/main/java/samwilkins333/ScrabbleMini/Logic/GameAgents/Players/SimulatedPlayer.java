@@ -21,6 +21,9 @@ public class SimulatedPlayer extends Player<Trie> {
 
   @Override
   public List<TilePlacement> move(GameContext<Trie> context, boolean permanent) {
+    if (this.rack.isEmpty()) {
+      return null;
+    }
     List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(
             context.getRack(),
             context.board(),
@@ -29,7 +32,7 @@ public class SimulatedPlayer extends Player<Trie> {
     if (candidates.size() == 0) {
       return new ArrayList<>();
     }
-    System.out.println(candidates.get(0));
+//    System.out.println(candidates.get(0));
     for (TilePlacement placement : candidates.get(0).getPlacements()) {
       for (TileView tileView : this.rack) {
         if (tileView.getTile().getLetter() == placement.getTile().getLetter()) {

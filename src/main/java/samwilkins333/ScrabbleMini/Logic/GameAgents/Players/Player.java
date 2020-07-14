@@ -59,9 +59,9 @@ public abstract class Player<T extends Trie> {
    * @param tileBag the <code>TileBag</code> from which the new tiles
    *                will be drawn
    */
-  public void fillRack(Board board, TileBag tileBag) {
+  public boolean fillRack(Board board, TileBag tileBag) {
     if (rack.isFull()) {
-      return;
+      return false;
     }
 
     rack.consolidate();
@@ -88,12 +88,13 @@ public abstract class Player<T extends Trie> {
 
       rack.add(drawn);
 
-      TransitionHelper.pause(RackView.DELAY * rack.size(), e -> {
-        drawn.render(board);
-        rack.animationsInProgress--;
-      }).play();
-
+      drawn.render(board);
+      rack.animationsInProgress--;
+//      TransitionHelper.pause(RackView.DELAY * rack.size(), e -> {
+//      }).play();
     }
+
+    return true;
   }
 
   /**

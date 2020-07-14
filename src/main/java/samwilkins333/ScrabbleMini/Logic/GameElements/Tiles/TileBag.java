@@ -82,6 +82,10 @@ public class TileBag {
     });
   }
 
+  public boolean isEmpty() {
+    return this.internalState.isEmpty();
+  }
+
   private void initializeAnimation() {
     shake = TransitionHelper.rotate(
             root.imageView(),
