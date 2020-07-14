@@ -1,18 +1,19 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
+import ScrabbleBase.Board.Location.TilePlacement;
+import ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
-
-import ScrabbleBase.Vocabulary.Trie;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
@@ -85,12 +86,13 @@ public abstract class Player<T extends Trie> {
       bindings.opacity(1);
       drawn.setRackPosition(initialX, initialY);
 
+      rack.add(drawn);
+
       TransitionHelper.pause(RackView.DELAY * rack.size(), e -> {
         drawn.render(board);
         rack.animationsInProgress--;
       }).play();
 
-      rack.add(drawn);
     }
   }
 
@@ -146,5 +148,5 @@ public abstract class Player<T extends Trie> {
    *              state of the game at the time of invocation,
    *                and the data structure containing the lexicon
    */
-  public abstract void move(GameContext<T> context);
+  public abstract List<TilePlacement> move(GameContext<T> context, boolean permanent);
 }

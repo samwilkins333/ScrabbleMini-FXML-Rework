@@ -1,29 +1,24 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
+import ScrabbleBase.Vocabulary.Trie;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.DictionaryInitializer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
-import ScrabbleBase.Vocabulary.Trie;
-
 import java.util.List;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board.DURATION;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType.SUCCESS;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType.QUALIFIED_FAILURE;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType.FAILURE;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType.*;
 
 /**
  * Models a referee capable of mediating the Scrabble match at hand.
@@ -74,14 +69,9 @@ public abstract class Referee<T extends Trie> {
    * @param e the key event received
    */
   public void notify(KeyEvent e) {
-    if (!(players.current() instanceof HumanPlayer)) {
-      return;
-    }
     switch (e.getCode()) {
       case ENTER:
-        if (e.isMetaDown()) {
-          evaluateHumanPlacements();
-        }
+        this.completeMove(e.isShiftDown());
         break;
       case ESCAPE:
         board.resetPlacements();
@@ -105,8 +95,12 @@ public abstract class Referee<T extends Trie> {
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
     movesInitiated++;
-    current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated - 1)));
-    if (current instanceof SimulatedPlayer) {
+  }
+
+  public void completeMove(boolean permanent) {
+    Player<T> current = players.current();
+    current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated - 1)), permanent);
+    if (permanent) {
       nextMove();
     }
   }

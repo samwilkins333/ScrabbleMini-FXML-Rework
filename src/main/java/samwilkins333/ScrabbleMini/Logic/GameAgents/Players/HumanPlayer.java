@@ -1,11 +1,10 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
+import ScrabbleBase.Board.Location.TilePlacement;
+import ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
-import ScrabbleBase.Generation.Generator;
-import ScrabbleBase.Generation.Objects.ScoredCandidate;
-import ScrabbleBase.Vocabulary.Trie;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,15 +23,7 @@ public class HumanPlayer extends Player<Trie> {
   }
 
   @Override
-  public void move(GameContext<Trie> context) {
-    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(
-            context.getRack(),
-            context.board(),
-            context.moveCount()
-    );
-    System.out.println(candidates.size());
-    if (candidates.size() > 0) {
-      System.out.println(candidates.get(0));
-    }
+  public List<TilePlacement> move(GameContext<Trie> context, boolean permanent) {
+    return new ArrayList<>();
   }
 }

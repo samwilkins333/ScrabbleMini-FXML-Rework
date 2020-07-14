@@ -171,7 +171,6 @@ public class TileView {
       double centerX = bindings.layoutX() + tileWidth / 2;
       double centerY = bindings.layoutY() + tileWidth / 2;
 
-      Point2D layout;
       indices = toIndices(new Point2D(centerX, centerY));
       int column = indices.column();
       int row = indices.row();
@@ -185,14 +184,23 @@ public class TileView {
       boolean single = e.getClickCount() == 1;
 
       if (validCol && validRow && !board.occupied(column, row) && single) {
-        layout = toPixels(indices);
-        board.place(this);
-        bindings.layoutX(layout.getX() + tilePadding);
-        bindings.layoutY(layout.getY() + tilePadding);
+        this.playAt(column, row, false);
       } else {
         reset();
       }
     };
+  }
+
+  public void playAt(int x, int y, boolean permanent) {
+    Point2D layout = toPixels(new Indices(x, y));
+    root.bindings().layoutX(layout.getX() + tilePadding);
+    root.bindings().layoutY(layout.getY() + tilePadding);
+    this.indices = new Indices(x, y);
+    if (permanent) {
+      board.play(this);
+    } else {
+      board.place(this);
+    }
   }
 
   /**

@@ -1,8 +1,16 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
+import ScrabbleBase.Board.Location.TilePlacement;
+import ScrabbleBase.Board.State.Tile;
+import ScrabbleBase.Generation.Generator;
+import ScrabbleBase.Generation.Objects.ScoredCandidate;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
 import ScrabbleBase.Vocabulary.Trie;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Models an artificially intelligent player
@@ -12,7 +20,31 @@ import ScrabbleBase.Vocabulary.Trie;
 public class SimulatedPlayer extends Player<Trie> {
 
   @Override
-  public void move(GameContext<Trie> context) {
+  public List<TilePlacement> move(GameContext<Trie> context, boolean permanent) {
+    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(
+            context.getRack(),
+            context.board(),
+            context.moveCount()
+    );
+    if (candidates.size() == 0) {
+      return new ArrayList<>();
+    }
+    System.out.println(candidates.get(0));
+    for (TilePlacement placement : candidates.get(0).getPlacements()) {
+      for (TileView tileView : this.rack) {
+        if (tileView.getTile().getLetter() == placement.getTile().getLetter()) {
+          if (placement.getTile().getLetter() == Tile.BLANK) {
+            tileView.getTile().setLetterProxy(placement.getTile().getLetterProxy());
+          }
+          tileView.playAt(placement.getX(), placement.getY(), permanent);
+          if (permanent) {
+            this.rack.remove(tileView);
+          }
+          break;
+        }
+      }
+    }
+    return candidates.get(0).getPlacements();
   }
 
 }

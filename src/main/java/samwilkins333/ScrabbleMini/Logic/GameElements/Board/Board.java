@@ -248,11 +248,22 @@ public class Board {
 
     internalState[column][row] = tile;
 
-    Rectangle square = squares[column][row];
-    Color from = (Color) square.getFill();
-    TransitionHelper.gradient(square, DURATION, from, Color.GRAY).play();
+//    Rectangle square = squares[column][row];
+//    Color from = (Color) square.getFill();
+//    TransitionHelper.gradient(square, DURATION, from, Color.GRAY).play();
     tile.flash(OverlayType.SUCCESS);
     wordCount++;
+  }
+
+  private void log() {;
+    for (int x = 0; x < dimensions; x++) {
+      List<String> letters = new ArrayList<>();
+      for (int y = 0; y < dimensions; y++) {
+        TileView played = internalState[x][y];
+        letters.add(played != null ? String.valueOf(played.getTile().getLetter()) : "_");
+      }
+      System.out.println(String.join(" ", letters));
+    }
   }
 
   /**
