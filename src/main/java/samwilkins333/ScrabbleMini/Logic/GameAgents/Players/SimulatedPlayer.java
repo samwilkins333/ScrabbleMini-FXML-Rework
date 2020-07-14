@@ -24,15 +24,11 @@ public class SimulatedPlayer extends Player<Trie> {
     if (this.rack.isEmpty()) {
       return null;
     }
-    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(
-            context.getRack(),
-            context.board(),
-            context.moveCount()
-    );
+    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(context.getRack(), context.board());
     if (candidates.size() == 0) {
       return new ArrayList<>();
     }
-//    System.out.println(candidates.get(0));
+    System.out.println(candidates.get(0));
     for (TilePlacement placement : candidates.get(0).getPlacements()) {
       for (TileView tileView : this.rack) {
         if (tileView.getTile().getLetter() == placement.getTile().getLetter()) {
