@@ -54,6 +54,13 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
   private static final String EXCESS_INFO =
           PREFIX + "The file contains more than the necessary information.";
 
+  private Multiplier parse(String raw, String delimiter) {
+    String[] split = raw.split(delimiter);
+    int letterValue = Integer.parseInt(split[0]);
+    int wordValue = Integer.parseInt(split[1]);
+    return new Multiplier(letterValue, wordValue);
+  }
+
   @Override
   public BoardAttributes<Multiplier, Paint> initialize() {
     int dim = 0;
@@ -104,7 +111,7 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
 
         int column = 0;
         for (String pair : values) {
-          Multiplier multiplier = Multiplier.parse(pair, VALUE_DELIMITER);
+          Multiplier multiplier = this.parse(pair, VALUE_DELIMITER);
           multipliers.add(multiplier);
           multiplierMap[column][row] = multiplier;
           column++;
@@ -129,7 +136,7 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
           throw new IOException(INVALID_MAPPING);
         }
         String[] mapping = entry.split(PAIR_DELIMITER);
-        Multiplier read = Multiplier.parse(mapping[0].trim(), VALUE_DELIMITER);
+        Multiplier read = this.parse(mapping[0].trim(), VALUE_DELIMITER);
         Paint color = Color.web(mapping[1].trim());
         colors.put(read, color);
       }
