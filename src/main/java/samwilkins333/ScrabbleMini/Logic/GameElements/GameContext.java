@@ -40,7 +40,7 @@ public class GameContext<T extends Trie> {
   /**
    * @return the board associated with this context
    */
-  public BoardStateUnit[][] board() {
+  public BoardStateUnit[][] getBoard() {
     return board;
   }
 

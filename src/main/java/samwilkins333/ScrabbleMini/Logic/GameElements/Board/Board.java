@@ -255,17 +255,6 @@ public class Board {
     wordCount++;
   }
 
-  private void log() {;
-    for (int x = 0; x < dimensions; x++) {
-      List<String> letters = new ArrayList<>();
-      for (int y = 0; y < dimensions; y++) {
-        TileView played = internalState[x][y];
-        letters.add(played != null ? String.valueOf(played.getTile().getLetter()) : "_");
-      }
-      System.out.println(String.join(" ", letters));
-    }
-  }
-
   /**
    * @return the number of words played
    * thus far on the board
