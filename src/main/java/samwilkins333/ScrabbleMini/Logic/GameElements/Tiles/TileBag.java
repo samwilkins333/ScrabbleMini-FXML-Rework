@@ -118,7 +118,7 @@ public class TileBag {
   }
 
   private ObservableImage createVisual(char letter) {
-    String url = String.format("tiles/%s.png", letter);
+    String url = String.format("tiles/%s.png", letter == Tile.BLANK ? "blank" : letter);
     ObservableImage visual =
             ObservableImage.create(url, BindingMode.BIDIRECTIONAL);
     visual.bindings().width(tileWidth);

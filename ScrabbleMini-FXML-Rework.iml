@@ -31,7 +31,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../ScrabbleBase/out/ScrabbleBase.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ScrabbleBase/out/artifacts/ScrabbleBase_jar/ScrabbleBase.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
