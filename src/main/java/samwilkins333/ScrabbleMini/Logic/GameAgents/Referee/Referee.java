@@ -1,6 +1,5 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import ScrabbleBase.Board.Location.TilePlacement;
 import ScrabbleBase.Vocabulary.Trie;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -101,8 +100,11 @@ public abstract class Referee<T extends Trie> {
     current.fillRack(board, tileBag);
     movesInitiated++;
     if (current instanceof SimulatedPlayer) {
-      current.move(current.initializeContext(new GameContext<>(board, lexicon, movesInitiated - 1)));
-      nextMove();
+      TransitionHelper.pause(2, e -> {
+        GameContext<T> context = new GameContext<>(board, lexicon, movesInitiated - 1);
+        players.current().move(players.current().initializeContext(context));
+        nextMove();
+      }).play();
     }
   }
 
@@ -120,8 +122,7 @@ public abstract class Referee<T extends Trie> {
       return;
     }
 
-    boolean wordPositioned = isPositioned(word, axis);
-    if (!board.complete(word, axis)) {
+    if (!(isPositioned(word, axis) && board.complete(word, axis))) {
       return;
     }
 

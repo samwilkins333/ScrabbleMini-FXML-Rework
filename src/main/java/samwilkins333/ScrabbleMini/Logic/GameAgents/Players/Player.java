@@ -65,7 +65,7 @@ public abstract class Player<T extends Trie> {
     }
 
     rack.consolidate();
-    rack.animationsInProgress = RackView.CAPACITY - rack.size();
+//    rack.animationsInProgress = RackView.CAPACITY - rack.size();
 
     tileBag.shake();
     while (!rack.isFull()) {
@@ -89,8 +89,8 @@ public abstract class Player<T extends Trie> {
       rack.add(drawn);
 
       drawn.render(board);
-      rack.animationsInProgress--;
 //      TransitionHelper.pause(RackView.DELAY * rack.size(), e -> {
+//        rack.animationsInProgress--;
 //      }).play();
     }
 
