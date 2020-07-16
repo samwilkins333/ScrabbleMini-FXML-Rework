@@ -149,5 +149,5 @@ public abstract class Player<T extends Trie> {
    *              state of the game at the time of invocation,
    *                and the data structure containing the lexicon
    */
-  public abstract List<TilePlacement> move(GameContext<T> context, boolean permanent);
+  public abstract List<TilePlacement> move(GameContext<T> context);
 }
