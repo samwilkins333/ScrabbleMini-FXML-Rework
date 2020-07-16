@@ -3,7 +3,6 @@ package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 import ScrabbleBase.Board.Location.TilePlacement;
 import ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
