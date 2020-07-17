@@ -89,7 +89,7 @@ public class BackgroundController implements Initializable {
    */
   public void begin() {
     PlayerList<Trie> players = new PlayerList<>(2);
-    players.add(new HumanPlayer());
+    players.add(new SimulatedPlayer());
     players.add(new SimulatedPlayer());
     referee = new StandardReferee(players, board, tileBag);
   }

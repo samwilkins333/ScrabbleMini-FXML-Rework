@@ -100,7 +100,7 @@ public abstract class Referee<T extends Trie> {
     current.fillRack(board, tileBag);
     movesInitiated++;
     if (current instanceof SimulatedPlayer) {
-      TransitionHelper.pause(2, e -> {
+      TransitionHelper.pause(0.5, e -> {
         GameContext<T> context = new GameContext<>(board, lexicon, movesInitiated - 1);
         players.current().move(players.current().initializeContext(context));
         nextMove();

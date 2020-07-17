@@ -250,7 +250,7 @@ public class Board {
 //    Rectangle square = squares[column][row];
 //    Color from = (Color) square.getFill();
 //    TransitionHelper.gradient(square, DURATION, from, Color.GRAY).play();
-    tile.flash(OverlayType.SUCCESS);
+//    tile.flash(OverlayType.SUCCESS);
     wordCount++;
   }
 
