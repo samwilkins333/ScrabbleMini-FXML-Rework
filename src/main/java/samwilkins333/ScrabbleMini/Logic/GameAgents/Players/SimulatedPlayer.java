@@ -1,12 +1,11 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
-import ScrabbleBase.Board.Location.TilePlacement;
-import ScrabbleBase.Board.State.Tile;
-import ScrabbleBase.Generation.Generator;
-import ScrabbleBase.Generation.Objects.ScoredCandidate;
+import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
+import com.swilkins.ScrabbleBase.Board.State.Tile;
+import com.swilkins.ScrabbleBase.Generation.Generator;
+import com.swilkins.ScrabbleBase.Generation.Objects.ScoredCandidate;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
-
-import ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.ArrayList;

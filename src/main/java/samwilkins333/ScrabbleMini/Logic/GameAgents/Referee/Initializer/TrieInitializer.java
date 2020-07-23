@@ -1,10 +1,9 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
 
+import com.swilkins.ScrabbleBase.Generation.Generator;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.resources.ResourceCreator;
-
-import ScrabbleBase.Vocabulary.Trie;
-import ScrabbleBase.Generation.Generator;
 
 import java.io.BufferedReader;
 import java.io.IOException;

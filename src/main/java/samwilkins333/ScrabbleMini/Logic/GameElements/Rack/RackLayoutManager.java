@@ -11,6 +11,7 @@ public final class RackLayoutManager {
   private RackLayoutManager() {
     //prevents instantiation
   }
+
   public static double originTopPixels;
   public static double leftOriginLeftPixels;
   public static double rightOriginLeftPixels;

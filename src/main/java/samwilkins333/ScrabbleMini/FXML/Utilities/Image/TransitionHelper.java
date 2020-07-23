@@ -1,12 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image;
 
-import javafx.animation.FillTransition;
-import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
-import javafx.animation.TranslateTransition;
-import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
-
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -26,9 +20,10 @@ public final class TransitionHelper {
   /**
    * Produces a flash with the given <code>Node</code>
    * as the target, customized by parameter specifications.
-   * @param target the Node to flash
+   *
+   * @param target   the Node to flash
    * @param duration the duration of each cycle
-   * @param cycles the number of cycles to execute
+   * @param cycles   the number of cycles to execute
    * @return the generated <code>FadeTransition</code>
    */
   public static FadeTransition flash(
@@ -45,10 +40,11 @@ public final class TransitionHelper {
   /**
    * Produces a scaling effect with the given <code>Node</code>
    * as the target, customized by parameter specifications.
-   * @param target the Node to scale
+   *
+   * @param target   the Node to scale
    * @param duration the duration of each cycle
-   * @param byX the ratio by which to scale the width
-   * @param byY the ratio by which to scale the height
+   * @param byX      the ratio by which to scale the width
+   * @param byY      the ratio by which to scale the height
    * @return the generated <code>ScaleTransition</code>
    */
   public static ScaleTransition scale(
@@ -64,7 +60,8 @@ public final class TransitionHelper {
   /**
    * Effectively a scheduled task, occurring after the given
    * latency.
-   * @param seconds the latency before execution
+   *
+   * @param seconds    the latency before execution
    * @param onFinished the action to execute after the duration
    *                   has elapsed
    * @return the generated <code>PauseTransition</code>
@@ -80,12 +77,13 @@ public final class TransitionHelper {
   /**
    * Produces a rotation animation with the given <code>Node</code>
    * as the target, customized by parameter specifications.
-   * @param target the Node to rotate
+   *
+   * @param target   the Node to rotate
    * @param duration the time within which to perform the rotation
-   * @param angle the degrees by which the Node should rotate
-   * @param cycles how many such rotations should occur
-   * @param rev whether or not the rotation should automatically
-   *            reverse itself for each cycle
+   * @param angle    the degrees by which the Node should rotate
+   * @param cycles   how many such rotations should occur
+   * @param rev      whether or not the rotation should automatically
+   *                 reverse itself for each cycle
    * @return the generated <code>RotateTransition</code>
    */
   public static RotateTransition rotate(
@@ -101,10 +99,11 @@ public final class TransitionHelper {
   /**
    * Produces an animation that translates the given Node by
    * the specified parameters within the specified time.
-   * @param target the Node to translate
+   *
+   * @param target   the Node to translate
    * @param duration the time within which to perform the translation
-   * @param byX the amount by which to translate in the x direction
-   * @param byY the amount by which to translate in the y direction
+   * @param byX      the amount by which to translate in the x direction
+   * @param byY      the amount by which to translate in the y direction
    * @return the generated <code>TranslateTransition</code>
    */
   public static TranslateTransition translate(
@@ -119,10 +118,11 @@ public final class TransitionHelper {
   /**
    * Produces an animation that alters the given Node's
    * fill, gradating between the from color to the to color.
-   * @param target the Node to which to apply the color gradient
+   *
+   * @param target   the Node to which to apply the color gradient
    * @param duration the time within which to perform the gradient
-   * @param from the initial color of the gradient
-   * @param to the final color of the gradient
+   * @param from     the initial color of the gradient
+   * @param to       the final color of the gradient
    * @return the generated <code>FillTransition</code>
    */
   public static FillTransition gradient(

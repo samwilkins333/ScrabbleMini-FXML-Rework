@@ -27,6 +27,7 @@ public final class BoardLayoutManager {
    * Transforms a column and a row of the board
    * into their pixel equivalent (top left corner
    * of the corresponding square).
+   *
    * @param indices the coordinates on the board
    * @return the scene pixel values of the coordinates' top left corner
    */
@@ -40,12 +41,13 @@ public final class BoardLayoutManager {
    * Transforms scene pixels into the column and row
    * that contains the pixel point (may be negative).
    * An inherent floor is applied to the calculation by down casting.
+   *
    * @param observedPixels the scene pixels of the input point
    * @return the column and row within which the input point falls
    */
   public static Indices toIndices(Point2D observedPixels) {
     int column = (int) observedPixels.getX() / squarePixels;
-    int row = (int) observedPixels.getY()  / squarePixels;
+    int row = (int) observedPixels.getY() / squarePixels;
     return new Indices(column, row);
   }
 }

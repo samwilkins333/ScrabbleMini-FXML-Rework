@@ -39,8 +39,9 @@ public class ImageBindings {
    * <code>ImageView</code> to their underlying
    * bindings, creating an image responsive to value
    * changes.
+   *
    * @param target the ImageView to which to bind
-   * @param mode whether or not the binding should be bi- or unidirectional
+   * @param mode   whether or not the binding should be bi- or unidirectional
    */
   public void bindAll(ImageView target, BindingMode mode) {
     width.bind(target.fitWidthProperty(), mode);
@@ -161,6 +162,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param xPixels the target layoutX value
    */
   public void layoutX(double xPixels) {
@@ -169,6 +171,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param yPixels the target layoutY value
    */
   public void layoutY(double yPixels) {
@@ -177,6 +180,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param w the target width value
    */
   public void width(double w) {
@@ -185,6 +189,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param h the target height value
    */
   public void height(double h) {
@@ -193,6 +198,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param state the target caching state
    */
   public void cached(boolean state) {
@@ -201,6 +207,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param o the target opacity value
    */
   public void opacity(double o) {
@@ -209,6 +216,7 @@ public class ImageBindings {
 
   /**
    * Setter.
+   *
    * @param degrees the target rotation value
    */
   public void rotate(double degrees) {

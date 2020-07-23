@@ -11,6 +11,7 @@ public interface TileBagInitializer {
 
   /**
    * Initializes the TileBag.
+   *
    * @return the <code>TileBagAttributes</code>
    * populated during initialization
    */

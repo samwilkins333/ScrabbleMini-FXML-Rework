@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.FXML.Controllers;
 
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -7,7 +8,6 @@ import javafx.scene.layout.Pane;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.HumanPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Referee;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.StandardReferee;
@@ -16,8 +16,6 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagReader;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import main.java.samwilkins333.ScrabbleMini.Main;
-
-import ScrabbleBase.Vocabulary.Trie;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,10 +28,14 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Boar
  */
 public class BackgroundController implements Initializable {
   private static final int LEATHER_PADDING = 15;
-  @FXML public ImageView desktopView;
-  @FXML public ImageView leatherView;
-  @FXML public ImageView tilebagView;
-  @FXML public Pane boardPane;
+  @FXML
+  public ImageView desktopView;
+  @FXML
+  public ImageView leatherView;
+  @FXML
+  public ImageView tilebagView;
+  @FXML
+  public Pane boardPane;
 
   private Referee<Trie> referee;
   private Board board;

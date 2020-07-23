@@ -1,15 +1,14 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
-
-import ScrabbleBase.Vocabulary.Trie;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
 
@@ -20,8 +19,9 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Boar
 public class StandardReferee extends Referee<Trie> {
   /**
    * Constructor.
+   *
    * @param players the list of player instances involved in the match
-   * @param board the fully initialized board on which moves will be played
+   * @param board   the fully initialized board on which moves will be played
    * @param tileBag the fully initialized TileBag used to populate
    *                the players' racks
    */

@@ -1,7 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
-import ScrabbleBase.Board.Location.TilePlacement;
-import ScrabbleBase.Vocabulary.Trie;
+import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
@@ -23,8 +23,9 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackL
  * A template that models a Scrabble player. Each player
  * is given a rack of tiles to manipulate, maintains a moves
  * and, in some implementer-specified way, makes a move in the game.
+ *
  * @param <T> the type of data structure that holds the entire vocabulary
- *           of valid words in the game
+ *            of valid words in the game
  */
 public abstract class Player<T extends Trie> {
   private int playerNumber;
@@ -39,6 +40,7 @@ public abstract class Player<T extends Trie> {
   /**
    * Register's this player's 1-indexed
    * number in the match.
+   *
    * @param number player number
    */
   public void setPlayerNumber(int number) {
@@ -54,7 +56,8 @@ public abstract class Player<T extends Trie> {
    * Both logically and graphically replenishes the missing
    * tiles in a player's rack. Triggers TileBag shaking animation
    * assuming any new <code>Tile</code>s are in fact drawn.
-   * @param board allows the Tile to add itself graphically to the board's node
+   *
+   * @param board   allows the Tile to add itself graphically to the board's node
    * @param tileBag the <code>TileBag</code> from which the new tiles
    *                will be drawn
    */
@@ -100,6 +103,7 @@ public abstract class Player<T extends Trie> {
    * Updates the current user's score and stores
    * the full <code>BoardScore</code> associated with
    * a given move number.
+   *
    * @param result the resultant score of the played word
    */
   public void apply(BoardScore result) {
@@ -112,6 +116,7 @@ public abstract class Player<T extends Trie> {
    * Removes a tile from the player's rack and
    * returns it. Occurs when permanently playing
    * a tile.
+   *
    * @param tile the tile to remove and then play
    * @return the removed tile, ready for playing
    */
@@ -123,6 +128,7 @@ public abstract class Player<T extends Trie> {
   /**
    * A mutator that allows the showing and
    * hiding of a rack, visibly.
+   *
    * @param visible whether or not the given
    *                rack's tile should be visible
    */
@@ -134,6 +140,7 @@ public abstract class Player<T extends Trie> {
    * Graphically and logically shuffles the tiles
    * within a player's rack, allowing new combinations
    * to become more apparent.
+   *
    * @param board used to determine whether or not
    *              the rack can be shuffled
    */
@@ -144,8 +151,9 @@ public abstract class Player<T extends Trie> {
   /**
    * A method invoked whenever the player must make
    * the next play on the board.
+   *
    * @param context the game board, which holds the current
-   *              state of the game at the time of invocation,
+   *                state of the game at the time of invocation,
    *                and the data structure containing the lexicon
    */
   public abstract List<TilePlacement> move(GameContext<T> context);

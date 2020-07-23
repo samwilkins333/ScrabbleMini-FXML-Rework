@@ -18,7 +18,8 @@ public final class ResourceLoader {
    * Prepends the ResourceType enum's string value as a child directory
    * to the remaining relative path to arrive at a full path relative to
    * the resources directory.
-   * @param type the type corresponding to a specific first-level child folder
+   *
+   * @param type         the type corresponding to a specific first-level child folder
    * @param relativePath the remaining relative path to the desired resource
    *                     within this child folder
    * @return the URL associated with the desired resource, or

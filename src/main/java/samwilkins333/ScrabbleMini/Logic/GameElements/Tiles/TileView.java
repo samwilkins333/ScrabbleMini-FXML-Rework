@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
 
+import com.swilkins.ScrabbleBase.Board.State.Tile;
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -12,14 +13,7 @@ import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelpe
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 
-import ScrabbleBase.Board.State.Tile;
-
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tilePadding;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.toIndices;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.toPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
+import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
 
 /**
  * Models a lettered game tile with a given value.
@@ -52,6 +46,7 @@ public class TileView {
   /**
    * Stores a reference to the game board and
    * adds this tile's node to the board's node's children.
+   *
    * @param b the reference to the board
    */
   public void render(Board b) {
@@ -64,6 +59,7 @@ public class TileView {
    * The (column, row) of the board this tile
    * occupies. If the tile is not on the board,
    * the indices will be (-1, -1).
+   *
    * @return this tile's board location
    */
   public Indices indices() {
@@ -119,6 +115,7 @@ public class TileView {
   /**
    * Triggers the flash associated with the
    * given type.
+   *
    * @param type the outcome to flash
    */
   public void flash(OverlayType type) {
@@ -219,6 +216,7 @@ public class TileView {
    * An analog to shift, but rather than shifting by some
    * amount, it specifically sets the new layoutY. Used in
    * consolidating a rack before refilling.
+   *
    * @param adjustedY the new placement in the rack
    */
   public void set(double adjustedY) {
@@ -230,6 +228,7 @@ public class TileView {
   /**
    * Shifts a tile up or down the equivalent of one
    * position. Used in shuffling tiles in a rack.
+   *
    * @param dir -1 for up, 1 for down
    */
   public void shift(int dir) {
@@ -241,6 +240,7 @@ public class TileView {
   /**
    * Called immediately after a tile has been drawn.
    * Records the tile's initial pixel location in the rack (used for resetting)
+   *
    * @param initialX the initial layoutX
    * @param initialY the initial layoutY
    */

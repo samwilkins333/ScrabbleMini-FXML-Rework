@@ -1,5 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
 
+import com.swilkins.ScrabbleBase.Board.State.Tile;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
@@ -12,9 +13,9 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
 import main.java.samwilkins333.ScrabbleMini.Main;
 
-import ScrabbleBase.Board.State.Tile;
-
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Map;
 
 import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
 
@@ -48,8 +49,9 @@ public class TileBag {
 
   /**
    * Constructor.
-   * @param root the FXML generated <code>ImageView</code> displaying
-   *             the tile container
+   *
+   * @param root        the FXML generated <code>ImageView</code> displaying
+   *                    the tile container
    * @param initializer the caller-specified initializer
    *                    used to initialize the TileBag
    */
@@ -103,10 +105,10 @@ public class TileBag {
   }
 
   /**
-   * @return the next tile drawn from the bag. Logically
-   * initialized, but the layout is uninitialized.
    * @param interactive whether or not the tile can ever be
    *                    dragged or dropped
+   * @return the next tile drawn from the bag. Logically
+   * initialized, but the layout is uninitialized.
    */
   public TileView draw(boolean interactive) {
     if (this.internalState.size() == 0) {

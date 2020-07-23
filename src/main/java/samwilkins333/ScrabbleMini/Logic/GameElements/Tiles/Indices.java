@@ -13,8 +13,9 @@ public class Indices {
 
   /**
    * Constructor.
+   *
    * @param column the column of the location
-   * @param row the row of the location
+   * @param row    the row of the location
    */
   public Indices(int column, int row) {
     this.column = column;

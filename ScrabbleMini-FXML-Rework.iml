@@ -31,10 +31,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../ScrabbleBase/out/artifacts/ScrabbleBase_jar/ScrabbleBase.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ScrabbleBase/target/scrabble-base.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../ScrabbleBase/target/scrabble-base.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

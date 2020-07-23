@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import ScrabbleBase.Vocabulary.Trie;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
@@ -26,6 +26,7 @@ import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Over
  * It possesses the references to the <code>Board</code> and
  * <code>TileBag</code> which it controls in addition to player
  * movement sequencing and move validation.
+ *
  * @param <T> the data structure the referee will use to store the lexicon
  */
 public abstract class Referee<T extends Trie> {
@@ -39,8 +40,9 @@ public abstract class Referee<T extends Trie> {
 
   /**
    * Constructor.
+   *
    * @param players the list of player instances involved in the match
-   * @param board the fully initialized board on which moves will be played
+   * @param board   the fully initialized board on which moves will be played
    * @param tileBag the fully initialized TileBag used to populate
    *                the players' racks
    */
@@ -67,6 +69,7 @@ public abstract class Referee<T extends Trie> {
   /**
    * Enables this <code>Referee</code> instance to
    * react to key events from the user.
+   *
    * @param e the key event received
    */
   public void notify(KeyEvent e) {

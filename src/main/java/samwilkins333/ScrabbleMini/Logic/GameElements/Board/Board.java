@@ -1,20 +1,18 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board;
 
+import com.swilkins.ScrabbleBase.Board.State.BoardStateUnit;
+import com.swilkins.ScrabbleBase.Board.State.Multiplier;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
+import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
-
-import ScrabbleBase.Board.State.Multiplier;
-import ScrabbleBase.Board.State.BoardStateUnit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +50,9 @@ public class Board {
 
   /**
    * Constructor.
-   * @param root the FXML generated pane to which all
-   *             elements will be added
+   *
+   * @param root        the FXML generated pane to which all
+   *                    elements will be added
    * @param initializer the caller-specified board initializer
    *                    used to initialize the board
    */
@@ -67,8 +66,8 @@ public class Board {
     BoardStateUnit[][] state = new BoardStateUnit[15][15];
     for (int y = 0; y < 15; y++) {
       for (int x = 0; x < 15; x++) {
-          TileView view = this.internalState[x][y];
-          state[y][x] = new BoardStateUnit(this.multipliers[x][y], view != null ? view.getTile() : null);
+        TileView view = this.internalState[x][y];
+        state[y][x] = new BoardStateUnit(this.multipliers[x][y], view != null ? view.getTile() : null);
       }
     }
     return state;
@@ -135,8 +134,9 @@ public class Board {
    * A convenience, bounds-checking method that
    * determines whether or not a tile has been
    * permanently played at the given board coordinates.
+   *
    * @param column the target column
-   * @param row the target row
+   * @param row    the target row
    * @return whether or not a tile exists there
    */
   public boolean occupied(int column, int row) {
@@ -152,8 +152,9 @@ public class Board {
   /**
    * Determines whether a tile has any permanently placed
    * neighbors directly adjacent to it.
+   *
    * @param column the target column
-   * @param row the target row
+   * @param row    the target row
    * @return whether or not any permanently played neighbors exist
    */
   public boolean neighbors(int column, int row) {
@@ -164,8 +165,9 @@ public class Board {
   /**
    * Determines whether a tile has any permanently placed
    * neighbors directly above or below it.
+   *
    * @param column the target column
-   * @param row the target row
+   * @param row    the target row
    * @return whether or not any permanently played neighbors exist
    * above it or below it
    */
@@ -183,8 +185,9 @@ public class Board {
   /**
    * Determines whether a tile has any permanently placed
    * neighbors directly to its left or right.
+   *
    * @param column the target column
-   * @param row the target row
+   * @param row    the target row
    * @return whether or not any permanently played neighbors exist
    * to its left or right
    */
@@ -203,8 +206,9 @@ public class Board {
    * Retrieves the tile present at the specified indices, if any.
    * If it is present, it means that the tile has been
    * permanently played on the board.
+   *
    * @param column the target column
-   * @param row the target row
+   * @param row    the target row
    * @return the Tile instance at the location, or null if no
    * tile has been played there
    */
@@ -216,6 +220,7 @@ public class Board {
    * Adds a tile to the list of temporarily placed words
    * on the board. This is involved only in human interaction and
    * is NOT the same as permanently playing a tile.
+   *
    * @param tile the tile to place
    */
   public void place(TileView tile) {
@@ -225,6 +230,7 @@ public class Board {
   /**
    * Removes a tile from the list of temporarily placed words
    * on the board.
+   *
    * @param tile the tile to remove
    */
   public void discard(TileView tile) {
@@ -237,6 +243,7 @@ public class Board {
    * placements, logically updates the board, converts
    * the background square to gray as an indicator and flashes
    * the success routine.
+   *
    * @param tile the tile to permanently play
    */
   public void play(TileView tile) {
@@ -302,7 +309,8 @@ public class Board {
    * Assigns a moves value to a given word (not just text
    * but a series of located tiles) based on multipliers
    * mapped during the board's initialization.
-   * @param word the tiles to moves
+   *
+   * @param word     the tiles to moves
    * @param official whether or not this is an official placement
    *                 or just used for computation (SimulatedPlayer)
    * @return a struct containing the numerical moves and the string version
@@ -338,6 +346,7 @@ public class Board {
    * permanently played tiles to the word until the end condition.
    * (See collect(Word word, int column, int row, Axis o, int dir)
    * for details of end condition).
+   *
    * @param word the word to complete
    * @param axis the word's axis
    * @return whether or not the word is compact along its
@@ -368,7 +377,8 @@ public class Board {
    * by playing the given word. Before adding a cross to the list, it
    * ensures the ordering of the list reflects the lexigraphical ordering
    * of the word, depending on the axis.
-   * @param word the word from which crosses will occur
+   *
+   * @param word     the word from which crosses will occur
    * @param inverted vertical, if the word is horizontal, and visa versa
    * @return a list of computed, lexigraphically accurate crosses
    */
@@ -399,10 +409,11 @@ public class Board {
    * A convenience method that starts at a pair of indices and collects
    * all relevant/immediately adjacent tiles in both directions of the
    * given axis.
-   * @param word the word to which the collected tiles will be added
+   *
+   * @param word   the word to which the collected tiles will be added
    * @param column the column coordinate of reference location
-   * @param row the row coordinate of reference location
-   * @param axis the axis with which to scan for tiles to add
+   * @param row    the row coordinate of reference location
+   * @param axis   the axis with which to scan for tiles to add
    * @return the row or column at which the collection stopped
    */
   private int collect(Word word, int column, int row, Axis axis) {
@@ -416,11 +427,12 @@ public class Board {
    * is reached, or the next consecutive coordinate pair in the search direction
    * does not contain a permanently played tile AND does not correspond to a
    * tile already temporarily placed in the @code word.
-   * @param word the word to which the collected tiles will be added
+   *
+   * @param word   the word to which the collected tiles will be added
    * @param column the column coordinate of reference location
-   * @param row the row coordinate of reference location
-   * @param a the orientation with which to scan for tiles to add
-   * @param dir the direction in which to search (-1 up / left, 1 right / down)
+   * @param row    the row coordinate of reference location
+   * @param a      the orientation with which to scan for tiles to add
+   * @param dir    the direction in which to search (-1 up / left, 1 right / down)
    * @return the row or column at which the collection stopped
    */
   private int collect(Word word, int column, int row, Axis a, int dir) {
@@ -454,8 +466,9 @@ public class Board {
   /**
    * Whether or not the coordinates represent a place
    * on the board.
+   *
    * @param column the column
-   * @param row the row
+   * @param row    the row
    * @return validity
    */
   public boolean isValidPosition(int column, int row) {

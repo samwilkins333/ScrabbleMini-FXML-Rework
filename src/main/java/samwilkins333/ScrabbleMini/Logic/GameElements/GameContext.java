@@ -1,12 +1,11 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements;
 
+import com.swilkins.ScrabbleBase.Board.State.BoardStateUnit;
+import com.swilkins.ScrabbleBase.Board.State.Tile;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
-
-import ScrabbleBase.Board.State.Tile;
-import ScrabbleBase.Board.State.BoardStateUnit;
-import ScrabbleBase.Vocabulary.Trie;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;
@@ -14,8 +13,9 @@ import java.util.stream.Collectors;
 /**
  * Provides the <code>MoveGenerator</code> with all
  * the relevant game state needed to compute all possibilities.
+ *
  * @param <T> the type of collection used to store the game's
- *           lexicon
+ *            lexicon
  */
 public class GameContext<T extends Trie> {
 
@@ -26,10 +26,10 @@ public class GameContext<T extends Trie> {
 
   /**
    * Constructor.
-   * @param board the board state at time of generation
-   * @param lexicon the entire vocabulary of valid words
-   * @param movesMade the total number of moves made on the board
    *
+   * @param board     the board state at time of generation
+   * @param lexicon   the entire vocabulary of valid words
+   * @param movesMade the total number of moves made on the board
    */
   public GameContext(Board board, T lexicon, int movesMade) {
     this.board = board.toContext();
@@ -70,6 +70,7 @@ public class GameContext<T extends Trie> {
   /**
    * A convenience mutator that returns
    * this instance, for easy method chaining.
+   *
    * @param r the rack to embed in this instance
    * @return this instance itself
    */

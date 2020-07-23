@@ -1,11 +1,10 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer;
 
+import com.swilkins.ScrabbleBase.Board.State.Multiplier;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import main.java.samwilkins333.ScrabbleMini.Main;
 import main.resources.ResourceCreator;
-
-import ScrabbleBase.Board.State.Multiplier;
 
 import java.io.BufferedReader;
 import java.io.IOException;

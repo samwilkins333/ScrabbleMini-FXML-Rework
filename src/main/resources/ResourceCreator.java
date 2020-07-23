@@ -15,11 +15,13 @@ import java.net.URL;
 public final class ResourceCreator {
 
   //prevents instantiation
-  private ResourceCreator() { }
+  private ResourceCreator() {
+  }
 
   /**
    * Creates an <code>Image</code> instance by loading
    * the file at the specified location.
+   *
    * @param url the relative path to the image within the
    *            resources/images directory
    * @return a new <code>Image</code> instance if the url corresponds
@@ -33,12 +35,13 @@ public final class ResourceCreator {
   /**
    * Creates a <code>BufferedReader</code> instance
    * by loading the text file at the specified location.
+   *
    * @param url the relative path to the text file within the
    *            resources/configuration directory
    * @return a new <code>BufferedReader</code> instance if the url
    * corresponds to valid file
    * @throws FileNotFoundException thrown if the url does not correspond
-   * to a valid file in the configuration directory.
+   *                               to a valid file in the configuration directory.
    */
   public static BufferedReader read(String url) throws FileNotFoundException {
     URL loaded = ResourceLoader.instance.load(ResourceType.CONFIG, url);

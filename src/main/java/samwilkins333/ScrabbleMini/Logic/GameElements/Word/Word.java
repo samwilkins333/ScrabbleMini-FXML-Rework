@@ -5,13 +5,7 @@ import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * An augmented ArrayList of tiles that only
@@ -20,6 +14,7 @@ import java.util.HashSet;
  */
 public class Word extends UtilityArrayList<TileView> {
   private static Map<Axis, Comparator<TileView>> readers = new HashMap<>();
+
   static {
     readers.put(Axis.HORIZONTAL,
             Comparator.comparingDouble(t -> t.indices().column()));
@@ -29,6 +24,7 @@ public class Word extends UtilityArrayList<TileView> {
 
   /**
    * Constructor.
+   *
    * @param initial any individual initial tiles to include in the word.
    */
   public Word(TileView... initial) {
@@ -37,6 +33,7 @@ public class Word extends UtilityArrayList<TileView> {
 
   /**
    * Constructor.
+   *
    * @param c a collection of initial tiles to include in the word.
    */
   public Word(Collection<? extends TileView> c) {
@@ -46,6 +43,7 @@ public class Word extends UtilityArrayList<TileView> {
   /**
    * Flashes the requested superimposed overlay
    * for all tiles in the word.
+   *
    * @param type the requested overlay
    */
   public void flash(OverlayType type) {
@@ -56,6 +54,7 @@ public class Word extends UtilityArrayList<TileView> {
    * Retrieves the first character in the word,
    * lexigraphically. If the word follows a vertical
    * axis, this is the top tile. If horizontal, the leftmost.
+   *
    * @param axis the orientation used to determine first tile
    * @return the lexigraphically / position-based first tile.
    */
@@ -67,6 +66,7 @@ public class Word extends UtilityArrayList<TileView> {
    * Retrieves the last character in the word,
    * lexigraphically. If the word follows a vertical
    * axis, this is the bottom tile. If horizontal, the rightmost.
+   *
    * @param axis the orientation used to determine last tile
    * @return the lexigraphically / position-based last tile.
    */
@@ -78,8 +78,9 @@ public class Word extends UtilityArrayList<TileView> {
    * Determines whether or not the word contains
    * a tile that has been placed at the given board
    * indices.
+   *
    * @param column the target column
-   * @param row the target row
+   * @param row    the target row
    * @return whether or not the word contains a tile
    * that has been placed at the indices.
    */
@@ -107,6 +108,7 @@ public class Word extends UtilityArrayList<TileView> {
    * this word's orientation. It is assumed that the
    * orientation passed in will have been accurately deduced
    * from Referee.analyzeAxis().
+   *
    * @param axis the axis of the word, which influences
    *             the order in which the tiles should be read
    * @return the appropriate comparator

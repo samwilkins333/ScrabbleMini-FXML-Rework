@@ -1,7 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
-import ScrabbleBase.Board.Location.TilePlacement;
-import ScrabbleBase.Vocabulary.Trie;
+import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
 import java.util.ArrayList;

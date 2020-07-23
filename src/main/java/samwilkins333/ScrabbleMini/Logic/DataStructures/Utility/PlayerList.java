@@ -1,8 +1,7 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility;
 
+import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
-
-import ScrabbleBase.Vocabulary.Trie;
 
 import java.util.ArrayList;
 
@@ -11,8 +10,9 @@ import java.util.ArrayList;
  * an internal state tracking the current player as it
  * cycles through its members and exposes a convenience
  * methods for initialization of players.
+ *
  * @param <T> the context containing the type of data structure that
- *           holds the entire vocabulary of valid words in the game
+ *            holds the entire vocabulary of valid words in the game
  */
 public class PlayerList<T extends Trie>
         extends ArrayList<Player<T>> {
@@ -20,6 +20,7 @@ public class PlayerList<T extends Trie>
 
   /**
    * Constructor.
+   *
    * @param capacity the initial capacity
    *                 of the <code>ArrayList</code>
    */
@@ -43,6 +44,7 @@ public class PlayerList<T extends Trie>
   /**
    * Updates the internal state, making the next player in line
    * the current player.
+   *
    * @return the *new* current player
    */
   public Player<T> next() {
@@ -53,6 +55,7 @@ public class PlayerList<T extends Trie>
   /**
    * Updates the internal state, making the previous player in line
    * the current player.
+   *
    * @return the *new* current player
    */
   public Player<T> previous() {

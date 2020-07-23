@@ -54,6 +54,7 @@ public final class ObservableImage {
 
   /**
    * Enables or disables the display of a drop shadow.
+   *
    * @param display whether or not the shadow should be displayed.
    */
   public void shadow(boolean display) {
@@ -62,6 +63,7 @@ public final class ObservableImage {
 
   /**
    * Sets the color of the drop shadow.
+   *
    * @param color the desired color.
    */
   public void shadowColor(Color color) {
@@ -71,11 +73,12 @@ public final class ObservableImage {
   /**
    * Converts an EXISTING <code>ImageView</code> into an
    * <code>ObservableImage</code> with the specified properties.
+   *
    * @param target the existing target ImageView
-   * @param url the relative path to the image within the images directory
-   * @param mode the binding mode this image will use
-   * @param ratio whether or not the original aspect ratio of the image
-   *              should be preserved
+   * @param url    the relative path to the image within the images directory
+   * @param mode   the binding mode this image will use
+   * @param ratio  whether or not the original aspect ratio of the image
+   *               should be preserved
    * @return the newly created instance of <code>ObservableImage</code>
    */
   public static ObservableImage initialize(ImageView target, String url,
@@ -96,8 +99,9 @@ public final class ObservableImage {
   /**
    * A convenience method used to create a new <code>ObservableImage</code>
    * from scratch, assuming the preservation of the aspect ratio by default.
+   *
    * @param location the relative path to the image within the images directory
-   * @param mode the binding mode this image will use
+   * @param mode     the binding mode this image will use
    * @return the newly created instance of ObservableImage
    */
   public static ObservableImage create(String location, BindingMode mode) {

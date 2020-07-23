@@ -17,6 +17,7 @@ import java.net.URL;
 public class Main extends Application {
   public static double screenWidth;
   public static double screenHeight;
+
   static {
     Rectangle2D bounds = Screen.getPrimary().getBounds();
     screenWidth = bounds.getWidth();
@@ -44,6 +45,7 @@ public class Main extends Application {
    * A utility method that
    * prints the given reason, if any,
    * before exiting the application.
+   *
    * @param reason why the application must exit.
    */
   public static void exit(String reason) {

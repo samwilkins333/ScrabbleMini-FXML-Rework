@@ -26,6 +26,7 @@ public class DoubleBinding {
   /**
    * An edit to the value, that will
    * propagate through all registered bindings.
+   *
    * @param value the new value to be assigned
    */
   public void setValue(double value) {
@@ -35,8 +36,9 @@ public class DoubleBinding {
   /**
    * Establishes a binding between the given property
    * and this value.
+   *
    * @param source the property of a specific instance to bind
-   * @param mode the mode of the binding that will be created
+   * @param mode   the mode of the binding that will be created
    */
   public void bind(DoubleProperty source, BindingMode mode) {
     if (mode == BindingMode.BIDIRECTIONAL) {
@@ -49,8 +51,9 @@ public class DoubleBinding {
   /**
    * Removes the binding between the given property
    * and this value.
+   *
    * @param source the property of a specific instance to unbind
-   * @param mode the mode of the binding that will be disassociated
+   * @param mode   the mode of the binding that will be disassociated
    */
   public void unbind(DoubleProperty source, BindingMode mode) {
     if (mode == BindingMode.BIDIRECTIONAL) {

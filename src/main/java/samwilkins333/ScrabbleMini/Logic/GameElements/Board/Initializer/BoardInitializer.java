@@ -6,16 +6,18 @@ import java.util.Map;
  * A functional interface that specifies any entity that
  * can initialize a <code>Board</code> by returning
  * meaningful <code>BoardAttributes</code>.
+ *
  * @param <D> The (D)ata that each square in the board receives during
- *           initialization (for example, a multiplier)
+ *            initialization (for example, a multiplier)
  * @param <A> The (A)ttribute that the initializer specifies for each
- *           (D)ata element on the board (for example, fill color
- *           for a given multiplier)
+ *            (D)ata element on the board (for example, fill color
+ *            for a given multiplier)
  */
 public interface BoardInitializer<D, A> {
 
   /**
    * Initializes the board.
+   *
    * @return the <code>BoardAttributes</code>
    * populated during initialization
    */
@@ -24,11 +26,12 @@ public interface BoardInitializer<D, A> {
   /**
    * A wrapper around the mappings and information
    * needed to initialize a board.
+   *
    * @param <D> The (D)ata that each square in the board receives during
    *            initialization (for example, a multiplier)
    * @param <A> The (A)ttribute that the initializer specifies for each
-   *           (D)ata element on the board (for example, fill color
-   *           for a given multiplier)
+   *            (D)ata element on the board (for example, fill color
+   *            for a given multiplier)
    */
   class BoardAttributes<D, A> {
     int squareCount;
