@@ -27,8 +27,8 @@ public class TrieInitializer implements DictionaryInitializer<Trie> {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    Generator.Instance.setRoot(trie.getRoot());
-    Generator.Instance.setRackCapacity(RackView.CAPACITY);
+    Generator.setRoot(trie.getRoot());
+    Generator.setRackCapacity(RackView.CAPACITY);
     return trie;
   }
 

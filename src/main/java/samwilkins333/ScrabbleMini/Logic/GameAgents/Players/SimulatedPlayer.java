@@ -23,7 +23,7 @@ public class SimulatedPlayer extends Player<Trie> {
     if (this.rack.isEmpty()) {
       return null;
     }
-    List<ScoredCandidate> candidates = Generator.Instance.computeAllCandidates(context.getRack(), context.getBoard());
+    List<ScoredCandidate> candidates = Generator.computeAllCandidates(context.getRack(), context.getBoard());
     if (candidates.size() == 0) {
       return new ArrayList<>();
     }
