@@ -29,6 +29,9 @@ public class SimulatedPlayer extends Player<Trie> {
     }
     System.out.println(candidates.get(0));
     for (TilePlacement placement : candidates.get(0).getPlacements()) {
+      if (placement.isExisting()) {
+        continue;
+      }
       for (TileView tileView : this.rack) {
         if (tileView.getTile().getLetter() == placement.getTile().getLetter()) {
           if (placement.getTile().getLetter() == Tile.BLANK) {
