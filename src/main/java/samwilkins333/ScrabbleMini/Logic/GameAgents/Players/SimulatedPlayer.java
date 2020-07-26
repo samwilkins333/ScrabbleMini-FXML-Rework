@@ -28,7 +28,7 @@ public class SimulatedPlayer extends Player<Trie> {
       return new ArrayList<>();
     }
     System.out.println(candidates.get(0));
-    for (TilePlacement placement : candidates.get(0).getPlacements()) {
+    for (TilePlacement placement : candidates.get(0).getPrimary()) {
       if (placement.isExisting()) {
         continue;
       }
@@ -43,7 +43,7 @@ public class SimulatedPlayer extends Player<Trie> {
         }
       }
     }
-    return candidates.get(0).getPlacements();
+    return candidates.get(0).getPrimary();
   }
 
 }
