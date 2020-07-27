@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements;
 
-import com.swilkins.ScrabbleBase.Board.State.BoardStateUnit;
+import com.swilkins.ScrabbleBase.Board.State.BoardSquare;
 import com.swilkins.ScrabbleBase.Board.State.Tile;
 import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  */
 public class GameContext<T extends Trie> {
 
-  private final BoardStateUnit[][] board;
+  private final BoardSquare[][] board;
   private final T lexicon;
   private final int movesMade;
   private LinkedList<Tile> rack;
@@ -40,7 +40,7 @@ public class GameContext<T extends Trie> {
   /**
    * @return the board associated with this context
    */
-  public BoardStateUnit[][] getBoard() {
+  public BoardSquare[][] getBoard() {
     return board;
   }
 

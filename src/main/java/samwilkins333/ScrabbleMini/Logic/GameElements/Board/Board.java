@@ -1,6 +1,6 @@
 package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board;
 
-import com.swilkins.ScrabbleBase.Board.State.BoardStateUnit;
+import com.swilkins.ScrabbleBase.Board.State.BoardSquare;
 import com.swilkins.ScrabbleBase.Board.State.Multiplier;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -62,12 +62,12 @@ public class Board {
     initializeLayout();
   }
 
-  public BoardStateUnit[][] toContext() {
-    BoardStateUnit[][] state = new BoardStateUnit[15][15];
+  public BoardSquare[][] toContext() {
+    BoardSquare[][] state = new BoardSquare[15][15];
     for (int y = 0; y < 15; y++) {
       for (int x = 0; x < 15; x++) {
         TileView view = this.internalState[x][y];
-        state[y][x] = new BoardStateUnit(this.multipliers[x][y], view != null ? view.getTile() : null);
+        state[y][x] = new BoardSquare(this.multipliers[x][y], view != null ? view.getTile() : null);
       }
     }
     return state;
