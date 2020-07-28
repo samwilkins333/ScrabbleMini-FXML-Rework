@@ -1,23 +1,23 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
+package samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
 import com.swilkins.ScrabbleBase.Vocabulary.Trie;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
+import samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager.leftOriginLeftPixels;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager.rightOriginLeftPixels;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager.leftOriginLeftPixels;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager.rightOriginLeftPixels;
 
 /**
  * A template that models a Scrabble player. Each player

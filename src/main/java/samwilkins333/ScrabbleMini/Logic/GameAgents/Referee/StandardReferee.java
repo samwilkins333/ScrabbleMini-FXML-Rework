@@ -1,16 +1,16 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
+package samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
 import com.swilkins.ScrabbleBase.Vocabulary.Trie;
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
+import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
+import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
 
 /**
  * Models a referee that enforces all the rules and move

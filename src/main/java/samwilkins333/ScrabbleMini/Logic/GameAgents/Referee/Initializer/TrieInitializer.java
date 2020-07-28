@@ -1,12 +1,7 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
+package samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
 
-import com.swilkins.ScrabbleBase.Generation.Generator;
 import com.swilkins.ScrabbleBase.Vocabulary.Trie;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
-import main.resources.ResourceCreator;
-
-import java.io.BufferedReader;
-import java.io.IOException;
+import com.swilkins.ScrabbleBase.Vocabulary.TrieFactory;
 
 /**
  * An implementer of <code>DictionaryInitializer</code>
@@ -17,19 +12,7 @@ public class TrieInitializer implements DictionaryInitializer<Trie> {
 
   @Override
   public Trie initialize() {
-    Trie trie = new Trie();
-    try {
-      BufferedReader reader = ResourceCreator.read("ospd4.txt");
-      String word;
-      while ((word = reader.readLine()) != null) {
-        trie.addWord(word.trim());
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    Generator.setRoot(trie.getRoot());
-    Generator.setRackCapacity(RackView.CAPACITY);
-    return trie;
+    return TrieFactory.loadFrom(getClass().getResource("/configuration/ospd4.txt"));
   }
 
 }

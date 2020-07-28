@@ -1,8 +1,8 @@
-package main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive;
+package samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 
 /**
  * A binding that accepts boolean properties that it

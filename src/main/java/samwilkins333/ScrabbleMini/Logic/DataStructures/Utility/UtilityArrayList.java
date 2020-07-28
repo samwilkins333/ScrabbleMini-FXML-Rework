@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility;
+package samwilkins333.ScrabbleMini.Logic.DataStructures.Utility;
 
 import java.util.ArrayList;
 import java.util.Collection;

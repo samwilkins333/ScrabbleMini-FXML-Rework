@@ -1,7 +1,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <Pane
-        fx:controller="main.java.samwilkins333.ScrabbleMini.FXML.Controllers.BackgroundController"
+        fx:controller="samwilkins333.ScrabbleMini.FXML.Controllers.BackgroundController"
         xmlns:fx="http://javafx.com/fxml"
 >
     <ImageView fx:id="desktopView"/>

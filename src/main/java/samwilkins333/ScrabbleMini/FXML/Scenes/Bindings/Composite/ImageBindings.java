@@ -1,9 +1,9 @@
-package main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite;
+package samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite;
 
 import javafx.scene.image.ImageView;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.BooleanBinding;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.DoubleBinding;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.BooleanBinding;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Primitive.DoubleBinding;
 
 /**
  * A compilation of bindings of the most commonly

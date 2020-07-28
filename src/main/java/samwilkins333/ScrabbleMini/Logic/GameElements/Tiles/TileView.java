@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
 
 import com.swilkins.ScrabbleBase.Board.State.Tile;
 import javafx.animation.FadeTransition;
@@ -7,13 +7,13 @@ import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
+import samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
 
 /**
  * Models a lettered game tile with a given value.

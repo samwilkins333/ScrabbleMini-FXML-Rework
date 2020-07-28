@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Rack;
 
 /**
  * A utility class that allows other

@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
+package samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 /**
  * Enumerates all possible implementors of

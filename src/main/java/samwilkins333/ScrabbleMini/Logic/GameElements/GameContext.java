@@ -1,11 +1,11 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements;
+package samwilkins333.ScrabbleMini.Logic.GameElements;
 
 import com.swilkins.ScrabbleBase.Board.State.BoardSquare;
 import com.swilkins.ScrabbleBase.Board.State.Tile;
 import com.swilkins.ScrabbleBase.Vocabulary.Trie;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;

@@ -1,15 +1,12 @@
-package main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image;
+package samwilkins333.ScrabbleMini.FXML.Utilities.Image;
 
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
-import main.resources.ResourceLoader;
-
-import static main.resources.ResourceType.IMAGE;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 
 /**
  * Models an image whose values are backed by
@@ -83,7 +80,7 @@ public final class ObservableImage {
    */
   public static ObservableImage initialize(ImageView target, String url,
                                            BindingMode mode, boolean ratio) {
-    String resource = ResourceLoader.instance.load(IMAGE, url).toExternalForm();
+    String resource = ObservableImage.class.getResource(String.format("/images/%s", url)).toExternalForm();
     target.setImage(new Image(resource));
     target.setPreserveRatio(ratio);
 

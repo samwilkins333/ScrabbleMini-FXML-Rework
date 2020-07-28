@@ -1,9 +1,9 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer;
 
-import main.java.samwilkins333.ScrabbleMini.Main;
-import main.resources.ResourceCreator;
+import samwilkins333.ScrabbleMini.Main;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,7 +41,8 @@ public class TileBagReader implements TileBagInitializer {
     Set<String> encountered = new HashSet<>();
 
     try {
-      BufferedReader reader = ResourceCreator.read(CONFIG_FILE);
+      String file = getClass().getResource(String.format("/configuration/%s", CONFIG_FILE)).getFile();
+      BufferedReader reader = new BufferedReader(new FileReader(file));
 
       String line = reader.readLine().trim();
       if (!line.equals("SCRABBLE TILE CONFIGURATION")) {

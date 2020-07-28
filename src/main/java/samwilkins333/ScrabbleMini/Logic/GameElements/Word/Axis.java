@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Word;
 
 /**
  * Enumerates the possible axes of a word

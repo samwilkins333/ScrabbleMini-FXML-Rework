@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
+package samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer;
 
 import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 

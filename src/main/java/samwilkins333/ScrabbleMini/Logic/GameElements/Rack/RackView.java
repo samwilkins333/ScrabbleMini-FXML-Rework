@@ -1,13 +1,13 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Rack;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.squarePixels;
 
 /**
  * Models a player's rack of 7 tiles, encompassing both

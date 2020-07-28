@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image;
+package samwilkins333.ScrabbleMini.FXML.Utilities.Image;
 
 import javafx.animation.*;
 import javafx.event.ActionEvent;

@@ -1,12 +1,12 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer;
 
 import com.swilkins.ScrabbleBase.Board.State.Multiplier;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import main.java.samwilkins333.ScrabbleMini.Main;
-import main.resources.ResourceCreator;
+import samwilkins333.ScrabbleMini.Main;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -53,8 +53,8 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
   private static final String EXCESS_INFO =
           PREFIX + "The file contains more than the necessary information.";
 
-  private Multiplier parse(String raw, String delimiter) {
-    String[] split = raw.split(delimiter);
+  private Multiplier parse(String raw) {
+    String[] split = raw.split(VALUE_DELIMITER);
     int letterValue = Integer.parseInt(split[0]);
     int wordValue = Integer.parseInt(split[1]);
     return new Multiplier(letterValue, wordValue);
@@ -70,7 +70,8 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
     try {
       Set<Multiplier> multipliers = new HashSet<>();
       int row = 0;
-      BufferedReader reader = ResourceCreator.read(CONFIG_FILE);
+      String file = getClass().getResource(String.format("/configuration/%s", CONFIG_FILE)).getFile();
+      BufferedReader reader = new BufferedReader(new FileReader(file));
 
       if (!reader.readLine().trim().equals("SCRABBLE BOARD CONFIGURATION")) {
         throw new IOException(INVALID_HEADER);
@@ -110,7 +111,7 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
 
         int column = 0;
         for (String pair : values) {
-          Multiplier multiplier = this.parse(pair, VALUE_DELIMITER);
+          Multiplier multiplier = this.parse(pair);
           multipliers.add(multiplier);
           multiplierMap[column][row] = multiplier;
           column++;
@@ -135,7 +136,7 @@ public class BoardReader implements BoardInitializer<Multiplier, Paint> {
           throw new IOException(INVALID_MAPPING);
         }
         String[] mapping = entry.split(PAIR_DELIMITER);
-        Multiplier read = this.parse(mapping[0].trim(), VALUE_DELIMITER);
+        Multiplier read = this.parse(mapping[0].trim());
         Paint color = Color.web(mapping[1].trim());
         colors.put(read, color);
       }

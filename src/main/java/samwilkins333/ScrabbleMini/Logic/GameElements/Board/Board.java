@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Board;
 
 import com.swilkins.ScrabbleBase.Board.State.BoardSquare;
 import com.swilkins.ScrabbleBase.Board.State.Multiplier;
@@ -6,23 +6,23 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer.BoardInitializer;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManager;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis.UNDEFINED;
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis.VERTICAL;
-import static main.java.samwilkins333.ScrabbleMini.Main.screenHeight;
-import static main.java.samwilkins333.ScrabbleMini.Main.screenWidth;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis.UNDEFINED;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis.VERTICAL;
+import static samwilkins333.ScrabbleMini.Main.screenHeight;
+import static samwilkins333.ScrabbleMini.Main.screenWidth;
 
 /**
  * Models a Scrabble board. A board must be initialized in

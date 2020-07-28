@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini;
+package samwilkins333.ScrabbleMini;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

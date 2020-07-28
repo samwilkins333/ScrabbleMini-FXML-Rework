@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings;
+package samwilkins333.ScrabbleMini.FXML.Scenes.Bindings;
 
 /**
  * An enum that specifies the ways in which

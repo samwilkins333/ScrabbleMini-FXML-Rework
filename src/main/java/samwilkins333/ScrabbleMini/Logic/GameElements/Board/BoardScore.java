@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Board;
 
 /**
  * A utility struct that ensures gives the caller

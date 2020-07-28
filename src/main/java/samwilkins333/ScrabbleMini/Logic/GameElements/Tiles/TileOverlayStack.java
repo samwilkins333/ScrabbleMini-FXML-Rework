@@ -1,14 +1,14 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
 
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
+import samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 
 import java.util.List;
 import java.util.stream.Collectors;

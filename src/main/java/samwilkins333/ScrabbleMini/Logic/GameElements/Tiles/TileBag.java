@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Tiles;
 
 import com.swilkins.ScrabbleBase.Board.State.Tile;
 import javafx.animation.Animation;
@@ -6,18 +6,18 @@ import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import main.java.samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
-import main.java.samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagInitializer;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
-import main.java.samwilkins333.ScrabbleMini.Main;
+import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
+import samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
+import samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileBagInitializer;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer.TileMetaData;
+import samwilkins333.ScrabbleMini.Main;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Map;
 
-import static main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
+import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.tileWidth;
 
 /**
  * A class that logically and graphically models a

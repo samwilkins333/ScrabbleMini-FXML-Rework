@@ -1,9 +1,9 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Word;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Word;
 
-import main.java.samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.UtilityArrayList;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
-import main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
+import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.UtilityArrayList;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
+import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
 import java.util.*;
 

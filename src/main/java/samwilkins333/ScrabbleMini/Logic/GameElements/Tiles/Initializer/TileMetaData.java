@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Initializer;
 
 /**
  * A convenience struct that stores

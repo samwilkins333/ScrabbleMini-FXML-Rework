@@ -1,4 +1,4 @@
-package main.java.samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer;
+package samwilkins333.ScrabbleMini.Logic.GameElements.Board.Initializer;
 
 import java.util.Map;
 
