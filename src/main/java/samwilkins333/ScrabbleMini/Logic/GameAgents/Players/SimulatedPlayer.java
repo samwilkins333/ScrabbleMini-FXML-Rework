@@ -20,13 +20,17 @@ import static com.swilkins.ScrabbleBase.Generation.Generator.getDefaultOrdering;
  * and applying a heuristic for move selection.
  */
 public class SimulatedPlayer extends Player<Trie> {
+  private static Generator generator = new Generator();
+  static {
+    generator.setRackCapacity(STANDARD_RACK_CAPACITY);
+  }
 
   @Override
   public List<TilePlacement> move(GameContext<Trie> context) {
     if (this.rack.isEmpty()) {
       return null;
     }
-    Generator generator = new Generator(context.lexicon(), STANDARD_RACK_CAPACITY);
+    generator.setTrie(context.lexicon());
     List<Candidate> candidates = generator.compute(context.getRack(), context.getBoard(), getDefaultOrdering());
     if (candidates.size() == 0) {
       return new ArrayList<>();
