@@ -52,6 +52,10 @@ public abstract class Player<T extends Trie> {
     return context;
   }
 
+  public boolean isRackEmpty() {
+    return rack.isEmpty();
+  }
+
   /**
    * Both logically and graphically replenishes the missing
    * tiles in a player's rack. Triggers TileBag shaking animation

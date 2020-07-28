@@ -41,6 +41,10 @@ public class PlayerList<T extends Trie>
     return get(current);
   }
 
+  public boolean allHaveTilesRemaining() {
+    return stream().noneMatch(Player::isRackEmpty);
+  }
+
   /**
    * Updates the internal state, making the next player in line
    * the current player.
