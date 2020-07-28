@@ -102,7 +102,7 @@ public abstract class Referee<T extends Trie> {
     current.setRackVisible(true);
     current.fillRack(board, tileBag);
     movesInitiated++;
-    if (current instanceof SimulatedPlayer && !(tileBag.isEmpty() && !players.allHaveTilesRemaining())) {
+    if (current instanceof SimulatedPlayer && !(tileBag.isEmpty() && players.stream().anyMatch(Player::isRackEmpty))) {
       TransitionHelper.pause(0.5, e -> {
         GameContext<T> context = new GameContext<>(board, lexicon, movesInitiated - 1);
         players.current().move(players.current().initializeContext(context));
