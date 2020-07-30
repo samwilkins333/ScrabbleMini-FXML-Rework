@@ -9,7 +9,6 @@ import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
-import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.PermutationTrieInitializer;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Referee;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.StandardReferee;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
@@ -94,6 +93,6 @@ public class BackgroundController implements Initializable {
     PlayerList<PermutationTrie> players = new PlayerList<>(2);
     players.add(new SimulatedPlayer());
     players.add(new SimulatedPlayer());
-    referee = new StandardReferee<>(players, board, tileBag, new PermutationTrieInitializer());
+    referee = new StandardReferee<>(players, board, tileBag, () -> PermutationTrie.loadFrom(getClass().getResource("/configuration/ospd4.txt")));
   }
 }
