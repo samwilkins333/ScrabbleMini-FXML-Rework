@@ -1,9 +1,9 @@
 package samwilkins333.ScrabbleMini.Logic.DataStructures.Utility;
 
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * A specialized <code>ArrayList</code> that maintains
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @param <T> the context containing the type of data structure that
  *            holds the entire vocabulary of valid words in the game
  */
-public class PlayerList<T extends Trie>
+public class PlayerList<T extends Collection<String>>
         extends ArrayList<Player<T>> {
   private int current = 0;
 

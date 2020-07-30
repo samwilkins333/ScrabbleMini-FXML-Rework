@@ -4,7 +4,7 @@ import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
 import com.swilkins.ScrabbleBase.Board.State.Tile;
 import com.swilkins.ScrabbleBase.Generation.Candidate;
 import com.swilkins.ScrabbleBase.Generation.Generator;
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
+import com.swilkins.ScrabbleBase.Vocabulary.PermutationTrie;
 import samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
@@ -19,14 +19,15 @@ import static com.swilkins.ScrabbleBase.Generation.Generator.getDefaultOrdering;
  * computing all possible moves with a GADDAG
  * and applying a heuristic for move selection.
  */
-public class SimulatedPlayer extends Player<Trie> {
+public class SimulatedPlayer extends Player<PermutationTrie> {
   private static Generator generator = new Generator();
+
   static {
     generator.setRackCapacity(STANDARD_RACK_CAPACITY);
   }
 
   @Override
-  public List<TilePlacement> move(GameContext<Trie> context) {
+  public List<TilePlacement> move(GameContext<PermutationTrie> context) {
     if (this.rack.isEmpty()) {
       return null;
     }

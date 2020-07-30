@@ -1,7 +1,6 @@
 package samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.Composite.ImageBindings;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardScore;
@@ -11,6 +10,7 @@ import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ import static samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackLayoutManag
  * @param <T> the type of data structure that holds the entire vocabulary
  *            of valid words in the game
  */
-public abstract class Player<T extends Trie> {
+public abstract class Player<T extends Collection<String>> {
   private int playerNumber;
   protected RackView rack;
   protected Map<Integer, BoardScore> score = new HashMap<>();

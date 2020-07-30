@@ -1,10 +1,10 @@
 package samwilkins333.ScrabbleMini.Logic.GameAgents.Players;
 
 import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -13,7 +13,7 @@ import java.util.List;
  * just nominally encapsulates the manual dragging and
  * checking of tiles by an actual human player.
  */
-public class HumanPlayer extends Player<Trie> {
+public class HumanPlayer<T extends Collection<String>> extends Player<T> {
 
   /**
    * Constructor.
@@ -23,7 +23,7 @@ public class HumanPlayer extends Player<Trie> {
   }
 
   @Override
-  public List<TilePlacement> move(GameContext<Trie> context) {
+  public List<TilePlacement> move(GameContext<T> context) {
     return new ArrayList<>();
   }
 }

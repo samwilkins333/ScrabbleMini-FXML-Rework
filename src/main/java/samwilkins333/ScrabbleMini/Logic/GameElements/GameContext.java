@@ -2,11 +2,11 @@ package samwilkins333.ScrabbleMini.Logic.GameElements;
 
 import com.swilkins.ScrabbleBase.Board.State.BoardSquare;
 import com.swilkins.ScrabbleBase.Board.State.Tile;
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Rack.RackView;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * @param <T> the type of collection used to store the game's
  *            lexicon
  */
-public class GameContext<T extends Trie> {
+public class GameContext<T extends Collection<String>> {
 
   private final BoardSquare[][] board;
   private final T lexicon;

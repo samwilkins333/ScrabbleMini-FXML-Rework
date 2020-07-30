@@ -1,6 +1,5 @@
 package samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
@@ -16,6 +15,7 @@ import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
+import java.util.Collection;
 import java.util.List;
 
 import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board.DURATION;
@@ -29,7 +29,7 @@ import static samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType.*;
  *
  * @param <T> the data structure the referee will use to store the lexicon
  */
-public abstract class Referee<T extends Trie> {
+public abstract class Referee<T extends Collection<String>> {
   private static final double DELAY = 0.65;
   protected final PlayerList<T> players;
   protected final Board board;

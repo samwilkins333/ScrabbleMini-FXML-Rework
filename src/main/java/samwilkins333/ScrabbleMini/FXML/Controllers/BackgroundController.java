@@ -1,6 +1,6 @@
 package samwilkins333.ScrabbleMini.FXML.Controllers;
 
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
+import com.swilkins.ScrabbleBase.Vocabulary.PermutationTrie;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -9,6 +9,7 @@ import samwilkins333.ScrabbleMini.FXML.Scenes.Bindings.BindingMode;
 import samwilkins333.ScrabbleMini.FXML.Utilities.Image.ObservableImage;
 import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
+import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.PermutationTrieInitializer;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Referee;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.StandardReferee;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
@@ -37,7 +38,7 @@ public class BackgroundController implements Initializable {
   @FXML
   public Pane boardPane;
 
-  private Referee<Trie> referee;
+  private Referee<PermutationTrie> referee;
   private Board board;
   private TileBag tileBag;
 
@@ -90,9 +91,9 @@ public class BackgroundController implements Initializable {
    * information.
    */
   public void begin() {
-    PlayerList<Trie> players = new PlayerList<>(2);
+    PlayerList<PermutationTrie> players = new PlayerList<>(2);
     players.add(new SimulatedPlayer());
     players.add(new SimulatedPlayer());
-    referee = new StandardReferee(players, board, tileBag);
+    referee = new StandardReferee<>(players, board, tileBag, new PermutationTrieInitializer());
   }
 }

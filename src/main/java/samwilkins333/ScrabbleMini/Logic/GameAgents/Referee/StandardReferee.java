@@ -1,8 +1,7 @@
 package samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
-import com.swilkins.ScrabbleBase.Vocabulary.Trie;
 import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
-import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.TrieInitializer;
+import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.DictionaryInitializer;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
@@ -10,13 +9,15 @@ import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Axis;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Word.Word;
 
+import java.util.Collection;
+
 import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.dimensions;
 
 /**
  * Models a referee that enforces all the rules and move
  * conditions of standard Scrabble.
  */
-public class StandardReferee extends Referee<Trie> {
+public class StandardReferee<T extends Collection<String>> extends Referee<T> {
   /**
    * Constructor.
    *
@@ -25,9 +26,9 @@ public class StandardReferee extends Referee<Trie> {
    * @param tileBag the fully initialized TileBag used to populate
    *                the players' racks
    */
-  public StandardReferee(PlayerList<Trie> players, Board board,
-                         TileBag tileBag) {
-    super(players, board, tileBag, new TrieInitializer());
+  public StandardReferee(PlayerList<T> players, Board board,
+                         TileBag tileBag, DictionaryInitializer<T> initializer) {
+    super(players, board, tileBag, initializer);
   }
 
   @Override
@@ -81,7 +82,7 @@ public class StandardReferee extends Referee<Trie> {
 
   @Override
   protected boolean isValid(Word word) {
-    return lexicon.includes(word.toString());
+    return lexicon.contains(word.toString());
   }
 
   @Override
