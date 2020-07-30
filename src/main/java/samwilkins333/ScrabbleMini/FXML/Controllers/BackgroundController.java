@@ -93,6 +93,7 @@ public class BackgroundController implements Initializable {
     PlayerList<PermutationTrie> players = new PlayerList<>(2);
     players.add(new SimulatedPlayer());
     players.add(new SimulatedPlayer());
-    referee = new StandardReferee<>(players, board, tileBag, () -> PermutationTrie.loadFrom(getClass().getResource("/configuration/ospd4.txt")));
+    URL dictionary = getClass().getResource("/configuration/ospd4.txt");
+    referee = new StandardReferee<>(players, board, tileBag, () -> PermutationTrie.loadFrom(dictionary));
   }
 }
