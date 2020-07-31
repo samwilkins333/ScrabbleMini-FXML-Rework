@@ -20,6 +20,7 @@ import samwilkins333.ScrabbleMini.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.swilkins.ScrabbleBase.Vocabulary.Trie.LOWERCASE;
 import static samwilkins333.ScrabbleMini.Logic.GameElements.Board.BoardLayoutManager.*;
 
 /**
@@ -94,6 +95,11 @@ public class BackgroundController implements Initializable {
     players.add(new SimulatedPlayer());
     players.add(new SimulatedPlayer());
     URL dictionary = getClass().getResource("/configuration/ospd4.txt");
-    referee = new StandardReferee<>(players, board, tileBag, () -> PermutationTrie.loadFrom(dictionary));
+    referee = new StandardReferee<>(players, board, tileBag, () -> {
+      PermutationTrie trie = new PermutationTrie(LOWERCASE);
+      trie.loadFrom(dictionary, String::trim);
+      return trie;
+    });
   }
+  
 }

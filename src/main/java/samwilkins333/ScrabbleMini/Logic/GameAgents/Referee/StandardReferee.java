@@ -1,7 +1,7 @@
 package samwilkins333.ScrabbleMini.Logic.GameAgents.Referee;
 
 import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
-import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.DictionaryInitializer;
+import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.LexiconInitializer;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.Indices;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileBag;
@@ -27,7 +27,7 @@ public class StandardReferee<T extends Collection<String>> extends Referee<T> {
    *                the players' racks
    */
   public StandardReferee(PlayerList<T> players, Board board,
-                         TileBag tileBag, DictionaryInitializer<T> initializer) {
+                         TileBag tileBag, LexiconInitializer<T> initializer) {
     super(players, board, tileBag, initializer);
   }
 

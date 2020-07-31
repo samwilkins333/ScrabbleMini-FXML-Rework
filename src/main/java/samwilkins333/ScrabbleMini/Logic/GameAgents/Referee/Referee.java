@@ -7,7 +7,7 @@ import samwilkins333.ScrabbleMini.FXML.Utilities.Image.TransitionHelper;
 import samwilkins333.ScrabbleMini.Logic.DataStructures.Utility.PlayerList;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Players.Player;
 import samwilkins333.ScrabbleMini.Logic.GameAgents.Players.SimulatedPlayer;
-import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.DictionaryInitializer;
+import samwilkins333.ScrabbleMini.Logic.GameAgents.Referee.Initializer.LexiconInitializer;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Board.Board;
 import samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.OverlayType;
@@ -47,7 +47,7 @@ public abstract class Referee<T extends Collection<String>> {
    *                the players' racks
    */
   Referee(PlayerList<T> players, Board board, TileBag tileBag,
-          DictionaryInitializer<T> initializer) {
+          LexiconInitializer<T> initializer) {
     this.players = players;
     this.board = board;
     this.tileBag = tileBag;

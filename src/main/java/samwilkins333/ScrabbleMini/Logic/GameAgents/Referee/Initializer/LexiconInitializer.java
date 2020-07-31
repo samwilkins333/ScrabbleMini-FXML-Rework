@@ -7,7 +7,7 @@ import java.util.Collection;
  *
  * @param <T> the type of data structure (containing Strings) to return
  */
-public interface DictionaryInitializer<T extends Collection<String>> {
+public interface LexiconInitializer<T extends Collection<String>> {
   /**
    * @return the initialized set of strings, acting as a dictionary
    * used primarily for containment checking
