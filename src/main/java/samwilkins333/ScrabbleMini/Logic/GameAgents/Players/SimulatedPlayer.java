@@ -4,6 +4,7 @@ import com.swilkins.ScrabbleBase.Board.Location.TilePlacement;
 import com.swilkins.ScrabbleBase.Board.State.Tile;
 import com.swilkins.ScrabbleBase.Generation.Candidate;
 import com.swilkins.ScrabbleBase.Generation.Generator;
+import com.swilkins.ScrabbleBase.Generation.GeneratorResult;
 import com.swilkins.ScrabbleBase.Vocabulary.PermutationTrie;
 import samwilkins333.ScrabbleMini.Logic.GameElements.GameContext;
 import samwilkins333.ScrabbleMini.Logic.GameElements.Tiles.TileView;
@@ -32,12 +33,14 @@ public class SimulatedPlayer extends Player<PermutationTrie> {
       return null;
     }
     generator.setTrie(context.lexicon());
-    List<Candidate> candidates = generator.compute(context.getRack(), context.getBoard(), getDefaultOrdering());
-    if (candidates.size() == 0) {
+    GeneratorResult result = generator.compute(context.getRack(), context.getBoard());
+    result.orderBy(getDefaultOrdering());
+    if (result.isEmpty()) {
       return new ArrayList<>();
     }
-    System.out.println(candidates.get(0));
-    for (TilePlacement placement : candidates.get(0).getPrimary()) {
+    Candidate optimal = result.get(0);
+    System.out.println(optimal);
+    for (TilePlacement placement : optimal.getPrimary()) {
       if (placement.isExisting()) {
         continue;
       }
@@ -52,7 +55,7 @@ public class SimulatedPlayer extends Player<PermutationTrie> {
         }
       }
     }
-    return candidates.get(0).getPrimary();
+    return optimal.getPrimary();
   }
 
 }
