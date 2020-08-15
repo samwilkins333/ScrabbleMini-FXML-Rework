@@ -41,7 +41,7 @@ public class SimulatedPlayer extends Player<PermutationTrie> {
     Candidate optimal = result.get(0);
     System.out.println(optimal);
     for (TilePlacement placement : optimal.getPrimary()) {
-      if (placement.isExisting()) {
+      if (placement.getIsExisting()) {
         continue;
       }
       for (TileView tileView : this.rack) {
